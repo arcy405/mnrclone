@@ -1,0 +1,31 @@
+
+<html>
+<head></head>
+<body>
+    <div class="container">
+    <h1>MNRYP|</h1>
+                <div class="container">
+                <div class="row">
+                <% @lists.each do |list| %>
+              <div class="col-md-4 d-flex align-items-stretch pb-2"">
+    		    <div class="card profile-card-2">
+                    <div class="card-img-block">
+                        <%= image_tag 'background.jpg',class:"img-fluid" %>
+                    </div>
+                    <div class="card-body pt-5">
+                        <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="profile-image" class="profile"/>
+                        <h5 class="card-title"><%= list.name %></h5>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= list.address %></p>
+                        <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= list.phone %></p>
+                    </div>
+                </div>
+    		</div>
+        <%end%>
+    </div>
+    </body>
+</html>

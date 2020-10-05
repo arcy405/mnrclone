@@ -1,0 +1,17 @@
+ <div class="row">
+        <% @tags.each do |tag| %>
+             <div class="col-md-2 align-items-stretch pt-2"">
+                 <%= link_to homes_show_path(category: tag.title ),:style=>'text-decoration:none' do%>
+                    <div class="card category-card">
+                        <div class="card-body pt-0">
+                            <% if tag.image.present? %>
+                                <%= image_tag 'restro.png' , :class =>'profile 2 img-fluid rounded-circle mx-auto d-block'%>
+                            <%end%>
+                            <h6 class="card-title"><%=tag.title%></h6>
+                            <span><%= tag.directories.size%> Listings</span>
+                     </div>
+                </div>
+            </div>
+            <%end%>
+        <%end%>
+ </div>
