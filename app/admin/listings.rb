@@ -5,7 +5,7 @@ ActiveAdmin.register Listing do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :address, :owner, :phone, :description, :tag_id
+  permit_params :name, :address, :owner, :phone, :description, :tag_id, :image, :longitude, :lattitude, :rating, :status
   #
   # or
   #

@@ -1,0 +1,10 @@
+  
+<div class="card mt-2" style="width:90%">
+  <div class="toast-header">
+      <strong class="mr-auto"><h4 class="ext-primary"><%= comment.name %> </h4></strong>
+       <small class="text-muted"><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small></small>
+  </div>
+  <div class="toast-body">
+      <div class="ml-2"><%= comment.body %> </div>
+  </div>
+</div>

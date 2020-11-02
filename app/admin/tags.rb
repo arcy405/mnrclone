@@ -5,7 +5,7 @@ ActiveAdmin.register Tag do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :image
+   permit_params :title, :image
   #
   # or
   #

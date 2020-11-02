@@ -1,6 +1,3 @@
-// Place all the styles related to the Homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 body{
 	overflow-x: hidden;
 }
@@ -133,9 +130,10 @@ body{
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
-    background-position: top center;
+	vertical-align: top;
+    background-position: left center;
     background-image: image-url('background.jpg');
-    border-radius: 0 0 10% 10%;
+    border-radius: 0 0 0 0;
     height: 250px;
 }
 .section-title {
@@ -253,31 +251,25 @@ body{
   }
 
 //test
-.category-card{
-	text-align: center;
-	padding-top: 40px;
-	margin-bottom: 30px;
-	background: #ffffff;
-}
-.category-card .profile2 {
-    top: 10%;
-    left: 50%;
-    align-content: center;
-  }
 
-  .category-card h6 {
-	color: #323232;
-	font-weight: 600;
-	margin-top: 20px;
-    margin-bottom: 4px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.category-card span {
-	font-size: 14px;
-	color: #707070;
-    width: 150px;
-    font-weight: 600;
-    text-align: center;
-}
+//for responsive bootstrap menu, 
+//hover effect for dropdown bootstreap menu
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
+ nav .navbar-nav li a{
+	color: white !important;
+	}
+  
+	//footer css
+	.footer1{
+		background-color: #666666;
+	}
+	.footer2{
+		background-color: #353333;
+	}
+	 
+	.address1{
+		color: #ffffff;
+	}

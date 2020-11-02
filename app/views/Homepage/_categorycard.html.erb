@@ -1,14 +1,14 @@
  <div class="row">
         <% @tags.each do |tag| %>
-             <div class="col-md-2 align-items-stretch pt-2"">
+             <div class="col-sm-2 align-items-stretch pt-2">
                  <%= link_to homes_show_path(category: tag.title ),:style=>'text-decoration:none' do%>
                     <div class="card category-card">
-                        <div class="card-body pt-0">
-                            <% if tag.image.present? %>
-                                <%= image_tag 'restro.png' , :class =>'profile 2 img-fluid rounded-circle mx-auto d-block'%>
+                        <div class="card-body">
+                         <% if tag.image.present? %>
+                                <%= image_tag tag.image_url , :class =>'profile2 img-fluid rounded-circle mx-auto d-block'%>
                             <%end%>
                             <h6 class="card-title"><%=tag.title%></h6>
-                            <span><%= tag.directories.size%> Listings</span>
+                            <span><%= tag.listings.size%> Listings</span>
                      </div>
                 </div>
             </div>

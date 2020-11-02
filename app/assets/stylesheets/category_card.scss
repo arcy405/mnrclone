@@ -1,0 +1,31 @@
+.category-card{
+	text-align: center;
+	padding-top: 40px;
+	margin-bottom: 30px;
+	background: #ffffff;
+	height: 60%;
+}
+.category-card .profile2 {
+    top: 10%;
+    left: 50%;
+	align-content: center;
+    height: 50%;
+    width: fit-content;
+  }
+
+  .category-card h6 {
+	color: #323232;
+	font-weight: 600;
+	margin-top: 20px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.category-card span {
+	font-size: 14px;
+	color: #707070;
+    width: 150px;
+    font-weight: 600;
+    text-align: center;
+}

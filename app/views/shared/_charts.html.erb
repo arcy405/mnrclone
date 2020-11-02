@@ -1,0 +1,7 @@
+<h1>Tag Count</h1>
+ <%= line_chart Tag.group_by_day(:created_at).count %>
+<h1>Directory Count</h1>
+ <%= line_chart Listing.group_by_day(:created_at).count %>
+ <br>
+ <%= pie_chart Listing.group(:tag).count %>
+ <%= pie_chart Tag.group(:title).count %>

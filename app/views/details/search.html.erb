@@ -1,0 +1,8 @@
+<%= render 'shared/navmenu.html.erb' %>
+
+<% if @listdetails.size ==1 %>
+    <h1>hello</h1>
+<% end %>
+<% @listdetails.each do |list| %>
+    <%= list.name %>
+<% end %>

@@ -1,0 +1,40 @@
+<%= render 'shared/navmenu.html.erb' %>
+
+<div class="container contact-form border-secondary">
+            <form method="post">
+                <h3>Please provide complete and accurate details of your store.</h3>
+                <%= form_with model: @Listing do |f| %>
+               <div class="row">
+               <div class="col-md-2  align-items-start">
+                <p><i class="fas fa-envelope fa-7x"></i></p>
+                <h4>Contact Us</h4>
+               </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                          <%= f.text_field :name ,placeholder: "Enter your store name" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :owner ,placeholder: "Enter store owners name" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :phone ,placeholder: "Enter your phone number" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :address ,placeholder: "Enter your store address" %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.text_field :owner ,placeholder: "Enter store owners name" %>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                           <%= f.text_area :description ,placeholder: "Enter your store details" %>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
+            </form>
+</div>

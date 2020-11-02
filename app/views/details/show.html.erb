@@ -1,0 +1,203 @@
+<html>
+<head>
+
+<!----------------------for openbox map--------------------->
+<!----------------------------------------------------------->
+</head>
+<body>
+<%= render 'shared/navmenu.html.erb' %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 border-right border-secondery">
+                    <% if @listdetails.image.present? %>
+                        <%= image_tag @listdetails.image_url , :class =>'img-fluid'%>
+                    <%end%>                
+        </div>
+
+        <div class="col-lg-6">
+            <h2>
+                <%= @listdetails.name %>
+            </h2>
+            <p>
+                <span class="badge badge-info">Contact Us</span>
+            </p>
+                <p class="card-text"><i class="fas fa-user-alt"></i>&nbsp;<%= @listdetails.owner %></p>
+                <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @listdetails.address %></p>
+                <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @listdetails.phone %></p>
+            <p>
+                <span class="badge badge-info">Rating</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 pt-2">
+ <div class="panel panel-default">
+  <div class="panel-heading"><h4>Our Services</h4></div>
+  <div class="panel-body"><%= @listdetails.description %></div>
+</div>
+
+
+</div>     
+
+<div class="container">
+<div class="panel panel-default">      
+    <div class="container panel-heading"><h4>Our Location</h4></div> 
+    <div class="container" id='map' style='width:100%'></div>
+</div>
+</div>
+       <hr>
+       
+       <div class="container rating">Rate our place:
+		<i class="far fa-star checked" id="star1" onclick=add(this,1)></i>
+		<i class="far fa-star checked" id="star2" onclick=add(this,2)></i>
+		<i class="far fa-star checked" id="star3" onclick=add(this,3)></i>
+		<i class="far fa-star checked" id="star4" onclick=add(this,4)></i>
+		<i class="far fa-star checked" id="star5" onclick=add(this,5)></i>
+	</div>
+       <hr>
+    </div>
+	
+<script>
+// STAR RATING
+function add(ths, sno) {
+    for (var i = 1; i <= 5; i++) {
+		var cur = document.getElementById("star" + i);
+		cur.setAttribute('data-prefix','far');
+	}
+
+	for (var i = 1; i <= sno; i++) {
+        var cur = document.getElementById("star" + i);
+		if (cur.getAttribute('data-prefix') == "far") {
+			cur.setAttribute('data-prefix','fas');
+		}
+        else{
+            cur.setAttribute('data-prefix','far');
+        }
+    }
+    var rating=sno;
+}
+</script>
+
+<div class="container">
+  <!-------------------------tabs for comment module-------------------------------------->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active text-decoration-none" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true"><span class="reviews">Comments</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-decoration-none" id="addcomment-tab" data-toggle="tab" href="#addcomment" role="tab" aria-controls="addcomment" aria-selected="false"><span class="reviews">Add Comment</span></a>
+  </li>
+</ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="comment" role="tabpanel" aria-labelledby="comment-tab">
+         <ul class="media-list">
+             <%= render(partial: "comments/comment", collection: @listdetails.comments) %>
+         </ul>   
+        </div>
+        <div class="tab-pane fade" id="addcomment" role="tabpanel" aria-labelledby="addcomment-tab">
+            <div class="form-group">
+                        <%= form_for [@list, Comment.new] do |f| %>
+                            <%= f.text_field :name, placeholder: "Enter your name", class:"form-control" %><br/>
+                            <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %><br/>
+                            <%= f.submit "Add Comment" %>
+                        <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----------------------------last div----------------------------------------->
+
+
+</div>
+
+<!-----------------------for openbox map------------------->
+<script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmFyZW40MDQiLCJhIjoiY2tnNHJ2dmQ5MG44azJwbzUyaGJ4YWI2ZyJ9.uqYsTqii1M1UWwAq3mAEhg';
+        var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [80.179080,28.963439], // starting position [lng, lat]
+        zoom: 13 // starting zoom
+        });
+        map.scrollZoom.disable();
+        
+        
+    map.on('load', function () {
+        map.loadImage(
+        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+        // Add an image to use as a custom marker
+        function (error, image) {
+        if (error) throw error;
+        map.addImage('custom-marker', image);
+    
+            map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+
+            'type': 'Feature',
+            'properties': {
+            'description':
+            '<strong><%= @listdetails.name %></strong><p><%= @listdetails.address %></p>'
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [<%= @listdetails.longitude %>, <%= @listdetails.lattitude %>]
+            }}]}
+            });
+ 
+// Add a layer showing the places.
+        map.addLayer({
+        'id': 'places',
+        'type': 'symbol',
+        'source': 'places',
+        'layout': {
+        'icon-image': 'custom-marker'
+        }
+        });
+    }
+    );
+ 
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+closeButton: false,
+closeOnClick: false
+});
+ 
+map.on('mouseenter', 'places', function (e) {
+// Change the cursor style as a UI indicator.
+map.getCanvas().style.cursor = 'pointer';
+ 
+var coordinates = e.features[0].geometry.coordinates.slice();
+var description = e.features[0].properties.description;
+ 
+// Ensure that if the map is zoomed out such that multiple
+// copies of the feature are visible, the popup appears
+// over the copy being pointed to.
+while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+}
+ 
+// Populate the popup and set its coordinates
+// based on the feature found.
+popup.setLngLat(coordinates).setHTML(description).addTo(map);
+});
+ 
+map.on('mouseleave', 'places', function () {
+map.getCanvas().style.cursor = '';
+popup.remove();
+});
+});
+
+</script>
+<!------------------------------------------------------->
+</body>
+</html>
