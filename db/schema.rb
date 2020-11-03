@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_093047) do
+ActiveRecord::Schema.define(version: 2020_10_18_083109) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_093047) do
     t.string "owner"
     t.string "phone"
     t.text "description"
-    t.integer "tag_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
@@ -73,15 +76,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_093047) do
     t.integer "rating"
     t.integer "status"
     t.index ["tag_id"], name: "index_listings_on_tag_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text "comment"
-    t.string "rating"
-    t.integer "listing_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["listing_id"], name: "index_reviews_on_listing_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -105,5 +99,4 @@ ActiveRecord::Schema.define(version: 2020_10_20_093047) do
   end
 
   add_foreign_key "listings", "tags"
-  add_foreign_key "reviews", "listings"
 end
