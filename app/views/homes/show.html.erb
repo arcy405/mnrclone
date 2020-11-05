@@ -5,7 +5,7 @@
         <div class="row">
          <% @lists.each do |list| %>
             <% if list.status == 1%>
-                <div class="col-sm-4 pb-2">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pb-2">
                     <%= link_to details_show_path(id: list.id),:style=>'text-decoration:none' do%>
                         <div class="card profile-card-2 h-100">
                             <div class="card-img-block">
@@ -13,15 +13,14 @@
                                  <%= image_tag list.image_url , :class =>'img-fluid'%>
                                 <%end%>
                             </div>
-                            <div class="card-body pt-5">
-                                <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="profile-image" class="profile"/>
+                            <div class="card-body pt-1">
                                 <h5 class="card-title"><%= list.name %></h5>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
-                                <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= list.address %></p>
+                                <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= list.address %></p>
                                 <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= list.phone %></p>
                             </div>
                         </div>

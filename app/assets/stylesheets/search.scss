@@ -1,32 +1,17 @@
-.aa-input-container {
-  display: inline-block;
-  position: relative;
-}
-.aa_input_search {
-  width: 400px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #e4e4e4;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.aa_input_search::-webkit-search-decoration, .aa_input_search::-webkit-search-cancel-button,
-.aa_input_search::-webkit-search-results-button, .aa_input_search::-webkit-search-results-decoration {
-    display: none;
-}
 
 .aa-dropdown-menu {
+  width: 100%;
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
   background-color: #fff;
-  border: 1px solid rgba(228, 228, 228, 0.6);
-  width: 400px;
-  box-sizing: border-box;
+  display: inline-block;
 }
 .aa-suggestion {
   padding: 6px 12px;
   cursor: pointer;
   text-align: start;
+  width: 100%;
 }
 .aa-suggestions-category {
   border-bottom: 1px solid rgba(228, 228, 228, 0.6);
@@ -42,22 +27,24 @@
   padding: 6px 12px;
 }
 
+.algolia-autocomplete {
+  display: flex!important;
+  flex: auto!important;
+  height: 100%;
+}
 
 #custom-search-input{
-  width: 500px;
-  padding: 3px;
+  width: 100vh;
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
-  display: inline-block;
+  align-content: center;
 }
 
 #custom-search-input input{
   border: 0;
   box-shadow: none;
   display: inline;
-  position: relative;
-  width: 450px;
 }
 
 #custom-search-input button{
@@ -78,4 +65,17 @@
 
 #custom-search-input .glyphicon-search{
   font-size: 23px;
+}
+
+//css for search display page
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+.searchresultcard{
+height: 50%;
+}
+.cardimage{
+  height:30px;
+  width: auto;
 }

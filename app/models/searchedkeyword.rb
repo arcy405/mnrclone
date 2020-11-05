@@ -1,0 +1,2 @@
+class Searchedkeyword < ApplicationRecord
+end
