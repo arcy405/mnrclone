@@ -9,7 +9,7 @@ class DetailsController < ApplicationController
     end
   end
   def search 
-    @tags=Tag.all
+    @tags=Tag.order(:title)
     @list_counts=Listing.group(:tag).count
     
     name=params[:aa_search_input]
