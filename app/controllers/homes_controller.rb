@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @tags=Tag.all
+    @tags=Tag.order(:title)
     @list_counts=Listing.group(:tag).count
   end
 
