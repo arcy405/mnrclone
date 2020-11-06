@@ -1,27 +1,30 @@
+<% content_for :title, "Search results-MNRYP" %>
 <%= render 'shared/navmenu.html.erb' %>
 <div class="container-fluid">
 <h4>Showing <%= @listcount %> results for <i style="color:blue"><%= params[:aa_search_input] %></i></h4>
 </div>
 
 <% if @listcount != 0 %>
-<div class="container-fluid pt-3">
-  <div class="row">
-   <% @listdetails.each do |list| %>
-    <div class="col col-lg-4 col-md-4 col-sm-612 col-xs-12">                       
-      <div class="card">
-        <div class="card-body">
-          <div class="media align-items-center">
-           <% if list.image.present? %>
-                        <%= image_tag list.image_url , :class =>'avatar avatar-xl mr-3'%>
-                    <%end%>
-            <div class="media-body overflow-hidden">
-              <h5 class="card-text mb-0"><%= list.name %></h5>
-              <p class="card-text text-muted"><%= list.address %></p>
-            </div>
-          </div>
+    <div class="container-fluid pt-3">
+      <div class="row">
+      <% @listdetails.each do |list| %>
+        <div class="col col-lg-4 col-md-4 col-sm-612 col-xs-12">     
+          <%= link_to details_show_path(id: list.id),:style=>'text-decoration:none' do%>
+              <div class="card">
+                <div class="card-body">
+                  <div class="media align-items-center">
+                      <% if list.image.present? %>
+                                    <%= image_tag list.image_url , :class =>'avatar avatar-xl mr-3'%>
+                        <%end%>
+                    <div class="media-body overflow-hidden">
+                      <h5 class="card-text mb-0"><%= list.name %></h5>
+                      <p class="card-text text-muted"><%= list.address %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
         </div>
-      </div>
-    </div>
  <% end %>
     </div>
 </div>

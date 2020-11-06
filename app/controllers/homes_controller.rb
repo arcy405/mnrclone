@@ -6,6 +6,7 @@ class HomesController < ApplicationController
 
   def show
     category=params[:category]
+    @catname=category
     @lists=Listing.all.joins(:tag).where(tags: { title: category})
     end
   
