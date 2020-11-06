@@ -1,40 +1,49 @@
 <%= render 'shared/navmenu.html.erb' %>
 
-<div class="container contact-form border-secondary">
-            <form method="post">
-                <h3>Please provide complete and accurate details of your store.</h3>
-                <%= form_with model: @Listing do |f| %>
-               <div class="row">
-               <div class="col-md-2  align-items-start">
-                <p><i class="fas fa-envelope fa-7x"></i></p>
-                <h4>Contact Us</h4>
-               </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                          <%= f.text_field :name ,placeholder: "Enter your store name" %>
-                        </div>
-                        <div class="form-group">
-                            <%= f.text_field :owner ,placeholder: "Enter store owners name" %>
-                        </div>
-                        <div class="form-group">
-                            <%= f.text_field :phone ,placeholder: "Enter your phone number" %>
-                        </div>
-                        <div class="form-group">
-                            <%= f.text_field :address ,placeholder: "Enter your store address" %>
-                        </div>
-                        <div class="form-group">
-                            <%= f.text_field :owner ,placeholder: "Enter store owners name" %>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                           <%= f.text_area :description ,placeholder: "Enter your store details" %>
-                        </div>
-                    </div>
-                    <%end%>
+    <div class="about-section paddingTB60 gray-bg">
+    <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                 <div class="about-title clearfix">
+                    <h1>Get in touch with <span>MNRYP</span></h1>
+                 </div>
+              </div>
+            </div>
+        </div>
+      <section id="contact">
+        <div class="container">
+           <div class="row justify-content-center">
+             <div class="col-sm-12 col-md-6 col-lg-3">
+               <div class="card border-0">
+                  <div class="card-body text-center">
+                    <i class="fas fa-phone-alt fa-2x"></i>
+                    <p class="text-muted">Call us</p>
+                    <p>9842465074</p>
+                  </div>
                 </div>
-            </form>
-</div>
+             </div>
+
+              <div class="col-sm-12 col-md-6 col-lg-3">
+               <div class="card border-0">
+                  <div class="card-body text-center">
+                    <i class="fas fa-envelope fa-2x"></i>
+                    <p class="text-muted">Email</p>
+                    <p>info@narmadainfosys.com</p>
+                  </div>
+                </div>
+             </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card border-0">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt fa-2x"></i>
+                            <p class="text-muted">Our Location</p>
+                            <address>5<sup>th</sup> Street. Top Floor, Everest Bank Building <br />Mahendranagar Bazar</address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </section>
+ </div>
