@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: di7sekeem
+  api_key: '832229467531391'
+  api_secret: TkNMXc9Mj-7ANxiUXOFOvi5OGLk
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: di7sekeem
+  api_key: '832229467531391'
+  api_secret: TkNMXc9Mj-7ANxiUXOFOvi5OGLk
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: di7sekeem
+  api_key: '832229467531391'
+  api_secret: TkNMXc9Mj-7ANxiUXOFOvi5OGLk
+  enhance_image_tag: true
+  static_file_support: false

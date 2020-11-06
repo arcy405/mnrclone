@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-6 border-right border-secondery">
             <% if @listdetails.image.present? %>
-                <%= image_tag @listdetails.image_url , :class =>'img-fluid'%>
+                <%= image_tag @listdetails.image_url , :class =>'img-fluid' ,:quality=>"auto", :fetch_format=>:auto %>
             <%end%>                
         </div>
 

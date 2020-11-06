@@ -59,6 +59,7 @@ gem "devise", "~> 4.7"
 gem "activeadmin", "~> 2.8"
 
 gem "carrierwave", "~> 2.1"
+gem 'cloudinary'
 
 gem "chartkick", "~> 3.4"
 
