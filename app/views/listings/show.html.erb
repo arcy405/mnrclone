@@ -1,25 +1,23 @@
 <% content_for :title, "#{@listdetails.name}-MNRYP" %>
 
-
-<%= render 'shared/navmenu.html.erb' %>
-
+<%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
-        <!----------------------------------------breadcrumb section-------------------------------------->
+ <!----------------------------------------breadcrumb section-------------------------------------->
             <div class="row pb-2 pl-3">
                 <div class="btn-group btn-breadcrumb breadcrumb-default">
                     <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
                     <%= link_to "#{@listdetails.tag.title}", :back ,class:"btn btn-default visible-lg-block visible-md-block"%>
-                    <a href="#" class="btn btn-default visible-lg-block visible-md-block"><%= @listdetails.name %></a>
+                     <a href="#" class="btn btn-default"><%= @listdetails.name %></a>
                 </div>
             </div>
             <hr />
         <!------------------------------------------------------------------------------->
-
+      
     <div class="row">
         <div class="col-lg-6 border-right border-secondery">
-            <% if @listdetails.image.present? %>
-                <%= image_tag @listdetails.image_url , :class =>'img-fluid' ,:quality=>"auto", :fetch_format=>:auto %>
-            <%end%>                
+                    <% if @listdetails.image.present? %>
+                        <%= image_tag @listdetails.image_url , :class =>'img-fluid'%>
+                    <%end%>                
         </div>
 
         <div class="col-lg-6">
@@ -49,6 +47,8 @@
   <div class="panel-heading"><h4>Our Services</h4></div>
   <div class="panel-body"><%= @listdetails.description %></div>
 </div>
+
+
 </div>     
 
 <div class="container">
@@ -108,19 +108,19 @@ function add(ths, sno) {
         </div>
         <div class="tab-pane fade" id="addcomment" role="tabpanel" aria-labelledby="addcomment-tab">
             <div class="form-group">
-                <%= form_for [@list, Comment.new] do |f| %>
-                    <%= f.text_field :name, placeholder: "Enter your name", class:"form-control" %><br/>
-                    <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %><br/>
-                    <%= f.submit "Add Comment" %>
-                <% end %>
+                        <%= form_for [@list, Comment.new] do |f| %>
+                            <%= f.text_field :name, placeholder: "Enter your name", class:"form-control" %><br/>
+                            <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %><br/>
+                            <%= f.submit "Add Comment" %>
+                        <% end %>
             </div>
         </div>
     </div>
 </div>
 <!-----------------------------last div----------------------------------------->
 
-</div>
 
+</div>
 
 <!-----------------------for openbox map------------------->
 <script>

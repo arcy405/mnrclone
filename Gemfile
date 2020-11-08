@@ -67,3 +67,4 @@ gem "groupdate", "~> 5.2"
 gem 'airbrake'
 
 gem "algoliasearch-rails"
+gem 'newrelic_rpm'

@@ -1,5 +1,5 @@
 <% content_for :title, "Search results-MNRYP" %>
-<%= render 'shared/navmenu.html.erb' %>
+<%= render 'Homepage/navmenu.html.erb' %>
 <div class="container-fluid">
 <h4>Showing <%= @listcount %> results for <i style="color:blue"><%= params[:aa_search_input] %></i></h4>
 </div>
@@ -9,7 +9,7 @@
       <div class="row">
       <% @listdetails.each do |list| %>
         <div class="col col-lg-4 col-md-4 col-sm-612 col-xs-12">     
-          <%= link_to details_show_path(id: list.id),:style=>'text-decoration:none' do%>
+          <%= link_to listings_show_path(id: list.id),:style=>'text-decoration:none' do%>
               <div class="card">
                 <div class="card-body">
                   <div class="media align-items-center">

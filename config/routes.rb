@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  get 'details/show'
-  get 'listings/show'
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
+
   get 'aboutus/index', to:"aboutus#index"
+  
   get 'contactus/index', to: "contactus#index"
   get 'contactus/new', to: "contactus#new"
 
-   get 'details/search', to:"details#search"
+   get 'listings/search', to:"listings#search"
+   get 'listings/show', to:"listings#show"
+   get 'listings/new', to:"listings#new"
+   post 'listings/create', to:"listings#create"
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

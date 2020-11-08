@@ -1,4 +1,20 @@
-class DetailsController < ApplicationController
+class ListingsController < ApplicationController
+
+  def new
+    @tags=Tag.order(:title)
+    @newlist=Listing.new
+  end
+
+  def create
+    @tag=Tag.find(params[:tag_id])
+    @newlist = @tag.listings.new(params[:newlist])
+    if @newlist.save
+      redirect_to @newlist, alert: "User created successfully."
+    else
+      redirect_to listings_new_path, alert: "Error creating user."
+    end
+  end
+
   def show
     id=params[:id]
     name=params[:name]
@@ -25,4 +41,8 @@ class DetailsController < ApplicationController
     end
     
   end
+  #similar to create listing but 
+  #will be done by users and listing will be published once verified by admin
+  
+  
 end
