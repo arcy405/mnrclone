@@ -5,6 +5,9 @@ class ListingimageUploader < CarrierWave::Uploader::Base
   process :eager => true
   process :tags => ['listing_picture']
   def public_id
-    return "Listing/" + model.name
+    splitname=model.name
+    pubid=splitname.split
+    pubid=pubid[0]
+    return "Listing/" + pubid
   end  
 end
