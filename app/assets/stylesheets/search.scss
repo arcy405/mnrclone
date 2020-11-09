@@ -34,7 +34,7 @@
 }
 
 #custom-search-input{
-  width: 68vw;
+  width: 80vw;
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
@@ -45,11 +45,13 @@
   border: 0;
   box-shadow: none;
   display: inline;
+  float: left;
 }
 
 #custom-search-input button{
   margin: 2px 0 0 0;
   background: none;
+  display: inline;
   box-shadow: none;
   border: 0;
   color: #666666;

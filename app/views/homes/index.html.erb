@@ -6,15 +6,12 @@
 
 </head>
 <body>
-<main>
-    <!---header--------->
-    <% content_for :title, "Welcome to MNRYP" %>
-
-    <%= render 'Homepage/header.html.erb' %>
+ <% content_for :title, "Welcome to MNRYP" %>
+ <%= render 'Homepage/header.html.erb' %>
     <!-----category cards---->
-    <div class="container-fluid">
+    <div class="container">
         <%= render 'Homepage/categorycard.html.erb' %>
     </div>
-    </main>
+    <!---header--------->
 </body>
 </html>

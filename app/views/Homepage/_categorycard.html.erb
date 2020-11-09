@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-center h4"><span class="badge badge-pill badge-info">All Categories</span></div>
  <div class="row">
         <% @tags.each do |tag| %>
-             <div class="col col-lg-2 col-md-2 col-sm-6 col-xs-6 pt-2">
+             <div class="col col-lg-2 col-md-3 col-sm-6 col-xs-6 pt-2">
                  <%= link_to homes_show_path(category: tag.title ),:style=>'text-decoration:none' do%>
                     <div class="card category-card">
                         <div class="card-body">

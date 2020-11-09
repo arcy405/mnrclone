@@ -1,16 +1,15 @@
 <% content_for :title, "#{@listdetails.name}-MNRYP" %>
 
 <%= render 'Homepage/navmenu.html.erb' %>
-<div class="container">
+<div class="container-fluid">
  <!----------------------------------------breadcrumb section-------------------------------------->
-            <div class="row pb-2 pl-3">
+            <div class="row p-3">
                 <div class="btn-group btn-breadcrumb breadcrumb-default">
                     <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
                     <%= link_to "#{@listdetails.tag.title}", :back ,class:"btn btn-default visible-lg-block visible-md-block"%>
                      <a href="#" class="btn btn-default"><%= @listdetails.name %></a>
                 </div>
             </div>
-            <hr />
         <!------------------------------------------------------------------------------->
       
     <div class="row">
@@ -40,22 +39,17 @@
             </p>
         </div>
     </div>
-</div>
 
-<div class="container mt-4 pt-2">
  <div class="panel panel-default">
   <div class="panel-heading"><h4>Our Services</h4></div>
   <div class="panel-body"><%= @listdetails.description %></div>
-</div>
 
 
 </div>     
 
-<div class="container">
 <div class="panel panel-default">      
-    <div class="container panel-heading"><h4>Our Location</h4></div> 
-    <div class="container" id='map' style='width:100%'></div>
-</div>
+    <div class=" panel-heading"><h4>Our Location</h4></div> 
+    <div class="container-fluid" id='map' style='width:100%'></div>
 </div>
        <hr>
        
@@ -90,7 +84,6 @@ function add(ths, sno) {
 }
 </script>
 
-<div class="container">
   <!-------------------------tabs for comment module-------------------------------------->
   <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
@@ -114,7 +107,6 @@ function add(ths, sno) {
                             <%= f.submit "Add Comment" %>
                         <% end %>
             </div>
-        </div>
     </div>
 </div>
 <!-----------------------------last div----------------------------------------->
