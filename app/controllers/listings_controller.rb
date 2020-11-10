@@ -49,8 +49,4 @@ class ListingsController < ApplicationController
     end
     
   end
-  #similar to create listing but 
-  #will be done by users and listing will be published once verified by admin
-  
-  
 end

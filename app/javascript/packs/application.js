@@ -17,6 +17,7 @@ require("channels")
 require("chartkick")
 require("chart.js")
 require("custom/search")
+require("custom/comment")
 
 import "bootstrap";
 import "../stylesheets/application"

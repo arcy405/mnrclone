@@ -3,121 +3,78 @@
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container-fluid">
  <!----------------------------------------breadcrumb section-------------------------------------->
-            <div class="row p-3">
-                <div class="btn-group btn-breadcrumb breadcrumb-default">
-                    <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
-                    <%= link_to "#{@listdetails.tag.title}", :back ,class:"btn btn-default visible-lg-block visible-md-block"%>
-                     <a href="#" class="btn btn-default"><%= @listdetails.name %></a>
-                </div>
+        <div class="row p-3">
+            <div class="btn-group btn-breadcrumb breadcrumb-default">
+                <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
+                <%= link_to "#{@listdetails.tag.title}", :back ,class:"btn btn-default visible-lg-block visible-md-block"%>
+                    <a href="#" class="btn btn-default"><%= @listdetails.name %></a>
             </div>
+        </div>
         <!------------------------------------------------------------------------------->
       <!--------------------------------------------------------->
-      <div class="row">
-        <div class="col-xs-12 col-md-12 pb-2">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-xs-6 col-md-6 col-sm-12 text-center border-right border-secondery">
+             <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center border-right border-secondery">
                         <% if @listdetails.image.present? %>
                             <%= image_tag @listdetails.image_url , :class =>'list-image img-fluid'%>
                         <%end%>  
                     </div>
                     <div class="col-xs-6 col-md-6 col-sm-12">
                         <h2>
-                <%= @listdetails.name %>
-            </h2>
-            <p>
-                <span class="badge badge-info">Contact Us</span>
-            </p>
-                <p class="card-text"><i class="fas fa-user-alt"></i>&nbsp;<%= @listdetails.owner %></p>
-                <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @listdetails.address %></p>
-                <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @listdetails.phone %></p>
-            <p>
-                <span class="badge badge-info">Rating</span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            </p>   
+                            <%= @listdetails.name %>
+                        </h2>
+                        <p>
+                            <span class="badge badge-info">Contact Us</span>
+                        </p>
+                            <p class="card-text"><i class="fas fa-user-alt"></i>&nbsp;<%= @listdetails.owner %></p>
+                            <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @listdetails.address %></p>
+                            <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @listdetails.phone %></p>
+                        <p>
+                            <span class="badge badge-info">Rating</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </p>   
                     </div>
-                </div>
-            </div>
-        </div>
     </div>
       <!---------------------------------------------------------->
- <div class="panel panel-default">
-  <div class="panel-heading"><h4>Our Services</h4></div>
-  <div class="panel-body"><%= @listdetails.description %></div>
-</div>     
+    <div class="panel panel-default">
+    <div class="panel-heading"><h4>Our Services</h4></div>
+    <div class="panel-body"><%= @listdetails.description %></div>
+    </div>     
 
-<div class="panel panel-default">      
-    <div class=" panel-heading"><h4>Our Location</h4></div> 
-    <div class="container-fluid" id='map' style='width:100%'></div>
-</div>
-       <hr>
-       
-       <div class="container rating">Rate our place:
-		<i class="far fa-star checked" id="star1" onclick=add(this,1)></i>
-		<i class="far fa-star checked" id="star2" onclick=add(this,2)></i>
-		<i class="far fa-star checked" id="star3" onclick=add(this,3)></i>
-		<i class="far fa-star checked" id="star4" onclick=add(this,4)></i>
-		<i class="far fa-star checked" id="star5" onclick=add(this,5)></i>
-	</div>
-       <hr>
+    <div class="panel panel-default">      
+        <div class=" panel-heading"><h4>Our Location</h4></div> 
+        <div class="container-fluid" id='map' style='width:100%'></div>
     </div>
-	
-<script>
-// STAR RATING
-function add(ths, sno) {
-    for (var i = 1; i <= 5; i++) {
-		var cur = document.getElementById("star" + i);
-		cur.setAttribute('data-prefix','far');
-	}
-
-	for (var i = 1; i <= sno; i++) {
-        var cur = document.getElementById("star" + i);
-		if (cur.getAttribute('data-prefix') == "far") {
-			cur.setAttribute('data-prefix','fas');
-		}
-        else{
-            cur.setAttribute('data-prefix','far');
-        }
-    }
-    var rating=sno;
-}
-</script>
 <!---------------------------------------------->
-
-<!----------------------------------------------->
-  <!-------------------------tabs for comment module-------------------------------------->
-   <!-------------------------tabs for comment module-------------------------------------->
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active text-decoration-none" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true"><span class="reviews">Comments</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-decoration-none" id="addcomment-tab" data-toggle="tab" href="#addcomment" role="tab" aria-controls="addcomment" aria-selected="false"><span class="reviews">Add Comment</span></a>
-  </li>
-</ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="comment" role="tabpanel" aria-labelledby="comment-tab">
-         <ul class="media-list">
-             <%= render(partial: "comments/comment", collection: @listdetails.comments) %>
-         </ul>   
-        </div>
-        <div class="tab-pane fade" id="addcomment" role="tabpanel" aria-labelledby="addcomment-tab">
-            <div class="form-group">
-                        <%= form_for [@list, Comment.new] do |f| %>
-                            <%= f.text_field :name, placeholder: "Enter your name", class:"form-control" %><br/>
-                            <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %><br/>
-                            <%= f.submit "Add Comment" %>
+<!---------------form for review --------------->
+ <div class="panel panel-default">
+  <div class="panel-body"><h4>Review Our Place</h4>
+   <div id=comment-section>
+                <div class="form-group" id="comment">
+                        <%= form_for [@list, Comment.new], :remote =>true do |f| %>
+                        <div class="rating">
+                                <%= f.radio_button(:rating, "5") %> <%= f.label(:rating.to_s + "_5", "Rocks") %> 
+                                <%= f.radio_button(:rating, "4") %> <%= f.label(:rating.to_s + "_4", "Pretty good") %> 
+                                <%= f.radio_button(:rating, "3") %> <%= f.label(:rating.to_s + "_3", "Meh") %> 
+                                <%= f.radio_button(:rating, "2") %> <%= f.label(:rating.to_s + "_2", "Kinda bad") %> 
+                                <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1", "Sucks big time") %>
+                            </div>
+                            <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %>
+                            <div class="text-right pt-2">
+                                <%= f.submit "Add Comment" %>
+                            </div>
                         <% end %>
-            </div>
+                 </div>
     </div>
- </div>
+    </div>
+    </div>
+    <ul class="media-list">
+             <%= render(partial: "comments/comment", collection: @listdetails.comments.order(created_at: :desc).limit(10)) %>
+     </ul>
 <!-----------------------------last div----------------------------------------->
-
-
 </div>
 
 <!-----------------------for openbox map------------------->
@@ -200,6 +157,33 @@ map.getCanvas().style.cursor = '';
 popup.remove();
 });
 });
+</script>
 
+<!-------------------------for star rating----------------------->
+<script>
+// STAR RATING
+function add(ths, sno) {
+    for (var i = 1; i <= 5; i++) {
+		var cur = document.getElementById("star" + i);
+		cur.setAttribute('data-prefix','far');
+	}
+
+	for (var i = 1; i <= sno; i++) {
+        var cur = document.getElementById("star" + i);
+		if (cur.getAttribute('data-prefix') == "far") {
+			cur.setAttribute('data-prefix','fas');
+		}
+        else{
+            cur.setAttribute('data-prefix','far');
+        }
+    }
+    var rating=sno;
+    alert(sno)
+    $.ajax({
+    //Your ajax code here to submit from via AJAX. refer jquery site . I gave sample eg.
+             url : "Your URL or file name on server",
+             data : sno
+        });
+}
 </script>
 <!------------------------------------------------------->
