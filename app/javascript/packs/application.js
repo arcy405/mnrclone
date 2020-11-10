@@ -7,6 +7,7 @@
 //= require rating
 //= require init
 //= require bootstrap-sprockets
+//= require commontator/application
 
 require("jquery")
 require("@rails/ujs").start()

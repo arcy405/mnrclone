@@ -10,8 +10,6 @@ class Listing < ApplicationRecord
   belongs_to :tag, counter_cache: true
   has_many :comments, as: :commentable
 
-  
-
   include AlgoliaSearch
   algoliasearch auto_index: true do
     attribute :name

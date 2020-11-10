@@ -1,5 +1,9 @@
 class ListingsController < ApplicationController
 
+  def index
+    @lists=List.all
+  end
+
   def new
     @tags=Tag.order(:title)
     @newlist=Listing.new
@@ -16,12 +20,16 @@ class ListingsController < ApplicationController
   end
 
   def show
+    
     id=params[:id]
     name=params[:name]
     if id == nil
       @listdetails=Listing.find_by(name: name)
+      lid=@listdetails.id
+      @list= Listing.find(lid)
     else
       @listdetails=Listing.find(id)
+      @list= Listing.find(params[:id])
     end
   end
   def search 

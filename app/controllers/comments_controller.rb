@@ -4,14 +4,10 @@ class CommentsController < ApplicationController
     def new
       @comment = Comment.new
     end
-    def show
-    
-    end
-
     def create
       @comment = @commentable.comments.new comment_params
         if @comment.save
-          redirect_back(fallback_location: details_show_path) 
+          redirect_back(fallback_location: listings_show_path) 
         end
     end
 

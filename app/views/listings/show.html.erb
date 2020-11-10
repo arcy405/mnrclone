@@ -11,16 +11,18 @@
                 </div>
             </div>
         <!------------------------------------------------------------------------------->
-      
-    <div class="row">
-        <div class="col-lg-6 border-right border-secondery">
-                    <% if @listdetails.image.present? %>
-                        <%= image_tag @listdetails.image_url , :class =>'img-fluid'%>
-                    <%end%>                
-        </div>
-
-        <div class="col-lg-6">
-            <h2>
+      <!--------------------------------------------------------->
+      <div class="row">
+        <div class="col-xs-12 col-md-12 pb-2">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 col-sm-12 text-center border-right border-secondery">
+                        <% if @listdetails.image.present? %>
+                            <%= image_tag @listdetails.image_url , :class =>'list-image img-fluid'%>
+                        <%end%>  
+                    </div>
+                    <div class="col-xs-6 col-md-6 col-sm-12">
+                        <h2>
                 <%= @listdetails.name %>
             </h2>
             <p>
@@ -36,15 +38,16 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
-            </p>
+            </p>   
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+      <!---------------------------------------------------------->
  <div class="panel panel-default">
   <div class="panel-heading"><h4>Our Services</h4></div>
   <div class="panel-body"><%= @listdetails.description %></div>
-
-
 </div>     
 
 <div class="panel panel-default">      
@@ -83,8 +86,11 @@ function add(ths, sno) {
     var rating=sno;
 }
 </script>
+<!---------------------------------------------->
 
+<!----------------------------------------------->
   <!-------------------------tabs for comment module-------------------------------------->
+   <!-------------------------tabs for comment module-------------------------------------->
   <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active text-decoration-none" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true"><span class="reviews">Comments</span></a>
@@ -108,7 +114,7 @@ function add(ths, sno) {
                         <% end %>
             </div>
     </div>
-</div>
+ </div>
 <!-----------------------------last div----------------------------------------->
 
 
