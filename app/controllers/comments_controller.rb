@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
 
       respond_to do |format|
-        if @comment.save
-          format.html { redirect_to @comment, notice: 'comment was successfully added' }
-          format.js 
-        end
-      end
+            if @comment.save
+              format.html { redirect_to @comment, notice: 'comment was successfully added' }
+              format.js 
+            end
+          end
     end
 
     private
@@ -25,4 +25,5 @@ class CommentsController < ApplicationController
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
       @commentable = Listing.find_by_id(params[:listing_id]) if params[:listing_id]
     end
+    
 end

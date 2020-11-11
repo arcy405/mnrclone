@@ -1,20 +1,23 @@
-<div id="comments">
+
 <div class="row">
-  <div class="col-sm-1">
-    <div class="thumbnail">
-      <img class="img-fluid user-photo rounded" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-    </div><!-- /thumbnail -->
-  </div>
   <div class="col-sm-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-       <strong class="mr-auto"><h5 class="ext-primary"><%= comment.name %></h5></strong>
-       <small class="text-muted"><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small></small>
+       <strong class="mr-auto"><h5 class="ext-primary float-left text-primary">Naren<%= comment.name %></h5></strong>
+      
+       <small class="text-muted ml-3"><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small></small>
+       <small class="ext-primary float-right">
+             <% comment.rating.to_i.times do  %>
+             <span class="fa fa-star checked"></span>
+             <% end %>
+             <% comment.blank_stars.times do  %>
+             <span class="fa fa-star"></span>
+             <% end %>
+        </small>
       </div>
       <div class="panel-body">
-          <div class="ml-2" ><%= comment.body %> </div>
+          <div class="ml-2 bg-light" ><%= comment.body %> </div>
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
   </div>
 </div><!-------end of row-------->
-</div>
