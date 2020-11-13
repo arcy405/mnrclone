@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
 
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
@@ -13,4 +14,5 @@ class User < ApplicationRecord
     user ||= User.create!(provider: auth.provider, uid: auth.uid, lastName: name_split[0], firstName: name_split[1], email: auth.info.email, password: Devise.friendly_token[0, 20])
       user
   end
+
 end

@@ -52,31 +52,40 @@
 <!---------------form for review --------------->
  <div class="panel panel-default">
   <div class="panel-body"><h4>Review Our Place</h4>
-   <div id=comment-section>
-        <div class="form-group" id="comment">
-            <%= form_for [@list, Comment.new], :remote =>true do |f| %>
-            <div class="rating">
-                    <%= f.radio_button(:rating, "5") %> <%= f.label(:rating.to_s + "_5", "Rocks") %> 
-                    <%= f.radio_button(:rating, "4") %> <%= f.label(:rating.to_s + "_4", "Pretty good") %> 
-                    <%= f.radio_button(:rating, "3") %> <%= f.label(:rating.to_s + "_3", "Meh") %> 
-                    <%= f.radio_button(:rating, "2") %> <%= f.label(:rating.to_s + "_2", "Kinda bad") %> 
-                    <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1", "Sucks big time") %>
-            </div>
-            <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %>
-                <div class="text-right pt-2">
-                    <%= f.submit "Add Comment" %>
+    <!-- Button trigger modal -->
+    <% if !user_signed_in? %>
+    <p>You must be signed in to review this place.</p>
+    <p>Already have account: <%= link_to 'SignIn', new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#signinModal" %></p> 
+   <p>Don't have account: <%= link_to 'SignUp', new_user_registration_path, 'data-toggle' => "modal", 'data-target' => "#signupModal" %></p>
+<% end %>
+    <% if user_signed_in? %>
+        <div id=comment-section>
+                <div class="form-group" id="comment">
+                    <%= form_for [@list, Comment.new], :remote =>true do |f| %>
+                    <div class="rating">
+                            <%= f.radio_button(:rating, "5") %> <%= f.label(:rating.to_s + "_5", "Rocks") %> 
+                            <%= f.radio_button(:rating, "4") %> <%= f.label(:rating.to_s + "_4", "Pretty good") %> 
+                            <%= f.radio_button(:rating, "3") %> <%= f.label(:rating.to_s + "_3", "Meh") %> 
+                            <%= f.radio_button(:rating, "2") %> <%= f.label(:rating.to_s + "_2", "Kinda bad") %> 
+                            <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1", "Sucks big time") %>
+                    </div>
+                    <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %>
+                    <%= f.text_field :name, value: current_user.name, hidden: true %>
+                        <div class="text-right pt-2">
+                            <%= f.submit "Add Comment" %>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
-        </div>
+            </div>
+        <% end %>
     </div>
     </div>
-    </div>
-<!----------devise user-----
+
 <% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, :method=>'delete'%>
+    <%= link_to "Log out", destroy_user_session_path, :method=>'delete'%><%= current_user.name %>
 <% else %>
     <%= link_to "login", new_user_session_path %>
-<% end %>--------->
+<% end %>
     <!----------------------review section-------------------------->
     <div class="panel panel-default">
         <div class="panel-body"><h4>Recent Comments</h4>
@@ -87,6 +96,78 @@
                 <%= render(partial: "comments/comment", collection: @listdetails.comments.order(created_at: :desc).limit(10)) %>
             </div>
         </div>
+<!-------------------------_Modal for login------------------------->
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <div type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </div>
+      </div>
+      <div class="modal-body">
+      <div class="justify-content-center">
+         <%= form_for(:user, :url => session_path(:user)) do |f| %>
+           <div class="email-container pb-2">
+             <%= f.text_field :email, :class =>"w-100 form-control",placeholder: "Email", value:"" , autocomplete:'off' %>
+           </div>
+           <div class="password-container pb-2">
+             <%= f.password_field :password,:label =>"Password", :class =>"w-100 form-control", placeholder:"Password", value:"" , autocomplete:'off'%>
+           </div>
+           <div class="d-flex justify-content-center">
+              <%= f.submit 'Login', :class =>"btn btn-sm btn-primary pb-3" %>
+           </div>
+           <%= f.check_box :remember_me, label: "Remember me", value: "true" %>
+           <%= f.label :remember_me %>
+         <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------->
+<!-------------------------------modal for sign Up-------------------------->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <div type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </div>
+      </div>
+      <div class="modal-body">
+      <div class="justify-content-center">
+         <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+         <div class="pb-2">
+             <%= f.text_field :name, :class =>"w-100 form-control",placeholder: "Email", value:"" , autocomplete:'off' %>
+           </div>
+
+           <div class="email-container pb-2">
+             <%= f.text_field :email, :class =>"w-100 form-control",placeholder: "Email", value:"" , autocomplete:'off' %>
+           </div>
+           <div class="password-container pb-2">
+             <%= f.password_field :password,:label =>"Password", :class =>"w-100 form-control", placeholder:"Password", value:"" , autocomplete:'off'%>
+           </div>
+
+           <div class="password-container pb-2">
+             <%= f.password_field :password_confirmation,:label =>"Password", :class =>"w-100 form-control", placeholder:"Password", value:"" , autocomplete:'off'%>
+           </div>
+
+           <div class="d-flex justify-content-center">
+              <%= f.submit 'Sign up', :class =>"btn btn-sm btn-primary pb-3" %>
+           </div>
+         <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------------------------------------------------------------------------->
 <!-----------------------------last div----------------------------------------->
 </div>
 

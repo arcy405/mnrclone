@@ -1,10 +1,6 @@
 <% content_for :title, "Contact Us-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<% if user_signed_in? && current_user.provider=='facebook' %>
-  <p>Signed in </p>
-<% else %>
-  <%= link_to "Register with Facebook", user_facebook_omniauth_authorize_path %>
-<% end  %>
+
     <div class="about-section paddingTB60 gray-bg">
     <div class="container">
             <div class="row">
