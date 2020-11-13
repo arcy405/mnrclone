@@ -68,3 +68,6 @@ gem 'airbrake'
 
 gem "algoliasearch-rails"
 gem 'newrelic_rpm'
+
+#facebook login
+gem 'omniauth-facebook'
