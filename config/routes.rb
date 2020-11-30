@@ -13,7 +13,10 @@ Rails.application.routes.draw do
    get 'listings/search', to:"listings#search"
    get 'listings/show', to:"listings#show"
    get 'listings/new', to:"listings#new"
+   post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
+
+   get 'listings/sucess', to: "listings#sucess"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

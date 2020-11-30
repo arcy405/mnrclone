@@ -6,16 +6,16 @@ class ListingsController < ApplicationController
 
   def new
     @tags=Tag.order(:title)
-    @newlist=Listing.new
+    @listing=Listing.new
   end
 
   def create
     @tag=Tag.find(params[:tag_id])
-    @newlist = @tag.listings.new(params[:newlist])
-    if @newlist.save
-      redirect_to @newlist, alert: "User created successfully."
+    @listing = @tag.listings.new(listing_params)
+    if @listing.save
+      redirect_to listings_sucess_path
     else
-      redirect_to listings_new_path, alert: "Error creating user."
+      redirect_to listings_new_path, alert: "Error creating listing."
     end
   end
 
@@ -49,4 +49,12 @@ class ListingsController < ApplicationController
     end
     
   end
+  def sucess
+
+  end
+
+  def listing_params
+    params.require(:listing).permit(:name, :address, :owner, :phone, :description, :tag_id)
+  end
+  
 end
