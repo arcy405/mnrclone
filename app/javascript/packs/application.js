@@ -18,6 +18,7 @@ require("chartkick")
 require("chart.js")
 require("custom/search")
 require("custom/comment")
+require("custom/agenttable")
 
 import "bootstrap";
 import "../stylesheets/application"
