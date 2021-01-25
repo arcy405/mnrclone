@@ -212,6 +212,8 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
+    new_google_recaptcha (1.2.0)
+      rails (>= 4.2.0)
     newrelic_rpm (6.13.1)
     nio4r (2.5.4)
     nio4r (2.5.4-java)
@@ -412,7 +414,8 @@ DEPENDENCIES
   groupdate (~> 5.2)
   jbuilder (~> 2.7)
   jquery-rails
-  listen (~> 3.2)
+  listen
+  new_google_recaptcha
   newrelic_rpm
   omniauth-facebook
   pg
@@ -422,7 +425,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
@@ -430,7 +433,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.0.rc.1
+   2.2.4

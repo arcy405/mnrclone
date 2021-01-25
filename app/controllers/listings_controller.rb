@@ -13,12 +13,12 @@ class ListingsController < ApplicationController
     @tag=Tag.find(params[:tag_id])
     @listing = @tag.listings.new(listing_params)
 
-    unless verify_recaptcha?(params[:recaptcha_token], 'listing')
-      flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
-      return render :new
-    end
-
-    if @listing.save
+    if NewGoogleRecaptcha.human?(
+      params[:new_google_recaptcha_token],
+      "listing",
+      NewGoogleRecaptcha.minimum_score,
+      @post
+    ) &&  @listing.save
       redirect_to listings_sucess_path
     else
       redirect_to listings_new_path, alert: "Error creating listing."
