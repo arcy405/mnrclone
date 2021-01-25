@@ -71,3 +71,5 @@ gem 'newrelic_rpm'
 
 #facebook login
 gem 'omniauth-facebook'
+
+gem 'google-analytics-rails', '1.1.1'
