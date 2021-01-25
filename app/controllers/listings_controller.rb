@@ -12,6 +12,12 @@ class ListingsController < ApplicationController
   def create
     @tag=Tag.find(params[:tag_id])
     @listing = @tag.listings.new(listing_params)
+
+    unless verify_recaptcha?(params[:recaptcha_token], 'listing')
+      flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again later."
+      return render :new
+    end
+
     if @listing.save
       redirect_to listings_sucess_path
     else
@@ -52,6 +58,9 @@ class ListingsController < ApplicationController
   def sucess
 
   end
+  
+
+  private
 
   def listing_params
     params.require(:listing).permit(:name, :address, :owner, :phone, :description, :tag_id)

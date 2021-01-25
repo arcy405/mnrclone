@@ -1,4 +1,8 @@
 <% content_for :title, "Add Listing-MNRYP" %>
+<%= content_for :recaptcha_js do %>
+                  <%= include_recaptcha_js %>
+                <% end %>
+
 <%= render 'Homepage/navmenu.html.erb' %>
 
     <div id="addlistform" class="about-section paddingTB60 gray-bg">
@@ -59,9 +63,12 @@
                     <label>Upload Bussiness Image</label>
                       <%= f.file_field :image ,:required => true %>
                     </div> ---->
+                    <%= recaptcha_execute('listing') %>
                     <div class="d-flex justify-content-center">
                      <%= f.submit "Add Listing" , class: "button"%>
+                     
                     </div>
+                      
                  <% end %>
               </div>
               </div>
