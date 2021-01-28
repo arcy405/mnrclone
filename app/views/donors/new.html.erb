@@ -1,2 +1,60 @@
-<h1>Donors#new</h1>
-<p>Find me in app/views/donors/new.html.erb</p>
+<% content_for :title, "Blood Donors-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+<body class="bgon">
+    
+    <div id="login">
+        
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                    <%= form_for @donor do |f| %>
+                            <h3 class="text-center",class="textt">Add your info</h3>
+                            <div class="form-group" class="row g-3 needs-validation">
+                                <%=f.label :name, class:"textt" %>
+                                <%= f.text_field :name, class:"form-control",required: true %>
+                                <%=f.label :address, class:"textt" %>
+                                <%= f.text_field :address, class:"form-control", required: true  %>
+                                <%=f.label :gender, class:"textt" %><br/>
+                                
+                                <%= f.radio_button :gender, 'male', required: true%><span class="texxtt">Male</span>
+                                <%= f.radio_button :gender, 'female'%><span class="textt">Female</span>
+                                <%= f.radio_button :gender, 'others'%><span class="textt">Others</span><br/>
+                                <%=f.label :dob, class:"textt" %>
+                                <%= f.date_field :dob, class: 'form-control', required: true  %>
+                                <%=f.label :blood_group, class:"textt" %><br/>
+                                
+                                <%= f.radio_button :blood_group, 'A+', required: true%><span class="textt">A+</span>
+                                <%= f.radio_button :blood_group, 'A-'%><span class="textt">A-</span>
+                                <%= f.radio_button :blood_group, 'B+'%><span class="textt">B+ </span>
+                                <%= f.radio_button :blood_group, 'B-'%><span class="textt">B-</span>
+                                <%= f.radio_button :blood_group, 'O+'%><span class="textt">O+</span>
+                                <%= f.radio_button :blood_group, 'O-'%><span class="textt">O-</span>
+                                <%= f.radio_button :blood_group, 'AB+'%><span class="textt">AB+</span>
+                                <%= f.radio_button :blood_group, 'AB-'%><span class="textt">AB-</span><br/>
+
+                                
+                                <%=f.label :phone1, class:"textt"%>
+                                <%= f.text_field :phone1, class:"form-control", required: true  %>
+                                <%=f.label :phone2, class:"textt"%>
+                                <%= f.text_field :phone2, class:"form-control", required: true %>
+                                
+
+                                <%=f.label :status, class:"textt" %><br/>
+                                
+                                <%= f.radio_button :status, 'available',required: true%><span class="textt">available</span>
+                                <%= f.radio_button :status, 'unavailable'%><span class="textt">unavailable</span><br/><br/>
+                                
+                                <%= f.submit "Add blood", class: 'btn btn-success', style: "width:100%; height: 40px;" %>
+                            </div>
+                            </div>
+                            <% end %>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
