@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_075215) do
+ActiveRecord::Schema.define(version: 2021_01_28_073922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,19 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+  end
+
+  create_table "donors", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone1"
+    t.string "phone2"
+    t.date "dob"
+    t.string "blood_group"
+    t.string "status"
+    t.string "verified"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "listingrequests", force: :cascade do |t|

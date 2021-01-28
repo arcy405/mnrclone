@@ -16,6 +16,10 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   #routes for arcy#
+   resources :donors
+   #################
+
    get 'listings/sucess', to: "listings#sucess"
 
    resources :agents, only: [:index]
