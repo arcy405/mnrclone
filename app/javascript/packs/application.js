@@ -31,4 +31,3 @@ import "@fortawesome/fontawesome-free/js/all";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-console.log('Hello from application.js')
