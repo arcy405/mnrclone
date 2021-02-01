@@ -16,6 +16,6 @@ class RealestatesController < ApplicationController
 
   private
   def realestates_params
-    params.require(:realestate).permit(:seller_name)
+    params.require(:realestate).permit(:seller_name, :price, :description, :seller_phone , :image)
   end
 end

@@ -13,6 +13,25 @@ h2{
 height: 350px;
     
 }
+
+.seller_button{
+    margin-left: 900px;
+    
+   
+ 
+
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&family=Nunito+Sans:ital,wght@0,200;1,200&display=swap');
+
+
+
+
+
+
+
+
 .card1{
     margin: 0px 10px 10px 10px;
     padding: 0px;
@@ -32,21 +51,15 @@ height: 350px;
     border: none;
 }
 
-
-
-
-
-
-
-
-
-/*Profile Card 5*/
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
-body{
-    font-family: 'Open Sans', sans-serif;
+section{
+    float:left;
+    width:100%;
+    background: #fff;  /* fallback for old browsers */
+    padding:30px 0;
 }
+h1{float:left; width:100%; color:#232323; margin-bottom:30px; font-size: 14px;}
+h1 span{font-family: 'Libre Baskerville', serif; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px; font-weight:700}
+
 
 section{
     float:left;
@@ -56,29 +69,12 @@ section{
 }
 h1{float:left; width:100%; color:#232323; margin-bottom:30px; font-size: 14px;}
 h1 span{font-family: 'Libre Baskerville', serif; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px; font-weight:700}
-h1 a{color:#131313; font-weight:bold;}
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700');
-body{
-    font-family: 'Open Sans', sans-serif;
-}
 
-section{
-    float:left;
-    width:100%;
-    background: #fff;  /* fallback for old browsers */
-    padding:30px 0;
-}
-h1{float:left; width:100%; color:#232323; margin-bottom:30px; font-size: 14px;}
-h1 span{font-family: 'Libre Baskerville', serif; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px; font-weight:700}
-h1 a{color:#131313; font-weight:bold;}
-
-/*Profile Card 5*/
+/*Property Card -------------------------------*/
 .profile-card-5{
     margin-top:20px;
 }
-.profile-card-5 .btn{
+.profile-card-5{
     border-radius:2px;
     text-transform:uppercase;
     font-size:12px;
