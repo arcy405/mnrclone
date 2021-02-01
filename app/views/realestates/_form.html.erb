@@ -1,0 +1,18 @@
+<%= form_for @realestate do |f| %>
+    <div class="row p-2">
+        <%= f.text_field :seller_name , placeholder: "Property Name" ,:required => true %>
+    </div>
+    <div class="row p-2">
+        <%= f.text_field :price, placeholder: "Property Price  " ,:required => true %>
+    </div>
+    <div class="row p-2">
+        <%= f.text_field :seller_phone, placeholder: "Property Owner Phone  " ,:required => true %>
+    </div>
+    <div class="row p-2">
+        <%= f.text_field :description , placeholder: "Property Address & description " ,:required => true %>
+    </div>
+   
+    <div class="d-flex justify-content-center">
+        <%= f.submit "Add to market" , class: "btn"%>
+    </div>
+<% end %>
