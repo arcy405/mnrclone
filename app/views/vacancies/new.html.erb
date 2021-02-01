@@ -1,0 +1,97 @@
+<% content_for :title, "List of donors-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<h1>New page</h1>
+
+<%= link_to "Add Blood", vacancies_path, class: "button"%>
+
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1>Submit your listing to <span>MNRYP</span></h1>
+                   </div>
+                   <div id="addlistform">
+                      <div class="about-title clearfix" style="display:none">
+                          <h1>Welcome <span>MNRYP</span></h1>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify">Make sure to select the Bussiness Category from the dropdown.</li>
+              <li class="about-paddingB text-justify">The business name used in the listing must match that used offline.</li>
+              <li class="about-paddingB text-justify">You must use an accurate physical address for your business listing.</li>
+              <li class="about-paddingB text-justify">Listings cannot be used to promote illegal or fraudulent activities, which can result in your business being delisted from the MNRYP, along with account termination. </li>
+              <li>Make sure to provide detailed srvices provided by your Bussiness in business description section.</li>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= form_for @vacancy do |f| %>
+                    
+                     <div class="row p-2">
+                        <%= f.text_field :about_company, placeholder: "Tell About Your Comapany" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :job_title, placeholder: "Job Title" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :job_category, placeholder: "Job Category" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :job_level, placeholder: "Job Level"  %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :no_of_vacancy, placeholder: "No. of vacancies" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :employment_type, placeholder: "Employment Type" %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :offered_salary, placeholder: "Offered salary" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :apply_before, placeholder: "Apply Before" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :education_level, placeholder: "Education level" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :experience_required, placeholder: "Experienced required" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :professional_skill, placeholder: "Professional Skill required" %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :other_specification, placeholder: "Other_specification" %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :job_desciption, placeholder: "Job Desciption" ,:required => true %>
+                     </div>
+                     
+                     
+                     <div class="d-flex justify-content-center">
+                      <%= f.submit "Add Vacancy" , class: "button"%>
+                     </div>
+                       <%= recaptcha_action('vacancy') %>
+                  <% end %>
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+  
+
+
+       

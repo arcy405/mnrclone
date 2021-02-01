@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+ 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get 'homes/show', to:"homes#show"
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
    #routes for arcy#
    resources :donors
+   resources :vacancies
    #################
 
    get 'listings/sucess', to: "listings#sucess"
