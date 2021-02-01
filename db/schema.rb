@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_075215) do
+ActiveRecord::Schema.define(version: 2021_02_01_105420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,20 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
   end
 
+  create_table "donors", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone1"
+    t.string "phone2"
+    t.date "dob"
+    t.string "blood_group"
+    t.string "status"
+    t.string "verified"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "gender"
+  end
+
   create_table "listingrequests", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -157,6 +171,26 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vacancies", force: :cascade do |t|
+    t.text "about_company"
+    t.string "job_title"
+    t.string "job_category"
+    t.string "job_level"
+    t.string "no_of_vacancy"
+    t.string "employment_type"
+    t.string "offered_salary"
+    t.datetime "apply_before"
+    t.string "education_level"
+    t.string "experience_required"
+    t.string "professional_skill"
+    t.text "other_specification"
+    t.text "job_desciption"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
+    t.string "company_name"
   end
 
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
