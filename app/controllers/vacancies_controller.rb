@@ -20,6 +20,10 @@ class VacanciesController < ApplicationController
     end
   end
 
+  def show
+    @vacancy = Vacancy.find(params[:id])
+  end
+
   private
     # Only allow a list of trusted parameters through.
     def vacancy_params

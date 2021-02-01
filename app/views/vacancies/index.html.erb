@@ -14,28 +14,30 @@
 <!-- details card section starts from here -->
 <section class="details-card">
 
-<div class="container">
+
 
         <div class="row">
         <% @vacancies.each do |vacancy| %>
-            <div class="col-md-3">
+            
+            <div class="col-md-2 ml-4 mr-4 mb-4">
                 <div class="card-content">
-                    
-                        
-                        <span><h4><%=vacancy.job_category%></h4></span>
-                    
+                    <span><h4><%=vacancy.job_category%></h4></span>
                     <div class="card-desc">
                         <h3><%=vacancy.job_title%></h3>
-                        <p><%=vacancy.about_company%></p>
-                            <a href="#" class="btn-card">Apply for Job</a>   
+                        <p><%=vacancy.company_name%></p>
+                        <p><%=vacancy.apply_before%></p>
+                        <p><%=vacancy.location%></p>
+                        
+                        <%= link_to "View More" ,vacancy_path(vacancy), class:"button" %>  
                     </div>
                 </div>
             </div>
+            
             <%end%> 
         
         </div>
            
-    </div>
+    
     
 </section>
 <!-- details card section starts from here -->
