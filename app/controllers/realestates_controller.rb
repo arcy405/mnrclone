@@ -1,6 +1,7 @@
 class RealestatesController < ApplicationController
   def index
     @Realestates=Realestate.order("created_at DESC")
+    @category="rent"
   end
   def new
     @realestate=Realestate.new

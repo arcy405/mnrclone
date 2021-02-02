@@ -1,5 +1,6 @@
 <%= render 'Homepage/navmenu.html.erb' %>
 
+<%type=params[:category] %>
 <div id="addlistform" class="about-section paddingTB60 gray-bg">
         <div class="container">
             <div class="row">
@@ -29,7 +30,17 @@
           </div>
               <div class="col-md-6 col-sm-12">
               <div class="shadow p-3 mb-5 bg-white rounded">
-               <%= render partial: "form"%>
+              <% if type=="land"%>
+               <%= render partial: "form_land_sell"%>
+             <% end %>
+              </div>
+               <% if type=="house_sell"%>
+               <%= render partial: "form_house_sell"%>
+             <% end %>
+              </div>
+               <% if type=="house_rent"%>
+               <%= render partial: "form_house_rent"%>
+             <% end %>
               </div>
               </div>
           </div>

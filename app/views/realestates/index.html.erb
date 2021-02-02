@@ -26,15 +26,25 @@
 
     </div>
 <!-----------search box end------------>
-<!-------------seller button starts here------->
-                 <div class="d-flex justify-content-center">
-                    <%=  link_to "Sell/Rent Property", new_realestate_path ,class: "button"   %>
-                  </div> 
-<!-------------seller button ends here------->
 
-
-
-<section>
+<!----------------tab started---------------------------------------------------------------->
+<div class="container">
+              <div class="row">
+                <div class="col-xs-12 ">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Buy Land & House</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Take House On Rent </a>
+                      <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "nav-item nav-link" %>
+                      <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "nav-item nav-link" %>
+                      <%=  link_to "Rent House  ", new_realestate_path(category:"house_rent") , class: "nav-item nav-link" %>
+                      
+                    </div>
+                  </nav>
+                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                       <section>
+    <!---------------- Buy cards section started ----------------------------------------------------->                   
     <div class="container">
     	<div class="row">
     	  
@@ -58,12 +68,64 @@
                 
                 
     		</div>
-<% end %>
+   <% end %>
     		
     	</div>
     </div>
-</section>
-<!-------cards section ends --------->
+ </section>
+<!---------------------Buy cards section ends ------------------------------------------------------------------------>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+ <!------------- Rent card start ---------------------------->                   
+<div class="container">
+    	<div class="row">
+    	  
+    		<% @Realestates.each do |realestate| %>
+    		<!--Profile Card 5-->
+    		<div class="col-md-4 mt-4">
+    		    <div class="card profile-card-5">
+    		        <div class="card-img-block">
+                     <% if realestate.image.present? %>
+                                    <%= image_tag realestate.image_url%>
+                        <%end%>
+    		        </div>
+                    <div class="card-body pt-0">
+                    <h5 class="card-title"><%= realestate.seller_name%></h5>
+                      <h3>  Rs. <%= realestate.price%> /-</h3>
+                     <p class="card-text"> <%= realestate.description %></p>
+                   
+                       <h6 style="color:MAROON";> call Now: <%= realestate.seller_phone %> </h6>
+                  </div>
+                </div>
+                
+                
+    		</div>
+   <% end %>
+    		
+    	</div>
+    </div>
+ </section>   
+ 
+ <!--------------- Rent card end ---------------------------------------------------------------------->
+                  </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                  </div>
+                    <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                      
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
 
 
 
