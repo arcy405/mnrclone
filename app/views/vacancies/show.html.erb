@@ -1,13 +1,30 @@
-<h1><%= @vacancy.job_title %></h1>
+<div class="jumbotron text-center">
 
-<p>
-   <strong>Price: </strong> $<%= @vacancy.job_category %><br />
-   <strong>Subject :</strong> <%= @vacancy.job_level %><br />
-   <strong>Created Date:</strong> <%= @vacancy.job_desciption %><br />
-</p>
+  <h1 class="display-4">Job for <%= @vacancy.job_title %></h1>
+  <p class="lead">In <%=@vacancy.company_name%>, Located at <%=@vacancy.location%></p>
+  <p>Apply before <%=@vacancy.apply_before.strftime("%B %d, %Y")%></p>
+  <hr class="my-4">
+  <h2>Basic Info..</h2>
+  <p>Number of vacancies: <%=@vacancy.company_name%></p>
+  <p>Job Level: <%=@vacancy.job_level%></p>
+  <p>Required Education Level: <%=@vacancy.education_level%></p>
+  <p>Required Experience : <%=@vacancy.experience_required%></p>
+  <p>Number of vacancies: <%=@vacancy.company_name%></p>
+  <p>Offered Salary: <%=@vacancy.offered_salary%></p>
+  <h4>Other Description..</h4>
+  <p>Job Despription:<br/><%=@vacancy.job_desciption%></p>
+  <p><%=@vacancy.about_company%></p>
+  <p><%=@vacancy.professional_skill%></p>
+  <p><%=@vacancy.other_specification%></p>
+  <%= link_to "Go Back", vacancies_path, class: "button"%>
+  
+</div>
 
-<p><%= @vacancy.apply_before %></p>
 
-<hr />
 
-<%= link_to "Go Back", vacancies_path, class: "button"%>
+
+
+
+
+
+
