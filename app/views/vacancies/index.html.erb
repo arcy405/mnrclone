@@ -1,43 +1,40 @@
 <% content_for :title, "List of donors-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<h1>index page</h1>
-
-<%= link_to "Add job vacancy", new_vacancy_path, class: "button"%>
 
 
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- details card section starts from here -->
-<section class="details-card">
-
-
-
-        <div class="row">
+<%= link_to "Add Job Vacancy", new_vacancy_path, class: "button ml-5 mb-3 mt-n2"%>
+    <div class="row ml-4 mr-4">
+    
         <% @vacancies.each do |vacancy| %>
             
-            <div class="col-md-2 ml-4 mr-4 mb-4">
-                <div class="card-content">
-                    <span><h4><%=vacancy.job_category%></h4></span>
-                    <div class="card-desc">
-                        <h3><%=vacancy.job_title%></h3>
-                        <p><%=vacancy.company_name%></p>
-                        <p><%=vacancy.apply_before%></p>
-                        <p><%=vacancy.location%></p>
-                        
-                        <%= link_to "View More" ,vacancy_path(vacancy), class:"button" %>  
+            <div class="col-sm-6 col-xs-12 mb-2">
+            
+                <div class="card">
+                
+                <div class="card-body ">
+                <div class="row">
+                    <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
+                    <div class="col-10">
+                    <h5 class="card-title summary text-capitalize">Job Vacancy for <%=vacancy.job_title%></h5>
+                    <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
+                    <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
+                    <%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> 
+                    
                     </div>
+                </div>
+                
+                    
+                </div>
                 </div>
             </div>
             
-            <%end%> 
         
-        </div>
-           
-    
-    
-</section>
-<!-- details card section starts from here -->
+        
+        <%end%> 
+    </div>
+</div>
+
+
+ 
+
+

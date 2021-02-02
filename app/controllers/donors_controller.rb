@@ -4,6 +4,11 @@ class DonorsController < ApplicationController
     @donorsApos=Donor.where('blood_group=?',"A+").order("created_at: :DESC")
     @donorsAneg=Donor.where('blood_group=?',"A-").order("created_at DESC")
     @donorsBpos=Donor.where('blood_group=?',"B+").order("created_at DESC")
+    @donorsBneg=Donor.where('blood_group=?',"B-").order("created_at DESC")
+    @donorsOpos=Donor.where('blood_group=?',"O+").order("created_at DESC")
+    @donorsOneg=Donor.where('blood_group=?',"O-").order("created_at DESC")
+    @donorsABpos=Donor.where('blood_group=?',"AB+").order("created_at DESC")
+    @donorsABneg=Donor.where('blood_group=?',"AB-").order("created_at DESC")
   end
 
   def new

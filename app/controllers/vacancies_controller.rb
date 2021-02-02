@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
   def index
-    @vacancies=Vacancy.all
+    @vacancies=Vacancy.all.order("created_at DESC")
   end
 
   def new
@@ -27,7 +27,7 @@ class VacanciesController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def vacancy_params
-      params.require(:vacancy).permit(:about_company, :job_title, :job_category, :job_level, :no_of_vacancy, :employment_type, :offered_salary, :apply_before, :education_level, :experience_required, :professional_skill, :other_specification, :job_desciption, :created_at)
+      params.require(:vacancy).permit(:about_company, :job_title, :job_category, :job_level, :no_of_vacancy, :employment_type, :offered_salary, :apply_before, :education_level, :experience_required, :professional_skill, :other_specification, :job_desciption, :created_at, :company_name, :location)
     end
 
 end
