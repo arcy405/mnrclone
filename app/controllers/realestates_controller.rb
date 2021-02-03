@@ -6,6 +6,7 @@ class RealestatesController < ApplicationController
   def new
     @realestate=Realestate.new
   end
+  
   def create 
     @realestate=Realestate.create(realestates_params)
     if @realestate.save
