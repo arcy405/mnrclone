@@ -57,9 +57,11 @@
     		        </div>
                     <div class="card-body pt-0">
                     <h5 class="card-title"><%= realestate.propertyname%></h5>
-                      <h3>  Rs. <%= realestate.price%> /-</h3>
-                     <p class="card-text"> <%= realestate.description %></p>
-                   
+                    <h2>  Rs. <%= realestate.price%> /-</h2>
+                     <p class="card-text"> <%= realestate.address %> </p>
+                        <h4> Description:: </h4>
+                           <p class="card-text"> <%= realestate.description %></p>
+                        <h6 style="color:NAVY";> Seller: <%= realestate.seller_name %> </h6>
                        <h6 style="color:MAROON";> call Now: <%= realestate.seller_phone %> </h6>
                   </div>
                 </div>
@@ -86,12 +88,16 @@
                     
     		        </div>
                     <div class="card-body pt-0">
-                    <h5 class="card-title"><%= realestate.seller_name%></h5>
+                    <h5 class="card-title"><%= realestate.propertyname%></h5>
                       <h3>  Rs. <%= realestate.price%> /-</h3>
-                     <p class="card-text"> <%= realestate.description %></p>
+                     <p class="card-text"> <%= realestate.address %></p>
+                         <p style="color:BLACK";> Bedrooms: <%= realestate.bedroom %>  </p>
+                         <p style="color:BLACK";> Kitchen: <%= realestate.kitchen %> </p>
+                         <p style="color:BLACK";> Bathroom: <%= realestate.bathroom %> </p>
 
-                   
-                       <h6 style="color:MAROON";> call Now: <%= realestate.seller_phone %> </h6>
+                          
+                       <h6 style="color:MAROON";> Seller: <%= realestate.seller_name%> </h6>
+                       <h6 style="color:NAVY";> call Now: <%= realestate.seller_phone %> </h6>
                   </div>
                 </div>
                 
