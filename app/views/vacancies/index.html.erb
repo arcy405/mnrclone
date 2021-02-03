@@ -1,158 +1,62 @@
 <% content_for :title, "List of donors-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-
-
-
-
-
-
-
- 
-
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container pt-2">
-<span class="pull-right"><%= link_to "Add Job Vacancy", new_vacancy_path, class: "button"%></span>
-    
-    <div>
-    <a type="button" class="btn btn-success btn-filter" data-target="all">ALL</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Aviation">Aviation</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Arts">Arts</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Business">Business</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Education">Education</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Law Enforcement">Law Enforcement</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Media">Media</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Medical">Medical</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Service Industry">Service Industry</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Technology">Technology</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Others">Others</a>
-    </div>
-    <br/>
-    
+<div class="row bg-light">
+<div class="container mt-4">
     <div class="row">
-    
-    <div class="row ml-4 mr-4">
-    
-    
-    <% @vacancies.each do |vacancy| %>
-        
-        <div class="col-sm-6 col-xs-12 mb-2">
-        
-            <div class="card">
-            
-            <div class="card-body ">
-            <div class="row">
-            
-                <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
-                <div class="col-10">
-                <h4 class="card-title summary text-capitalize">
-                
-               
-            Job Vacancy for <%=vacancy.job_title%></h4>
-            
-                <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
-                <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
-                (<%=vacancy.job_category%>)
-                <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
-              
-                </div>
-            </div>
-            
-                
-            </div>
-            </div>
-        </div>
-        
-    
-    
-    <%end%> 
-</div>
-    </div>
-</div>
+    		<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
 
 
-
-main parameters
-
-
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-<span class="pull-right"><%= link_to "Add Job Vacancy", new_vacancy_path, class: "button"%></span>
-    
-    <div>
-    <a type="button" class="btn btn-success btn-filter" data-target="all">ALL</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Aviation">Aviation</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Arts">Arts</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Business">Business</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Education">Education</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Law Enforcement">Law Enforcement</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Media">Media</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Medical">Medical</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Service Industry">Service Industry</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Technology">Technology</a>
-    <a type="button" class="btn btn-danger btn-filter" data-target="Others">Others</a>
-    </div>
-    <br/>
-    
-    <div class="row ml-4 mr-4">
-        <div class="filter Business">
-        <% @vacancies.each do |vacancy| %>
-            
-                <div class="card">
-                <div class="card-body ">
-                <div class="row">
-                    <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
-                    <div class="col-10">
-                    <h4 class="card-title summary text-capitalize">
-                    Job Vacancy for <%=vacancy.job_title%></h4>
-                    <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
-                    <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
-                    (<%=vacancy.job_category%>)
-                    <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
+                            <div class="mt-4 ml-4 mb-2">
+                                            <%= link_to new_vacancy_path, style:"text-decoration:none; font-size: 20px;" do %>
+                                            Add Job Vacancy<i class="fas fa-plus-circle ml-2"></i>
+                                            <% end %>	
+                                            </div>
+                            <div class="container">
+                        
+                        
+                        <div>
+                            <button class="btn btn-primary filter-button" data-filter="all">All</button>
+                            <button class="btn btn-default filter-button" data-filter="Aviation">Aviation</button>
+                            <button class="btn btn-default filter-button" data-filter="Arts">Arts</button>
+                            <button class="btn btn-default filter-button" data-filter="Business">Business</button>
+                            <button class="btn btn-default filter-button" data-filter="Education">Education</button>
+                            <button class="btn btn-default filter-button" data-filter="Law Enforcement">Law Enforcement</button>
+                            <button class="btn btn-default filter-button" data-filter="Media">Media</button>
+                            <button class="btn btn-default filter-button" data-filter="Medical">Medical</button>
+                            <button class="btn btn-default filter-button" data-filter="Service Industry">Service Industry</button>
+                            <button class="btn btn-default filter-button" data-filter="Technology">Technology</button>
+                            <button class="btn btn-default filter-button" data-filter="Others">Others</button>
+                        </div>
+                        <br/>
+                        
+                        <div class="row">
+                            <% @vacancies.each do |vacancy| %>
+                                <div class="col-md-4 mb-4 filter <%=vacancy.job_category%>">
+                                <div class="card ">
+                                <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
+                                    <div class="col-10">
+                                    <h4 class="card-title summary text-capitalize">
+                                    Job Vacancy for <%=vacancy.job_title%></h4>
+                                    <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
+                                    <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
+                                    (<%=vacancy.job_category%>)
+                                    <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                    
+                                </div>
+                            <%end%>
+                        </div>
                     </div>
-                </div>
-                </div>
-                </div>
-            
-        <%end%>      
-        </div>
-
-        
-    </div>
-</div>
-
-
-
-
-
-
-<div class="row ml-4 mr-4">
-    <% @vacancies.each do |vacancy| %>
-        <div class="col-sm-6 col-xs-12 mb-2">
-            <div class="card">
-            <div class="card-body ">
-            <div class="row">
-                <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
-                <div class="col-10">
-                <h4 class="card-title summary text-capitalize">
-                Job Vacancy for <%=vacancy.job_title%></h4>
-                <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
-                <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
-                (<%=vacancy.job_category%>)
-                <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
-                </div>
-            </div>
-            </div>
-            </div>
-        </div>
-    <%end%> 
-</div>
+                 </div>  
+            </div> 
+        </div> 
+       </div> 
+    </div>  
+</div>    
