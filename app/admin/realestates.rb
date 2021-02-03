@@ -5,7 +5,7 @@ ActiveAdmin.register Realestate do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :seller_name, :seller_phone, :price, :description, :photo
+   permit_params :seller_name, :seller_phone, :price, :description, :photo, :ptype ,:propertyname, :address, :bedroom ,:kitchen,:bathroom
   #
   # or
   #

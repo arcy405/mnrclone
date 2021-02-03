@@ -28,16 +28,16 @@
 <!-----------search box end------------>
 
 <!----------------tab started---------------------------------------------------------------->
-<div class="container">
+<div class="container" style="text-decoration:none;" >
               <div class="row">
                 <div class="col-xs-12 ">
                   <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Buy Land & House</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Take House On Rent </a>
-                      <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "nav-item nav-link" %>
-                      <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "nav-item nav-link" %>
-                      <%=  link_to "Rent House  ", new_realestate_path(category:"house_rent") , class: "nav-item nav-link" %>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style="text-decoration:none">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="text-decoration:none;" >Buy Land & House</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="text-decoration:none;" >Take House On Rent </a>
+                      <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "nav-item nav-link", style:"text-decoration:none;"  %>
+                      <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "nav-item nav-link", style:"text-decoration:none;"  %>
+                      <%=  link_to "Give House On Rent ", new_realestate_path(category:"house_rent") , class: "nav-item nav-link" , style:"text-decoration:none;" %>
                       
                     </div>
                   </nav>
@@ -48,7 +48,7 @@
     <div class="container">
     	<div class="row">
     	  
-    		<% @Realestates.each do |realestate| %>
+    		<% @Realestate_sell.each do |realestate| %>
     		<!--Profile Card 5-->
     		<div class="col-md-4 mt-4">
     		    <div class="card profile-card-5">
@@ -56,7 +56,7 @@
                      
     		        </div>
                     <div class="card-body pt-0">
-                    <h5 class="card-title"><%= realestate.seller_name%></h5>
+                    <h5 class="card-title"><%= realestate.propertyname%></h5>
                       <h3>  Rs. <%= realestate.price%> /-</h3>
                      <p class="card-text"> <%= realestate.description %></p>
                    
@@ -78,7 +78,7 @@
 <div class="container">
     	<div class="row">
     	  
-    		<% @Realestates.each do |realestate| %>
+    		<% @Realestate_rent.each do |realestate| %>
     		<!--Profile Card 5-->
     		<div class="col-md-4 mt-4">
     		    <div class="card profile-card-5">

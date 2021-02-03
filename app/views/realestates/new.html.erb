@@ -28,19 +28,15 @@
           </ul>
           </div>
               <div class="col-md-6 col-sm-12">
-              <div class="shadow p-3 mb-5 bg-white rounded">
-              <% if type=="land"%>
-               <%= render partial: "form_land_sell"%>
-             <% end %>
-              </div>
-               <% if type=="house_sell"%>
-               <%= render partial: "form_house_sell"%>
-             <% end %>
-              </div>
-               <% if type=="house_rent"%>
-               <%= render partial: "form_house_rent"%>
-             <% end %>
-              </div>
+                  <div class="shadow p-3 mb-5 bg-white rounded">
+                        <% if type=="land"%>
+                           <%= render partial: "form_land_sell"%>
+                           <% elsif type=="house_sell"%>
+                           <%= render partial: "form_house_sell"%>
+                           <% elsif type=="house_rent"%>
+                           <%= render partial: "form_house_rent"%>
+                        <% end %>
+                  </div>
               </div>
           </div>
           
