@@ -51,22 +51,23 @@
     		<% @Realestate_sell.each do |realestate| %>
     		<!--Profile Card 5-->
     		<div class="col-md-4 mt-4">
-    		    <div class="card profile-card-5">
-    		        <div class="card-img-block">
-                     
-    		        </div>
-                    <div class="card-body pt-0">
-                    <h5 class="card-title"><%= realestate.propertyname%></h5>
-                    <h2>  Rs. <%= realestate.price%> /-</h2>
-                     <p class="card-text"> <%= realestate.address %> </p>
-                        <h4> Description:: </h4>
-                           <p class="card-text"> <%= realestate.description %></p>
-                        <h6 style="color:NAVY";> Seller: <%= realestate.seller_name %> </h6>
-                       <h6 style="color:MAROON";> call Now: <%= realestate.seller_phone %> </h6>
-                  </div>
+    		    <div class="card cardme">
+                    <img class="card-img-top" src="https://picsum.photos/200/150/?random
+">
+                    <div class="card-block">
+                        <h4 class="card-title mt-3"><%= realestate.propertyname %></h4>
+                        <div class="meta">
+                            <a>Rs. <%= realestate.price%> /-</a>
+                        </div>
+                        <div class="card-text">
+                            <i class="fas fa-map-marker"></i> <%=realestate.address %>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-xl">Seller: <%= realestate.seller_name%></span>
+                        <span class="float-right"><i class="fas fa-mobile-alt"></i> <%= realestate.seller_phone %></span>
+                    </div>
                 </div>
-                
-                
     		</div>
    <% end %>
     		
@@ -83,22 +84,22 @@
     		<% @Realestate_rent.each do |realestate| %>
     		<!--Profile Card 5-->
     		<div class="col-md-4 mt-4">
-    		    <div class="card profile-card-5">
-    		        <div class="card-img-block">
-                    
-    		        </div>
-                    <div class="card-body pt-0">
-                    <h5 class="card-title"><%= realestate.propertyname%></h5>
-                      <h3>  Rs. <%= realestate.price%> /-</h3>
-                     <p class="card-text"> <%= realestate.address %></p>
-                         <p style="color:BLACK";> Bedrooms: <%= realestate.bedroom %>  </p>
-                         <p style="color:BLACK";> Kitchen: <%= realestate.kitchen %> </p>
-                         <p style="color:BLACK";> Bathroom: <%= realestate.bathroom %> </p>
-
-                          
-                       <h6 style="color:MAROON";> Seller: <%= realestate.seller_name%> </h6>
-                       <h6 style="color:NAVY";> call Now: <%= realestate.seller_phone %> </h6>
-                  </div>
+    		    <div class="card cardme">
+                    <img class="card-img-top" src="https://picsum.photos/200/150/?random
+">
+                    <div class="card-block">
+                        <h4 class="card-title mt-3"><%= realestate.propertyname %></h4>
+                        <div class="meta">
+                            <a>Rs. <%= realestate.price%> /-</a>
+                        </div>
+                        <div class="card-text">
+                            <i class="fas fa-map-marker"></i> <%=realestate.address %>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-xl">Seller: <%= realestate.seller_name%></span>
+                        <span class="float-right"><i class="fas fa-mobile-alt"></i> <%= realestate.seller_phone %></span>
+                    </div>
                 </div>
                 
     		</div>
