@@ -20,6 +20,8 @@ require("custom/search")
 require("custom/comment")
 require("custom/agenttable")
 require("custom/donors.js")
+require("custom/filtertable.js")
+
 
 import "bootstrap";
 import "../stylesheets/application"
