@@ -1,0 +1,43 @@
+<% content_for :title, "List of donors-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+<h1>index page</h1>
+
+<%= link_to "Add job vacancy", new_vacancy_path, class: "button"%>
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- details card section starts from here -->
+<section class="details-card">
+
+
+
+        <div class="row">
+        <% @vacancies.each do |vacancy| %>
+            
+            <div class="col-md-2 ml-4 mr-4 mb-4">
+                <div class="card-content">
+                    <span><h4><%=vacancy.job_category%></h4></span>
+                    <div class="card-desc">
+                        <h3><%=vacancy.job_title%></h3>
+                        <p><%=vacancy.company_name%></p>
+                        <p><%=vacancy.apply_before%></p>
+                        <p><%=vacancy.location%></p>
+                        
+                        <%= link_to "View More" ,vacancy_path(vacancy), class:"button" %>  
+                    </div>
+                </div>
+            </div>
+            
+            <%end%> 
+        
+        </div>
+           
+    
+    
+</section>
+<!-- details card section starts from here -->
