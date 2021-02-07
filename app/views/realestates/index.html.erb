@@ -52,9 +52,10 @@
     		<!--Profile Card 5-->
     		<div class="col-md-4 mt-4">
     		    <div class="card cardme">
-                    <img class="card-img-top" src="https://picsum.photos/200/150/?random
-">
-                    <div class="card-block">
+                    
+                   <img class="card-img-top" src="<%= url_for(realestate.image) %>"   alt="" />
+                      
+                        <div class="card-block">
                         <h4 class="card-title mt-3"><%= realestate.propertyname %></h4>
                         <div class="meta">
                             <a>Rs. <%= realestate.price%> /-</a>
@@ -124,6 +125,10 @@
         </div>
       </div>
 </div>
+
+
+
+
 
 
 

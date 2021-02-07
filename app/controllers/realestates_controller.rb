@@ -17,9 +17,11 @@ class RealestatesController < ApplicationController
       redirect_to realestates_new_path, alert: "Error creating listing."
     end
   end
+   
+   
 
   private
   def realestates_params
-    params.require(:realestate).permit(:seller_name, :price, :description, :seller_phone , :ptype, :bathroom,:bedroom,:address, :propertyname,:kithchen )
+    params.require(:realestate).permit(:seller_name, :price, :description, :seller_phone , :ptype, :bathroom,:bedroom,:address, :propertyname,:kithchen, :image )
   end
 end

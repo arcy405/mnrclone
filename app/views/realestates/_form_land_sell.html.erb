@@ -18,6 +18,8 @@
         <%= f.text_field :seller_phone , placeholder: "Land Owner Phone " ,:required => true %>
     </div>
       <%= f.hidden_field :ptype, value: "sell"  %>
+       <%= f.label "profile" %>
+       <%= f.file_field :image , direct_upload:true %> <br>
    
     <div class="d-flex justify-content-center">
         <%= f.submit "Add to market" , class: "btn"%>

@@ -17,6 +17,7 @@
     <div class="row p-2">
         <%= f.text_field :seller_phone , placeholder: "House Owner Phone " ,:required => true %>
     </div>
+     <%= f.file_field :image , direct_upload: true %>
     
     <%= f.hidden_field :ptype, value: "sell"  %>
    
