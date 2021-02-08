@@ -19,6 +19,7 @@ require("chart.js")
 require("custom/search")
 require("custom/comment")
 require("custom/agenttable")
+require("custom/realestate")
 
 import "bootstrap";
 import "../stylesheets/application"
