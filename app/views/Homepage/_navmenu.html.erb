@@ -1,5 +1,5 @@
 <!-- Header Section Begin -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-between sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between sticky-top">
   <div class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars"></i>
   </div>
@@ -9,24 +9,33 @@
         <%= link_to "Home", homes_index_path,:style=>'text-decoration:none', class:"nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "About Us", aboutus_index_path,:style=>'text-decoration:none', class:"nav-link" %>
+        <%= link_to "About Us", aboutus_index_path,:style=>'text-decoration:none', class:"nav-link text-nowrap" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none', class:"nav-link" %>
+        <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none', class:"nav-link text-nowrap" %>
       </li>
        <li>
-        <%= link_to "Bus Booking Agents", agents_path,:style=>'text-decoration:none', class:"nav-link" %>
+        <%= link_to "Bus Booking Agents", agents_path,:style=>'text-decoration:none', class:"nav-link text-nowrap" %>
       </li>
+      <li>
+              <%= link_to "Blood Donation", donors_path,:style=>'text-decoration:none', class:"nav-link" %>
+            </li>
        <li>
         <%= link_to "Real Estates", realestates_path,:style=>'text-decoration:none', class:"nav-link" %>
       </li> <li>
         <%= link_to "Add Listing", listings_new_path,:style=>'text-decoration:none', class:"nav-link" %>
+       <li>
+              <%= link_to "Vacancy", vacancies_path,:style=>'text-decoration:none', class:"nav-link" %>
+            </li>
+            
+       <li>
+        <%= link_to "Add Listing", listings_new_path,:style=>'text-decoration:none', class:"nav-link text-nowrap" %>
       </li>
      
      
       
         <li class="dropdown">
-            <a id="dLabel" class="nav-link" data-toggle="dropdown"  data-target="#" href="#" style='text-decoration:none'>
+            <a id="dLabel" class="nav-link text-nowrap" data-toggle="dropdown"  data-target="#" href="#" style='text-decoration:none'>
                 Services <i class="fas fa-caret-down"></i>
             </a>
     		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">

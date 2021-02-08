@@ -21,6 +21,10 @@ require("custom/comment")
 require("custom/agenttable")
 require("custom/realestate")
 
+require("custom/donors.js")
+require("custom/filtertable.js")
+
+
 import "bootstrap";
 import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/js/all";
@@ -32,4 +36,3 @@ import "@fortawesome/fontawesome-free/js/all";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-console.log('Hello from application.js')

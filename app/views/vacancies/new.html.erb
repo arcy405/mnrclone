@@ -1,0 +1,111 @@
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1>Submit your listing to <span>MNRYP</span></h1>
+                   </div>
+                   <div id="addlistform">
+                      <div class="about-title clearfix" style="display:none">
+                          <h1>Welcome <span>MNRYP</span></h1>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify">Make sure to select the Job Category from the dropdown.</li>
+              <li class="about-paddingB text-justify">The Job category used in the listing the job according.</li>
+              <li class="about-paddingB text-justify">You must fill up the info as the requirement of the job.</li>
+              <li class="about-paddingB text-justify">Give the name of your company or institute name and the location situated.</li>
+              <li class="about-paddingB text-justify">Give the means through which applicants can apply for the job.</li>
+              <li>Make sure to provide detailed description of the job and fill up skill section if need, THANK YOU!</li>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= form_for @vacancy do |f| %>
+                    
+                     <div class="row p-2">
+                        <%= f.text_field :company_name, placeholder: "Company Name" ,:required => true %>
+                     </div>
+                     
+                     <div class="row p-2">
+                        <%= f.text_field :job_title, placeholder: "Job Title" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :location, placeholder: "Location" ,:required => true %>
+                     </div>
+                     <div class="row ml-1">
+                     <div class="row p-2">
+                     <span><%= f.select :job_category, ['Job Category', 'Aviation', 'Arts', 'Business', 'Education', 'Law Enforcement', 'Media', 'Medical', 'Service Industry', 'Technology', 'Others'] ,:required => true %>
+                        
+                     </div>
+                     
+                     <div class="row p-2 ml-4">
+                        <%= f.select :job_level, ['Job Level','Entry-level','Intermediate','Mid-level','Senior or executive-level'],:required => true  %>
+                     </div>
+                     </div>
+                     <div class="row ml-1">
+                     <div class="row p-2">
+                        <%= f.text_field :no_of_vacancy, placeholder: "No. of vacancies" ,:required => true %>
+                     </div>
+                     
+                  
+                    
+                     <div class="row p-2">
+                        <%= f.text_field :offered_salary, placeholder: "Offered salary" ,:required => true %>
+                     </div>
+                     </div>
+                     <p>Apply Before:</p>
+                     <div class="row p-2 mr-5">
+                        <%= f.date_field :apply_before, placeholder: "Apply Before" ,:required => true %>
+                        
+                     </div>
+                     <div class="row p-2">
+                        <%= f.select :education_level, ['Education Level', 'Associate','Bachelor\'s','master\s','doctoral degrees','none'] ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :experience_required, placeholder: "Experienced required" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :job_desciption, placeholder: "Job Desciption" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :professional_skill, placeholder: "Professional Skill required" %>
+                     </div>
+                     <p>Contact Us:</p>
+                     
+                     
+                     <div class="row p-2">
+                        <%= f.text_field :contactnumber, placeholder: "Contact number",:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :emailid, placeholder: "email ID",:required => true%>
+                     </div>
+                     
+                     
+                   
+                     
+                     <div class="d-flex justify-content-center">
+                      <%= f.submit "Add Vacancy" , class: "button"%>
+                     </div>
+                       <%= recaptcha_action('vacancy') %>
+                  <% end %>
+                  
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+   
+       
+       

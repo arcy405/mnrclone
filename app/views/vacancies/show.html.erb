@@ -1,0 +1,54 @@
+<% content_for :title, "List of donors-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<div class="row bg-light">
+    <div class="jumbotron text-center col-7 mt-4 ml-5">
+
+    <h1 class="display-4">Job for <%= @vacancy.job_title %></h1>
+    <p class="lead">In <%=@vacancy.company_name%>, Located at <%=@vacancy.location%></p>
+    <p>Apply before <%=@vacancy.apply_before.strftime("%B %d, %Y")%></p>
+    <hr class="my-4">
+    <h2>Basic Info..</h2>
+    <p>Number of vacancies: <%=@vacancy.company_name%></p>
+    <p>Job Level: <%=@vacancy.job_level%></p>
+    <p>Required Education Level: <%=@vacancy.education_level%></p>
+    <p>Required Experience : <%=@vacancy.experience_required%></p>
+    <p>Number of vacancies: <%=@vacancy.company_name%></p>
+    <p>Offered Salary: <%=@vacancy.offered_salary%></p>
+    <h4>Other Description..</h4>
+    <p>Job Despription:<br/><%=@vacancy.job_desciption%></p>
+    <p><%=@vacancy.about_company%></p>
+    <p><%=@vacancy.professional_skill%></p>
+    <p><%=@vacancy.other_specification%></p>
+    <h4>Contact us:</h4>
+    <p>Send your CV at <%=@vacancy.emailid%></p>
+    <p><%=@vacancy.contactnumber%></p>
+
+    <%= link_to "Go Back", vacancies_path, class: "button"%>
+    
+    </div>
+    <div class="col-4 mt-4">
+    <% @job_relevent.each do |vacancy| %>
+        <div class="col-md-12 mb-4 filter <%=vacancy.job_category%>">
+        <div class="card">
+        <div class="card-body ">
+        <div class="row">
+            <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
+            <div class="col-10">
+            <h4 class="card-title summary text-capitalize">
+            Job Vacancy for <%=vacancy.job_title%></h4>
+            <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
+            <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
+            (<%=vacancy.job_category%>)
+            <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
+            </div>
+        </div>
+        </div>
+        </div>
+            
+        </div>
+    <%end%>
+    </div>
+</div>
+
+
