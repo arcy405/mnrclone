@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_075215) do
+
+ActiveRecord::Schema.define(version: 2021_02_03_052015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +28,27 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -102,6 +124,20 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
   end
 
+  create_table "donors", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone1"
+    t.string "phone2"
+    t.date "dob"
+    t.string "blood_group"
+    t.string "status"
+    t.string "verified"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "gender"
+  end
+
   create_table "listingrequests", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -128,6 +164,22 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.integer "rating"
     t.integer "status"
     t.index ["tag_id"], name: "index_listings_on_tag_id"
+  end
+
+  create_table "realestates", force: :cascade do |t|
+    t.string "seller_name"
+    t.string "seller_phone"
+    t.string "price"
+    t.string "description"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ptype"
+    t.string "propertyname"
+    t.string "address"
+    t.string "bedroom"
+    t.string "kitchen"
+    t.string "bathroom"
   end
 
   create_table "searchedkeywords", force: :cascade do |t|
@@ -157,6 +209,28 @@ ActiveRecord::Schema.define(version: 2021_01_06_075215) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vacancies", force: :cascade do |t|
+    t.text "about_company"
+    t.string "job_title"
+    t.string "job_category"
+    t.string "job_level"
+    t.string "no_of_vacancy"
+    t.string "employment_type"
+    t.string "offered_salary"
+    t.datetime "apply_before"
+    t.string "education_level"
+    t.string "experience_required"
+    t.string "professional_skill"
+    t.text "other_specification"
+    t.text "job_desciption"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
+    t.string "company_name"
+    t.string "contactnumber"
+    t.string "emailid"
   end
 
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade

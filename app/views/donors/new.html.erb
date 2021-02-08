@@ -1,0 +1,93 @@
+
+
+
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+<% end %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+    <div id="addlistform" class="about-section paddingTB60 gray-bg">
+        <div class="container">
+            <div class="row">
+              <div class="row">
+              <div class="col-md-12 col-sm-12">
+                 <div class="about-title clearfix">
+                    <h1>Submit your listing to <span>MNRYP</span></h1>
+                 </div>
+                 <div id="addlistform">
+                    <div class="about-title clearfix" style="display:none">
+                        <h1>Welcome <span>MNRYP</span></h1>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6 col-sm-12">
+          <ul >
+            <li class="about-paddingB text-justify">Make sure to select the Blood Group from the dropdown.</li>
+            <li class="about-paddingB text-justify">Use your full name.</li>
+            <li class="about-paddingB text-justify">You must use an accurate physical address.</li>
+            <li class="about-paddingB text-justify">Also give a secondary number so that we can contact you on emergency.</li>
+            <li>Your information is safe with us, you will be called for blood donation in future, THANK YOU!</li>
+          </ul>
+          </div>
+              <div class="col-md-6 col-sm-12">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+              <%= form_for @donor do |f| %>
+                
+                   <div class="row p-2">
+                      <%= f.text_field :name, placeholder: "Full Name" ,:required => true %>
+                   </div>
+                   
+                   <div class="row p-2">
+                      <%= f.text_field :address, placeholder: "Address" ,:required => true %>
+                   </div>
+                   <p>Your Gender</p>
+                   <div class="row p-2">
+                      <%= f.radio_button :gender, 'male', :required => true %><span class="texxtt mr-2">Male </span>
+                      <%= f.radio_button :gender, 'female',:required => true %><span class="textt mr-2">Female </span>
+                      <%= f.radio_button :gender, 'others',:required => true %><span class="textt">Others </span>
+                   </div>
+                   <p>Date of Birth</p>
+                   <div class="row p-2">
+                    <%= f.date_field :dob,:required => true %>
+                   </div>
+                   
+                   <div class="row p-2">
+                   <%= f.select :blood_group, ['Blood Group','A+','A-','B+','B-','O+','O-','AB+','AB-'],:required => true  %>
+                   </div>
+                  
+                <div class="row ml-1">
+                     
+                     <div class="row p-2">
+                        <%= f.text_field :phone1, placeholder: "Contact Number1", :required => true%>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :phone2, placeholder: "Contact Number2" %>
+                     </div>
+                     
+                     
+                     </div>
+
+                     <p>Your Status</p>
+                   <div class="row p-2">
+                      <%= f.radio_button :status, 'available', :required => true %><span class="texxtt mr-2">available</span>
+                      <%= f.radio_button :status, 'unavailable',:required => true %><span class="textt">unavailable</span>
+                      
+                   </div>
+                   
+                   <div class="d-flex justify-content-center">
+                    <%= f.submit "Add Vacancy" , class: "button"%>
+                   </div>
+                     <%= recaptcha_action('vacancy') %>
+                <% end %>
+                
+              </div>
+              </div>
+          </div>
+       </div>
+     </div>
+ 
+     
+     

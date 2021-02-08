@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
@@ -16,6 +17,11 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   #routes for arcy#
+   resources :donors
+   resources :vacancies
+   #################
+
    get 'listings/sucess', to: "listings#sucess"
 
    resources :agents, only: [:index]
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#index'
+  resources :realestates
+ 
 
   resources :listings do
     resources :comments

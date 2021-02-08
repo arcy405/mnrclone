@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  about_company: MyText
+  job_title: MyString
+  job_category: MyString
+  job_level: MyString
+  no_of_vacancy: MyString
+  employment_type: MyString
+  offered_salary: MyString
+  apply_before: 2021-02-01 12:13:07
+  education_level: MyString
+  experience_required: MyString
+  professional_skill: MyString
+  other_specification: MyText
+  job_desciption: MyText
+
+two:
+  about_company: MyText
+  job_title: MyString
+  job_category: MyString
+  job_level: MyString
+  no_of_vacancy: MyString
+  employment_type: MyString
+  offered_salary: MyString
+  apply_before: 2021-02-01 12:13:07
+  education_level: MyString
+  experience_required: MyString
+  professional_skill: MyString
+  other_specification: MyText
+  job_desciption: MyText
