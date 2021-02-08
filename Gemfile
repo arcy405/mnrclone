@@ -77,3 +77,6 @@ gem 'omniauth-facebook'
 gem 'google-analytics-rails', '1.1.1'
 
 gem 'new_google_recaptcha'
+
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'

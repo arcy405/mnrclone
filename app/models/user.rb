@@ -7,10 +7,9 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: %i[facebook]
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
   
-
   def self.from_omniauth(auth)
     name_split = auth.info.name.split(" ")
     user = User.where(email: auth.info.email).first
