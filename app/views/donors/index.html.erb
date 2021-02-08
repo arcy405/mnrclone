@@ -4,83 +4,76 @@
     <div class="row">
     		<div class="col-md-12">
 				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="pull-right">
-							<div class="btn-group">
-								<a type="button" class="btn btn-success btn-filter" data-target="all">ALL</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="A+">A+</a>
-								<a type="button" class="btn btn-danger btn-filter" data-target="A-">A-</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="B+">B+</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="B-">B-</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="O+">O+</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="O-">O-</a>
-                                <a type="button" class="btn btn-danger btn-filter" data-target="AB+">AB+</a>
-								<a type="button" class="btn btn-danger btn-filter" data-target="AB-">AB-</a>
-						</div>
-						<div class="float-right mt-4">
-						 <%= link_to new_donor_path, style:"text-decoration:none; font-size: 20px;" do %>
+                    <div class="panel-body">
+                            <div class="mt-4 ml-4 mb-2">
+                                <%= link_to new_donor_path, style:"text-decoration:none; font-size: 20px;" do %>
 						Be A DONOR<i class="fas fa-plus-circle ml-2"></i>
-						<% end %>	
-						</div>
-						</div>
-                        <div class="table-container">
-                        
-                            <table class="table table-filter">
-                            
-                                <tbody>
-                                <% @donors.each do |donor| %>
-									<tr data-status="<%= donor.blood_group %>">
-									
-										<td>
-											<div class="media align-middle">
-                                            <div class="card m-2 bloodgroup">
+						<% end %>  
+                            </div>
+                        <div class="container">
+                        <div>
+                    	<button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
+						<button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="Bpos">B+</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="Bneg">B-</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="Opos">O+</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="Oneg">O-</button>
+                        <button class="btn btn-danger filter-button mt-2" data-filter="ABpos">AB+</button>
+						<button class="btn btn-danger filter-button mt-2" data-filter="ABneg">AB-</button>
+                        </div>
+                        <br/>
+                        <!-------------------donnars list------------------------>
+                            <% @donors.each do |donor| %>
+                             <% if donor.blood_group.include?'+' %>
+                             	<% bloodgroup = donor.blood_group.sub! '+','pos' %>
+                             <% else %>
+                             	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
+                             <% end %>
+                                <div class="col-12 mb-4 filter <%= bloodgroup %>">
+                                	<div class="media align-middle">
+                                        <div class="card m-2 bloodgroup">
                                             <div class="card-body">
+                                            	<% if donor.blood_group.include?'pos' %>
+					                             	<% bloodgroup = donor.blood_group.sub! 'pos','+' %>
+					                             <% else %>
+					                             	<% bloodgroup = donor.blood_group.sub! 'neg','-' %>
+					                             <% end %>
                                               <%= donor.blood_group %>
                                             </div>
                                           </div>
-												<div class="media-body align-middle">
-													<span class="media-meta pull">
-													
-													<a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
-													<span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
-													</a>
-													
-													</span>
-													<h4 class="title text-capitalize"> 
-                                                    <%= donor.name %>
-														<span><% date_of_birth = donor.dob.to_s %>
-                                                        <% date_of_birth=date_of_birth.split("-")%>
-                                                        <% age = Date.today.year - date_of_birth[0].to_i %>
-                                                        ,Age: <%= age %></span>
-													</h4>
-                                                    <p class="summary text-capitalize"><%= donor.address %>, <%=donor.gender %></p>
-												</div>
+											<div class="media-body align-middle">
+												<span class="media-meta pull">
+												
+												<a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
+												<span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
+												</a>
+												
+												</span>
+												<h4 class="title text-capitalize"> 
+                                                <%= donor.name %>
+													<span><% date_of_birth = donor.dob.to_s %>
+                                                    <% date_of_birth=date_of_birth.split("-")%>
+                                                    <% age = Date.today.year - date_of_birth[0].to_i %>
+                                                    ,Age: <%= age %></span>
+												</h4>
+                                                <p class="summary text-capitalize"><%= donor.address %>, <%=donor.gender %></p>
 											</div>
-										</td>
-									
-                                    </tr>
-                                    <% end %>									
-                                </tbody>
-                                
-							</table>
+									</div>
+                                </div>
+                            <%end%>
+                        
+<!---------------------------------------------------------------------------------------->
 						</div>
 					</div>
 				</div>
-				<div class="content-footer">
-					
-				</div>
             </div>
             
-		
-        
     </div>
     	
 </div>
 
-
-
-
-
+				
 
 
 
