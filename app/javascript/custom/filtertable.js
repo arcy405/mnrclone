@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load",function(){
 
     $(".filter-button").click(function(){
         var value = $(this).attr('data-filter');

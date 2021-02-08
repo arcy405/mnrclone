@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on("turbolinks:load",function(){
 
 	$('.star').on('click', function () {
       $(this).toggleClass('star-checked');
