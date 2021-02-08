@@ -19,6 +19,8 @@ require("chart.js")
 require("custom/search")
 require("custom/comment")
 require("custom/agenttable")
+require("custom/realestate")
+
 require("custom/donors.js")
 require("custom/filtertable.js")
 

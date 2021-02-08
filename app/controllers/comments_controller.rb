@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
     end
     def create
       @comment = @commentable.comments.new comment_params
-
       respond_to do |format|
             if @comment.save
               format.html { redirect_to @comment, notice: 'comment was successfully added' }

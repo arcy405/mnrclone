@@ -1,0 +1,51 @@
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<%type=params[:category] %>
+<div id="addlistform" class="about-section paddingTB60 gray-bg">
+        <div class="container">
+            <div class="row">
+              <div class="row">
+              <div class="col-md-12 col-sm-12">
+                 <div class="about-title clearfix">
+                    <h1>Sell Your Property To <span>MNRYP</span></h1>
+                 </div>
+                 <div id="addlistform">
+                    <div class="about-title clearfix" style="display:none">
+                        <h1>Welcome <span>MNRYP</span></h1>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6 col-sm-12">
+          <ul >
+            <li class="about-paddingB text-justify">Make sure that your properties would definetly be sold  </li>
+             <li class="about-paddingB text-justify">Your Property details will displaying on Real Estate Page of MNRYP   </li>
+            <li class="about-paddingB text-justify">The Property name,address &image should be valid for client  </li>
+            <li class="about-paddingB text-justify">After listing the property details, if any client checks out the property ,Seller got a call for More Nagotiations  </li>
+         
+          </ul>
+          </div>
+              <div class="col-md-6 col-sm-12">
+                  <div class="shadow p-3 mb-5 bg-white rounded">
+                        <% if type=="land"%>
+                           <%= render partial: "form_land_sell"%>
+                           <% elsif type=="house_sell"%>
+                           <%= render partial: "form_house_sell"%>
+                           <% elsif type=="house_rent"%>
+                           <%= render partial: "form_house_rent"%>
+                        <% end %>
+                  </div>
+              </div>
+          </div>
+          
+       </div>
+       
+ 
+     </div>
+          
+
+            
+
+
