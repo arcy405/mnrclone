@@ -1,4 +1,6 @@
-<% content_for :title, "Add Listing-MNRYP" %>
+
+
+
 <%= content_for :recaptcha_js do %>
   <%= include_recaptcha_js %>
 <% end %>
@@ -10,7 +12,12 @@
               <div class="row">
               <div class="col-md-12 col-sm-12">
                  <div class="about-title clearfix">
-                    <h1>Become blood donor for <span>MNRYP</span></h1>
+                    <h1>Submit your listing to <span>MNRYP</span></h1>
+                 </div>
+                 <div id="addlistform">
+                    <div class="about-title clearfix" style="display:none">
+                        <h1>Welcome <span>MNRYP</span></h1>
+                    </div>
                  </div>
               </div>
             </div>
@@ -18,64 +25,69 @@
           <div class="row">
           <div class="col-md-6 col-sm-12">
           <ul >
-          <!------  <li class="about-paddingB text-justify">Make sure to select the Bussiness Category from the dropdown.</li>
-            <li class="about-paddingB text-justify">The business name used in the listing must match that used offline.</li>
-            <li class="about-paddingB text-justify">You must use an accurate physical address for your business listing.</li>
-            <li class="about-paddingB text-justify">Listings cannot be used to promote illegal or fraudulent activities, which can result in your business being delisted from the MNRYP, along with account termination. </li>
-            <li>Make sure to provide detailed srvices provided by your Bussiness in business description section.</li>---->
+            <li class="about-paddingB text-justify">Make sure to select the Blood Group from the dropdown.</li>
+            <li class="about-paddingB text-justify">Use your full name.</li>
+            <li class="about-paddingB text-justify">You must use an accurate physical address.</li>
+            <li class="about-paddingB text-justify">Also give a secondary number so that we can contact you on emergency.</li>
+            <li>Your information is safe with us, you will be called for blood donation in future, THANK YOU!</li>
           </ul>
           </div>
-          <div class="col-md-6 col-sm-12">
-          <div class="shadow p-3 mb-5 bg-white rounded">
-          <%= form_for @donor do |f| %>
-            <h3 class="text-center",class="textt">Add your info</h3>
-            <div class="form-group" class="row g-3 needs-validation">
-                <%=f.label :name, class:"textt" %>
-                <%= f.text_field :name, class:"form-control",required: true %>
-                <%=f.label :address, class:"textt" %>
-                <%= f.text_field :address, class:"form-control", required: true  %>
-                <%=f.label :gender, class:"textt" %><br/>
+              <div class="col-md-6 col-sm-12">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+              <%= form_for @donor do |f| %>
                 
-                <%= f.radio_button :gender, 'male', required: true%><span class="texxtt">Male</span>
-                <%= f.radio_button :gender, 'female'%><span class="textt">Female</span>
-                <%= f.radio_button :gender, 'others'%><span class="textt">Others</span><br/>
-                <%=f.label :dob, class:"textt" %>
-                <%= f.date_field :dob, class: 'form-control', required: true  %>
-                <%=f.label :blood_group, class:"textt" %><br/>
-                
-                <%= f.radio_button :blood_group, 'A+', required: true%><span class="textt">A+</span>
-                <%= f.radio_button :blood_group, 'A-'%><span class="textt">A-</span>
-                <%= f.radio_button :blood_group, 'B+'%><span class="textt">B+ </span>
-                <%= f.radio_button :blood_group, 'B-'%><span class="textt">B-</span>
-                <%= f.radio_button :blood_group, 'O+'%><span class="textt">O+</span>
-                <%= f.radio_button :blood_group, 'O-'%><span class="textt">O-</span>
-                <%= f.radio_button :blood_group, 'AB+'%><span class="textt">AB+</span>
-                <%= f.radio_button :blood_group, 'AB-'%><span class="textt">AB-</span><br/>
+                   <div class="row p-2">
+                      <%= f.text_field :name, placeholder: "Full Name" ,:required => true %>
+                   </div>
+                   
+                   <div class="row p-2">
+                      <%= f.text_field :address, placeholder: "Address" ,:required => true %>
+                   </div>
+                   <p>Your Gender</p>
+                   <div class="row p-2">
+                      <%= f.radio_button :gender, 'male', :required => true %><span class="texxtt mr-2">Male </span>
+                      <%= f.radio_button :gender, 'female',:required => true %><span class="textt mr-2">Female </span>
+                      <%= f.radio_button :gender, 'others',:required => true %><span class="textt">Others </span>
+                   </div>
+                   <p>Date of Birth</p>
+                   <div class="row p-2">
+                    <%= f.date_field :dob,:required => true %>
+                   </div>
+                   
+                   <div class="row p-2">
+                   <%= f.select :blood_group, ['Blood Group','A+','A-','B+','B-','O+','O-','AB+','AB-'],:required => true  %>
+                   </div>
+                  
+                <div class="row ml-1">
+                     
+                     <div class="row p-2">
+                        <%= f.text_field :phone1, placeholder: "Contact Number1", :required => true%>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :phone2, placeholder: "Contact Number2" %>
+                     </div>
+                     
+                     
+                     </div>
 
+                     <p>Your Status</p>
+                   <div class="row p-2">
+                      <%= f.radio_button :status, 'available', :required => true %><span class="texxtt mr-2">available</span>
+                      <%= f.radio_button :status, 'unavailable',:required => true %><span class="textt">unavailable</span>
+                      
+                   </div>
+                   
+                   <div class="d-flex justify-content-center">
+                    <%= f.submit "Add Vacancy" , class: "button"%>
+                   </div>
+                     <%= recaptcha_action('vacancy') %>
+                <% end %>
                 
-                <%=f.label :phone1, class:"textt"%>
-                <%= f.text_field :phone1, class:"form-control", required: true  %>
-                <%=f.label :phone2, class:"textt"%>
-                <%= f.text_field :phone2, class:"form-control", required: true %>
-                
-
-                <%=f.label :status, class:"textt" %><br/>
-                
-                <%= f.radio_button :status, 'available',required: true%><span class="textt">available</span>
-                <%= f.radio_button :status, 'unavailable'%><span class="textt">unavailable</span><br/><br/>
-                
-                <%= f.submit "Add blood", class: 'btn btn-success', style: "width:100%; height: 40px;" %>
-            </div>
-            </div>
-            <% end %>
+              </div>
               </div>
           </div>
        </div>
      </div>
-
-
-
-
-
-
-
+ 
+     
+     

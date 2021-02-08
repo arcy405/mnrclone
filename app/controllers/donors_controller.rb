@@ -1,9 +1,8 @@
 class DonorsController < ApplicationController
   def index
     @donors=Donor.all.order("created_at DESC")
-    @donorsApos=Donor.where('blood_group=?',"A+").order("created_at: :DESC")
-    @donorsAneg=Donor.where('blood_group=?',"A-").order("created_at DESC")
-    @donorsBpos=Donor.where('blood_group=?',"B+").order("created_at DESC")
+    /@donorsApos=Donor.where('blood_group=?',"A+").order("created_at: :DESC")/
+    
   end
 
   def new

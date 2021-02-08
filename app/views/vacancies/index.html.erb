@@ -1,43 +1,62 @@
 <% content_for :title, "List of donors-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<h1>index page</h1>
-
-<%= link_to "Add job vacancy", new_vacancy_path, class: "button"%>
-
-
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- details card section starts from here -->
-<section class="details-card">
+<div class="row bg-light">
+<div class="container mt-4">
+    <div class="row">
+    		<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
 
 
-
-        <div class="row">
-        <% @vacancies.each do |vacancy| %>
-            
-            <div class="col-md-2 ml-4 mr-4 mb-4">
-                <div class="card-content">
-                    <span><h4><%=vacancy.job_category%></h4></span>
-                    <div class="card-desc">
-                        <h3><%=vacancy.job_title%></h3>
-                        <p><%=vacancy.company_name%></p>
-                        <p><%=vacancy.apply_before%></p>
-                        <p><%=vacancy.location%></p>
+                            <div class="mt-4 ml-4 mb-2">
+                                            <%= link_to new_vacancy_path, style:"text-decoration:none; font-size: 20px;" do %>
+                                            Add Job Vacancy<i class="fas fa-plus-circle ml-2"></i>
+                                            <% end %>	
+                                            </div>
+                            <div class="container">
                         
-                        <%= link_to "View More" ,vacancy_path(vacancy), class:"button" %>  
+                        
+                        <div>
+                            <button class="btn btn-primary filter-button" data-filter="all">All</button>
+                            <button class="btn btn-default filter-button" data-filter="Aviation">Aviation</button>
+                            <button class="btn btn-default filter-button" data-filter="Arts">Arts</button>
+                            <button class="btn btn-default filter-button" data-filter="Business">Business</button>
+                            <button class="btn btn-default filter-button" data-filter="Education">Education</button>
+                            <button class="btn btn-default filter-button" data-filter="Law Enforcement">Law Enforcement</button>
+                            <button class="btn btn-default filter-button" data-filter="Media">Media</button>
+                            <button class="btn btn-default filter-button" data-filter="Medical">Medical</button>
+                            <button class="btn btn-default filter-button" data-filter="Service Industry">Service Industry</button>
+                            <button class="btn btn-default filter-button" data-filter="Technology">Technology</button>
+                            <button class="btn btn-default filter-button" data-filter="Others">Others</button>
+                        </div>
+                        <br/>
+                        
+                        <div class="row">
+                            <% @vacancies.each do |vacancy| %>
+                                <div class="col-md-4 mb-4 filter <%=vacancy.job_category%>">
+                                <div class="card ">
+                                <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-2"><img src="https://thirdwheel.com.np/assets/frontend/images/products/5509_swastikred.jpg" class="img-fluid" alt="Responsive image"></div>
+                                    <div class="col-10">
+                                    <h4 class="card-title summary text-capitalize">
+                                    Job Vacancy for <%=vacancy.job_title%></h4>
+                                    <p class="card-text summary text-capitalize">In <%=vacancy.location%></p>
+                                    <p class="card-text">Apply before <%=vacancy.apply_before.strftime("%B %d, %Y")%></p>
+                                    (<%=vacancy.job_category%>)
+                                    <span class="pull-right"><%= link_to "View More" ,vacancy_path(vacancy), class:"button" %> </span>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                    
+                                </div>
+                            <%end%>
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-            <%end%> 
-        
-        </div>
-           
-    
-    
-</section>
-<!-- details card section starts from here -->
+                 </div>  
+            </div> 
+        </div> 
+       </div> 
+    </div>  
+</div>    
