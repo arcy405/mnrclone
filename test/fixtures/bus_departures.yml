@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destination: MyString
+  depart_time: 2021-02-09 11:23:11
+  company: MyString
+  bus_number: MyString
+  phone_number: MyString
+
+two:
+  destination: MyString
+  depart_time: 2021-02-09 11:23:11
+  company: MyString
+  bus_number: MyString
+  phone_number: MyString
