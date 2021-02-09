@@ -76,20 +76,27 @@
                      <div class="row p-2">
                         <%= f.text_field :experience_required, placeholder: "Experienced required" ,:required => true %>
                      </div>
+                     
                      <div class="row p-2">
                         <%= f.text_field :job_desciption, placeholder: "Job Desciption" ,:required => true %>
                      </div>
                      <div class="row p-2">
-                        <%= f.text_field :professional_skill, placeholder: "Professional Skill required" %>
+                        <%= f.text_field :about_company, placeholder: "About Company" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :professional_skill, placeholder: "Professional Skill required", :required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :other_specification, placeholder: "Other Specification", :required => true %>
                      </div>
                      <p>Contact Us:</p>
                      
                      
                      <div class="row p-2">
-                        <%= f.text_field :contactnumber, placeholder: "Contact number",:required => true %>
+                        <%= f.text_field :emailid, placeholder: "email ID",:required => true %>
                      </div>
                      <div class="row p-2">
-                        <%= f.text_field :emailid, placeholder: "email ID",:required => true%>
+                        <%= f.text_field :contactnumber, placeholder: "contact number",:required => true%>
                      </div>
                      
                      
