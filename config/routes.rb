@@ -18,10 +18,14 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   resources :bus_departures
+
    #routes for arcy#
    resources :donors
    resources :vacancies
    #################
+
+
 
    get 'listings/sucess', to: "listings#sucess"
 
