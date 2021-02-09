@@ -20,7 +20,7 @@ require("custom/search")
 require("custom/comment")
 require("custom/agenttable")
 require("custom/realestate")
-
+require("custom/flapper")
 require("custom/donors.js")
 require("custom/filtertable.js")
 
