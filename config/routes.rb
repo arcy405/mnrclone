@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'homes/show', to:"homes#show"
@@ -17,10 +18,14 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   resources :bus_departures
+
    #routes for arcy#
    resources :donors
    resources :vacancies
    #################
+
+
 
    get 'listings/sucess', to: "listings#sucess"
 
