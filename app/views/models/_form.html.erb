@@ -1,0 +1,29 @@
+    <%= form_for @model,:multipart => true do |f| %>
+       <%= f.fields_for :gallery do |p| %>
+           <div class="field">
+             <%= p.label :image %><br>
+             <%= p.file_field :image, :multiple => true, name: "gallery[image][]", direct_upload:true %>
+           </div>
+        <% end %>
+      <div class="row">
+        <div class="col-6">
+          <label class="mr-2 mt-2">Gender: </label>
+          <%= f.select :gender, ['Male', 'Female', 'others'] ,:required => true %>
+        </div>
+        <div class="col-6">
+          <label class="mr-2 mt-2">DOB: </label>
+         <%= f.date_field :dob ,class:"w-50",:required => true %>
+        </div>
+      </div> 
+      <div class="row p-2">
+        <%= f.text_field :name , placeholder: "Enter Your Full Name", class:"w-100" ,:required => true %>
+      </div> 
+      <div class="row p-2">
+        <%= f.text_field :ethnicity , placeholder: "Enter Your Ethnicity", class:"w-100" ,:required => true %>
+      </div> 
+
+      <div class="d-flex justify-content-center">
+       <%= f.submit "Submit" , class: "btn btn-primary"%>
+      </div>
+      <%= recaptcha_action('model') %>
+    <% end %>
