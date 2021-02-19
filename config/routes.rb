@@ -19,6 +19,7 @@ Rails.application.routes.draw do
    post 'listings/create', to:"listings#create"
 
    resources :bus_departures
+   resources :models
 
    #routes for arcy#
    resources :donors

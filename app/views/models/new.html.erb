@@ -1,0 +1,40 @@
+<% content_for :title, "Add Listing-MNRYP" %>
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+<% end %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+    <div id="addlistform" class="about-section paddingTB60 gray-bg">
+        <div class="container">
+            <div class="row">
+              <div class="row">
+              <div class="col-md-12 col-sm-12">
+                 <div class="about-title clearfix">
+                    <h1>Submit your listing to <span>MNRYP</span></h1>
+                 </div>
+                 <div id="addlistform">
+                    <div class="about-title clearfix" style="display:none">
+                        <h1>Welcome <span>MNRYP</span></h1>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6 col-sm-12">
+          <ul >
+            <li class="about-paddingB text-justify">Make sure to select the Bussiness Category from the dropdown.</li>
+            <li class="about-paddingB text-justify">The business name used in the listing must match that used offline.</li>
+            <li class="about-paddingB text-justify">You must use an accurate physical address for your business listing.</li>
+            <li class="about-paddingB text-justify">Listings cannot be used to promote illegal or fraudulent activities, which can result in your business being delisted from the MNRYP, along with account termination. </li>
+            <li>Make sure to provide detailed srvices provided by your Bussiness in business description section.</li>
+          </ul>
+          </div>
+              <div class="col-md-6 col-sm-12">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= render partial:"form" %>
+              </div>
+              </div>
+          </div>
+       </div>
+     </div>
