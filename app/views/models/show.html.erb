@@ -1,0 +1,18 @@
+<% content_for :title, "#{@model.name}-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<div class="container mt-4">
+	<div class="row">
+		<div class="about-title clearfix">
+            <h1><span><%= @model.name %></span> Age: <%= Time.now.year.to_i - @model.dob.year.to_i %> </h1>
+         </div>
+	</div>
+	<span class="badge rounded-pill bg-warning text-dark"><%= @model.ethnicity %></span>
+	<%= link_to "View All",:back, class:"badge bg-info text-dark ml-2", style:"text-decoration:none" %>
+
+  <div class="card-columns">
+  	<% @model.gallery.each do |photo| %>
+    	<div class="card "> <img class="card-img-top" src="<%= photo.image %>" alt="Card image cap"> </div>
+    <% end %>
+  </div>
+</div>
