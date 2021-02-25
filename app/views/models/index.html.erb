@@ -1,0 +1,29 @@
+<% content_for :title, "Models-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<div class="container-fluid px-4 mt-4">
+   <div class="mb-4">
+   	<button class="badge bg-info text-dark filter-button mt-2" data-filter="all">All</button>
+
+   	<% @models.each do |model| %>
+        <button class="badge bg-info text-dark filter-button mt-2" data-filter="<%= model.ethnicity %>"><%= model.ethnicity %></button>
+    <% end %>
+    </div>
+<div class="row">
+<% @models.each do |model| %>
+	<%= link_to model_path(model), style:"text-decoration:none" do %>
+		<div class="col-md-3 col-xs-12 filter <%= model.ethnicity %>">
+			<div class="card h-100 model-card" style="width: 18rem;">
+				<% model.gallery.each do |gallery|%>
+					<img class="card-img-top" src="<%= gallery.image %>"   alt="" style="height: 25rem;" />
+					<% break %>
+				<% end %>
+				<div class="card-body">
+					<h6 class="card-title text-center"><%= model.name %></h6>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>
+</div>
+</div>
