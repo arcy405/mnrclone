@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_061607) do
+ActiveRecord::Schema.define(version: 2021_02_19_085301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,7 +180,6 @@ ActiveRecord::Schema.define(version: 2021_02_09_061607) do
     t.string "seller_phone"
     t.string "price"
     t.string "description"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ptype"
@@ -189,6 +188,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_061607) do
     t.string "bedroom"
     t.string "kitchen"
     t.string "bathroom"
+    t.string "image"
   end
 
   create_table "searchedkeywords", force: :cascade do |t|
@@ -211,6 +211,8 @@ ActiveRecord::Schema.define(version: 2021_02_09_061607) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
