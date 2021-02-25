@@ -23,6 +23,7 @@ require("custom/realestate")
 
 require("custom/donors.js")
 require("custom/filtertable.js")
+require("rails.validations")
 
 
 import "bootstrap";

@@ -1,2 +1,3 @@
 class Donor < ApplicationRecord
+    
 end

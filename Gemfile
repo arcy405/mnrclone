@@ -80,3 +80,5 @@ gem 'new_google_recaptcha'
 
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+
+
