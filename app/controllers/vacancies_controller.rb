@@ -1,14 +1,17 @@
 class VacanciesController < ApplicationController
   def index
     @vacancies=Vacancy.all.order("created_at DESC")
-    
+  end
+
+  def show
+    @vacancy = Vacancy.find(params[:id]) 
+    @job_relevent=Vacancy.where('job_category=? AND id !=?',@vacancy.job_category,params[:id]).limit(6)
     
   end
 
   def new
     @vacancy=Vacancy.new
   end
-
 
   def create
     @vacancy = Vacancy.new(vacancy_params)
@@ -22,12 +25,7 @@ class VacanciesController < ApplicationController
     end
   end
 
-  def show
-    @vacancy = Vacancy.find(params[:id]) 
   
-    @job_relevent=Vacancy.where('job_category=? AND id !=?',@vacancy.job_category,params[:id]).limit(6)
-    
-  end
 
   private
     # Only allow a list of trusted parameters through.
