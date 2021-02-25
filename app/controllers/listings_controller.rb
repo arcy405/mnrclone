@@ -30,12 +30,12 @@ class ListingsController < ApplicationController
     id=params[:id]
     name=params[:name]
     if id == nil
-      @listdetails=Listing.find_by(name: name)
+      @listdetails=Listing.friendly.find_by(name: name)
       lid=@listdetails.id
-      @list= Listing.find(lid)
+      @list= Listing.friendly.find(lid)
     else
-      @listdetails=Listing.find(id)
-      @list= Listing.find(params[:id])
+      @listdetails=Listing.friendly.find(id)
+      @list= Listing.friendly.find(params[:id])
     end
   end
   def search 

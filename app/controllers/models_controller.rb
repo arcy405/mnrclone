@@ -3,6 +3,6 @@ class ModelsController < ApplicationController
 		@models=Model.all
 	end
 	def show
-		@model=Model.find(params[:id])
+		@model=Model.friendly.find(params[:id])
 	end
 end

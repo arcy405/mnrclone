@@ -80,3 +80,6 @@ gem 'new_google_recaptcha'
 
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+
+#friendly id for removing id from url
+gem 'friendly_id', '~> 5.4.0'
