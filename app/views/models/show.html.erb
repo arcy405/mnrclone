@@ -8,7 +8,7 @@
          </div>
 	</div>
 	<span class="badge rounded-pill bg-warning text-dark"><%= @model.ethnicity %></span>
-	<%= link_to "View All",:back, class:"badge bg-info text-dark ml-2", style:"text-decoration:none" %>
+	<%= link_to "View All",models_path, class:"badge bg-info text-dark ml-2", style:"text-decoration:none" %>
 
     <div class="card-columns">
         <% @model.gallery.each do |photo| %>
