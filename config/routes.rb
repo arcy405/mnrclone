@@ -18,10 +18,15 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   resources :bus_departures
+   resources :models
+
    #routes for arcy#
    resources :donors
    resources :vacancies
    #################
+
+
 
    get 'listings/sucess', to: "listings#sucess"
 
@@ -32,6 +37,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#index'
   resources :realestates
+  resources :tourists
  
 
   resources :listings do

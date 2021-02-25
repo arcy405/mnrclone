@@ -10,7 +10,7 @@ class DonorsController < ApplicationController
   end
 
   def show
-    @donnar = Donnar.find(params[:id])
+    @donnar = Donnar.friendly.find(params[:id])
   end
 
   
