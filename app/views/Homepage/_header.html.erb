@@ -2,55 +2,92 @@
 <div class="d-lg-none"><%= render 'Homepage/navmenu.html.erb' %></div>
   <header class="header d-none d-lg-block">
         <!-- Header Section Begin -->
-    <nav class="navbar navbar-expand-md navbar-light justify-content-between">
-        <div class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <!-----------------nav menu with megamenu----------------------------->
+<nav class="navbar navbar-expand-md navbar-light justify-content-between">
+
+  <div class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </div>
-        <div class="header__menu collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <%= link_to "Home", homes_index_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "About Us", aboutus_index_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-               <%= link_to "Bus Booking Agents", agents_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-               <%= link_to "Bus Schedule", bus_departures_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-             <%= link_to "Real Estates", realestates_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-             <%= link_to "Blood Donors", donors_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-             <%= link_to "Vacancy", vacancies_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-              <%= link_to "Add Listing", listings_new_path,:style=>'text-decoration:none', class:"nav-link" %>
-            </li>
-            <li>
-               <%= link_to "Models", models_path,:style=>'text-decoration:none', class:"nav-link text-nowrap" %>
-             </li> 
-            <li class="dropdown">
-                <a id="dLabel" class="nav-link" data-toggle="dropdown"  data-target="#" href="#" style='text-decoration:none'>
-                    Services <i class="fas fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="background-color:transparent">
-                      <li><a href="http://www.sudurpasal.com/" class="nav-link" style='text-decoration:none'>Shopping</a></li>
-                      <li><a href="http://www.cheersmnr.com/" class="nav-link" style='text-decoration:none'>Fooding</a></li>
-                      <li><a href="http://www.cakesmnr.com/" class="nav-link" style='text-decoration:none'>Online Cake</a></li>
-                </ul>
-            </li>
-          </ul>
-        </div>
-    </nav>
+  <div class="header__menu collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <%= link_to "Home", homes_index_path,:style=>'text-decoration:none'%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About Us", aboutus_index_path,:style=>'text-decoration:none'%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none' %>
+    </li>
+
+  <li class="nav-item dropdown has-megamenu">
+    <a class="" href="#" data-toggle="dropdown" style="text-decoration:none"> All Services<i class="fas fa-caret-down"></i></a>
+      <div class="dropdown-menu megamenu" role="menu">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="col-megamenu">
+                              <h6 class="title">Transport Services</h6>
+                              <ul class="list-unstyled">
+                                  <li>
+                                     <%= link_to "Bus Booking Agents", agents_path,:style=>'text-decoration:none' %>
+                                  </li>
+                                  <li>
+                                     <%= link_to "Bus Schedule", bus_departures_path,:style=>'text-decoration:none' %>
+                                  </li>
+                              </ul>
+                            </div>  <!-- col-megamenu.// -->
+                        </div><!-- end col-3 -->
+                        <div class="col-md-3">
+                          <div class="col-megamenu">
+                            <h6 class="title">Bussiness</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                       <%= link_to "Real Estates", realestates_path,:style=>'text-decoration:none' %>
+                                      </li>
+                                      <li>
+                                       <%= link_to "Job Vacancy", vacancies_path,:style=>'text-decoration:none' %>
+                                      </li>
+                                      <li>
+                                      <%= link_to "Add Bussiness", listings_new_path,:style=>'text-decoration:none'%>
+                                    </li>
+                                </ul>
+                            </div>  <!-- col-megamenu.// -->
+                        </div><!-- end col-3 -->
+                        <div class="col-md-3">
+                          <div class="col-megamenu">
+                            <h6 class="title">Social Services</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                     <%= link_to "Blood Donors", donors_path,:style=>'text-decoration:none' %>
+                                    </li>
+                                </ul>
+                            </div>  <!-- col-megamenu.// -->
+                        </div>    
+                        <div class="col-md-3">
+                          <div class="col-megamenu">
+                            <h6 class="title">Fashion and Lifestyle</h6>
+                                <ul class="list-unstyled">
+                                    <li>
+                                       <%= link_to "Models", models_path,:style=>'text-decoration:none' %>
+                                     </li> 
+                                     <li><a href="http://www.sudurpasal.com/" style='text-decoration:none' target="blank">Online Shopping</a></li>
+                                      <li><a href="http://www.cheersmnr.com/" style='text-decoration:none' target="blank">Online Fooding</a></li>
+                                      <li><a href="http://www.cakesmnr.com/" style='text-decoration:none' target="blank">Online Cake</a></li>
+                                </ul>
+                            </div>  <!-- col-megamenu.// -->
+                        </div><!-- end col-3 -->
+                    </div><!-- end row --> 
+        </div> <!-- dropdown-mega-menu.// -->
+  </li>
+</ul>
+
+  </div> <!-- navbar-collapse.// -->
+
+</nav>
+
+        <!-------------------------end of nav menu--------------------------->
     <!-- Navigation -->
     <!-- Header Section End -->   
     </header>
