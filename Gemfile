@@ -81,9 +81,6 @@ gem 'new_google_recaptcha'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 
-<<<<<<< HEAD
 
-=======
 #friendly id for removing id from url
 gem 'friendly_id', '~> 5.4.0'
->>>>>>> 25a1a57d05117901caf03e1b6543882a1a93c43f
