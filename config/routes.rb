@@ -24,6 +24,7 @@ Rails.application.routes.draw do
    #routes for arcy#
    resources :donors
    resources :vacancies
+   resources :pet_adoptions
    #################
 
 
