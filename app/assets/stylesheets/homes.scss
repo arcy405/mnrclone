@@ -38,11 +38,7 @@ body{
 	position: relative;
 }
 
-.header__menu ul li:hover .dropdown {
-	top: 32px;
-	opacity: 1;
-	visibility: visible;
-}
+
 
 .header__menu ul li:hover .dropdown li a {
 	color: #ffffff;
@@ -204,12 +200,7 @@ body{
 
 //test
 
-//for responsive bootstrap menu, 
-//hover effect for dropdown bootstreap menu
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; // remove the gap so it doesn't close
- }
+
  nav .navbar-nav li a{
 	color: white !important;
 	}
@@ -224,4 +215,13 @@ body{
 	 
 	.address1{
 		color: #ffffff;
+	}
+
+	//menu
+
+	@media all and (min-width: 992px) {
+		.navbar{ padding-top: 0; padding-bottom: 0; }
+		.navbar .has-megamenu{position:static!important;}
+		.navbar .megamenu{left:0; right:0; width:100%; padding:20px;  }
+		.navbar .nav-link{ padding-top:1rem; padding-bottom:1rem;  }
 	}

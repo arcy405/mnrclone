@@ -9,3 +9,15 @@ class TouristsController < ApplicationController
       
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -153,14 +153,11 @@ a.btn-card {
     transition: all .5s;
 }
 
-jobhover {
-	border: none;
-	background: #3a7999;
-	color: #f2f2f2;
-	padding: 10px;
-	font-size: 18px;
-	border-radius: 5px;
-	position: relative;
-	box-sizing: border-box;
-	transition: all 500ms ease; 
+
+  .card:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+  navbar-nav > .active > a { 
+    background-color: red ; 
 }
