@@ -1,3 +1,4 @@
 class Tourist < ApplicationRecord
-    mount_uploader :image, TouristUploader
+    has_many :tourist_image, dependent: :destroy
+    
 end

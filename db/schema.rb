@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_112101) do
+ActiveRecord::Schema.define(version: 2021_02_28_070026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -241,6 +241,14 @@ ActiveRecord::Schema.define(version: 2021_02_26_112101) do
     t.integer "listings_count"
   end
 
+  create_table "tourist_images", force: :cascade do |t|
+    t.string "image"
+    t.bigint "tourist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tourist_id"], name: "index_tourist_images_on_tourist_id"
+  end
+
   create_table "tourists", force: :cascade do |t|
     t.string "place_name"
     t.string "location"
@@ -300,4 +308,5 @@ ActiveRecord::Schema.define(version: 2021_02_26_112101) do
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "galleries", "models"
   add_foreign_key "listings", "tags"
+  add_foreign_key "tourist_images", "tourists"
 end

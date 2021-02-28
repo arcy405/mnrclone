@@ -8,14 +8,14 @@
             <% @tourist.each do |place| %>
                
                 <div class="col-md-3">
-                <%=  link_to  tourist_path(place) do %>
+                <%=  link_to  tourist_path(place), style:"text-decoration:none" do %>
                         <div class="card-flyer">
                             <div class="text-box">
                                 <div class="image-box">
                                 <img src="<%= place.image %>" class="img-fluid">
                                 </div>
                                 <div class="text-container text-black ">
-                                    <h6 class=""><%= place.place_name%></h6>
+                                    <h6 ><%= place.place_name %></h6>
                                          <p>  <i class="fas fa-map-marker-alt"></i> <%= place.location%></p>
                                 </div>
                                

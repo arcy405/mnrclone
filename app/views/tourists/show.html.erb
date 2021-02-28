@@ -1,6 +1,36 @@
+ 
+ <%= render 'Homepage/navmenu.html.erb' %>
+
  <div class="row px-4">
         <div class="col-md-6">
-            <img src="<%= @tourist.image %>" class="img-fluid">
+            <!------------carousel start ------------------------------------------------->
+            
+                <div  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                 <div class="carousel-inner">
+                 <% @tourist.tourist_image.each_with_index do |image,index| %>
+                 <% if index==1 %>
+                       <div class="carousel-item active ">
+                          <% else %>
+                           <div class="carousel-item  ">
+                         <% end %>
+                           <img class="d-block w-100" src="<%=image.image %>"   style=" width="600" height="300";" >
+                    </div>
+                   
+                 <% end %>
+                </div>
+                <!---------------for carousel controls --------------------->
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--------------------------------------------------------------------->
+      </div>
+      
+         <!------------carousel end ------------------------------------------------->
         </div>
         <div class="col-md-6">
             <h2>
@@ -11,45 +41,44 @@
             </p>
                 <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @tourist.location %></p>
                 <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @tourist.contact %></p>
-                        <i class="fas fa-check-double"></i> <strong> Features :</strong>
+                <i class="fas fa-check-double"></i> <strong> Features :</strong> <br>
                         
-                            <span class="badge rounded-pill bg-success"><%= @tourist.feature %></span>
-                           
+                    <% splitted=@tourist.feature.split(',') %>
+                    <% splitted.each do|feature| %>
+                        <span class="badge rounded-pill bg-success"> <%= feature %></span>
+                        
+                    <% end %>
+                    
         </div>
-    </div>
-
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav>
-                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Our Location</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">About Place</a>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <table class="table" cellspacing="0">
-                                    <div class="container-fluid" id='map' style='width:100%'></div>
-                                </table>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <table class="table" cellspacing="0">
-                               <p> <strong><h5><%= @tourist.description %><strong></p>      
-                                </table>
-                            </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <table class="table" cellspacing="0">
-                               sagar sir
-                                </table>
-                            </div>
+</div>
+<!--------------------------for tab ---------------------------------------------------------------->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Our Location</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">About Place</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <table class="table" cellspacing="0">
+                                <div class="container-fluid" id='map' style='width:100%'></div>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <table class="table" cellspacing="0">
+                            <p> <strong><h5><%= @tourist.description %> <strong></p>      
+                            </table>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-<!-----------------------for openbox map------------------->
+<!----------------------- js for openbox map------------------->
 <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoibmFyZW40MDQiLCJhIjoiY2tnNHJ2dmQ5MG44azJwbzUyaGJ4YWI2ZyJ9.uqYsTqii1M1UWwAq3mAEhg';
         var map = new mapboxgl.Map({
