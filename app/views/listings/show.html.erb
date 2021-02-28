@@ -65,6 +65,7 @@
     <!---------------form for review --------------->
     <div class="container-fluid">
         <div class="text-md text-mute mt-4">Review This Place</div>
+        <%= link_to "Register with Facebook", user_facebook_omniauth_authorize_path %>
         <div id="comment-section">
         <div class="form-group" id="comment">
             <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
