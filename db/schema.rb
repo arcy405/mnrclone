@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_02_25_101332) do
 
   # These are extensions that must be enabled in order to support this database
@@ -78,16 +79,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_101332) do
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "body"
-    t.integer "commentable_id"
-    t.string "commentable_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.integer "rating"
   end
 
   create_table "commontator_comments", force: :cascade do |t|
@@ -237,6 +228,16 @@ ActiveRecord::Schema.define(version: 2021_02_25_101332) do
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "name"
+    t.string "comment"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "listing_id", null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+  end
+
   create_table "searchedkeywords", force: :cascade do |t|
     t.string "word"
     t.datetime "created_at", precision: 6, null: false
@@ -305,4 +306,5 @@ ActiveRecord::Schema.define(version: 2021_02_25_101332) do
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "galleries", "models"
   add_foreign_key "listings", "tags"
+  add_foreign_key "reviews", "listings"
 end

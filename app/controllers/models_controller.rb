@@ -1,6 +1,6 @@
 class ModelsController < ApplicationController
 	def index
-		@models=Model.all
+		@models=Model.order(:name)
 		@ethnicity=Model.distinct.pluck(:ethnicity)
 	end
 	def show
