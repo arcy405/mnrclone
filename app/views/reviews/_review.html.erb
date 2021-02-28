@@ -1,0 +1,24 @@
+<div id="comments" class="container-fluid">
+<div class="row">
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <strong class="mr-auto"><h5 class="ext-primary float-left text-primary"><%= review.name %></h5></strong>
+      
+       <small class="text-muted ml-3"><small>Submitted <%= time_ago_in_words(review.created_at) %> ago</small></small>
+       <small class="ext-primary float-right">
+             <% review.rating.to_i.times do  %>
+             <span class="fa fa-star checked"></span>
+             <% end %>
+             <% review.blank_stars.times do  %>
+             <span class="fa fa-star"></span>
+             <% end %>
+        </small>
+      </div>
+      <div class="panel-body">
+          <div class="ml-2 bg-light" ><%= review.comment %> </div>
+      </div><!-- /panel-body -->
+    </div><!-- /panel panel-default -->
+  </div>
+</div><!-------end of row-------->
+</div>

@@ -4,10 +4,10 @@
 <div class="container-fluid">
  <!----------------------------------------breadcrumb section-------------------------------------->
         <div class="row p-3">
-            <div class="btn-group btn-breadcrumb breadcrumb-default">
-                <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
-                <%= link_to "#{@listdetails.tag.title}", :back ,class:"btn btn-default visible-lg-block visible-md-block"%>
-                    <a href="#" class="btn btn-default"><%= @listdetails.name %></a>
+            <div class="breadcrumb-default">
+                <a href="<%= root_path %>" style="text-decoration: none"><i class="fas fa-home"></i>Home/</a>
+                <%= link_to "#{@listdetails.tag.title}", :back,style:"text-decoration: none" %>
+                    <a href="#" style="text-decoration: none">/<%= @listdetails.name %></a>
             </div>
         </div>
         <!------------------------------------------------------------------------------->
@@ -30,78 +30,80 @@
                             <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @listdetails.phone %></p>
                         <p>
                             <span class="badge badge-info">Rating</span>
-                            <% @listdetails.comments.average(:rating).to_i.times do %>
+                            <% @listdetails.reviews.average(:rating).to_i.times do %>
                                 <span class="fa fa-star checked"></span>
                             <% end %>
-                            <% (5-@listdetails.comments.average(:rating).to_i).times do %>
+                            <% (5-@listdetails.reviews.average(:rating).to_i).times do %>
                                 <span class="fa fa-star"></span>
                             <% end %>
                         </p>   
                     </div>
     </div>
      
-<!---------------form for review --------------->
- <div class="panel panel-default">
-  <!----<div class="panel-body"><h4>Review Our Place</h4>
-    <% if !user_signed_in? %>
-    <%= link_to "Login with Facebook", user_facebook_omniauth_authorize_path %>
-    <% end %>--------->
-    <% if user_signed_in? %>
-        <div id=comment-section>
-                <div class="form-group" id="comment">
-                    <%= form_for [@list, Comment.new], :remote =>true do |f| %>
-                    <div class="rating">
-                            <%= f.radio_button(:rating, "5") %> <%= f.label(:rating.to_s + "_5", "Rocks") %> 
-                            <%= f.radio_button(:rating, "4") %> <%= f.label(:rating.to_s + "_4", "Pretty good") %> 
-                            <%= f.radio_button(:rating, "3") %> <%= f.label(:rating.to_s + "_3", "Meh") %> 
-                            <%= f.radio_button(:rating, "2") %> <%= f.label(:rating.to_s + "_2", "Kinda bad") %> 
-                            <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1", "Sucks big time") %>
-                    </div>
-                    <%= f.text_area :body, placeholder: "Add a comment", class:"form-control" %>
-                    <%= f.text_field :name, value: current_user.name, hidden: true %>
-                        <div class="text-right pt-2">
-                            <%= f.submit "Add Comment" %>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
-        <% end %>
-    </div>
-    </div>
 
-       <!----------new code added by bhupi-- start --------------------------------->
 
-    <div class="col-xs- 12">
+       <!----------description section --------------------------------->
+ <div class="container-fluid mt-4">
             <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Our Location</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Our Services</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Review The Place</a>
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="text-decoration: none">Our Location</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="text-decoration: none">Our Services</a>
             </div>
             </nav>
-            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="container-fluid" id='map' style='width:100%'></div>
-
+                <div class="container-fluid" id='map' style='width:100%'></div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                 <div><%= @listdetails.description %></div>                    
+                 <div class="m-4"><%= @listdetails.description %></div>                    
             </div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <div class="panel-body"><h4>Recent Comments</h4>
-                        <% if @listdetails.comments.count == 0 %>
-                            <p id="nocomments">No comments yet. Be the first one to review this place.</p>
-                        <% end %>
-                            <div id="comments">
-                                <%= render(partial: "comments/comment", collection: @listdetails.comments.order(created_at: :desc).limit(10)) %>
-                            </div>
-                    </div>                    
-            </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    </div>                    
+    </div>
+    </div>
 
+    <!---------------form for review --------------->
+    <div class="container-fluid">
+        <div class="text-md text-mute mt-4">Review This Place</div>
+        <div id="comment-section">
+        <div class="form-group" id="comment">
+            <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
+                <div class="rating">
+                        <%= f.radio_button(:rating, "5") %> <%= f.label(:rating.to_s + "_5" ) %> 
+                        <%= f.radio_button(:rating, "4") %> <%= f.label(:rating.to_s + "_4"  ) %> 
+                        <%= f.radio_button(:rating, "3") %> <%= f.label(:rating.to_s + "_3" ) %> 
+                        <%= f.radio_button(:rating, "2") %> <%= f.label(:rating.to_s + "_2" ) %> 
+                        <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1" ) %>
+                </div><br /><br />
+                <div class="row mt-2">
+                    <div class="col-4">
+                      <%= f.text_field :name, placeholder: "Name", class:"form-control w-50"  %>
+                   </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-4">
+                     <%= f.text_area :comment, placeholder: "Add a comment", class:"form-control w-50" %>
+                   </div>
+                </div>
+                    <div class="pt-2">
+                        <%= f.submit "Add Review", class:"btn btn-primary" %>
+                    </div>
+                <% end %>
             </div>
+            <div class="panel-body">
+           <h4 class="ml-2">Recent Comments</h4>
+            <% if @list.reviews.count == 0 %>
+                <p id="nocomments">No comments yet. Be the first one to review this place.</p>
+            <% end %>
+    </div>
+    
+        <%= render @list.reviews.order("created_at DESC").limit(10) %>
+        </div>
+    </div>
+    <!------------------------------------------------------------------->
 
-      </div>
-  
+</div>
+
        <!-------------new code added by bhupi --end ------------------------------>
 
 <!-----------------------for openbox map------------------->
@@ -113,7 +115,7 @@
         center: [80.179080,28.963439], // starting position [lng, lat]
         zoom: 13 // starting zoom
         });
-        map.scrollZoom.disable();
+        map.scrollZoom.enable();
         
         
     map.on('load', function () {

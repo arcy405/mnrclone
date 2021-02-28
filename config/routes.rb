@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
    resources :bus_departures
    resources :models
+   resources :reviews
 
    #routes for arcy#
    resources :donors
@@ -41,11 +42,7 @@ Rails.application.routes.draw do
  
 
   resources :listings do
-    resources :comments
-  end
-
-  resources :comments do
-    resources :comments
+      resources :reviews
   end
 
 end
