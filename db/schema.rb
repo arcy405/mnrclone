@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_100508) do
+
+
+
+ActiveRecord::Schema.define(version: 2021_02_25_101332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -241,12 +244,21 @@ ActiveRecord::Schema.define(version: 2021_02_28_100508) do
     t.index ["slug"], name: "index_models_on_slug", unique: true
   end
 
+  create_table "pet_adoptions", force: :cascade do |t|
+    t.string "pet_name"
+    t.string "pet_type"
+    t.string "location"
+    t.string "contact"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+  end
+
   create_table "realestates", force: :cascade do |t|
     t.string "seller_name"
     t.string "seller_phone"
     t.string "price"
     t.string "description"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ptype"
@@ -255,6 +267,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_100508) do
     t.string "bedroom"
     t.string "kitchen"
     t.string "bathroom"
+    t.string "image"
     t.string "slug"
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
@@ -283,12 +296,25 @@ ActiveRecord::Schema.define(version: 2021_02_28_100508) do
     t.integer "listings_count"
   end
 
+  create_table "tourist_images", force: :cascade do |t|
+    t.string "image"
+    t.bigint "tourist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tourist_id"], name: "index_tourist_images_on_tourist_id"
+  end
+
   create_table "tourists", force: :cascade do |t|
     t.string "place_name"
     t.string "location"
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.string "image"
+    t.string "longitude"
+    t.string "lattitude"
+    t.string "feature"
   end
 
   create_table "users", force: :cascade do |t|
@@ -337,5 +363,6 @@ ActiveRecord::Schema.define(version: 2021_02_28_100508) do
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "galleries", "models"
   add_foreign_key "listings", "tags"
+  add_foreign_key "tourist_images", "tourists"
   add_foreign_key "reviews", "listings"
 end

@@ -1,34 +1,34 @@
-<% content_for :title, "Tourism Places" %>
-  <%= render 'Homepage/navmenu.html.erb' %>
+ <%= render 'Homepage/navmenu.html.erb' %>
 
-                       
-
-        <!-----------------cards section started------------------------------------->
-                      <div class="table-container">
-                                
-                          <div id="table" class="table table-filter">
-                              <div class="row">
-                                  <% @Tourists.each do |tourist| %>
-                                  
-                                          <div class="card cardme mt-4">
-                                      
-                                        
-                                              <div class="card-block">
-                                                <h4 class="card-title mt-3"><%= tourist.place_name %></h4>
-                                              <div class="meta">
-                                                  <a> <%= tourist.location%> </a>
-                                              </div>
-                                              
-                                          </div>
-                                          <div class="card-footer">
-                                              <span class="float-right"><i class="fas fa-mobile-alt"></i> <%= tourist.contact %></span>
-                                          </div>
-                                        
-                                    </div>
-                                      <% end %>	
+  <!------------------tourism cards started---------------------------------->
+   
+    <div id="cards_landscape_wrap-2">
+        <div class="container">
+            <div class="row">
+            <% @tourist.each do |place| %>
+               
+                <div class="col-md-3">
+                <%=  link_to  tourist_path(place), style:"text-decoration:none" do %>
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                <img src="<%= place.image %>" class="img-fluid">
                                 </div>
+                                <div class="text-container text-black ">
+                                    <h6 ><%= place.place_name %></h6>
+                                         <p>  <i class="fas fa-map-marker-alt"></i> <%= place.location%></p>
+                                </div>
+                               
                             </div>
-                            </div>
-          
-            <!-----------------cards section ends------------------------------------------------>
-  
+                        </div>
+                </div>
+              <% end %>
+
+           <% end %>     
+                
+            </div>
+        </div>
+    </div>
+
+       
+   <!-----------------tourism cards end----------------------------------------------->

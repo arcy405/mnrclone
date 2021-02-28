@@ -1,0 +1,191 @@
+ 
+ <%= render 'Homepage/navmenu.html.erb' %>
+
+ <div class="row px-4">
+        <div class="col-md-6">
+            <!------------carousel start ------------------------------------------------->
+            
+                <div  id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                 <div class="carousel-inner">
+                 <% @tourist.tourist_image.each_with_index do |image,index| %>
+                 <% if index==1 %>
+                       <div class="carousel-item active ">
+                          <% else %>
+                           <div class="carousel-item  ">
+                         <% end %>
+                           <img class="d-block w-100" src="<%=image.image %>"   style=" width="600" height="300";" >
+                    </div>
+                   
+                 <% end %>
+                </div>
+                <!---------------for carousel controls --------------------->
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--------------------------------------------------------------------->
+      </div>
+      
+         <!------------carousel end ------------------------------------------------->
+        </div>
+        <div class="col-md-6">
+            <h2>
+                <strong><%= @tourist.place_name %></strong>
+            </h2>
+            <p>
+                <span class="badge badge-info">Contact Us</span>
+            </p>
+                <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @tourist.location %></p>
+                <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @tourist.contact %></p>
+                <i class="fas fa-check-double"></i> <strong> Features :</strong> <br>
+                        
+                    <% splitted=@tourist.feature.split(',') %>
+                    <% splitted.each do|feature| %>
+                        <span class="badge rounded-pill bg-success"> <%= feature %></span>
+                        
+                    <% end %>
+                    
+        </div>
+</div>
+<!--------------------------for tab ---------------------------------------------------------------->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Our Location</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">About Place</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <table class="table" cellspacing="0">
+                                <div class="container-fluid" id='map' style='width:100%'></div>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <table class="table" cellspacing="0">
+                            <p> <strong><h5><%= @tourist.description %> <strong></p>      
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!----------------------- js for openbox map------------------->
+<script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmFyZW40MDQiLCJhIjoiY2tnNHJ2dmQ5MG44azJwbzUyaGJ4YWI2ZyJ9.uqYsTqii1M1UWwAq3mAEhg';
+        var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [80.179080,28.963439], // starting position [lng, lat]
+        zoom: 13 // starting zoom
+        });
+        map.scrollZoom.disable();
+        
+        
+    map.on('load', function () {
+        map.loadImage(
+        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+        // Add an image to use as a custom marker
+        function (error, image) {
+        if (error) throw error;
+        map.addImage('custom-marker', image);
+    
+            map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+
+            'type': 'Feature',
+            'properties': {
+            'description':
+            '<strong><%= @tourist.place_name %></strong><p><%= @tourist.location %></p>'
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [<%= @tourist.longitude %>, <%= @tourist.lattitude %>]
+            }}]}
+            });
+ 
+// Add a layer showing the places.
+        map.addLayer({
+        'id': 'places',
+        'type': 'symbol',
+        'source': 'places',
+        'layout': {
+        'icon-image': 'custom-marker'
+        }
+        });
+    }
+    );
+ 
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+closeButton: false,
+closeOnClick: false
+});
+ 
+map.on('mouseenter', 'places', function (e) {
+// Change the cursor style as a UI indicator.
+map.getCanvas().style.cursor = 'pointer';
+ 
+var coordinates = e.features[0].geometry.coordinates.slice();
+var description = e.features[0].properties.description;
+ 
+// Ensure that if the map is zoomed out such that multiple
+// copies of the feature are visible, the popup appears
+// over the copy being pointed to.
+while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+}
+ 
+// Populate the popup and set its coordinates
+// based on the feature found.
+popup.setLngLat(coordinates).setHTML(description).addTo(map);
+});
+ 
+map.on('mouseleave', 'places', function () {
+map.getCanvas().style.cursor = '';
+popup.remove();
+});
+});
+</script>
+
+<!-------------------------for star rating----------------------->
+<script>
+// STAR RATING
+function add(ths, sno) {
+    for (var i = 1; i <= 5; i++) {
+		var cur = document.getElementById("star" + i);
+		cur.setAttribute('data-prefix','far');
+	}
+
+	for (var i = 1; i <= sno; i++) {
+        var cur = document.getElementById("star" + i);
+		if (cur.getAttribute('data-prefix') == "far") {
+			cur.setAttribute('data-prefix','fas');
+		}
+        else{
+            cur.setAttribute('data-prefix','far');
+        }
+    }
+    var rating=sno;
+    alert(sno)
+    $.ajax({
+    //Your ajax code here to submit from via AJAX. refer jquery site . I gave sample eg.
+             url : "Your URL or file name on server",
+             data : sno
+        });
+}
+</script>
+<!------------------------------------------------------->
+
