@@ -3,9 +3,9 @@
 <div class="container-fluid">
     <!----------------------------------------breadcrumb section-------------------------------------->
             <div class="row  p-2">
-                <div class="btn-group btn-breadcrumb breadcrumb-default">
-                    <a href="<%= root_path %>" class="btn btn-default"><i class="fas fa-home"></i>Home</a>
-                    <a href="#" class="btn btn-default"><%= @catname %></a>
+                <div class="breadcrumb-default">
+                    <a href="<%= root_path %>" style="text-decoration: none"><i class="fas fa-home"></i>Home/</a>
+                    <a href="#" style="text-decoration: none"><%= @catname %></a>
                 </div>
             </div>
         <!------------------------------------------------------------------------------->
@@ -22,10 +22,10 @@
                             </div>
                             <div class="card-body pt-1">
                                 <h5 class="card-title"><%= list.name %></h5>
-                                <% list.comments.average(:rating).to_i.times do %>
+                                <% list.reviews.average(:rating).to_i.times do %>
                                 <span class="fa fa-star checked"></span>
                             <% end %>
-                            <% (5-list.comments.average(:rating).to_i).times do %>
+                            <% (5-list.reviews.average(:rating).to_i).times do %>
                                 <span class="fa fa-star text-muted"></span>
                             <% end %>
                                 <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= list.address %></p>
