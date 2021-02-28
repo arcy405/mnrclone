@@ -28,6 +28,7 @@ get "/application.manifest" => Rails::Offline
    #routes for arcy#
    resources :donors
    resources :vacancies
+   resources :pet_adoptions
    #################
 
 

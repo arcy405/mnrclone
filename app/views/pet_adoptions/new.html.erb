@@ -1,0 +1,65 @@
+<% content_for :title, "Pet Adoption-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+
+
+  
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1>Fill The Pet Details<span>MNRYP</span></h1>
+                   </div>
+                   <div id="addlistform">
+                      <div class="about-title clearfix" style="display:none">
+                          <h1>Welcome <span>MNRYP</span></h1>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify">Make sure fill every field.</li>
+              <li class="about-paddingB text-justify">Use the name of your and also give your name.</li>
+              <li class="about-paddingB text-justify">Use the address from where pet can be adopted.</li>
+    
+              <li>Your information is safe with us, you will be called for pet adoption in future, THANK YOU!</li>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= form_for @pet_adoptions,html: { multipart: true } do |f| %>
+                  
+                     <div class="row p-2">
+                        <%= f.text_field :pet_name, placeholder: "Pet Name" ,:required => true %>
+                     </div>
+                     
+                     
+                     
+                     <div class="row p-2">
+                        <%= f.text_field :contact, placeholder: "Contact Number" ,:required => true %>
+                     </div>
+                     <div class="row p-2">
+                        <label for="image">Add Image </label>
+                        <%= image_tag(@pet_adoptions.avatar_url) if @pet_adoptions.image? %>
+                        <%= f.file_field :image, direct_upload: true %>
+                        <%= f.hidden_field :image_cache %>
+                     </div>
+                     <div class="d-flex justify-content-center">
+                      <%= f.submit "Add" , class: "button"%>
+                     </div>
+                       <%= recaptcha_action('pet_adoption') %>
+                  <% end %>
+                  
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+   
+       
+       
