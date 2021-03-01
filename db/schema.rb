@@ -11,10 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-
-
 ActiveRecord::Schema.define(version: 2021_02_25_101332) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -310,11 +307,11 @@ ActiveRecord::Schema.define(version: 2021_02_25_101332) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "description"
     t.string "image"
     t.string "longitude"
     t.string "lattitude"
     t.string "feature"
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -363,6 +360,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_101332) do
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "galleries", "models"
   add_foreign_key "listings", "tags"
-  add_foreign_key "tourist_images", "tourists"
   add_foreign_key "reviews", "listings"
+  add_foreign_key "tourist_images", "tourists"
 end
