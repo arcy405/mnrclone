@@ -5,8 +5,8 @@
    <div class="mb-4">
    	<button class="badge bg-info text-dark filter-button mt-2" data-filter="all">All</button>
 
-   	<% @models.each do |model| %>
-        <button class="badge bg-info text-dark filter-button mt-2" data-filter="<%= model.ethnicity %>"><%= model.ethnicity %></button>
+   	<% @ethnicity.each do |ethnicity| %>
+        <button class="badge bg-info text-dark filter-button mt-2" data-filter="<%= ethnicity.to_s %>"><%= ethnicity.to_s %></button>
     <% end %>
     </div>
 <div class="row">
