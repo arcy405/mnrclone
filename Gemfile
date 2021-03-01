@@ -84,3 +84,10 @@ gem 'cancancan'
 
 #friendly id for removing id from url
 gem 'friendly_id', '~> 5.4.0'
+
+#for metrics and track
+gem 'ahoy_matey'
+
+#offline ready app
+gem "rack-offline"
+
