@@ -25,6 +25,7 @@ require("custom/donors.js")
 require("custom/filtertable.js")
 require("custom/navbarmenu.js")
 require("custom/singleimage.js")
+require("custom/messenger.js")
 
 import "bootstrap";
 import "../stylesheets/application"
