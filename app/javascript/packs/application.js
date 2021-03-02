@@ -26,6 +26,8 @@ require("custom/filtertable.js")
 require("custom/navbarmenu.js")
 require("custom/singleimage.js")
 require("custom/messenger.js")
+require("custom/facebooklogin.js")
+
 
 import "bootstrap";
 import "../stylesheets/application"

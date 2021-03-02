@@ -1,6 +1,5 @@
 <% content_for :title, "#{@listdetails.name}-MNRYP" %>
 
-
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container-fluid">
  <!----------------------------------------breadcrumb section-------------------------------------->
@@ -64,8 +63,10 @@
     </div>
 
     <!---------------form for review --------------->
-    <div class="text-mute mt-4">Review This Place</div>
-    <% if user_signed_in? %>
+    <div class="container-fluid">
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :put %>
+        <div class="text-md text-mute mt-4">Review This Place</div>
+        <div id="comment-section">
         <div class="form-group" id="comment">
             <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
                 <div class="rating">
@@ -90,9 +91,6 @@
                     </div>
                 <% end %>
             </div>
-    <div class="container-fluid">
-        <div id="comment-section">
-    
             <div class="panel-body">
            <h4 class="ml-2">Recent Comments</h4>
             <% if @list.reviews.count == 0 %>
@@ -104,23 +102,7 @@
         </div>
     </div>
     <!------------------------------------------------------------------->
-        
-    <% else %>
-    <div class="text-md text-mute mt-4">You must be logged in to Review This Place</div>
-         <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
-    <div class="container-fluid">
-        <div id="comment-section">
-            <div class="panel-body">
-           <h4 class="ml-2">Recent Comments</h4>
-            <% if @list.reviews.count == 0 %>
-                <p id="nocomments">No comments yet. Be the first one to review this place.</p>
-            <% end %>
-    </div>
-    
-        <%= render @list.reviews.order("created_at DESC").limit(10) %>
-        </div>
-    </div>
-    <% end %>
+
 </div>
 
        <!-------------new code added by bhupi --end ------------------------------>
@@ -236,3 +218,70 @@ function add(ths, sno) {
 </script>
 <!------------------------------------------------------->
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+    console.log('statusChangeCallback');
+    console.log(response);                   // The current login status of the person.
+    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+      testAPI();  
+    } else {                                 // Not logged into your webpage or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
+    }
+  }
+
+
+  function checkLoginState() {               // Called when a person is finished with the Login Button.
+    FB.getLoginStatus(function(response) {   // See the onlogin handler
+      statusChangeCallback(response);
+    });
+  }
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2269086783123884',
+      cookie     : true,                     // Enable cookies to allow the server to access the session.
+      xfbml      : true,                     // Parse social plugins on this webpage.
+      version    : 'v9.0'           // Use this Graph API version for this call.
+    });
+
+
+    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      statusChangeCallback(response);        // Returns the login status.
+    });
+  };
+ 
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+</script>
+
+
+<!-- The JS SDK Login Button -->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<!-- Load the JS SDK asynchronously -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+</body>
+</html>
