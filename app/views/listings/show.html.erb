@@ -63,10 +63,11 @@
     </div>
 
     <!---------------form for review --------------->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=2269086783123884&autoLogAppEvents=1" nonce="70PdbHcO"></script>
     <div class="container-fluid">
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :put %>
         <div class="text-md text-mute mt-4">Review This Place</div>
-        
+        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
         <div id="comment-section">
         <div class="form-group" id="comment">
             <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
