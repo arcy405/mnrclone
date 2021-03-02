@@ -79,6 +79,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
 
-  config.omniauth :facebook, APP_ID:"2269086783123884", APP_SECRET:"a6e3c3740a9d57cde58891ea37f97aa4",callback_url: "https://www.mnryp.com/auth/facebook/callback"
+  config.omniauth :facebook, APP_ID:"2269086783123884", APP_SECRET:"a6e3c3740a9d57cde58891ea37f97aa4",callback_url: "https://www.mnryp.com/users/auth/facebook"
   
 end
