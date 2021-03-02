@@ -1,6 +1,6 @@
 class TouristsController < ApplicationController
     def index 
-        @tourist=Tourist.order("created_at DESC")
+        @tourist=Tourist.order(:place_name)
     end 
      
     def show
