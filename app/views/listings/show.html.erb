@@ -64,7 +64,7 @@
 
     <!---------------form for review --------------->
     <div class="container-fluid">
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :put %>
+
         <div class="text-md text-mute mt-4">Review This Place</div>
         <div id="comment-section">
         <div class="form-group" id="comment">
@@ -102,7 +102,7 @@
         </div>
     </div>
     <!------------------------------------------------------------------->
-
+     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>           
 </div>
 
        <!-------------new code added by bhupi --end ------------------------------>
@@ -218,19 +218,3 @@ function add(ths, sno) {
 </script>
 <!------------------------------------------------------->
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=2269086783123884&autoLogAppEvents=1" nonce="4P2GBG6k"></script>
-
-<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-<script>
-
-  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      console.log("connected to app")
-    } else {     
-    console.log("Login Failed");                        
-  }
-}
-  </script>
