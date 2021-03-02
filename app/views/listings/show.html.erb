@@ -1,5 +1,7 @@
 <% content_for :title, "#{@listdetails.name}-MNRYP" %>
 
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=2269086783123884&autoLogAppEvents=1" nonce="70PdbHcO"></script>
+
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container-fluid">
  <!----------------------------------------breadcrumb section-------------------------------------->
@@ -63,12 +65,8 @@
     </div>
 
     <!---------------form for review --------------->
-    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=2269086783123884&autoLogAppEvents=1" nonce="70PdbHcO"></script>
-    <div class="container-fluid">
-        <div class="text-md text-mute mt-4">Review This Place</div>
-        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-        <div id="comment-section">
+    <div class="text-mute mt-4">Review This Place</div>
+    <% if user_signed_in? %>
         <div class="form-group" id="comment">
             <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
                 <div class="rating">
@@ -93,6 +91,9 @@
                     </div>
                 <% end %>
             </div>
+    <div class="container-fluid">
+        <div id="comment-section">
+    
             <div class="panel-body">
            <h4 class="ml-2">Recent Comments</h4>
             <% if @list.reviews.count == 0 %>
@@ -104,6 +105,28 @@
         </div>
     </div>
     <!------------------------------------------------------------------->
+        
+    <% else %>
+    <div class="text-md text-mute mt-4">You must be logged in to Review This Place</div>
+         <div id="fb-root"></div>
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+    <div class="container-fluid">
+        <div id="comment-section">
+    
+            <div class="panel-body">
+           <h4 class="ml-2">Recent Comments</h4>
+            <% if @list.reviews.count == 0 %>
+                <p id="nocomments">No comments yet. Be the first one to review this place.</p>
+            <% end %>
+    </div>
+    
+        <%= render @list.reviews.order("created_at DESC").limit(10) %>
+        </div>
+    </div>
+    <% end %>
+
+
 
 </div>
 
