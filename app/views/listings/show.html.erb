@@ -1,4 +1,12 @@
-<% content_for :title, "#{@listdetails.name}-MNRYP" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=225595802505891&autoLogAppEvents=1" nonce="dZITECJ1"></script>
+    <% content_for :title, "#{@listdetails.name}-MNRYP" %>
+</head>
+<body>
+
 
 
 <%= render 'Homepage/navmenu.html.erb' %>
@@ -65,7 +73,8 @@
 
     <!---------------form for review --------------->
     <div class="text-mute mt-4">Review This Place</div>
-    <% if user_signed_in? %>
+    <div id="fb-root"></div>
+    <div id="logged_in">
         <div class="form-group" id="comment">
             <%= form_with(model: [@list, @list.reviews.build]) do |f| %>
                 <div class="rating">
@@ -105,22 +114,25 @@
     </div>
     <!------------------------------------------------------------------->
         
-    <% else %>
-    <div class="text-md text-mute mt-4">You must be logged in to Review This Place</div>
-         <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
-    <div class="container-fluid">
-        <div id="comment-section">
-            <div class="panel-body">
-           <h4 class="ml-2">Recent Comments</h4>
-            <% if @list.reviews.count == 0 %>
-                <p id="nocomments">No comments yet. Be the first one to review this place.</p>
-            <% end %>
     </div>
-    
-        <%= render @list.reviews.order("created_at DESC").limit(10) %>
+    <div id="not_logged_in">
+        <div id="fb-root"></div>
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="true"></div>
+        <div class="text-md text-mute mt-4">You must be logged in to Review This Place</div>
+             <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>
+        <div class="container-fluid">
+            <div id="comment-section">
+                <div class="panel-body">
+               <h4 class="ml-2">Recent Comments</h4>
+                <% if @list.reviews.count == 0 %>
+                    <p id="nocomments">No comments yet. Be the first one to review this place.</p>
+                <% end %>
+        </div>
+        
+            <%= render @list.reviews.order("created_at DESC").limit(10) %>
+            </div>
         </div>
     </div>
-    <% end %>
 </div>
 
        <!-------------new code added by bhupi --end ------------------------------>
@@ -235,4 +247,5 @@ function add(ths, sno) {
 }
 </script>
 <!------------------------------------------------------->
-
+</body>
+</html>
