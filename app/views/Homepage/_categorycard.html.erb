@@ -7,8 +7,6 @@
         <% @tags.each do |tag| %>
                  <%= link_to homes_show_path(category: tag.title ),:style=>'text-decoration:none' do%>
                      <div class="container">
-                        <div class="row mb-2">
-                            <div class="col-md-12">
                               <div class="card shadow">
                                 <div class="card-body">
                                         <div class="row">
@@ -32,8 +30,6 @@
                                     </div>
                                 </div>
                               </div>
-                            </div>
-                        </div>
             <%end%>
         <%end%>
 </div>

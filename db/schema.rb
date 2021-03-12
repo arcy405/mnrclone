@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_071841) do
     t.string "seller_phone"
     t.string "price"
     t.string "description"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ptype"
@@ -264,7 +265,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_071841) do
     t.string "bedroom"
     t.string "kitchen"
     t.string "bathroom"
-    t.string "image"
     t.string "slug"
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
