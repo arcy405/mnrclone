@@ -9,27 +9,31 @@
                 </div>
             </div>
         <!------------------------------------------------------------------------------->
+        <div id="cards_landscape_wrap-2">
+
         <div class="row">
          <% @lists.each do |list| %>
             <% if list.status == 1%>
                 <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 pb-2">
                     <%= link_to listings_show_path(id: list.id),:style=>'text-decoration:none' do%>
-                        <div class="card profile-card-2 h-100">
-                            <div class="card-img-block">
-                                <% if list.image.present? %>
-                                 <%= image_tag list.image_url , :class =>'img-fluid'%>
-                                <%end%>
-                            </div>
-                            <div class="card-body pt-1">
-                                <h5 class="card-title"><%= list.name %></h5>
+                        <div class="card-flyer">
+                            <div class="text-box">
+                                <div class="image-box">
+                                    <% if list.image.present? %>
+                                        <img src="<%= list.image %>" alt="" />
+                                    <%end%>
+                                </div>
+                                <div class="text-container">
+                                    <h5 class="card-title"><%= list.name %></h5>
                                 <% list.reviews.average(:rating).to_i.times do %>
-                                <span class="fa fa-star checked"></span>
-                            <% end %>
-                            <% (5-list.reviews.average(:rating).to_i).times do %>
-                                <span class="fa fa-star text-muted"></span>
-                            <% end %>
+                                    <span class="fa fa-star checked"></span>
+                                <% end %>
+                                <% (5-list.reviews.average(:rating).to_i).times do %>
+                                    <span class="fa fa-star text-muted"></span>
+                                <% end %>
                                 <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= list.address %></p>
                                 <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= list.phone %></p>
+                                </div>
                             </div>
                         </div>
                     <%end%>
@@ -37,4 +41,7 @@
             <%end%>
           <%end%>
         </div>
+    </div>
 </div>
+
+

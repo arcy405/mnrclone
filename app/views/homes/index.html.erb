@@ -11,6 +11,8 @@
 <body>
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
+ 
+ <div class="desktop-view d-none d-sm-block">
  <div class="px-4">
  	<div class="row">
  		<div class="col-md-3 cols-xs-12">
@@ -27,6 +29,17 @@
     	</div>
  		</div>
  	</div>
+ </div>
+ <div class="mobile-view d-block d-sm-none">
+ 	<div class="container">
+ 			<%= render partial:"Homepage/services" %>
+ 			<!-----category cards---->
+ 			<%= render 'Homepage/categorycard.html.erb' %>
+ 			<div class="py-2 px-1">
+ 			 <div class="fb-page" data-href="https://www.facebook.com/mnryp/" data-tabs="timeline" data-width="" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/mnryp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mnryp/">MNR YP</a></blockquote></div>
+ 			</div>
+ 	</div>
+ </div>
  <div id="fb-root"></div>
 
 </body>
