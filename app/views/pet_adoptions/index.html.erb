@@ -14,11 +14,11 @@
         <div class="row">
             <% @pet_adoptions.each do |pet| %>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                    <a href="">
+                    <a href="#">
                         <div class="card-flyer">
                             <div class="text-box">
                                 <div class="image-box">
-                                    <img src="<%= pet.image %>" alt="" />
+                                    <%= cl_image_tag(pet.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
                                 </div>
                                 <div class="text-container">
                                     <h6><%= pet.pet_name %></h6>

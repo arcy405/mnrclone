@@ -15,7 +15,7 @@
 		<div class="col-md-3 col-xs-12 filter <%= model.ethnicity %>">
 			<div class="card h-100 model-card" style="width: 18rem;">
 				<% model.gallery.each do |gallery|%>
-					<img class="card-img-top" src="<%= gallery.image %>"   alt="" style="height: 25rem;" />
+				<%= cl_image_tag(gallery.image, :quality=>"auto:low",:class=>"card-img-top",:fetch_format=>"auto",:flags=>"lossy",:style=>"height: 25rem;") %>
 					<% break %>
 				<% end %>
 				<div class="card-body">
