@@ -14,7 +14,7 @@
                                                     <div class="d-flex">
                                                         <div>
                                                             <% if tag.image.present? %>
-                                                                <%= image_tag tag.image_url , :class =>'profile2 rounded-circle'%>
+                                                            <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle") %>
                                                             <%end%>
                                                         </div>
                                                         <div>

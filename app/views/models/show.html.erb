@@ -15,7 +15,7 @@
             <div class="card ">
               <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="<%= @model.name %>"
                          data-image="<%= photo.image %>" data-target="#image-gallery">
-              <img class="card-img-top img-responsive" src="<%= photo.image %>" alt="Card image cap"> 
+            <%= cl_image_tag(photo.image, :quality=>"auto:low",:class=>"card-img-top img-responsive",:fetch_format=>"auto",:flags=>"lossy") %>
             </a>
            </div>
         <% end %>

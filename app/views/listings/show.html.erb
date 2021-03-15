@@ -15,7 +15,8 @@
              <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center border-right border-secondery">
                         <% if @listdetails.image.present? %>
-                            <%= image_tag @listdetails.image_url , :class =>'list-image img-fluid'%>
+
+                            <%= cl_image_tag(@listdetails.image_url, :quality=>"auto:low",:class=>"list-image img-fluid",:fetch_format=>"auto",:flags=>"lossy") %>
                         <%end%>  
                     </div>
                     <div class="col-xs-6 col-md-6 col-sm-12">
@@ -102,7 +103,6 @@
         </div>
     </div>
     <!------------------------------------------------------------------->
-     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post %>           
 </div>
 
        <!-------------new code added by bhupi --end ------------------------------>
