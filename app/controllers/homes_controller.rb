@@ -9,5 +9,4 @@ class HomesController < ApplicationController
     @catname=category
     @lists=Listing.all.joins(:tag).where(tags: { title: category})
     end
-   
 end

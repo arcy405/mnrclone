@@ -1,0 +1,41 @@
+<% content_for :title, "Notes" %>
+ <%= render 'Homepage/navmenu.html.erb' %>
+
+<!----------------------------------------breadcrumb section-------------------------------------->
+        <div class="row p-3">
+            <div class="breadcrumb-default ml-2">
+                <%= link_to "#{params[:uni]}-#{params[:dept]}/", educational_notes_path,style:"text-decoration: none",class:"text-uppercase" %>
+                <%= link_to "#{params[:sem]}", :back,style:"text-decoration: none",class:"text-uppercase" %>
+                    <a href="#" style="text-decoration: none">/ <span class="text-capitalize"><%= params[:sub] %></span></a>
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------->
+     <% notes_api = JSON.parse(@release_assets.asset_url) %>
+        <% notes_api[0]['assets'] %>
+      <!--------------------------------------------------------->
+<% if !notes_api.nil? %>
+<div class="row container-fluid py-2">
+			<% notes_api[0]['assets'].each do |note|%>
+				<% uni = note['name'].to_s.split("_")[0] %>
+				<% dept = note['name'].to_s.split("_")[1] %>
+				<% sem = note['name'].to_s.split("_")[2] %>
+				<% subj = note['name'].to_s.split("_")[3] %>
+
+				<% if uni == params[:uni] && dept==params[:dept] && sem==params[:sem] && sem==params[:sem] && subj==params[:sub] %>
+						<div class="col text-center">
+							<a href="<%= note['browser_download_url'] %>" style="text-decoration: none;">
+									<div class="ml-2">
+									        <div class="card-body">
+									            <i class="fas fa-file-pdf fa-2x"></i><br />
+									            <i class="fas fa-download"></i>
+									            <h6 class="text-capitalize">
+									            	<%= subj+"/"+note['name'].to_s.split("_")[4] %>
+									            </h6>
+									     	</div>
+									</div>
+							</a>
+						</div>
+				<% end %>
+			<% end %>
+</div>
+<% end %>

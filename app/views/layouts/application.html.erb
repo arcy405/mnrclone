@@ -24,10 +24,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
   <body>
-    <%= yield %>
+    <main style="min-height: 100vh;">
+      <%= yield %>
+    </main>
     <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
       

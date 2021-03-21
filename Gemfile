@@ -88,4 +88,11 @@ gem 'friendly_id', '~> 5.4.0'
 #for metrics and track
 gem 'ahoy_matey'
 
+#for latex to pdf of FU notes
+gem 'rails-latex'
 
+#for fetching API
+gem 'httparty'
+
+#for scheduled jobs
+gem 'whenever', require: false
