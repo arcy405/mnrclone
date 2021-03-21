@@ -1,0 +1,33 @@
+<% content_for :title, "Notes" %>
+ <%= render 'Homepage/navmenu.html.erb' %>
+<!----------------------------------------breadcrumb section-------------------------------------->
+        <div class="row p-3">
+            <div class="breadcrumb-default ml-2">
+                <%= link_to "#{params[:uni]}-#{params[:dept]}", educational_notes_path,style:"text-decoration: none",class:"text-uppercase" %>
+                    <a href="#" style="text-decoration: none" class="text-uppercase">/<%= params[:sem] %></a>
+            </div>
+        </div>
+        <!------------------------------------------------------------------------------->
+        <% notes_api = JSON.parse(@release_assets.asset_url) %>
+        <% notes_api[0]['assets'] %>
+      <!--------------------------------------------------------->
+<% if !notes_api.nil? %>
+<div class="row container-fluid py-2">
+			<% notes_api[0]['assets'].each do |note|%>
+				<% uni = note['name'].to_s.split("_")[0] %>
+				<% dept = note['name'].to_s.split("_")[1] %>
+				<% sem = note['name'].to_s.split("_")[2] %>
+				<% subj = note['name'].to_s.split("_")[3] %>
+				<% if uni == params[:uni] && dept==params[:dept] && sem==params[:sem] %>
+				
+						<%= link_to  educational_notes_notes_show_path(uni:"fu",dept:"csit",sem:"sem1",sub:subj), style:"text-decoration:none" do %>
+							<div class="col text-center">
+								<i class="fas fa-folder fa-4x ml-2" style="color: #fcc72c;"></i><br />
+								<span class="text-capitalize"><%= subj %></span>
+							</div>
+						<% end %>
+				<% end %>
+			<% end %>
+<% end %>
+</div>
+

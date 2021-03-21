@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
 
+
   get 'aboutus/index', to:"aboutus#index"
   
   get 'contactus/index', to: "contactus#index"
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
    resources :bus_departures
    resources :models
    resources :reviews
+   resources :reviews
+   resources :educational_notes, only: [:index]
+   get 'educational_notes/notes_index'
+   get 'educational_notes/notes_show'
 
    #routes for arcy#
    resources :donors
