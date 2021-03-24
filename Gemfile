@@ -81,5 +81,18 @@ gem 'new_google_recaptcha'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 
+
 #friendly id for removing id from url
 gem 'friendly_id', '~> 5.4.0'
+
+#for metrics and track
+gem 'ahoy_matey'
+
+#for latex to pdf of FU notes
+gem 'rails-latex'
+
+#for fetching API
+gem 'httparty'
+
+#for scheduled jobs
+gem 'whenever', require: false

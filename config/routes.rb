@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  
 
   mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
+
 
   get 'aboutus/index', to:"aboutus#index"
   
@@ -20,10 +20,16 @@ Rails.application.routes.draw do
 
    resources :bus_departures
    resources :models
+   resources :reviews
+   resources :reviews
+   resources :educational_notes, only: [:index]
+   get 'educational_notes/notes_index'
+   get 'educational_notes/notes_show'
 
    #routes for arcy#
    resources :donors
    resources :vacancies
+   resources :pet_adoptions
    #################
 
 
@@ -41,11 +47,7 @@ Rails.application.routes.draw do
  
 
   resources :listings do
-    resources :comments
-  end
-
-  resources :comments do
-    resources :comments
+      resources :reviews
   end
 
 end

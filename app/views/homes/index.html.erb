@@ -1,5 +1,8 @@
 <html>
 <head>
+
+  <meta name="turbolinks-visit-control" content="reload">
+    <meta name="turbolinks-cache-control" content="no-cache">
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
@@ -8,10 +11,40 @@
 <body>
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
-    <!-----category cards---->
-    <div class="container">
-        <%= render 'Homepage/categorycard.html.erb' %>
-    </div>
-    <!---header--------->
+ 
+ <div class="desktop-view d-none d-sm-block">
+ <div class="px-4">
+ 	<div class="row">
+ 		<div class="col-md-3 cols-xs-12">
+ 			<!-----category cards---->
+ 			<%= render 'Homepage/categorycard.html.erb' %>
+ 		</div>
+ 		<div class="col-md-6 cols-xs-12">
+ 			<%= render partial:"Homepage/services" %>
+ 			
+ 		</div>
+ 		<div class="col-md-3 cols-xs-12" align="center"> 
+ 			<div class="py-2">
+ 			 <div class="fb-page" data-href="https://www.facebook.com/mnryp/" data-tabs="timeline" data-width="" data-height="1000" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/mnryp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mnryp/">MNR YP</a></blockquote></div>
+ 			</div>
+    	</div>
+ 		</div>
+ 	</div>
+ </div>
+ <div class="mobile-view d-block d-sm-none">
+ 	<div class="container">
+ 			<%= render partial:"Homepage/services" %>
+ 			<!-----category cards---->
+ 			<%= render 'Homepage/categorycard.html.erb' %>
+ 			<div class="py-2 px-1">
+ 			 <div class="fb-page" data-href="https://www.facebook.com/mnryp/" data-tabs="timeline" data-width="" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/mnryp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mnryp/">MNR YP</a></blockquote></div>
+ 			</div>
+ 	</div>
+ </div>
+ <div id="fb-root"></div>
+
 </body>
 </html>
+ 
+
+       

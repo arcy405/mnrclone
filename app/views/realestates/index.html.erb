@@ -25,7 +25,7 @@
                                         <div id="td" data-status="<%= realestate.ptype %>" class="col-4">
                                             <div class="card cardme mt-4">
                                         
-                                                <img class="card-img-top" src="<%= url_for(realestate.image) %>"   alt="" />
+                                                <%= cl_image_tag(realestate.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"card-img-top") %>
                                           
                                                 <div class="card-block">
                                                   <h4 class="card-title mt-3"><%= realestate.propertyname %></h4>

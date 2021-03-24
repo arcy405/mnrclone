@@ -1,20 +1,35 @@
-<div class="container pt-2">
-<div class="d-flex justify-content-center h4"><span class="badge badge-pill badge-info">All Categories</span></div>
- <div class="row">
+<div class="pt-2">
+<div class="d-flex justify-content-center h4">
+    <span class="badge badge-pill badge-info d-none d-sm-block">
+    All Listings(<%= Listing.all.count %>)
+</span>
+</div>
         <% @tags.each do |tag| %>
-             <div class="col col-lg-2 col-md-3 col-sm-6 col-xs-6 pt-2">
                  <%= link_to homes_show_path(category: tag.title ),:style=>'text-decoration:none' do%>
-                    <div class="card category-card">
-                        <div class="card-body">
-                         <% if tag.image.present? %>
-                                <%= image_tag tag.image_url , :class =>'profile2 img-fluid rounded-circle'%>
-                            <%end%>
-                            <h6 class="card-title"><%=tag.title%></h6>
-                            <span><%= tag.listings.size%> Listings</span>
-                     </div>
-                </div>
-            </div>
+                     <div class="container">
+                              <div class="card shadow">
+                                <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-8">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <% if tag.image.present? %>
+                                                            <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle") %>
+                                                            <%end%>
+                                                        </div>
+                                                        <div class="text-wrap" style="width: 8rem;">
+                                                           <h6 class="card-category-title ml-2 mt-2 "><%=tag.title %></h6>
+                                                        </div>
+                                                </div>
+                                                </div>
+                                                    
+                                                <div class="col-4">
+                                                    <span class="badge rounded-pill bg-light text-dark float-right"><%= tag.listings.size%></span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                              </div>
             <%end%>
         <%end%>
- </div>
- </div>
+</div>

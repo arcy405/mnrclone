@@ -7,3 +7,47 @@
 /*.col-xs-12{
     height: 45vh;
 } */
+
+//for description tab
+.project-tab {
+    padding: 10%;
+    margin-top: -8%;
+}
+.project-tab #tabs{
+    background: #007b5e !important;
+    color: #eee !important;
+}
+.project-tab #tabs h6.section-title{
+    color: #eee;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+    color: #0062cc !important;
+    background-color: #BBD9B9 !important;
+    border-color: transparent !important;
+    font-size: 16px !important;
+    font-weight: bold !important; 
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #0062cc !important;
+    background-color: transparent !important;
+    border-color: transparent transparent #f3f3f3 !important;
+    border-bottom: 3px solid !important;
+    font-size: 16px !important;
+    font-weight: bold !important; 
+}
+
+.project-tab .nav-link {
+    border: 1px solid transparent !important;
+    border-top-left-radius: .25rem !important;
+    border-top-right-radius: .25rem !important;
+    color: #0062cc !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+.project-tab .nav-link:hover {
+    border: none !important;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}

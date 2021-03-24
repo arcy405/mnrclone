@@ -12,18 +12,20 @@
 require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
 require("channels")
 require("chartkick")
 require("chart.js")
 require("custom/search")
-require("custom/comment")
 require("custom/agenttable")
 require("custom/realestate")
-require("custom/flapper")
 require("custom/donors.js")
 require("custom/filtertable.js")
+
 require("custom/navbarmenu.js")
+require("custom/singleimage.js")
+require("custom/messenger.js")
+require("custom/facebookpage.js")
+
 
 import "bootstrap";
 import "../stylesheets/application"
