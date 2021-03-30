@@ -7,8 +7,8 @@
                     <a href="#" style="text-decoration: none" class="text-uppercase">/<%= params[:sem] %></a>
             </div>
         </div>
-        <!------------------------------------------------------------------------------->
-        <% notes_api = JSON.parse(@release_assets.asset_url) %>
+
+        <% notes_api = JSON.parse(@release_assets.asset_url.gsub(/=>/,":")) %>
         <% notes_api[0]['assets'] %>
       <!--------------------------------------------------------->
 <% if !notes_api.nil? %>
