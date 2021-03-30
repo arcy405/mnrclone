@@ -10,7 +10,7 @@
                             <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/realestate_kmwpy0.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
                             
                             <h6 class="card-title">
-                                    Real Estates
+                                    Real Estates<br> Buy/Rent
                             </h6>
                      </div>
                 </div>
@@ -31,20 +31,6 @@
                 <% end %>
             </div>
     <!------------------------------------------------------------------------------------------------>
-    <!---------------------------card---------------------------------------------------->
-             <div class="col-md-4 col-6 pt-2">
-                <%= link_to agents_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
-                        <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540013/service_mnryp/bus_ttslqr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
-                            Ticket Agents
-                            </h6>
-                     </div>
-                </div>
-                <% end %>
-            </div>
-    <!-------------------------------------------------------------------------------------------------->
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to bus_departures_path,:style=>'text-decoration:none' do %>
@@ -172,4 +158,20 @@
                 </a>
             </div>
     <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to telephone_directory_index_path,:style=>'text-decoration:none' do %>
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617093915/service_mnryp/telephone_szqpjr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
+                            <h6 class="card-title">
+                            Telephone Directory
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
  </div>
