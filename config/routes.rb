@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'telephone_directory/index'
   mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
