@@ -23,16 +23,15 @@
 	    <span style="font-size: 3vw"> MNR Telephone Directory </span>
 	 </div>
   <div class="row">
-
 	  <% @telephone_numbers.each do |letter, telephone_number|%>
-	  <div class="col-md-4 mt-2 card">
+	  <div class="col-md-4 mt-2 ">
 	  		<div class="about-title clearfix">
                     <span><%= letter %></span>
                  </div>
 	  		
 	  		<ul class="list-group mb-2">
   			<% telephone_number.each do |number| %>
-			  <li class="list-group-item ">
+			  <li class="list-group-item">
 			    <%= number.name %><br />
 			    <span style="color: blue"><%= number.address %></span>
 			    <span class="badge badge-light badge-pill float-right">
