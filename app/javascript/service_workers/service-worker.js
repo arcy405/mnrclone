@@ -9,8 +9,8 @@ const staticAssests = [
 
 self.addEventListener('install', function(event) {
     console.log('Service Worker installing.');
-    const cache = await caches.open(cacheName);
-    await cache.addAll(staticAssests);
+    const cache =  caches.open(cacheName);
+     cache.addAll(staticAssests);
     return self.skipWaiting();
 });
 
