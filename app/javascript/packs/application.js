@@ -40,7 +40,7 @@ import "@fortawesome/fontawesome-free/js/all";
 // const imagePath = (name) => images(name, true)
 
 window.addEventListener('load', () => {
-  navigator.serviceWorker.register('/service-worker.js').then(registration => {
+  navigator.serviceWorker.register('/service-worker.js.erb').then(registration => {
     console.log('ServiceWorker registered: ', registration);
 
     var serviceWorker;
