@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
   get 'telephone_directory/index'
   mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -50,5 +52,8 @@ Rails.application.routes.draw do
   resources :listings do
       resources :reviews
   end
+
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 
 end
