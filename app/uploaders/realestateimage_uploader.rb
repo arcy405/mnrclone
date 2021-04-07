@@ -8,6 +8,6 @@ class RealestateimageUploader < CarrierWave::Uploader::Base
     splitname=model.seller_name
     pubid=splitname.split
     pubid=pubid[0]
-    return "Property/" + pubid
+    return "Property/" + pubid + + rand(1...99999).to_s
   end  
 end

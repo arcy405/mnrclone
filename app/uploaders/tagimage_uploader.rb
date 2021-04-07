@@ -4,6 +4,6 @@ class TagimageUploader < CarrierWave::Uploader::Base
   process :eager => true
   process :tags => ['tag_picture']
   def public_id
-    return "Tags/" + model.title
+    return "Tags/" + model.title + + rand(1...99999).to_s
   end  
 end
