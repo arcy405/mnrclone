@@ -97,5 +97,4 @@ gem 'httparty'
 #for scheduled jobs
 gem 'whenever', require: false
 
-gem 'serviceworker-rails'
 
