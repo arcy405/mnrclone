@@ -9,6 +9,7 @@
 
 </head>
 <body>
+
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
  
@@ -20,7 +21,7 @@
  			<%= render 'Homepage/categorycard.html.erb' %>
  		</div>
  		<div class="col-md-6 cols-xs-12">
- 			<%= render partial:"Homepage/services" %>
+ 			<%= render partial:"Homepage/services",cached: true %>
  		</div>
  		<div class="col-md-3 cols-xs-12" align="center"> 
  			<div class="py-2">
