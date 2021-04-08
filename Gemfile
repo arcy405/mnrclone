@@ -97,4 +97,6 @@ gem 'httparty'
 #for scheduled jobs
 gem 'whenever', require: false
 
+#for discussion forum
+gem 'simple_discussion'
 

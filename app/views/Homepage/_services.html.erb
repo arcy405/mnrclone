@@ -174,4 +174,35 @@
             </div>
     <!------------------------------------------------------------------------------------------------>
 
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to simple_discussion_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617876655/service_mnryp/icons8-discussion-forum-16_hlwqbs.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
+                            MNR Forum
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <a href="https://westpati.com/" target="_blank" style="text-decoration: none;">
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617876972/service_mnryp/icons8-us-news-64_x55far.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
+                            Online News
+                            </h6>
+                     </div>
+                </div>
+                </a>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+
  </div>

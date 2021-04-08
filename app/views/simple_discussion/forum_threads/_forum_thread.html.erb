@@ -1,0 +1,36 @@
+
+<%= cache forum_thread do %>
+             <div class="card">
+                 <div class="card-header">
+                     <div class="media flex-wrap w-100 align-items-center"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS32r5XG6DTskzN3xwmEBmGtS_6YeNSPT077A&usqp=CAU" class="rounded-circle" style="width: 40px; height: 40px;" alt="">
+
+                         <div class="media-body ml-3"> 
+                          <%= link_to simple_discussion.forum_thread_path(forum_thread), style:"text-decoration:none" do %>
+                            <%= icon "fas", "thumb-tack", class: "text-muted" if forum_thread.pinned? %> 
+                            <p class="font-weight-bold"><%= forum_thread.title %></p>
+                         <% end %>
+                         <div class="thread-details">
+                            <strong><%= category_link(forum_thread.forum_category) %></strong>
+                            • <%= t('asked_time_ago', time: time_ago_in_words(forum_thread.created_at), author: forum_thread.user.user_name) %>
+                          </div>
+                         </div>
+
+                         <div class="text-muted small ml-3">
+                             <div>Member since <strong><%= forum_thread.user.created_at.strftime("%d-%b-%Y") %></strong></div>
+                             <div><%= link_to simple_discussion.forum_thread_path(forum_thread),class:"float-right",style:"text-decoration:none" do %>
+          <strong><%= forum_thread.forum_posts_count %> Replies</strong>
+        <% end %></div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-body">
+                     <p> <%= truncate(forum_thread.forum_posts.first.body, length: 200) %></p>
+                 </div>
+                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0">
+                  <%= link_to simple_discussion.forum_thread_path(forum_thread), style:"text-decoration:none" do %>
+                     <div class="px-4 pt-2"> <button type="button" class="btn btn-sm btn-primary"><i class="ion ion-md-create"></i>&nbsp; Reply</button> </div>
+                     <% end %>
+                 </div>
+             </div>
+ 
+ <% end %>
