@@ -1,4 +1,4 @@
-<% content_for :title, "Real Estate" %>
+<% content_for :title, "Real Estate-MNRYP" %>
   <%= render 'Homepage/navmenu.html.erb' %>
           <div class=" mt-4">
               <div class="row">
@@ -6,13 +6,19 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                                 <div class="float-left mt-2">
-                                    <a type="button" class="btn btn-danger btn-filter" data-target="sell">Buy House & Land</a>
-                                    <a type="button" class="btn btn-danger btn-filter" data-target="rent">Take House On Rent </a>
+                                  <div class="row">
+                                    <div class="col-xs-6 ml-2">
+                                        <a type="button" class="btn btn-danger btn-filter" data-target="sell">Buy House & Land</a>
+                                    </div>
+                                    <div class="col-xs-6 ml-2">
+                                       <a type="button" class="btn btn-danger btn-filter" data-target="rent">Rent House & Land</a>
+                                     </div>
+                                  </div>
                                 </div>
                                 <div class="float-right mt-2">
                                     <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "btn btn-danger btn-filter ", style:"text-decoration:none;" ,type:"button" %>
                                     <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "btn btn-danger btn-filter", style:"text-decoration:none;" ,type:"button" %>
-                                    <%=  link_to "Give House On Rent ", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
+                                    <%=  link_to "Rent House", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
                                 </div>
                         </div>
 
@@ -22,7 +28,7 @@
                             <div id="table" class="table table-filter">
                                 <div class="row">
                                     <% @Realestates.each do |realestate| %>
-                                        <div id="td" data-status="<%= realestate.ptype %>" class="col-4">
+                                        <div id="td" data-status="<%= realestate.ptype %>" class="col-md-4">
                                             <div class="card cardme mt-4">
                                         
                                                 <%= cl_image_tag(realestate.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"card-img-top") %>

@@ -9,7 +9,7 @@
                 <div class="row">
                 <div class="col-md-12 col-sm-12">
                    <div class="about-title clearfix">
-                      <h1>Submit your listing to <span>MNRYP</span></h1>
+                      <h1>Submit your vacancy to <span>MNRYP</span></h1>
                    </div>
                    <div id="addlistform">
                       <div class="about-title clearfix" style="display:none">
@@ -46,12 +46,12 @@
                      </div>
                      <div class="row ml-1">
                      <div class="row p-2">
-                     <span><%= f.select :job_category, ['Job Category', 'Aviation', 'Arts', 'Business', 'Education', 'Law Enforcement', 'Media', 'Medical', 'Service Industry', 'Technology', 'Others'] ,:required => true %>
+                     <span><%= f.select :job_category, ['Job Category', 'Arts', 'Business', 'Education', 'Law Enforcement', 'Media', 'Medical', 'Service Industry', 'Technology','Hotel','Others'] ,:required => true %>
                         
                      </div>
                      
                      <div class="row p-2 ml-4">
-                        <%= f.select :job_level, ['Job Level','Entry-level','Intermediate','Mid-level','Senior or executive-level'],:required => true  %>
+                        <%= f.select :job_level, ['Job Level','Entry-level','Intermediate','Mid-level','Senior or Executive-level'],:required => true  %>
                      </div>
                      </div>
                      <div class="row ml-1">
@@ -71,17 +71,17 @@
                         
                      </div>
                      <div class="row p-2">
-                        <%= f.select :education_level, ['Education Level', 'Associate','Bachelor\'s','master\s','doctoral degrees','none'] ,:required => true %>
+                        <%= f.select :education_level, ['Education Level', 'Associate','Bachelors','Masters','Doctoral Degrees','None'] ,:required => true %>
                      </div>
                      <div class="row p-2">
                         <%= f.text_field :experience_required, placeholder: "Experienced required" ,:required => true %>
                      </div>
                      
                      <div class="row p-2">
-                        <%= f.text_field :job_desciption, placeholder: "Job Desciption" ,:required => true %>
+                        <%= f.text_area :job_desciption, placeholder: "Job Desciption" ,:required => true %>
                      </div>
                      <div class="row p-2">
-                        <%= f.text_field :about_company, placeholder: "About Company" ,:required => true %>
+                        <%= f.text_area :about_company, placeholder: "About Company" ,:required => true %>
                      </div>
                      <div class="row p-2">
                         <%= f.text_field :professional_skill, placeholder: "Professional Skill required", :required => true %>
@@ -93,10 +93,10 @@
                      
                      
                      <div class="row p-2">
-                        <%= f.text_field :emailid, placeholder: "email ID",:required => true %>
+                        <%= f.text_field :emailid, placeholder: "Email ID",:required => true %>
                      </div>
                      <div class="row p-2">
-                        <%= f.text_field :contactnumber, placeholder: "contact number",:required => true%>
+                        <%= f.text_field :contactnumber, placeholder: "Contact Number",:required => true%>
                      </div>
                      
                      
