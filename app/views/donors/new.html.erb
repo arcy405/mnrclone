@@ -36,33 +36,33 @@
               <%= form_for @donor do |f| %>
                 
                    <div class="row p-2">
-                      <%= f.text_field :name, placeholder: "Full Name" ,class:"form-control",:required => true %>
+                      <%= f.text_field :name, placeholder: "Full Name" ,class:"form-control" %>
                    </div>
                    
                    <div class="row p-2">
-                      <%= f.text_field :address, placeholder: "Address" ,class:"form-control",:required => true %>
+                      <%= f.text_field :address, placeholder: "Address" ,class:"form-control" %>
                    </div>
                    <div class="row p-2">
                         
                        <div class="col-6">
                           <%= f.label :blood_group, "Blood Group", class:"mr-2" %>
-                       <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-'],{:required => true}  %>
+                       <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-']  %>
                        </div>
 
                        <div class="col-6">
                           <%= f.label :gender, "Gender", class:"mr-2 ml-auto" %>
-                          <%= f.select :gender, ['Male','Female','Others'],{:required => true}  %>
+                          <%= f.select :gender, ['Male','Female','Others'] %>
                        </div>
 
                    </div>
                    <p>Date of Birth</p>
                    <div class="row p-2">
-                    <%= f.date_field :dob,:required => true %>
+                    <%= f.date_field :dob %>
                    </div>
                   
                 <div class="row ml-1">
                      <div class="row p-2">
-                        <%= f.text_field :phone1, placeholder: "Contact Number", :required => true%>
+                        <%= f.text_field :phone1, placeholder: "Contact Number" %>
                      </div>
                      <div class="row p-2">
                         <%= f.text_field :phone2, placeholder: "Alternative Contact",class:"form-control" %>

@@ -102,3 +102,6 @@ gem 'simple_discussion'
 
 
 gem 'nepali_calendar'
+
+                                                
+gem 'html5_validators'
