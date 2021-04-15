@@ -94,7 +94,7 @@ a{
 				                    	<h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
 				                    	<span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
 				                    	<h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
-				                        <h6><b>Departs at <span id="burgundy" class=""><%= depart.depart_time.strftime("%H:%M %p") %></b></span> </h6>
+				                        <h6><b>Departs at <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
 				                        <h6 style="display:none"><b>Departs Date <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
 				                        <h6 class="font-weight-bold company"><%= depart.company %> <span style="color:#ffff">ALL</span></h6>
 				                        
