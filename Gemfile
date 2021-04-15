@@ -100,3 +100,5 @@ gem 'whenever', require: false
 #for discussion forum
 gem 'simple_discussion'
 
+
+gem 'nepali_calendar'
