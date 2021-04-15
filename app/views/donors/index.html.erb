@@ -24,15 +24,16 @@
                         </div>
                         <br/>
                         <!-------------------donnars list------------------------>
+                        <div class="row">
                             <% @donors.each do |donor| %>
                              <% if donor.blood_group.include?'+' %>
                              	<% bloodgroup = donor.blood_group.sub! '+','pos' %>
                              <% else %>
                              	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
                              <% end %>
-                                <div class="col-12 mb-4 filter <%= bloodgroup %>">
+                                <div class="col-md-4 mb-4 filter <%= bloodgroup %>">
                                 	<div class="media align-middle">
-                                        <div class="card m-2 bloodgroup">
+                                        <div class="card m-1 bloodgroup">
                                             <div class="card-body">
                                             	<% if donor.blood_group.include?'pos' %>
 					                             	<% bloodgroup = donor.blood_group.sub! 'pos','+' %>
@@ -43,26 +44,24 @@
                                             </div>
                                           </div>
 											<div class="media-body align-middle">
-												<span class="media-meta pull">
 												
-												<a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
-												<span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
-												</a>
-												
-												</span>
-												<h4 class="title text-capitalize"> 
-                                                <%= donor.name %>
+												<h4 class="title text-capitalize responsive-text"> 
+                                                <%= donor.name %>, <%=donor.gender %><br />
 													<span><% date_of_birth = donor.dob.to_s %>
                                                     <% date_of_birth=date_of_birth.split("-")%>
                                                     <% age = Date.today.year - date_of_birth[0].to_i %>
-                                                    ,Age: <%= age %></span>
+                                                    Age: <%= age %></span><br />
+                                                    <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br />
+                                                <a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
+                                                <span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
+                                                </a>
 												</h4>
-                                                <p class="summary text-capitalize"><%= donor.address %>, <%=donor.gender %></p>
+                                                
 											</div>
 									</div>
                                 </div>
                             <%end%>
-                        
+                        </div>
 <!---------------------------------------------------------------------------------------->
 						</div>
 					</div>
