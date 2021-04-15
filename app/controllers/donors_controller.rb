@@ -39,7 +39,7 @@ class DonorsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def donor_params
-      params.require(:donor).permit(:name, :address, :gender, :dob, :blood_group, :phone1, :phone2, :status, :verified)
+      params.require(:donor).permit(:name, :address, :gender, :blood_group, :phone1, :phone2, :status, :verified,:age)
     end
 end
 
