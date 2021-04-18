@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_102859) do
+ActiveRecord::Schema.define(version: 2021_04_16_090848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -245,6 +245,14 @@ ActiveRecord::Schema.define(version: 2021_04_15_102859) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.index ["model_id"], name: "index_galleries_on_model_id"
+  end
+
+  create_table "gamifications", force: :cascade do |t|
+    t.integer "points"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_gamifications_on_user_id"
   end
 
   create_table "listingrequests", force: :cascade do |t|
@@ -656,6 +664,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_102859) do
   add_foreign_key "forum_threads", "forum_categories"
   add_foreign_key "forum_threads", "users"
   add_foreign_key "galleries", "models"
+  add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
   add_foreign_key "reviews", "listings"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade

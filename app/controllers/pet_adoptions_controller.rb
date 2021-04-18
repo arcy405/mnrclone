@@ -18,6 +18,9 @@ class PetAdoptionsController < ApplicationController
     
         respond_to do |format|
           if @pet_adoptions.save
+            if user_signed_in?
+                current_user.gamification.create!(points:5)
+             end
             format.html { redirect_to pet_adoptions_path notice: 'Pet was successfully created.' }
           else
             format.html { render :new }

@@ -19,6 +19,9 @@ class ListingsController < ApplicationController
       NewGoogleRecaptcha.minimum_score,
       @post
     ) &&  @listing.save
+      if user_signed_in?
+          current_user.gamification.create!(points:5)
+        end
       redirect_to listings_sucess_path
     else
       redirect_to listings_new_path, alert: "Error creating listing."

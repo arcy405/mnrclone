@@ -45,7 +45,6 @@
                      </div>
                      <div class="row p-2">
                         <label for="image">Add Image </label>
-                        <%= image_tag(@pet_adoptions.avatar_url) if @pet_adoptions.image? %>
                         <%= f.file_field :image, direct_upload: true %>
                         <%= f.hidden_field :image_cache %>
                      </div>

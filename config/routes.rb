@@ -26,6 +26,7 @@ Rails.application.routes.draw do
    resources :reviews
    resources :reviews
    resources :educational_notes, only: [:index]
+   resources :gamifications, only: [:index]
    get 'educational_notes/notes_index'
    get 'educational_notes/notes_show'
 
