@@ -12,6 +12,9 @@ class RealestatesController < ApplicationController
   def create 
     @realestate=Realestate.create(realestates_params)
     if @realestate.save
+      if user_signed_in?
+          current_user.gamification.create!(points:5)
+        end
       redirect_to realestates_path
     else
       redirect_to realestates_new_path, alert: "Error creating listing."

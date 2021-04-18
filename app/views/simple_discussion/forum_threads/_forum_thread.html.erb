@@ -11,7 +11,7 @@
                          <% end %>
                          <div class="thread-details">
                             <strong><%= category_link(forum_thread.forum_category) %></strong>
-                            • <%= t('asked_time_ago', time: time_ago_in_words(forum_thread.created_at), author: forum_thread.user.user_name) %>
+                            • <%= t('asked_time_ago', time: time_ago_in_words(forum_thread.created_at), author: forum_thread.user.name) %>
                           </div>
                          </div>
 
