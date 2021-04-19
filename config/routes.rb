@@ -23,8 +23,7 @@ Rails.application.routes.draw do
 
    resources :bus_departures
    resources :models
-   resources :reviews
-   resources :reviews
+   resources :reviews, :events
    resources :educational_notes, only: [:index]
    resources :gamifications, only: [:index]
    get 'educational_notes/notes_index'
