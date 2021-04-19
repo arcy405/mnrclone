@@ -204,5 +204,20 @@
             </div>
     <!------------------------------------------------------------------------------------------------>
 
+ <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to events_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1618733148/service_mnryp/icons8-event-64_vziczj.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
+                            MNR Today
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
 
  </div>
