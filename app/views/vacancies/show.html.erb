@@ -2,51 +2,44 @@
 <%= render 'Homepage/navmenu.html.erb' %>
 
 <div class="row bg-light">
-    <div class="jumbotron  col-7 mt-4 ml-5">
+    <div class="jumbotron col-md-7">
+          <div class="responsive-title"><%= @vacancy.job_title %></div>
+          <p class="lead responsive-text"><i class="fas fa-building"></i> <%=@vacancy.company_name%></p>
+          <p><i class="fas fa-map-marker-alt"></i> <%=@vacancy.location%></p>
+          <p class="card-text">Apply before <%= @vacancy.apply_before.strftime("%B %d, %Y")%></p>
+          <hr class="my-4">
+          
+          <ul class="list-group">
+            <li class="list-group-item disabled,  aria-disabled="true"><h4>Basic Information</h4></li>
+            
+            <li class="list-group-item"><span style= "font-weight: bold;">Job Level:</span> <%=@vacancy.job_level%></li>
+            <li class="list-group-item"><span style= "font-weight: bold;">Required Education Level:</span> <%=@vacancy.education_level%></li>
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Required Experience :</span> <%=@vacancy.experience_required%></li>
+            <li class="list-group-item"><span style= "font-weight: bold;">Number of vacancies:</span> <%=@vacancy.no_of_vacancy%></li>
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Offered Salary:</span> <%=@vacancy.offered_salary%></li>
+            
+         </ul>
 
-    <h1 class="display-4"><%= @vacancy.job_title %></h1>
-    <p class="lead"><i class="fas fa-building"></i> <%=@vacancy.company_name%></p>
-    <p><i class="fas fa-map-marker-alt"></i> <%=@vacancy.location%></p>
-    <p class="card-text">Apply before <%= @vacancy.apply_before.strftime("%B %d, %Y")%></p>
-    <hr class="my-4">
-    
-    <ul class="list-group">
-      <li class="list-group-item disabled,  aria-disabled="true"><h4>Basic Information</h4></li>
-      
-      <li class="list-group-item"><span style= "font-weight: bold;">Job Level:</span> <%=@vacancy.job_level%></li>
-      <li class="list-group-item"><span style= "font-weight: bold;">Required Education Level:</span> <%=@vacancy.education_level%></li>
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Required Experience :</span> <%=@vacancy.experience_required%></li>
-      <li class="list-group-item"><span style= "font-weight: bold;">Number of vacancies:</span> <%=@vacancy.no_of_vacancy%></li>
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Offered Salary:</span> <%=@vacancy.offered_salary%></li>
-      
-   </ul>
+         <ul class="list-group">
+            <li class="list-group-item disabled mt-4 ",  aria-disabled="true"><h4>Desciption</h4></li>
+            
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Job Despription:</span> <%=@vacancy.job_desciption%></li>
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">About Company:</span> <%=@vacancy.about_company%></li>
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Professional Skill:</span> <%=@vacancy.professional_skill%></li>
+            <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Other Specification:</span> <%=@vacancy.other_specification%></li>
+            
+            
+         </ul>
 
-   <ul class="list-group">
-      <li class="list-group-item disabled mt-4 ",  aria-disabled="true"><h4>Desciption</h4></li>
-      
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Job Despription:</span> <%=@vacancy.job_desciption%></li>
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">About Company:</span> <%=@vacancy.about_company%></li>
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Professional Skill:</span> <%=@vacancy.professional_skill%></li>
-      <li class="list-group-item summary text-capitalize"><span style= "font-weight: bold;">Other Specification:</span> <%=@vacancy.other_specification%></li>
-      
-      
-   </ul>
-
-    <ul class="list-group">
-    <li class="list-group-item disabled mt-4",  aria-disabled="true"><h4>Contact Us</h4></li>
-   
-    <li class="list-group-item"><span style= "font-weight: bold;">Send Your CV at:</span> <%=@vacancy.emailid%></li>
-    <li class="list-group-item"><span style= "font-weight: bold;">Call Us at:</span> <%=@vacancy.contactnumber%></li>
-    
-   
-   
-  </ul>
-    
-    
-    
-
-    
-    
+          <ul class="list-group">
+          <li class="list-group-item disabled mt-4",  aria-disabled="true"><h4>Contact Us</h4></li>
+         
+          <li class="list-group-item"><span style= "font-weight: bold;">Send Your CV at:</span> <%=@vacancy.emailid%></li>
+          <li class="list-group-item"><span style= "font-weight: bold;">Call Us at:</span> <%=@vacancy.contactnumber%></li>
+          
+         
+         
+        </ul>
     </div>
     <div class="col-4 mt-4">
     <% @job_relevent.each do |vacancy| %>

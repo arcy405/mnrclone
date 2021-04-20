@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  population: MyString
+  wards: MyString
+  area: MyString
+  map: MyString
+  mayor: MyString
+  sub_mayor: MyString
+
+two:
+  population: MyString
+  wards: MyString
+  area: MyString
+  map: MyString
+  mayor: MyString
+  sub_mayor: MyString
