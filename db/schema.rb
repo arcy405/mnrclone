@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_104443) do
+ActiveRecord::Schema.define(version: 2021_04_19_043126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -357,6 +357,17 @@ ActiveRecord::Schema.define(version: 2021_04_18_104443) do
 
   create_table "searchedkeywords", force: :cascade do |t|
     t.string "word"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.string "population"
+    t.string "wards"
+    t.string "area"
+    t.string "map"
+    t.string "mayor"
+    t.string "sub_mayor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
