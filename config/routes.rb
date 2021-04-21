@@ -21,9 +21,11 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
+   get 'homes/search', to:"homes#search"
+
    resources :bus_departures
    resources :models
-   resources :reviews, :events
+   resources :reviews, :events, :marketplaces
    resources :educational_notes, only: [:index]
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
