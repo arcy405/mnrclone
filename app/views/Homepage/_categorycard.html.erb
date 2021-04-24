@@ -14,7 +14,7 @@
                                                     <div class="d-flex">
                                                         <div>
                                                             <% if tag.image.present? %>
-                                                            <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle") %>
+                                                            <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle",loading:"lazy") %>
                                                             <%end%>
                                                         </div>
                                                         <div class="text-wrap" style="width: 8rem;">
