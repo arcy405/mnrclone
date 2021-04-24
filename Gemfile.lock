@@ -280,6 +280,8 @@ GEM
     racc (1.5.2)
     racc (1.5.2-java)
     rack (2.2.3)
+    rack-mini-profiler (2.3.1)
+      rack (>= 1.2.0)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
@@ -487,6 +489,7 @@ DEPENDENCIES
   omniauth-facebook
   pg
   puma (~> 4.1)
+  rack-mini-profiler
   rails (~> 6.0.3, >= 6.0.3.3)
   rails-latex
   rails_admin (~> 2.0)
