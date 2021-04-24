@@ -105,3 +105,6 @@ gem 'nepali_calendar'
 
                                                 
 gem 'html5_validators'
+
+#profiling
+gem 'rack-mini-profiler'

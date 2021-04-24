@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
   get 'telephone_directory/index'
+
   mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'homes/show', to:"homes#show"
@@ -44,9 +46,6 @@ Rails.application.routes.draw do
 
    resources :agents, only: [:index]
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#index'
   resources :realestates
   resources :tourists
