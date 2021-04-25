@@ -5,7 +5,7 @@ class MarketplaceUploader < CarrierWave::Uploader::Base
   process :tags => ['model_picture']
   process :usefilename =>true
   def public_id
-    pubid=model.prod_name + rand(1..99999).to_s
+    pubid=model.id.to_s + rand(1..99999).to_s
     return "Products/" + pubid
   end 
 end
