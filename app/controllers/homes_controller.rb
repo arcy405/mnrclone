@@ -16,4 +16,7 @@ class HomesController < ApplicationController
       @listcount=Listing.where("lower(name) LIKE lower('%#{name}%')").count
       
     end
+
+    def tool
+    end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
+  get 'homes/tool', to:"homes#tool"
 
 
   get 'aboutus/index', to:"aboutus#index"
