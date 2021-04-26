@@ -1,3 +1,4 @@
+
 	<%= form_for @marketplace,:html => { :multipart => true } do |f| %>
 
 		<%= f.hidden_field :seller_name, value:"#{current_user.name}" %>
@@ -23,10 +24,12 @@
             <label class="mr-2">Add Images </label>
             <%= f.fields_for :market_place_images do |p| %>
              <div class="field">
-               <%= p.file_field :image, direct_upload: true,:multiple => true, name: "market_place_images[image][]" %>
-               <%= p.hidden_field :image_cache %>
+              <div class="input-group">
+                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control" %>
+                 <%= p.hidden_field :image_cache %>
              </div>
              <pre>You can upload multiple images.</pre>
+           </div>
            <% end %>
          </div>
          
@@ -35,4 +38,3 @@
          </div>
            <%= recaptcha_action('vacancy') %>
   <% end %>
-                  
