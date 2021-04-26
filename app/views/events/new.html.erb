@@ -1,0 +1,59 @@
+<% content_for :title, "MNR-Today-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1>Fill The Event Details <span>MNRYP</span></h1>
+                   </div>
+                   <div id="addlistform">
+                      <div class="about-title clearfix" style="display:none">
+                          <h1>Welcome <span>MNRYP</span></h1>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify">Make sure fill every field.</li>
+              <li class="about-paddingB text-justify">Give proper title to the event.</li>
+              <li class="about-paddingB text-justify">Provide the location of event.</li>
+              <li class="about-paddingB text-justify">Give a brief description of event.</li>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= form_for @event,html: { multipart: true } do |f| %>
+                  
+                     <div class="row p-2">
+                        <%= f.text_field :title, placeholder: "Event Name" ,class:"w-100" %>
+                     </div>
+                     <div class="row p-2">
+                     	<%= label :date, "Event Date" %>
+                        <%= f.date_field :date ,class:"w-100" %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_field :location, placeholder: "Event Location" ,class:"w-100" %>
+                     </div>
+                     <div class="row p-2">
+                        <%= f.text_area :description, placeholder: "Event Description (Max. 50 words)" ,class:"w-100" %>
+                     </div>
+                     
+                     <div class="d-flex justify-content-center">
+                      <%= f.submit "Add" , class: "button"%>
+                     </div>
+                       <%= recaptcha_action('pet_adoption') %>
+                  <% end %>
+                  
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+   
+       
+       

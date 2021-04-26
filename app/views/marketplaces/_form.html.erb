@@ -1,0 +1,40 @@
+
+	<%= form_for @marketplace,:html => { :multipart => true } do |f| %>
+
+		<%= f.hidden_field :seller_name, value:"#{current_user.name}" %>
+		<%= f.hidden_field :user_id, value:"#{current_user.id}" %>
+
+         <div class="row p-2">
+            <%= f.text_field :prod_name, placeholder: "Product Name", class:"form-control w-100" %>
+         </div>
+            
+         <div class="row p-2">
+            <%= f.number_field :price, placeholder: "Product Price", class:"form-control w-100" %>
+         </div>
+         <div class="row p-2">
+            <%= f.number_field :phone, placeholder: "Contact Number", class:"form-control w-100" %>
+         </div>
+
+         <div class="row p-2">
+            <%= f.text_area :description, placeholder: "Add brief description about product", class:"form-control w-100" %>
+         </div>
+<hr />
+         <div class="row p-2">
+         	
+            <label class="mr-2">Add Images </label>
+            <%= f.fields_for :market_place_images do |p| %>
+             <div class="field">
+              <div class="input-group">
+                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control" %>
+                 <%= p.hidden_field :image_cache %>
+             </div>
+             <pre>You can upload multiple images.</pre>
+           </div>
+           <% end %>
+         </div>
+         
+         <div class="d-flex justify-content-center mt-2">
+          <%= f.submit "Sell" , class: "button"%>
+         </div>
+           <%= recaptcha_action('vacancy') %>
+  <% end %>

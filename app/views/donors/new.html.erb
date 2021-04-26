@@ -11,7 +11,7 @@
               <div class="row">
               <div class="col-md-12 col-sm-12">
                  <div class="about-title clearfix">
-                    <h1>Submit your listing to <span>MNRYP</span></h1>
+                    <h1>Become Blood Donor for <span>MNRYP</span></h1>
                  </div>
                  <div id="addlistform">
                     <div class="about-title clearfix" style="display:none">
@@ -36,48 +36,39 @@
               <%= form_for @donor do |f| %>
                 
                    <div class="row p-2">
-                      <%= f.text_field :name, placeholder: "Full Name" ,:required => true %>
+                      <%= f.text_field :name, placeholder: "Full Name" ,class:"form-control" %>
                    </div>
                    
                    <div class="row p-2">
-                      <%= f.text_field :address, placeholder: "Address" ,:required => true %>
+                      <%= f.text_field :address, placeholder: "Address" ,class:"form-control" %>
                    </div>
-                   <p>Your Gender</p>
-                   <div class="row p-2">
-                      <%= f.radio_button :gender, 'male', :required => true %><span class="texxtt mr-2">Male </span>
-                      <%= f.radio_button :gender, 'female',:required => true %><span class="textt mr-2">Female </span>
-                      <%= f.radio_button :gender, 'others',:required => true %><span class="textt">Others </span>
+                   <div class="row" style="margin-right:0px !important;">
+                       <div class="col-6">
+                          <%= f.label :blood_group, "Blood Group", class:"mr-2" %>
+                       <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-']  %>
+                       </div>
+
+                       <div class="col-6">
+                          <%= f.label :gender, "Gender", class:"mr-2 ml-auto" %>
+                          <%= f.select :gender, ['Male','Female','Others'] %>
+                       </div>
+
                    </div>
-                   <p>Date of Birth</p>
+                   <p>Age</p>
                    <div class="row p-2">
-                    <%= f.date_field :dob,:required => true %>
-                   </div>
-                   
-                   <div class="row p-2">
-                   <%= f.select :blood_group, ['Blood Group','A+','A-','B+','B-','O+','O-','AB+','AB-'],:required => true  %>
+                    <%= f.number_field :age,placeholder: "Age" ,class:"form-control" %>
                    </div>
                   
-                <div class="row ml-1">
-                     
-                     <div class="row p-2">
-                        <%= f.text_field :phone1, placeholder: "Contact Number1", :required => true%>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :phone2, placeholder: "Contact Number2" %>
-                     </div>
-                     
-                     
-                     </div>
-
-                     <p>Your Status</p>
-                   <div class="row p-2">
-                      <%= f.radio_button :status, 'available', :required => true %><span class="texxtt mr-2">available</span>
-                      <%= f.radio_button :status, 'unavailable',:required => true %><span class="textt">unavailable</span>
-                      
+                  <div class="row ml-1">
+                       <div class="row p-2">
+                          <%= f.text_field :phone1, placeholder: "Contact Number" %>
+                       </div>
+                       <div class="row p-2">
+                          <%= f.text_field :phone2, placeholder: "Alternative Contact",class:"form-control" %>
+                       </div>
                    </div>
-                   
                    <div class="d-flex justify-content-center">
-                    <%= f.submit "Add" , class: "button"%>
+                    <%= f.submit "Add" , class: "button form-control"%>
                    </div>
                      <%= recaptcha_action('vacancy') %>
                 <% end %>

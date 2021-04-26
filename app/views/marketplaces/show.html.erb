@@ -1,0 +1,57 @@
+<% content_for :title, "MNR Marketplace-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-6 text-center border-right border-secondery">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			  	<% @marketplace.market_place_images.each_with_index do |prod_img,index| %>
+			  		<% active_class = "active" if index==0 %>
+			  		<div class="carousel-item <%= active_class %>">
+			    	<%= cl_image_tag(prod_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"carousel-img", loading:"lazy") %>
+			    	</div>
+			  	<% end %>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+        </div>
+        <div class="col-md-6">
+            <h5>
+                <%= @marketplace.prod_name %>
+            </h5>
+            <h3>
+                Rs.<%= @marketplace.price %>
+            </h3>
+            <p>
+                Seller: <%= @marketplace.seller_name %>
+            </p>	
+				<a href="tel:<%= @marketplace.phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= @marketplace.phone %></h6></a>
+				<hr />
+			<h4>Description</h4>
+			<h6 class="text-justify"><%= @marketplace.description %></h6>
+        </div>
+    </div>
+<div class="alert alert-danger text-justify" role="alert">
+		MNRYP.com is NOT involved in transaction of any goods/services listed in the website. It is only platform to share information. You are directly contacting the person who has posted the advertisement and you agree not to hold MNRYP.com responsible for their act in any circumstances.
+		We strongly encourage you to take necessary precaution. Avoid advance payment and check goods before .
+
+</div>
+    
+</div>
+  <style>.carousel-inner{
+  width:100%;
+  max-height: 400px !important;
+}
+.carousel-img{
+	width: 100%;
+	height: 400px;
+}
+</style>

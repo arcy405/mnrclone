@@ -86,6 +86,28 @@
                     </div><!-- end row --> 
         </div> <!-- dropdown-mega-menu.// -->
   </li>
+  
+  <span class="badge badge-pill badge-warning">
+  <li class="nav-item">
+      <% if user_signed_in? %>
+          <%= link_to gamifications_path, class:"nav-item welcome-user", style:"text-decoration:none" do %>
+            <i class="fas fa-user-circle" ></i> Welcome <%= current_user.name %>
+          <% end %>
+      <% else %>
+
+           <%= link_to "Register", new_user_session_path,:style=>'text-decoration:none' %>
+      <% end %>
+    </li>
+
+  <li class="nav-item">
+    <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete ,:style=>'text-decoration:none', class:"login_links" %>
+    <% else %>
+         <%= link_to "Sign In", user_session_path,:style=>'text-decoration:none', class:"login_links"  %>
+     <% end %>
+    </li>
+</span>
+
 </ul>
 
   </div> <!-- navbar-collapse.// -->

@@ -1,32 +1,38 @@
 
-  <div class="about-section paddingTB60 gray-bg">
-    <div class="container">
-            <div class="row">
-              <div class="col-md-12 col-sm-12 d-flex justify-content-center">
-                 <div class="about-title clearfix">
-                    <h1><i class="fa fa-lock" aria-hidden="true"></i>Admin Login<span>MNRYP</span></h1>
-                 </div>
-              </div>
+ <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-md-6">
+                <div class="card1 pb-5">
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                               <%= image_tag("footerlogo.jpg",class: "image") %> 
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row px-3"> <label class="mb-1">
+                            <div class="row justify-content-center">
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                        </div>
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Enter Your Email" %>
+                                      </div><br />
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+                                        </div>
+                                          <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"Enter Your Password" %>
+                                      </div><br />
+                                      <%= f.submit "Log in",class:"btn btn-success form-control" %>
+                                <% end %>
+                             </div>
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? 
+                      <%= link_to "Register", new_registration_path(resource_name),class:"text-danger" %></small> </div>
+                </div>
             </div>
         </div>
-      <section id="contact">
-        <div class="container">
-           <div class="row justify-content-center">
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
-                      </div>
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"username or email" %>
-                    </div><br />
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-key icon"></i></span>
-                      </div>
-                        <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"password" %>
-                    </div><br />
-                    <%= f.submit "Log in",class:"btn btn-success form-control" %>
-              <% end %>
-       </div>
-    </section>
- </div>
+    </div>
+</div>

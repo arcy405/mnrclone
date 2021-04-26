@@ -5,6 +5,8 @@ body{
 	width: 100%;
 	height: 100%;
 }
+
+
 .header {
 	position: absolute;
 	left: 0;
@@ -225,4 +227,23 @@ body{
 		.navbar .has-megamenu{position:static!important;}
 		.navbar .megamenu{left:0; right:0; width:100%; padding:20px;  }
 		.navbar .nav-link{ padding-top:1rem; padding-bottom:1rem;  }
+	}
+
+
+	.responsive-text{
+		font-size: 2vh;
+	}
+
+	.responsive-title{
+		font-size: 4vh;
+	}
+
+	//STYLE FOR ADBOXES
+	.adbox-img {
+	    padding:8px;
+	    border-bottom: 1px solid #e2e2e2;
+	    background-color : #f2f2f2;
+	}
+	.adbox-img img {
+	    border: 1px solid #ababab;
 	}

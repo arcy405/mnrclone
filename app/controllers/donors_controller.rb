@@ -20,6 +20,9 @@ class DonorsController < ApplicationController
 
     respond_to do |format|
       if @donor.save
+        if user_signed_in?
+          current_user.gamification.create!(points:5)
+        end
         format.html { redirect_to donors_path notice: 'Blood was successfully created.' }
       else
         format.html { render :new }
@@ -39,7 +42,7 @@ class DonorsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def donor_params
-      params.require(:donor).permit(:name, :address, :gender, :dob, :blood_group, :phone1, :phone2, :status, :verified)
+      params.require(:donor).permit(:name, :address, :gender, :blood_group, :phone1, :phone2, :status, :verified,:age)
     end
 end
 

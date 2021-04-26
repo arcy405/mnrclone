@@ -1,43 +1,146 @@
 <% content_for :title, "Bus Departure-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
+<!-------------------logic to produce all the departure dates for bus this year--------------------------------->
+<% depart_dates=[] %>
+<% initial_date = DateTime.now %>
+<% current_year = "2021" %>
+<% total_busses = 5 %>
+<% while initial_date.to_s.split("-")[0] == current_year do 
 
-<div class='container-float px-4 pt-4'>
-<div class="float-left">
-    <input type="text" class="search form-control" placeholder="Where you want to go?">
-</div>
-<span class="counter float-left"></span><br><br>
-     <div class="widget stacked widget-table action-table results">
-				<div class="widget-header pl-2">
-					<i class="fas fa-bus" aria-hidden="true"></i>
-					<h3>Bus Departure Schedule</h3>
-				</div> 
-				<div class="widget-content">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th>Destination</th>
-								<th>Departure Time</th>
-								<th>Company</th>
-								<th>Bus Number</th>
-								<th>Phone</th>
-							</tr>
-                            <tr class="warning no-result">
-                                <td colspan="4"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No results</td>
-                            </tr>
-						</thead>
-						<tbody>
-							
-                        <% @busdeparture.each do |depart|%>
-							<tr>
-								<td><%= depart.destination %></td>
-								<td><%= depart.depart_time.strftime("%I:%M %p") %></td>
-								<td><%= depart.company %></td>
-								<td><%= depart.bus_number %></td>
-								<td><%= depart.phone_number %></td>
-							</tr>
-                        <% end %>
-							</tbody>
-						</table>
+	initial_date=initial_date + total_busses.days
+	depart_dates=depart_dates.push(initial_date.to_s)
+	
+end %>
+<!----------------------------------------------------->
+<style type="text/css">
+
+.fixed { 
+    height:600px; 
+   overflow:hidden; 
+   }
+.scrollit {
+   height:100vh;
+   overflow-y:scroll; 
+
+}
+a{
+    text-decoration: none !important;
+}
+</style>
+
+<div class="row mb-0">
+    <div class="col-md-3 fixed">
+    <div class="border-bottom ml-2">
+        <h4 id="burgundy">Filters<i class="fas fa-filter"></i></h4>
+    </div>
+
+  <div id="all_filters">
+    <div class="py-2 border-bottom ml-3">
+    <h6 class="font-weight-bold">Place Filter</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+    <div class="py-2 border-bottom ml-3">
+		  <div class="form-group row">
+		    <label for="destination_search" class="col-form-label col-form-label-sm">MNR To </label>
+		    <div class="ml-1">
+		      <input type="text" class="form-control form-control-sm" placeholder="Destination" id="destination_search" onkeyup="busFilter()">
+		    </div>
+		  </div>
+		  <!-----<div class="form-group row">
+		    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">MNR From </label>
+		    <div class="ml-1">
+		      <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Coming From?">
+		    </div>
+		  </div>---------->
+   	 </div>
+	</div>
+    
+    <div class="py-2 border-bottom ml-3">
+        <h6 class="font-weight-bold">Departure Date Filter</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+		<input type="date"  placeholder="Select Departure Date" id="datefilter" onchange="busFilter()" />
+    </div>
+
+    <div class="py-2 border-bottom ml-3">
+        <h6 class="font-weight-bold">Yatayaat Filter</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        <select id="yatayaat" name="yatayaat" class="search form-control" onchange="busFilter()">
+		  <option value="all" selected="selected">All</option>
+		  <option value="Mahakali">Mahakali</option>
+		  <option value="Sunaulo">Sunaulo</option>
+		  <option value="Pawandoot">Pawandoot</option>
+		  <option value="Shuklaphanta">Shuklaphanta</option>
+		  <option value="Management">Management</option>
+		</select>
+    </div>
+
+    <div class="py-2 border-bottom ml-3">
+        <h6 class="font-weight-bold">Vehicle Type Filter</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+          <select name="sort" id="bus_type" onchange="busFilter()">
+              <option value="All" selected="selected"><b>All</b></option>
+              <option value="AC"><b>AC</b></option>
+              <option value="Delux"><b>Delux</b></option>
+              <option value="Hayse"><b>Hayse</b></option>
+          </select>
+    </div>
 </div> 
+    </div>
+
+    <div class="col-md-9 scrollit mt-4">
+							 <div class="row" id="myItems">
+                        <% @busdeparture.each do |depart|%>
+                        <div class="col-md-4 offset-md-0 offset-sm-1 mt-2 card">
+                            <div class="card-body">
+                              <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
+                              <span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
+                              <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
+                                <h6><b>Departs at <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
+                                <h6 style="display:none"><b>Departs Date <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
+                                <h6 class="font-weight-bold company"><%= depart.company %> <span style="color:#ffff">ALL</span></h6>
+                                <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
+                            </div>
+                        </div>
+                        
+                        <% end %>
+                    </div>
+         </div>
 </div>
-</div>
+
+
+
+<script type="text/javascript">
+	
+	function busFilter(){
+
+
+      input = document.getElementById("destination_search");
+      filter_place = input.value.toUpperCase();
+      filter_company = document.getElementById("yatayaat").value.toUpperCase();
+      filter_date = document.getElementById("datefilter").value;
+      filter_bus_type =document.getElementById("bus_type").value.toUpperCase();
+
+      cardContainer = document.getElementById("myItems");
+      cards = cardContainer.getElementsByClassName("card");
+
+      for (i = 0; i < cards.length; i++) {
+        dest_place = cards[i].querySelector(".card-body .destination");
+        company_type = cards[i].querySelector(".card-body .company");
+        dest_date = cards[i].querySelector(".card-body .date");
+        bus_type = cards[i].querySelector(".card-body .bus_type");
+
+        if (dest_place.innerText.toUpperCase().indexOf(filter_place) > -1 && 
+          company_type.innerText.toUpperCase().indexOf(filter_company) > -1 && 
+          dest_date.innerText.toUpperCase().indexOf(filter_date) > -1 &&
+          bus_type.innerText.toUpperCase().indexOf(filter_bus_type) > -1) {
+
+            cards[i].style.display = "";
+
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+
+    }
+
+
+</script>

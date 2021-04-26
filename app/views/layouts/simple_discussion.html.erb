@@ -1,0 +1,132 @@
+<%= render 'Homepage/navmenu.html.erb' %>
+<style type="text/css">
+
+.fixed { 
+    height:600px; 
+   overflow:hidden; 
+   }
+.scrollit {
+   height:100vh;
+   overflow-y:scroll; 
+
+}
+a{
+    text-decoration: none !important;
+}
+@media only screen and (max-device-width: 480;){
+    #filterDIV {
+        display: none
+    }
+    #categoryDIV {
+        display: none
+    }
+}
+</style>
+
+<div class="row mb-0">
+    <div class="col-md-3 col-lg-3 fixed">
+        <div class="card card-body">
+          <div class="forum-thread-filters">
+            <div class="about-title clearfix" >
+                    <span style="font-size: 1.5rem !important;">Hello <%= current_user.name if user_signed_in?%></span>
+            </div>
+             <% if user_signed_in? %>
+             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+             <% end %>
+          </div>
+          <hr />
+      <%= link_to t('ask_a_question'), simple_discussion.new_forum_thread_path, class: "btn btn-outline-primary btn-block ",style:"text-decoration:none" %>
+      <hr />
+
+      <div class="forum-thread-filters">
+        <h5>
+          <strong>
+            <span onclick="myFunction()"><%= t('filters') %></span>
+          </strong>
+        </h5>
+        <div id="filterDIV">
+        <div style="text-decoration:none">
+          <%= forum_link_to simple_discussion.forum_threads_path, style:"text-decoration:none", exact: true do %>
+            <%= icon "fa-fw fas", "bars" %>
+            <%= t('.all_threads') %>
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+          <div>
+            <%= forum_link_to simple_discussion.mine_forum_threads_path, style:"text-decoration:none" do %><%= icon "fa-fw far", "user-circle" %>
+              <%= t('.my_questions') %>
+            <% end %>
+          </div>
+          <div>
+            <%= forum_link_to simple_discussion.participating_forum_threads_path, style:"text-decoration:none" do %>
+              <%= icon "fa-fw far", "comments" %>
+              <%= t('.participating') %>
+            <% end %>
+          </div>
+        <% end %>
+        <div>
+          <%= forum_link_to simple_discussion.answered_forum_threads_path, style:"text-decoration:none" do %>
+            <%= icon "fa-fw fas", "check" %>
+            <%= t('.answered') %>
+          <% end %>
+        </div>
+        <div>
+          <%= forum_link_to simple_discussion.unanswered_forum_threads_path, style:"text-decoration:none" do %>
+            <%= icon "fa-fw fas", "question" %>
+            <%= t('.unanswered') %>
+          <% end %>
+        </div>
+    </div>
+      </div>
+
+      <hr />
+
+      <div class="forum-thread-filters">
+        <h6>
+          <strong>
+            <span onclick="myFunction2()"><%= t('.by_category') %></span>
+          </strong>
+        </h6>
+        <div id="categoryDIV">
+        <div><%= forum_link_to simple_discussion.forum_threads_path, exact: true do %><%= icon "fa-fw fas", "circle" %> All<% end %></div>
+        <% ForumCategory.sorted.each do |category| %>
+          <div>
+            <%= forum_link_to simple_discussion.forum_category_forum_threads_path(category) do %>
+              <%= icon "fa-fw fas", "circle", style: "color: #{category.color}" %>
+              <%= category.name %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+      
+    </div>
+    </div>
+    <div class="col-md-9 scrollit">
+        <div class="card card-body">
+      <%= yield %>
+    </div>
+    </div>
+</div>
+
+<% parent_layout("application") %>
+<script>
+function myFunction() {
+  var x = document.getElementById("filterDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function myFunction2() {
+  var x = document.getElementById("categoryDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+</script>

@@ -8,6 +8,6 @@ class ListingimageUploader < CarrierWave::Uploader::Base
     splitname=model.name
     pubid=splitname.split
     pubid=pubid[0]
-    return "Listing/" + pubid
+    return "Listing/" + pubid + rand(1...99999).to_s
   end  
 end

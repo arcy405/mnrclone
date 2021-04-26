@@ -1,16 +1,12 @@
 <% content_for :title, "Pet Adoption-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-
-
-
-  
       <div id="addlistform" class="about-section paddingTB60 gray-bg">
           <div class="container">
               <div class="row">
                 <div class="row">
                 <div class="col-md-12 col-sm-12">
                    <div class="about-title clearfix">
-                      <h1>Fill The Pet Details<span>MNRYP</span></h1>
+                      <h1>Fill The Pet Details <span>MNRYP</span></h1>
                    </div>
                    <div id="addlistform">
                       <div class="about-title clearfix" style="display:none">
@@ -35,17 +31,16 @@
                 <%= form_for @pet_adoptions,html: { multipart: true } do |f| %>
                   
                      <div class="row p-2">
-                        <%= f.text_field :pet_name, placeholder: "Pet Name" ,:required => true %>
+                        <%= f.text_field :pet_name, placeholder: "Pet Name" ,class:"w-100",:required => true %>
                      </div>
                      
                      
                      
                      <div class="row p-2">
-                        <%= f.text_field :contact, placeholder: "Contact Number" ,:required => true %>
+                        <%= f.text_field :contact, placeholder: "Contact Number" ,class:"w-100",:required => true %>
                      </div>
                      <div class="row p-2">
                         <label for="image">Add Image </label>
-                        <%= image_tag(@pet_adoptions.avatar_url) if @pet_adoptions.image? %>
                         <%= f.file_field :image, direct_upload: true %>
                         <%= f.hidden_field :image_cache %>
                      </div>

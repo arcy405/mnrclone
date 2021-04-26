@@ -12,4 +12,9 @@ Popper: ['popper.js', 'default']
 
 }))
 
+const { resolve } = require('path');
+const { config, Environment } = require('@rails/webpacker');
+const WebpackerPwa = require('webpacker-pwa');
+new WebpackerPwa(config, environment);
+
 module.exports = environment

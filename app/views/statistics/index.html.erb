@@ -1,0 +1,30 @@
+<% content_for :title, "Stats Of MNR-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+<% area,population,wards,map = "" %>
+<% @stats.each do |stat| %>
+		<% area = stat.area %>
+		<% population = stat.population %>.
+		<% wards = stat.wards %>
+		<% map = stat.map %>
+<% end %>
+<div class="container-fluid">
+	<div class="about-title clearfix">
+        <h1>About <span>MNR</span></h1>
+    </div>
+	<div class="row">
+		<div class="col-md-4">
+			<img src="<%= map %>" alt="map" class="img-thumbnail map-img" />
+		</div>
+		<div class="col-md-2">
+			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">Area</span><br /><%= area %></span></div>
+			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">Population</span><br /><%= population %></span></div>
+			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">No. Of Wards</span><br /><%= wards %></span></div>
+		</div>
+		<div class="col-md-6">
+			<div class="text-justify my-auto mx-2">
+				सुदूरपश्चिम प्रदेश (तत्कालिन सुदूरपश्चिमाञ्चल विकास क्षेत्रमा पर्ने महाकाली अञ्चल), कञ्चनपुर जिल्लाको सदरमुकामको रुपमा भीमदत्त नगरपालिका राजधानी काठमाडौंबाट ७५० कि.मी. को दुरीमा रहेको छ । कंचनपुर जील्लामा भएका ९ स्थानिय तहमा सात वटा नगरपालिका मध्ये सबैभन्दा जेठो नगरपालिका हो। तत्कालिन महेन्द्रनगर पञ्चायतको रुपमा वि.सं. २०३४ सालमा भूजेला,सिद्धनाथ र आदर्श गाँउ पञ्चायतका सम्पुर्ण भाग तथा सुडा र ऐरी गाँउ पञ्चायतको आंशिक भू-भाग मिलाई गठन भएको हो । महेन्द्रनगर नामाकरण गर्नुपुर्व यसको बजार क्षेत्रलाई धुसुडी बजार भनिन्थ्यो । वि.सं. २०४७ सालको जनआन्दोलन पश्चात महेन्द्रनगर नगरपञ्चायत बाट नाम परिवर्तन गरी महेन्द्रनगर नगरपालिका बनाइयो र वि.सं. २०६५ साल कार्तिक २० गतेको नेपाल सरकार मन्त्रि परिषदको निर्णयानुसार (शहिद भीमदत्त पन्तको सम्मानस्वरुप उहाँको नाममा) यस नगरपालिकालाई भीमदत्त नगरपालिका नामाकरण गरियो ।
+			</div>
+		</div>
+	</div>
+	
+</div>

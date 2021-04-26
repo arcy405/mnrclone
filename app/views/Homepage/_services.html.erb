@@ -5,12 +5,12 @@
 <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to realestates_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/realestate_kmwpy0.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/realestate_kmwpy0.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
                             
-                            <h6 class="card-title">
-                                    Real Estates
+                            <h6 class="service_title mt-2">
+                                    Real Estates<br> Buy/Rent
                             </h6>
                      </div>
                 </div>
@@ -20,10 +20,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to vacancies_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540336/service_mnryp/jobs_qfkcwg.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540336/service_mnryp/jobs_qfkcwg.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Job Vacancy
                             </h6>
                      </div>
@@ -33,25 +33,11 @@
     <!------------------------------------------------------------------------------------------------>
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
-                <%= link_to agents_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
-                        <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540013/service_mnryp/bus_ttslqr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
-                            Ticket Agents
-                            </h6>
-                     </div>
-                </div>
-                <% end %>
-            </div>
-    <!-------------------------------------------------------------------------------------------------->
-    <!---------------------------card---------------------------------------------------->
-             <div class="col-md-4 col-6 pt-2">
                 <%= link_to bus_departures_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540013/service_mnryp/bus_ttslqr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540013/service_mnryp/bus_ttslqr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Bus Schedule
                             </h6>
                      </div>
@@ -62,10 +48,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to models_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540336/service_mnryp/model_yedw8d.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title  mt-3">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540336/service_mnryp/model_yedw8d.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Models Of MNR
                             </h6>
                      </div>
@@ -76,10 +62,10 @@
      <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to donors_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/blooddonation_cuhejd.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title mt-3">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/blooddonation_cuhejd.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Blood Donors
                             </h6>
                      </div>
@@ -90,11 +76,11 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to pet_adoptions_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/petadoption_ktiskw.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/petadoption_ktiskw.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
                              
-                            <h6 class="card-title mt-3">
+                            <h6 class="service_title mt-2">
                             Pet Adoption
                             </h6>
                      </div>
@@ -105,10 +91,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to tourists_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/tourist_xedlzp.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title mt-3">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1615540337/service_mnryp/tourist_xedlzp.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Places In MNR
                             </h6>
                      </div>
@@ -119,10 +105,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <%= link_to educational_notes_path,:style=>'text-decoration:none' do %>
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616128828/service_mnryp/notes_y3sipr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616128828/service_mnryp/notes_y3sipr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             University Notes
                             </h6>
                      </div>
@@ -133,10 +119,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <a href="https://www.cakesmnr.com" target="_blank" style="text-decoration: none;">
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319318/service_mnryp/cakes_se1bsy.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319318/service_mnryp/cakes_se1bsy.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
                             Online Cakes
                             </h6>
                      </div>
@@ -147,10 +133,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <a href="https://www.cheersmnr.com" target="_blank" style="text-decoration: none;">
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319317/service_mnryp/food_dy3sik.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319317/service_mnryp/food_dy3sik.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
                             Online Food
                             </h6>
                      </div>
@@ -161,10 +147,10 @@
     <!---------------------------card---------------------------------------------------->
              <div class="col-md-4 col-6 pt-2">
                 <a href="https://www.sudurpasal.com" target="_blank" style="text-decoration: none;">
-                    <div class="card category-card">
+                    <div class="card icon_card">
                         <div class="card-body">
-                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319317/service_mnryp/onlineshop_cbulix.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy") %>
-                            <h6 class="card-title">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1616319317/service_mnryp/onlineshop_cbulix.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
                             Online Shopping
                             </h6>
                      </div>
@@ -172,4 +158,112 @@
                 </a>
             </div>
     <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to telephone_directory_index_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617093915/service_mnryp/telephone_szqpjr.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            Telephone Directory
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to simple_discussion_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617876655/service_mnryp/icons8-discussion-forum-16_hlwqbs.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            MNR Forum
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <a href="https://westpati.com/" target="_blank" style="text-decoration: none;">
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1617876972/service_mnryp/icons8-us-news-64_x55far.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            Online News
+                            </h6>
+                     </div>
+                </div>
+                </a>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+ <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to events_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1618733148/service_mnryp/icons8-event-64_vziczj.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            MNR Today
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+<!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to statistics_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1618807192/service_mnryp/stats_jgpvs4.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            MNR Statistics
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+    <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to marketplaces_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1618991255/service_mnryp/marketplace_ft6hf2.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons",loading:"lazy") %>
+                            <h6 class="service_title mt-2">
+                            MNR Marketplace
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+     <!---------------------------card---------------------------------------------------->
+             <div class="col-md-4 col-6 pt-2">
+                <%= link_to homes_tool_path,:style=>'text-decoration:none' do %>
+                    <div class="card icon_card">
+                        <div class="card-body">
+                            <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1619347863/service_mnryp/icons8-date-to-64_cuihaq.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"service_icons") %>
+                            <h6 class="service_title mt-2">
+                            Tools<br>
+                            <span style="font-size: 0.5rem">Cal../Converter/Rashi..</span>
+                            </h6>
+                     </div>
+                </div>
+                <% end %>
+            </div>
+    <!------------------------------------------------------------------------------------------------>
+
+
  </div>

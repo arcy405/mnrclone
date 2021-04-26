@@ -1,0 +1,54 @@
+<% content_for :title, "#{current_user.name}-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+			<div class="container-fluid mt-2">
+				<div class="row">
+					<div class="col-md-4 grid-margin stretch-card">
+						<div class="card">
+							<div class="profile-card">
+
+								<div class="profile-header">
+
+									<div class="cover-image">
+										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png" class="img-fluid" style="height:100%; width:100%; object-fit: cover;">
+									</div>
+									<div class="user-image">
+										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1618569084/deer_txd8ww.jpg" >
+									</div>
+								</div>
+
+								<div class="profile-content">
+									<div class="profile-name"><%= current_user.name %></div>
+									<div class="profile-designation"><%= @points %> Points</div>
+									<p class="profile-description text-center">MNRYP team thanks you for making MNR beautiful.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-8 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<p class="card-title font-weight-bold">MNRYP</p>
+								<hr>
+								<p class="card-title font-weight-bold">Point Information</p>
+								<ul class="about">
+									<li class="about-items">Find Advertisement For MNRYP website <span class="text-success">+50 Points</span>.</li>
+									<li class="about-items">Sell property via Real Estates Module of MNRYP <span class="text-success">+20 Points</span>.</li>
+									<li class="about-items">Rent property via Real Estates Module of MNRYP <span class="text-success">+10 Points</span>.</li>
+									<li class="about-items">Become Blood Donor for MNRYP <span class="text-success">+10 Points</span>.</li>
+									<li class="about-items">Listing for Pet Adoption <span class="text-success">+5 Points</span>.</li>
+									<li class="about-items">Listing events for Mnr Today <span class="text-success">+5 Points</span>.</li>
+									<li class="about-items">Post a question or answer in MNRYP Forum  <span class="text-success">+2 Points</span>.</li>
+								</ul>
+								 <hr>	
+								<p class="card-description card-title font-weight-bold">Rewrd Information</p>
+								<ul class="about">
+									<li class="about-items">1000 points = <span class="text-success">Rs. 1000</span></li>
+									<li class="about-items">2000 points = <span class="text-success">Rs. 2500</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>

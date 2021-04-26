@@ -23,6 +23,7 @@
       <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none' %>
     </li>
 
+
   <li class="nav-item dropdown has-megamenu">
     <a class="" href="#" data-toggle="dropdown" style="text-decoration:none"> All Services<i class="fas fa-caret-down"></i></a>
       <div class="dropdown-menu megamenu" role="menu">
@@ -90,6 +91,27 @@
                     </div><!-- end row --> 
         </div> <!-- dropdown-mega-menu.// -->
   </li>
+<span class="badge badge-pill badge-warning">
+  <li class="nav-item">
+      <% if user_signed_in? %>
+          <%= link_to gamifications_path, class:"nav-item welcome-user", style:"text-decoration:none" do %>
+            <i class="fas fa-user-circle" ></i> Welcome <%= current_user.name %>
+          <% end %>
+      <% else %>
+
+           <%= link_to "Register", new_user_session_path,:style=>'text-decoration:none' %>
+      <% end %>
+    </li>
+
+  <li class="nav-item">
+    <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete ,:style=>'text-decoration:none', class:"login_links" %>
+    <% else %>
+         <%= link_to "Sign In", user_session_path,:style=>'text-decoration:none', class:"login_links"  %>
+     <% end %>
+    </li>
+</span>
+     
 </ul>
 
   </div> <!-- navbar-collapse.// -->
@@ -109,21 +131,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12">
             <h1 class="display-5 text-light mb-2 mt-6 maintext"><strong>Discover The Best Services Near You</strong> </h1>
        <!----------------------------search bar------------------------------>
-       <div class="row">
-          <div class="col-md-12 col-lg-12 col-sm-12 d-flex justify-content-center">
-          <div style="float:left;">
-          <%= form_tag listings_search_path, :method =>"get" do %>
-                <div id="custom-search-input">
-                    <div class="input-group">
-                      <%= search_field_tag :aa_search_input, params[:aa_search_input],class:"form-control", autocomplete:'off', placeholder:'Search...', :required => 'required' %>
-                            <%= button_tag(type: "submit", class: "btn btn-info btn-sm") do %>
-                                <% end %>
-                    </div>
-                </div>
-            <% end %>
-            </div>
-          </div>
-       </div>
+        <%= render partial:"Homepage/search" %>
                 
         <!------------------------------------------------------------------->
         </div>

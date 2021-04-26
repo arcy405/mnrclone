@@ -5,24 +5,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js' defer></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-  <!---------for algolia search---------------------------->
-  <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js" defer></script>
-  <script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js" defer></script>
+    <link rel="manifest" href="/manifest.json">
 
 
-
-
-<%= analytics_init if GoogleAnalytics.valid_tracker? %>
+  <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   <%= yield :recaptcha_js %>
   
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => true %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',:cache => true %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => true %>
 
   </head>
   <body>
@@ -39,6 +34,13 @@
       </div>
 
     <!---------footer---->
-    <%= render 'Homepage/footer.html.erb' %>
+    <% unless controller_name == "errors" %>
+        <%= render 'Homepage/footer.html.erb'  %>
+    <% end %>
+
+    <!---------for algolia search---------------------------->
+  <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js" defer></script>
+
   </body>
 </html>
