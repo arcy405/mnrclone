@@ -2,19 +2,27 @@
 <%= render 'Homepage/navmenu.html.erb' %>
 
 
-<style>
-	a{
-		cursor: default !important;
-        pointer-events: none !important;        
-        text-decoration: none !important;
-        color: grey !important;
-	}
-</style>
-
-<div class="container mt-2">
+<div class="container-fluid mt-2">
 	<div class="row">
 		<div class="col-md-6">
-			<iframe src="http://saralnepali.com/widgets/nepali-calendar.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:100%;height:1200px" allowtransparency="true"></iframe>
+			<!-- Start of nepali calendar widget -->
+			<script type="text/javascript"> <!--
+			   var nc_width = 'responsive';
+			   var nc_height = 650;
+			   var nc_api_id = "612145l334"; //-->
+			</script>
+			<script type="text/javascript" src="https://www.ashesh.com.np/nepali-calendar/js/ncf.js?v=5"></script>
+			<br />
+			<!-- Start of upcoming event widget -->
+			<script type="text/javascript"> <!--
+			var nc_ev_width = 'responsive';
+			var nc_ev_height = 400;
+			var nc_ev_def_lan = 'np';
+			var nc_ev_api_id = 29420210426585; //-->
+			</script>
+			<script type="text/javascript" src="https://www.ashesh.com.np/calendar-event/ev.js"></script>
+			<!-- End of upcoming event widget -->
+          
 		</div>
 		<div class="col-md-6">
 			<iframe src="https://ramropatro.com/widgets/nepali-date-converter.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:0; overflow:hidden; width:100%; height:250px; margin-top: 0px;" allowtransparency="true"></iframe>
@@ -44,3 +52,8 @@
 	</div>
 </div>
 </div>
+<div class="container">
+	<iframe width="100%" height="400" frameborder="0" border="no" scrolling="no" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-unicode3.php?api=612146l441">
+</iframe>
+</div>
+
