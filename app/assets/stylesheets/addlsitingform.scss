@@ -2,8 +2,15 @@
     width: 100%;
 }
 
-button{
-	background-image:none !important;
+.button{
+	background-color:#ff8f00 !important;
+	border-radius:10%;
+	width:50%;
+	font-size:1rem;
+	font-weight:bold;
+}
+.button:hover{
+	background-color:#e65100 !important;
 }
 .btn {
 	background-image:none !important;
