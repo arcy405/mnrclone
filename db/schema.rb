@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_043937) do
+ActiveRecord::Schema.define(version: 2021_04_29_093757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -355,6 +355,23 @@ ActiveRecord::Schema.define(version: 2021_04_29_043937) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+  end
+
+  create_table "professionals", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.bigint "profession_id", null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.index ["profession_id"], name: "index_professionals_on_profession_id"
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "project_images", force: :cascade do |t|
@@ -738,6 +755,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_043937) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
+  add_foreign_key "professionals", "professions"
   add_foreign_key "reviews", "listings"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
