@@ -1,0 +1,43 @@
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1>Donate for <span> <%= @project.project_name %></span></h1>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify">Provide accurate details.</li>
+              <li class="about-paddingB text-justify">Read all the details about project, organization and fund raisers.</li>
+              <li class="about-paddingB text-justify">Please refer the payment details below.</li>
+              <li class="about-paddingB text-justify">Fill your details in the form given for record and make the payment to any of the payment details given.</li>
+              <div class="about-title clearfix">
+                      <h1><span>Payment Details</span></h1>
+                   </div>
+              <% payment_details = @project.payment_details.split("/") %>
+              <% payment_details.each do |details| %>
+              <pre class="text-wrap border"><%= details %></pre>
+              <% end %>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= render partial:"form" %>
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+   
+       
+       

@@ -1,0 +1,24 @@
+<% content_for :title, "Nepaila-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<!-- Topic Cards -->
+    <div class="container mt-2">
+        <div class="row">
+            <% @projects.each do |project| %>
+                <div class="col-xs-12 col-md-3">
+                	<div class="card h-100">
+                    		<%= cl_image_tag(project.coverimage, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
+				        <div class="card-body">
+				          <h4 class="card-title"><%= project.project_name %></h4>
+				          <h6 class="card-subtitle mb-2 text-muted">For:<%= project.foundation_name %> </h6>
+				          <h6 class="card-subtitle mb-2 text-muted">By: <%= project.organized_by %> </h6>
+				          
+                          <%= link_to project_path(project), class:"float-right" do %>
+                           Donate Now
+                          <% end %>
+				        </div>
+				      </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
