@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_080256) do
+ActiveRecord::Schema.define(version: 2021_04_29_043937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,17 @@ ActiveRecord::Schema.define(version: 2021_04_25_080256) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.string "donor_name"
+    t.string "address"
+    t.string "contact"
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "donation_amount"
+    t.index ["project_id"], name: "index_donations_on_project_id"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -344,6 +355,27 @@ ActiveRecord::Schema.define(version: 2021_04_25_080256) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+  end
+
+  create_table "project_images", force: :cascade do |t|
+    t.integer "project_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "project_name"
+    t.text "project_description"
+    t.string "foundation_name"
+    t.text "foundation_description"
+    t.string "organized_by"
+    t.text "organizer_description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "coverimage"
+    t.string "tagline"
+    t.string "payment_details"
   end
 
   create_table "realestates", force: :cascade do |t|
@@ -696,6 +728,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_080256) do
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "donations", "projects"
   add_foreign_key "forum_posts", "forum_threads"
   add_foreign_key "forum_posts", "users"
   add_foreign_key "forum_subscriptions", "forum_threads"

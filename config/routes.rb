@@ -30,6 +30,8 @@ Rails.application.routes.draw do
    resources :educational_notes, only: [:index]
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
+   resources :projects, only: [:index,:show]
+
    get 'educational_notes/notes_index'
    get 'educational_notes/notes_show'
 
@@ -55,6 +57,9 @@ Rails.application.routes.draw do
 
   resources :listings do
       resources :reviews
+  end
+  resources :projects do
+      resources :donations
   end
 
   match "/404", :to => "errors#not_found", :via => :all
