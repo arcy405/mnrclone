@@ -1,0 +1,32 @@
+
+<%= form_for @professional do |f| %>
+<% if @professional.errors.any? %>
+  <% @professional.errors.full_messages.each do |message|%>
+  <h3><%= message %> </h3>
+  <%end%>
+<%end%></br>
+		<div class="mb-3">
+    		<%= f.text_field :name, class:"form-control", placeholder:"Enter your name." %>
+  		</div>
+  		<div class="mb-3">
+  			<%= f.label :profession_id, "Select your profession" %>
+  			   <%= f.select :profession_id, options_from_collection_for_select(Profession.all, 'id', 'name'),{:prompt =>"Select your profession"} %>
+  		</div>
+  		<div class="mb-3">
+    		<%= f.text_field :address, class:"form-control", placeholder:"Enter your address." %>
+  		</div>
+  		<div class="mb-3">
+    		<%= f.number_field :contact, class:"form-control", placeholder:"Enter your phone number." %>
+  		</div>
+  		<div class="mb-3">
+	        <label for="image">Add Image </label>
+	        <%= f.file_field :image, direct_upload: true %>
+	        <%= f.hidden_field :image_cache %>
+	        <div class="form-text text-mutes">*Profile picture increases possibilty of getting work.</div>
+	     </div>
+
+         <div class="d-flex justify-content-center mt-2">
+          <%= f.submit "Save" , class: "button", data: { disable_with: "Saving..." } %>
+
+         </div>
+<% end %>

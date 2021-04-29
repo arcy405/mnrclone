@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
    resources :bus_departures
    resources :models
-   resources :reviews, :events, :marketplaces
+   resources :reviews, :events, :marketplaces,:professionals
    resources :educational_notes, only: [:index]
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
