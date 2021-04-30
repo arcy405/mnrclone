@@ -7,6 +7,7 @@ class RealestatesController < ApplicationController
   end
   def new
     @realestate=Realestate.new
+    @realestate_images= @realestate.realestate_images.build
   end
   
   def create 
@@ -17,14 +18,18 @@ class RealestatesController < ApplicationController
         end
       redirect_to realestates_path
     else
-      redirect_to realestates_new_path, alert: "Error creating listing."
+      render :new , alert: "Error creating listing."
     end
   end
+  
+  def show 
+    @realestate=Realestate.find(params[:id])
+  end 
    
    
 
   private
   def realestates_params
-    params.require(:realestate).permit(:seller_name, :price, :description, :seller_phone , :ptype, :bathroom,:bedroom,:address, :propertyname,:kithchen, :image )
-  end
+    params.require(:realestate).permit(:seller_name, :price, :description, :seller_phone , :ptype, :user_id,  :bathroom,:bedroom,:address, :propertyname,:kithchen, :image,realestate_images_attributes: [:id, :realestate_id, :image,:image_cache])
+  end 
 end

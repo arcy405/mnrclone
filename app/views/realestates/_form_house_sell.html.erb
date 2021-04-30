@@ -1,4 +1,10 @@
-<%= form_for @realestate do |f| %>
+
+
+<%= form_for @realestate,:html => { :multipart => true } do |f| %>
+
+ <!-------------hidden field ------------------->
+  <%= f.hidden_field :user_id, value: "#{current_user.id}"  %>
+  <!------------------------------------------------>
     <div class="row p-2">
         <%= f.text_field :propertyname , placeholder: "House Name" ,:required => true %>
     </div>
@@ -17,7 +23,19 @@
     <div class="row p-2">
         <%= f.text_field :seller_phone , placeholder: "House Owner Phone " ,:required => true %>
     </div>
-     <%= f.file_field :image , direct_upload: true %>
+     <div class="row p-2">
+         	
+            <label class="mr-2">Add Images </label>
+            <%= f.fields_for :realestate_images do |p| %>
+             <div class="field">
+              <div class="input-group">
+                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control" %>
+                 <%= p.hidden_field :image_cache %>
+             </div>
+             <pre>You can upload multiple images.</pre>
+           </div>
+           <% end %>
+         </div>
     
     <%= f.hidden_field :ptype, value: "sell"  %>
    

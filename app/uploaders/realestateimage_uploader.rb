@@ -5,9 +5,7 @@ class RealestateimageUploader < CarrierWave::Uploader::Base
   process :eager => true
   process :tags => ['realestates_photo']
   def public_id
-    splitname=model.seller_name
-    pubid=splitname.split
-    pubid=pubid[0]
-    return "Property/" + pubid + + rand(1...99999).to_s
+    pubid=model.id.to_s +  rand(1...99999).to_s
+    return "Property/" + pubid 
   end  
 end
