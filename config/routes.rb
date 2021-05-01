@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'homes/index', to:"homes#index"
   get 'homes/tool', to:"homes#tool"
 
+  get 'set_mylanguage/np', to:"set_mylanguage#np"
+  get 'set_mylanguage/en', to:"set_mylanguage#en"
+
 
   get 'aboutus/index', to:"aboutus#index"
   
@@ -47,8 +50,6 @@ Rails.application.routes.draw do
 
    resources :agents, only: [:index]
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#index'
   resources :realestates

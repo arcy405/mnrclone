@@ -127,7 +127,20 @@
 
 <section class="set-bg pt-5 pb-5 mt-0 align-items-center d-flex bg-dark">
    <div class="container">
-      <div class="row justify-content-center align-items-center d-flex text-center h-100">
+    <div class="responsive-text text-white mb-2"><strong>Select Your Language For the App</strong> </div>
+    <% if I18n.locale.to_s == "np" %>
+        <% active_class_np = "border-warning rounded-4" %>
+    <% else %>
+            <% active_class_en = "border-warning rounded-4" %>
+    <% end %>
+    <%= link_to set_mylanguage_np_path do %>
+    <span  class="btn-outline-warning rounded p-2 mx-2 border <%= active_class_np %>"><strong>Nepali</strong><img src="https://res.cloudinary.com/di7sekeem/image/upload/v1619515739/service_mnryp/nepaila_n8dz06.png" style="height: 25px; width: 25px;" /></span>
+    <% end %>
+    <%= link_to set_mylanguage_en_path do %>
+       <span  class=" btn-outline-warning rounded p-2 mx-2 border <%= active_class_en %>"><strong>English</strong><img src="https://res.cloudinary.com/di7sekeem/image/upload/v1619845675/service_mnryp/english_lang_ehccug.png"  style="height: 25px; width: 25px;" /></span>
+    <% end %>
+
+      <div class="row justify-content-center align-items-center d-flex text-center h-100 mt-2">
         <div class="col-md-12 col-lg-12 col-sm-12">
             <h1 class="display-5 text-light mb-2 mt-6 maintext"><strong>Discover The Best Services Near You</strong> </h1>
        <!----------------------------search bar------------------------------>
