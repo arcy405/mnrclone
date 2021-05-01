@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'homes/index', to:"homes#index"
   get 'homes/tool', to:"homes#tool"
 
+  get 'set_mylanguage/np', to:"set_mylanguage#np"
+  get 'set_mylanguage/en', to:"set_mylanguage#en"
+
 
   get 'aboutus/index', to:"aboutus#index"
   
@@ -48,6 +51,7 @@ Rails.application.routes.draw do
    get 'listings/sucess', to: "listings#sucess"
 
    resources :agents, only: [:index]
+
 
   root 'homes#index'
   resources :realestates

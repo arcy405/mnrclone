@@ -12,7 +12,6 @@
 
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
- 
  <div class="desktop-view d-none d-sm-block">
  <div class="px-4">
  	<div class="row">
@@ -21,6 +20,7 @@
  			<%= render 'Homepage/categorycard.html.erb' %>
  		</div>
  		<div class="col-md-6 cols-xs-12">
+ 			
  			<%= render partial:"Homepage/services" %>
 				<div class="ad-sektion-top hidden-xs" style="margin-top:80px;">
 					<div class="container-fluid text-center">
@@ -67,7 +67,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-
 </body>
 </html>
        
