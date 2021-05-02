@@ -2,7 +2,7 @@ module TagsHelper
 	def to_nepali_num(num)
 		nepali_num=""
 		num=num.to_s.reverse.to_i
-		while num > 0
+		while num >= 0
 			digit= num % 10
 			num=num/10
 			nepali_num+= to_nepali_num_case(digit).to_s
