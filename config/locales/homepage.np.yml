@@ -1,0 +1,9 @@
+np:
+  main_text: "तपाईंको नजिकको सर्वश्रेष्ठ सेवाहरू पत्ता लगाउनुहोस्"
+  lang_select: "एपको लागी तपाईंको भाषा चयन गर्नुहोस्"
+  nepali: "नेपाली"
+  english: "अंग्रेजी"
+  all_listings: "सबै व्यवसायहरू"
+  admin:
+    misc:
+      navigation: "Navigation"

@@ -1,7 +1,7 @@
 <div class="pt-2">
 <div class="d-flex justify-content-center h4">
     <span class="badge badge-pill badge-info d-none d-sm-block">
-    All Listings(<%= Listing.all.count %>)
+    <%= t('all_listings') %>(<%= Listing.all.count %>)
 </span>
 </div>
         <% @tags.each do |tag| %>
