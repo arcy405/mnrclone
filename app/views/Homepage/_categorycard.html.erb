@@ -5,38 +5,29 @@
         (<%= Listing.all.count %>)
 </span>
 </div>
-
-        <% @tags.each do |tag| %>
-                 <%= link_to homes_show_path(category: tag.title_en ),:style=>'text-decoration:none' do%>
-                     <div class="container">
-                              <div class="card shadow">
-                                <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-10">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <% if tag.image.present? %>
-                                                            <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle",loading:"lazy") %>
-                                                            <%end%>
-                                                        </div>
-                                                        <div class="text-wrap">
-                                                           <h6 class="card-category-title ml-2 mt-2">
-                                                                <%= tag.title %>
-                                                           </h6>
-
-                                                        </div>
-                                                </div>
-                                                </div>
-                                                    
-                                                <div class="col-2">
-                                                    <span class="badge rounded-pill bg-light text-dark float-right">
-                                                            <%= tag.listings.size %>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                              </div>
+<div class="container row">
+    <% @tags.each do |tag| %>
+        <div class="col-md-3">
+            <%= link_to homes_show_path(category: tag.title_en ),:style=>'text-decoration:none' do%>
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="">
+                                <% if tag.image.present? %>
+                                    <%= cl_image_tag(tag.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"profile2 rounded-circle",loading:"lazy") %>
+                                <%end%>
+                            </div>
+                            <div class="text-wrap">
+                                <h6 class="card-category-title ml-2 mt-2"><%= tag.title %></h6>
+                            </div>
+                            <div class="ml-auto">
+                                <span class="badge badge-info"><%= tag.listings.length %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <% end %>
-        <%end%>
+        </div>
+    <%end%>
+</div>
 </div>
