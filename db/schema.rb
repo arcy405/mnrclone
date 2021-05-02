@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_093757) do
+ActiveRecord::Schema.define(version: 2021_05_02_060633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -441,11 +441,12 @@ ActiveRecord::Schema.define(version: 2021_04_29_093757) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
+    t.string "title_en"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "listings_count"
+    t.string "title_np"
   end
 
   create_table "thredded_categories", force: :cascade do |t|
