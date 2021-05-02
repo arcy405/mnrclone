@@ -1,12 +1,16 @@
 class HomesController < ApplicationController
   def index
-    @tags=Tag.order(:title)
+    if  I18n.locale.to_s == "en"
+      @tags=Tag.order(:title_en)
+    else
+      @tags = Tag.order(:title_np)
+    end
   end
 
   def show
     category=params[:category]
     @catname=category
-    @lists=Listing.all.joins(:tag).where(tags: { title: category})
+    @lists=Listing.all.joins(:tag).where(tags: { title_en: category})
     end
 
     def search
