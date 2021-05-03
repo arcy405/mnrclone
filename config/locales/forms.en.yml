@@ -52,4 +52,11 @@ en:
   marketplace_text_1: "Provide accurate details."
   marketplace_text_2: "The seller and buyer will be responsible for all transactions."
   marketplace_text_3: "Your products will be listed for a period of one month."
+  #for placeholder
+  marketplace_placeholer_1: "Product Name"
+  marketplace_placeholer_2: "Product Price"
+  marketplace_placeholer_3: "Contact Number"
+  marketplace_placeholer_4: "Add a brief description about product"
+  marketplace_placeholer_5: "Add Images"
+  marketplace_placeholer_6: "You can upload multiple images"
 

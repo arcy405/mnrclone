@@ -51,7 +51,14 @@ np:
   marketplace_text_1: "सही विवरण प्रदान गर्नुहोस्।"
   marketplace_text_2: "विक्रेता र खरीदार सबै लेनदेनको लागि जिम्मेवार हुनेछन्"
   marketplace_text_3: "तपाईका उत्पादनहरू एक महिना अवधिको लागि सूचीबद्ध हुनेछन्"
-
+  
+  #for placeholders
+  marketplace_placeholer_1: "सामान को नाम"
+  marketplace_placeholer_2: "सामान को मूल्य"
+  marketplace_placeholer_3: "सम्पर्क फोन नम्बर"
+  marketplace_placeholer_4: "सामानको बारेमा संक्षिप्त विवरण थप्नुहोस्"
+  marketplace_placeholer_5: "तस्बीर हरु थप्नुहोस"
+  marketplace_placeholer_6: "एक वा धेरै तस्बीर थप्न सक्नु हुन्छ"
 
 
 
