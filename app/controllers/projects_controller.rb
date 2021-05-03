@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		@project_gallery = @project.project_images
 		@donation = @project.donations.build
-		@number_of_people = @project.donations.count
-		@total_amount=@project.donations.sum(:donation_amount)
-		@donors = @project.donations.all
+		@number_of_people = @project.donations.where("verification=?", true).count
+		@total_amount=@project.donations.where("verification=?", true).sum(:donation_amount)
+		@donors = @project.donations.where("verification=?", true )
 	end
 end
