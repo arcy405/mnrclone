@@ -1,7 +1,7 @@
 <%= form_for @realestate do |f| %>
 
  <!-------------hidden field ------------------->
-  <%= f.hidden_field :user_id, value: "#{current_user.id}"  %>
+  <%= f.hidden_field :user_id, value: "#{current_user.id}"  %> <!--this is also not working >
   <!------------------------------------------------>
     <div class="row p-2">
         <%= f.text_field :propertyname , placeholder: "Land Area & Name" ,:required => true %>
