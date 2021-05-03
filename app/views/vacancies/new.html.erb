@@ -9,12 +9,7 @@
                 <div class="row">
                 <div class="col-md-12 col-sm-12">
                    <div class="about-title clearfix">
-                      <h1>Submit your vacancy to <span>MNRYP</span></h1>
-                   </div>
-                   <div id="addlistform">
-                      <div class="about-title clearfix" style="display:none">
-                          <h1>Welcome <span>MNRYP</span></h1>
-                      </div>
+                      <h1><%= t('job_vacancy_title') %> <span>MNRYP</span></h1>
                    </div>
                 </div>
               </div>
@@ -22,89 +17,53 @@
             <div class="row">
             <div class="col-md-6 col-sm-12">
             <ul >
-              <li class="about-paddingB text-justify">Make sure to select the Job Category from the dropdown.</li>
-              <li class="about-paddingB text-justify">The Job category used in the listing the job according.</li>
-              <li class="about-paddingB text-justify">You must fill up the info as the requirement of the job.</li>
-              <li class="about-paddingB text-justify">Give the name of your company or institute name and the location situated.</li>
-              <li class="about-paddingB text-justify">Give the means through which applicants can apply for the job.</li>
-              <li>Make sure to provide detailed description of the job and fill up skill section if need, THANK YOU!</li>
+              <li class="about-paddingB text-justify"><%= t('job_vacancy_subtitle') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_1') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_2') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_3') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_4') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_5') %></li>
+                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_6') %></li>
+                <span class="about-paddingB text-justify"><%= t('thanks_text') %></span>
             </ul>
             </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="shadow p-3 mb-5 bg-white rounded">
                 <%= form_for @vacancy do |f| %>
                     
-                     <div class="row p-2">
-                        <%= f.text_field :company_name, placeholder: "Company Name" ,:required => true %>
-                     </div>
+                    <%= f.text_field :company_name, placeholder: "#{t('job_placeholder_1')}",class:"form-control mb-2" ,:required => true %>
+                    <%= f.text_field :job_title, placeholder: "#{t('job_placeholder_2')}",class:"form-control mb-2" ,:required => true %>
+                    <%= f.text_field :location, placeholder: "#{t('job_placeholder_3')}",class:"form-control mb-2" ,:required => true %>
+
+                    <%= f.select :job_category, ["#{t('job_placeholder_4')}", 'Arts', 'Business', 'Education', 'Law Enforcement', 'Media', 'Medical', 'Service Industry', 'Technology','Hotel','Others'] ,:required => true %>
+                    <%= f.select :job_level, ["#{t('job_placeholder_5')}",'Entry-level','Intermediate','Mid-level','Senior or Executive-level'],:required => true  %>
+
+                    <%= f.text_field :no_of_vacancy, placeholder: "#{t('job_placeholder_6')}",class:"form-control mb-2 mt-2" ,:required => true %>
+                    <%= f.text_field :offered_salary, placeholder: "#{t('job_placeholder_7')}",class:"form-control mb-2" ,:required => true %>
+                    <%= f.label :apply_before, "#{t('job_placeholder_8')}" %>
+                    <%= f.date_field :apply_before, placeholder: "Apply Before",class:"form-control mb-2" ,:required => true %>
+
+                    <%= f.select :education_level, ["#{t('job_placeholder_9')}", 'Associate','Bachelors','Masters','Doctoral Degrees','None'] ,:required => true %>
+
+                    <%= f.text_field :experience_required, placeholder: "#{t('job_placeholder_10')}",class:"form-control mb-2 mt-2" ,:required => true %>
+                    <%= f.text_area :job_desciption, placeholder: "#{t('job_placeholder_11')}",class:"form-control mb-2" ,:required => true %>
+                    <%= f.text_area :about_company, placeholder: "#{t('job_placeholder_12')}",class:"form-control mb-2" ,:required => true %>
+                    <%= f.text_field :professional_skill, placeholder: "#{t('job_placeholder_13')}",class:"form-control mb-2", :required => true %>
+                    <%= f.text_field :other_specification, placeholder: "#{t('job_placeholder_14')}",class:"form-control mb-2", :required => true %>
+
+                    <%= f.label :emailid, "#{t('job_placeholder_15')}" %>
+                    <%= f.text_field :emailid, placeholder: "#{t('job_placeholder_16')}",class:"form-control mb-2",:required => true %>
+                    <%= f.text_field :contactnumber, placeholder: "#{t('job_placeholder_17')}",class:"form-control mb-2",:required => true%>
                      
-                     <div class="row p-2">
-                        <%= f.text_field :job_title, placeholder: "Job Title" ,:required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :location, placeholder: "Location" ,:required => true %>
-                     </div>
-                     <div class="row ml-1">
-                     <div class="row p-2">
-                     <span><%= f.select :job_category, ['Job Category', 'Arts', 'Business', 'Education', 'Law Enforcement', 'Media', 'Medical', 'Service Industry', 'Technology','Hotel','Others'] ,:required => true %>
-                        
-                     </div>
-                     
-                     <div class="row p-2 ml-4">
-                        <%= f.select :job_level, ['Job Level','Entry-level','Intermediate','Mid-level','Senior or Executive-level'],:required => true  %>
-                     </div>
-                     </div>
-                     <div class="row ml-1">
-                     <div class="row p-2">
-                        <%= f.text_field :no_of_vacancy, placeholder: "No. of vacancies" ,:required => true %>
-                     </div>
-                     
-                  
-                    
-                     <div class="row p-2">
-                        <%= f.text_field :offered_salary, placeholder: "Offered salary" ,:required => true %>
-                     </div>
-                     </div>
-                     <p>Apply Before:</p>
-                     <div class="row p-2 mr-5">
-                        <%= f.date_field :apply_before, placeholder: "Apply Before" ,:required => true %>
-                        
-                     </div>
-                     <div class="row p-2">
-                        <%= f.select :education_level, ['Education Level', 'Associate','Bachelors','Masters','Doctoral Degrees','None'] ,:required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :experience_required, placeholder: "Experienced required" ,:required => true %>
-                     </div>
-                     
-                     <div class="row p-2">
-                        <%= f.text_area :job_desciption, placeholder: "Job Desciption" ,:required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_area :about_company, placeholder: "About Company" ,:required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :professional_skill, placeholder: "Professional Skill required", :required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :other_specification, placeholder: "Other Specification", :required => true %>
-                     </div>
-                     <p>Contact Us:</p>
-                     
-                     
-                     <div class="row p-2">
-                        <%= f.text_field :emailid, placeholder: "Email ID",:required => true %>
-                     </div>
-                     <div class="row p-2">
-                        <%= f.text_field :contactnumber, placeholder: "Contact Number",:required => true%>
-                     </div>
-                     
-                     
-                   
-                     
-                     <div class="d-flex justify-content-center">
-                      <%= f.submit "Add Vacancy" , class: "button"%>
-                     </div>
+                     <div class="d-flex flex-row">
+                      <div class="flex-fill">
+                        <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
+                      </div>
+                      <div class="flex-fill">
+                        <%= f.submit "Add Vacancy" , class:"button form-control text-white font-weight-bold"%>
+                      </div>
+                    </div>
+
                        <%= recaptcha_action('vacancy') %>
                   <% end %>
                   

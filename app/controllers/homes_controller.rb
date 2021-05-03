@@ -5,6 +5,7 @@ class HomesController < ApplicationController
     else
       @tags = Tag.order(:title_np)
     end
+    @list_count = Listing.all.count
   end
 
   def show
