@@ -1,19 +1,7 @@
 <% content_for :title, "#{@project.project_name}-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 
-<!---------------------thanking message for the donnors---------------------------------->
-<% if params[:notice] %>
-<div class="alert alert-success alert-dismissible fade show mx-2" role="alert">
-  <h4 class="alert-heading">THANK YOU!</h4>
-  <p><%= params[:notice] %></p>
-  <hr>
-  <p class="mb-0">You are the beautiful soul making society a better place to live. <span class="text-danger">&hearts;</span> From MNRYP </p>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<% end %>
-<!-------------------------------------------------------------------------------------->
+
 <div id="app" class="crowd-funding pt-2">
  
   <div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
