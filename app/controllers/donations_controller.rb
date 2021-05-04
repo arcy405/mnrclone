@@ -41,7 +41,8 @@ class DonationsController < ApplicationController
         {"name":"Jyoti Bikash bank ltd","links":"https://play.google.com/store/apps/details?id=com.f1soft.jyotimobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102250/Banks%20For%20Nepaila/hyk5VGixuuVjW3bNsGcQB4x5lPB8NnGRruBpueArU8RHNojW1GjVHIPp-Ua8lbYOJBQ_s180_nu0gnu.png"},
         {"name":"Reliance Finance ltd","links":"https://play.google.com/store/apps/details?id=com.reliancesavingsbank.mobile&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102359/Banks%20For%20Nepaila/1vpyzqFRxnkU9KsY-u3B2NpGVwKD1lnhaizDUe3DXoq0wAF0QRhGlT2JW5hXUDH6xNc_s180_bb2iuq.png"},
         {"name":"Mahalaxmi Bikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.mallikamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102351/Banks%20For%20Nepaila/-uBSS45ocV87o2rXW8wGcgCrHMIdUdT-cVcXhiuY3eldHg9steCJsVTPqkSA8p_V6WJb_s180_jyso2w.jpg"},
-        {"name":"Muktinath Bikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.muktinathmobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102345/Banks%20For%20Nepaila/Vw4W2Rz9zUWjf9sMNGKvzJRwez4D0EJbnPqAjWp4tLxDvmedkW7XCXeeY6RBcNgc_ss_s180_rhzsi1.png"}
+        {"name":"Muktinath Bikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.muktinathmobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102345/Banks%20For%20Nepaila/Vw4W2Rz9zUWjf9sMNGKvzJRwez4D0EJbnPqAjWp4tLxDvmedkW7XCXeeY6RBcNgc_ss_s180_rhzsi1.png"},
+        {"name":"Kamana Sewa Vikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.kaskimobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620116635/Banks%20For%20Nepaila/0BePmmIOGo0Gx7jgUKCg4vJVrLdWKX8AbzZ_vU9q2sGABoScAE5fMBY6WP4h1YMEdpQ_s180_wqce3b.png"}
     ]
     end
 
