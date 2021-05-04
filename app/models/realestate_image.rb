@@ -1,4 +1,4 @@
 class RealestateImage < ApplicationRecord
     mount_uploader :image, RealestateimageUploader
-    belongs_to  :realestates 
+    belongs_to  :realestate 
 end

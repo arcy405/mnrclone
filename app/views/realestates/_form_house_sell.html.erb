@@ -14,15 +14,28 @@
     <div class="row p-2">
         <%= f.text_field :address, placeholder: "House Address " ,:required => true %>
     </div>
-    <div class="row p-2">
-        <%= f.text_field :description , placeholder: "House description " ,:required => true %>
-    </div>
+   
     <div class="row p-2">
         <%= f.text_field :seller_name  , placeholder: "House Owner Name  " ,:required => true %>
     </div>
     <div class="row p-2">
         <%= f.text_field :seller_phone , placeholder: "House Owner Phone " ,:required => true %>
     </div>
+     <div class="row p-2">
+        <%= f.text_area :description , placeholder: "House description " , :rows => "4" , :required => true %>
+    </div>
+      <!------------co-ordinates ---->
+    <div class="mt-2">
+      <pre> <i class="fas fa-map-marker-alt"></i> Co-ordinates of your location </pre> 
+      <pre> (This will show your place in Gmap) </pre>
+        <div class="row p-2">
+        <%= f.text_field :latitude ,placeholder: "latitude of your location" %>
+        </div>
+        <div class="row p-2">
+        <%= f.text_field :longitude ,placeholder: "longitude of your location" %>
+        </div>
+    </div>
+    <!----------------------------->
      <div class="row p-2">
          	
             <label class="mr-2">Add Images </label>
@@ -35,7 +48,7 @@
              <pre>You can upload multiple images.</pre>
            </div>
            <% end %>
-         </div>
+        </div>
     
     <%= f.hidden_field :ptype, value: "sell"  %>
    

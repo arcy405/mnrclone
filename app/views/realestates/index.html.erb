@@ -2,7 +2,7 @@
   <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container-fluid">
         <div class="conatiner text-center">
-          <img src="https://etimg.etb2bimg.com/photo/74857231.cms" class="img-fluid" >         
+        <!--   <%= image_tag("RE.png",:class=>"img-fluid img-thumbnail",:style=>"max-height:100%") %>     ----->     
         </div>            
           <div class=" mt-4">
               <div class="row">
@@ -13,11 +13,11 @@
                         <div class="panel-body">
                                 <div class="float-left ml-3 ">
                                   <div class="row">
-                                    <div class="col-xs-6 ml-2">
+                                    <div class="col-xs-6 ml-2 mx-auto">
                                         <a type="button" class="btn btn-danger btn-filter" data-target="sell">Buy House & Land</a>
                                     </div>
                                     <div class="col-xs-6 ml-2">
-                                       <a type="button" class="btn btn-danger btn-filter" data-target="rent">Rent House & Land</a>
+                                       <a type="button" class="btn btn-danger btn-filter " data-target="rent"> Take House on Rent</a>
                                      </div>
                                   </div>
                                 </div>
@@ -28,9 +28,9 @@
                                         <%=  link_to "Rent House", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
                                     </div>
                                    <% else %>
-                                        <div class="float-right  mr-3">
+                                        <div class="float-right  mr-3 mt-2">
                                         <%= link_to user_session_path do %>
-                                        <span  class=" btn-outline-danger rounded p-2 border">Log In To Start Selling.</span>
+                                        <span  class=" btn-outline-danger rounded p-2 border"> <i class="fas fa-sign-in-alt"></i> <strong>Click To Start SELLING...</strong></span>
                                         <% end %>
                                         </div>
                     
@@ -50,24 +50,22 @@
                             <%=  link_to  realestate_path(realestate), style:"text-decoration:none" do %>
                                   <div class="card-flyer ">
                                       <div class="text-box">
-                                          <div class="image-box">
-                                            <%= realestate.realestate_images.each do |prop_img| %>
+                                          <div class="card h-100">
+                                              <%= realestate.realestate_images.each do |prop_img| %>
                                               <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
                                                   <% break %>
-                                              <% end %>                                
+                                              <% end %>
+                                                                                                
                                           </div>
                                           <div class="text-container text-black ">
                                               <h6 ><%= realestate.seller_name %></h6>
                                                   <p>  <i class="fas fa-map-marker-alt"></i> <%= realestate.price%></p>
                                           </div>
-                                        
                                       </div>
                                   </div>
                               </div>
                           <% end %>
-                          <!------------>
                          
-                          <!-------->
                      
                   <% end %>     
             </div>
@@ -75,13 +73,11 @@
     </div>
 
       
-      
-      
-      
               <!-----------------cards section ends------------------------------------------------>
               </div>
   </div>
-  </div></div>
+  </div>
+  </div>
           
 
 

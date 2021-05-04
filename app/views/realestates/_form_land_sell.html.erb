@@ -1,7 +1,7 @@
 <%= form_for @realestate do |f| %>
 
- <!-------------hidden field ------------------->
-  <%= f.hidden_field :user_id, value: "#{current_user.id}"  %> <!--this is also not working >
+ <!-------------hidden field to capture user id------------------->
+  <%= f.hidden_field :user_id, value: "#{current_user.id}"  %> 
   <!------------------------------------------------>
     <div class="row p-2">
         <%= f.text_field :propertyname , placeholder: "Land Area & Name" ,:required => true %>
@@ -12,17 +12,31 @@
     <div class="row p-2">
         <%= f.text_field :address, placeholder: "Land Address  " ,:required => true %>
     </div>
-    <div class="row p-2">
-        <%= f.text_field :description , placeholder: "Land Description " ,:required => true %>
-    </div>
+  
     <div class="row p-2">
         <%= f.text_field :seller_name , placeholder: "Land Owner Name " ,:required => true %>
     </div>
     <div class="row p-2">
         <%= f.text_field :seller_phone , placeholder: "Land Owner Phone " ,:required => true %>
     </div>
+    <div class="row p-2">
+        <%= f.text_area :description , placeholder: "Land Description " ,:rows => "4" , :required => true %>
+    </div>
+    <!------------co-ordinates ---->
+    <div class="mt-2">
+      <pre> <i class="fas fa-map-marker-alt"></i> Co-ordinates of your location </pre> 
+      <pre> (This will show your place in Gmap) </pre>
+        <div class="row p-2">
+        <%= f.text_field :latitude ,placeholder: "latitude of your location" %>
+        </div>
+        <div class="row p-2">
+        <%= f.text_field :longitude ,placeholder: "longitude of your location" %>
+        </div>
+    </div>
+    <!----------------------------->
+    
       <%= f.hidden_field :ptype, value: "sell"  %>
-       <%= f.label "profile"  %>
+      
       <div class="row p-2">
          	
             <label class="mr-2"><strong> Add Images</strong> </label>
@@ -38,6 +52,6 @@
            <% end %>
          </div>
     <div class="d-flex justify-content-center mt-2">
-        <%= f.submit "Sell Online " , class: "button"%>
+        <%= f.submit "Add to Market" , class: "button"%>
     </div>
 <% end %>
