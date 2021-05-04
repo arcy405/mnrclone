@@ -11,8 +11,12 @@ class ApplicationController < ActionController::Base
 
     private 
       def set_locale
-       I18n.locale = session[:locale] || I18n.default_locale
-       session[:locale] = I18n.locale
+        if  user_signed_in? && current_user.admin?
+           I18n.locale = "en"
+        else
+           I18n.locale = session[:locale] || I18n.default_locale
+           session[:locale] = I18n.locale
+        end
       end
 
     protected
