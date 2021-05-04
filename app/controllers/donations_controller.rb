@@ -7,6 +7,9 @@ class DonationsController < ApplicationController
 
   def show
     @payment_links=[
+        {"name":"Khalti","links":"https://play.google.com/store/apps/details?id=com.khalti&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102429/Banks%20For%20Nepaila/vtoxj9t4UWl6qxWUPGpv7ndJuJs_W3UTnQYpBwJ7xBMuRJ2TE6d71NrwWU6Nkbq0Zs8_s180_sjfojl.png"},
+        {"name":"Esewa","links":"https://play.google.com/store/apps/details?id=com.f1soft.esewa&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102542/Banks%20For%20Nepaila/MRzMmiJAe0-xaEkDKB0MKwv1a3kjDieSfNuaIlRo750_EgqxjRFWKKF7xQyRSb4O95Y_s180_htkaxs.png"},
+        {"name":"IME pay","links":"https://play.google.com/store/apps/details?id=com.swifttechnology.imepay&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102606/Banks%20For%20Nepaila/LzKjYKvzLnyMq9XaRm3RauNI-ni7QwuN4r_IzClSXUNpO6o443SDACRd92ePn03UNHU_s180_bdzh4y.png"},
         {"name":"Kumari Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.kumarimobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040051/Banks%20For%20Nepaila/_usIkSLHJprR4t1Stk01lgtTu8VwWGnDk4OvBjWrfcO80aBZYs3Hl7o64tdzK6p-gA_s180_uuclmv.png"},
         {"name":"Nepal Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.nepalmobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040067/Banks%20For%20Nepaila/0pUBC7UXz8XU1uoBR8fyaua_kQzda2R8N6WODl0610ccF9mKl_aHjifARJKOw-_s_-s_s180_b5f2vi.png"},
         {"name":"Rastriya Banijya Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.rastriyabanijyamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040086/Banks%20For%20Nepaila/1xuVHf8hBZ9kbB6Yes-zndaBhPWcsAL_9dtpHHLBo9e4JV1kO-r6qYn67l0QUuefQg_s180_whvix1.png"},
@@ -33,9 +36,14 @@ class DonationsController < ApplicationController
         {"name":"Mega Bank Nepal Limited","links":"https://play.google.com/store/apps/details?id=com.f1soft.megafonebank.activities.starter&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040449/Banks%20For%20Nepaila/XZIEg0U5gH1Edsu1C7aTF-AmvG6OV9rfH9usJkzQCCjWRvOupPmd6P7lhVsvQMQcI5s_s180_witmbd.png"},
         {"name":"Civil Bank Limited","links":"https://play.google.com/store/apps/details?id=com.f1soft.civilfonebank.activities.starter&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040617/Banks%20For%20Nepaila/4LzNFkXJ25rQqGjei2WmyIoeBSSUo4hnZC7Du1rAsA4h3YHIEUF4JABNL6Hv5cYw-A_s180_bri6pl.png"},
         {"name":"Century Bank Limited","links":"https://play.google.com/store/apps/details?id=com.centurybankapp&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040649/Banks%20For%20Nepaila/ZZ9zi5HguX6XqtTZImir9DyiGsUpZwJGVfT5ubs_GDDyiLOqGObs0tFwy-GPXtmJWVs_s180_lyuktd.png"},
-        {"name":"Sanima Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.sanimamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040931/Banks%20For%20Nepaila/84mrrnjk4AMb9y591kOsBl2h3aofwCWqxG1y28B1lfOQxsy2QawTfxk1YfqazaGrzuQ_s180_qmzxna.png"}
+        {"name":"Sanima Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.sanimamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620040931/Banks%20For%20Nepaila/84mrrnjk4AMb9y591kOsBl2h3aofwCWqxG1y28B1lfOQxsy2QawTfxk1YfqazaGrzuQ_s180_qmzxna.png"},
+        {"name":"Garima Development Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.garimamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102254/Banks%20For%20Nepaila/ynApG3L-pF0wvqDHl2o1tjd55kuuhCnHR27N71KATww7To2pB168_oGoRnNu2CaTG9cK_s180_prtd1c.png"},
+        {"name":"Jyoti Bikash bank ltd","links":"https://play.google.com/store/apps/details?id=com.f1soft.jyotimobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102250/Banks%20For%20Nepaila/hyk5VGixuuVjW3bNsGcQB4x5lPB8NnGRruBpueArU8RHNojW1GjVHIPp-Ua8lbYOJBQ_s180_nu0gnu.png"},
+        {"name":"Reliance Finance ltd","links":"https://play.google.com/store/apps/details?id=com.reliancesavingsbank.mobile&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102359/Banks%20For%20Nepaila/1vpyzqFRxnkU9KsY-u3B2NpGVwKD1lnhaizDUe3DXoq0wAF0QRhGlT2JW5hXUDH6xNc_s180_bb2iuq.png"},
+        {"name":"Mahalaxmi Bikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.mallikamobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102351/Banks%20For%20Nepaila/-uBSS45ocV87o2rXW8wGcgCrHMIdUdT-cVcXhiuY3eldHg9steCJsVTPqkSA8p_V6WJb_s180_jyso2w.jpg"},
+        {"name":"Muktinath Bikas Bank","links":"https://play.google.com/store/apps/details?id=com.f1soft.muktinathmobilebanking&hl=en&gl=US","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102345/Banks%20For%20Nepaila/Vw4W2Rz9zUWjf9sMNGKvzJRwez4D0EJbnPqAjWp4tLxDvmedkW7XCXeeY6RBcNgc_ss_s180_rhzsi1.png"}
     ]
-  end
+    end
 
 	def create
     @donation = @project.donations.new(donation_params)
