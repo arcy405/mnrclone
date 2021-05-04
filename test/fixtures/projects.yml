@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_name: MyString
+  project_description: MyText
+  foundation_name: MyString
+  foundation_description: MyText
+  organized_by: MyString
+  organizer_description: MyText
+
+two:
+  project_name: MyString
+  project_description: MyText
+  foundation_name: MyString
+  foundation_description: MyText
+  organized_by: MyString
+  organizer_description: MyText

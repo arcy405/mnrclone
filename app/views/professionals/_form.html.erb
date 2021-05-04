@@ -1,0 +1,26 @@
+
+<%= form_for @professional do |f| %>
+<% if @professional.errors.any? %>
+  <% @professional.errors.full_messages.each do |message|%>
+  <h3><%= message %> </h3>
+  <%end%>
+<%end%></br>
+    		<%= f.text_field :name, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_1')}" %>
+  			<%= f.label :profession_id, "#{t('professional_placeholder_2')}" %>
+  			   <%= f.select :profession_id, options_from_collection_for_select(Profession.all, 'id', 'name'),{:prompt =>"#{t('professional_placeholder_2')}"} %>
+    		<%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_3')}" %>
+    		<%= f.number_field :contact, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_4')}" %>
+	        <label for="image"><%= t('professional_placeholder_5') %></label>
+	        <%= f.file_field :image, direct_upload: true %>
+	        <%= f.hidden_field :image_cache %>
+	        <div class="form-text text-mutes">*<%= t('professional_placeholder_6') %></div>
+
+        <div class="d-flex flex-row">
+          <div class="flex-fill">
+            <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
+          </div>
+          <div class="flex-fill">
+            <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+          </div>
+        </div>
+<% end %>

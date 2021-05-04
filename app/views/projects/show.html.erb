@@ -1,0 +1,98 @@
+<% content_for :title, "#{@project.project_name}-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+
+<div id="app" class="crowd-funding pt-2">
+ 
+  <div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
+  background-position: center;'>
+  	<!---------------------------------------------------------------->
+  	<div class="row mt-8">
+  		<div class="col-md-4 my-auto">
+		  			<%= link_to new_project_donation_path(@project) do %>
+		  			    <div class="about-title clearfix">
+		                    <h1><span class="help text-white px-2">DONATE NOW</span></h1>
+		                </div>
+		            <% end %>
+            <%= @project.tagline %>
+        </div>
+
+  		<div class="col-md-4 my-auto mx-auto">
+  			<div class="about-title clearfix mt-8">
+                    <h1><span class="text-white"><%= @project.project_name %></span></h1></div>
+  		</div>
+  		<div class="col-md-4 my-auto mt-8"> 
+  			<div  class="float-right">
+			<h1><%= @number_of_people %></h1>
+			<p class="days-to-go">people donated</p>
+			<div class="funding-counter">
+				<p><strong>Rs.<%= number_with_delimiter(@total_amount, :delimiter => ',') %> raised</strong></p>
+				<div class="progress" style="height: 10px;">
+				    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+      </div>
+  </div>
+  	<!---------------------------------------------------------------->
+  </div>
+</div>
+</div>
+
+<!---------------all the images related to project------------------------------->
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container my-2">
+	<div class="row">
+		<% @project_gallery.each do |gallery| %>
+		<div class="col-md-3 col-sm-4 col-6">
+					<%= cl_image_tag(gallery.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"img-fluid", loading:"lazy") %>
+			</div>
+		<% end %>
+    </div>
+</div>
+<!--------------------------------------------------------------------------------------->
+<div class="container-fluid mt-2">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="about-title clearfix"><span class="fluid-title">What we want to do?</span></div>
+			<div class="text-muted text-justify"><%= @project.project_description %></div>
+		</div>
+		<div class="col-md-6">
+			<div class="about-title clearfix"><span class="fluid-title">Whom we are doing for?</span></div>
+			<div class="text-muted text-justify"><%= @project.foundation_description %></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="about-title clearfix"><span class="fluid-title">Who is doing this?</span></div>
+			<div class="text-muted text-justify"><%= @project.organizer_description %></div>
+		</div>
+		<div class="col-md-6">
+			<div class="about-title clearfix"><span class="fluid-title">How can you help?</span></div>
+			<div class="text-muted text-justify">Click on the Donate now button, fill in your details for the record of MNRYP. You will find all the payment details in the same page. You can make the payment from description given there.
+			</div>
+			<%= link_to new_project_donation_path(@project) do %>
+				<div class="about-title clearfix my-2">
+                    <h1><span class="help px-2 ">DONATE NOW</span></h1>
+                </div>
+            <% end %>
+		</div>
+	</div>
+
+</div>
+<div class="container my-2">
+	<div class="about-title clearfix text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
+	<hr />
+	<div class="row">
+		<% @donors.each do |donor| %>
+		<div class="col-md-3">
+			<div class="card px-2">
+				<div class="card-title"><%= donor.donor_name %></div>
+				<div>Rs.<%= donor.donation_amount %></div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+

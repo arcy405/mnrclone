@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_083701) do
+
+ActiveRecord::Schema.define(version: 2021_05_03_150732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +174,18 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.string "donor_name"
+    t.string "address"
+    t.string "contact"
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "donation_amount"
+    t.boolean "verification"
+    t.index ["project_id"], name: "index_donations_on_project_id"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -359,6 +372,42 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  create_table "professionals", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.bigint "profession_id", null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.index ["profession_id"], name: "index_professionals_on_profession_id"
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "project_images", force: :cascade do |t|
+    t.integer "project_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "project_name"
+    t.text "project_description"
+    t.string "foundation_name"
+    t.text "foundation_description"
+    t.string "organized_by"
+    t.text "organizer_description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "coverimage"
+    t.string "tagline"
+    t.string "payment_details"
   end
 
   create_table "realestates", force: :cascade do |t|
@@ -409,11 +458,12 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
+    t.string "title_en"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "listings_count"
+    t.string "title_np"
   end
 
   create_table "tourist_images", force: :cascade do |t|
@@ -481,6 +531,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
   add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "donations", "projects"
   add_foreign_key "forum_posts", "forum_threads"
   add_foreign_key "forum_posts", "users"
   add_foreign_key "forum_subscriptions", "forum_threads"
@@ -490,6 +541,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
+  add_foreign_key "professionals", "professions"
   add_foreign_key "reviews", "listings"
   add_foreign_key "tourist_images", "tourists"
 end

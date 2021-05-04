@@ -7,7 +7,6 @@
 	border-radius:10%;
 	width:50%;
 	font-size:1rem;
-	font-weight:bold;
 }
 .button:hover{
 	background-color:#e65100 !important;
@@ -16,3 +15,14 @@
 	background-image:none !important;
 	background-color:cadetblue !important;
 }
+
+.cancel-button{
+	background-color:#f1f1f1 !important;
+	border-radius:10%;
+	width:50%;
+	font-size:1rem;
+}
+.cancel-button:hover{
+	background-color:#ff5c33 !important;
+}
+

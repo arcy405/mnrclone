@@ -1,0 +1,91 @@
+np:
+  #blood donation form
+  donors_title: "रक्त दाता बन्नुहोस्-"
+  donors_text_1: "तपाईंको पूरा नाम र हालको ठेगाना प्रदान गर्नुहोस् "
+  donors_text_2: "ड्रपडाउनबाट निश्चित  रक्त समूह चयन गर्नुहोस् "
+  donors_text_3: "तपाईंले सहि ठेगाना प्रयोग गर्नुपर्दछ "
+  donors_text_4: "आपतकालीन समय मा सम्पर्क गर्न एक सेकेन्डरी नम्बर(दुस्रो नम्बर) पनि दिनुहोस्"
+  donors_text_5: "तपाईं हाल औषधीको अधीनमा हुनुहुन्छ भने त्यो जानकारी पनि प्रदान गर्नु होस्  "
+  donors_text_6: "तपाईंको जानकारी हामीसँग सुरक्षित छ, तपाईंलाई भविष्यमा रक्तदानको लागि बोलाइनेछ "
+  thanks_text: "धन्यवाद!"
+
+  donors_placeholder_1: "पुरा नाम"
+  donors_placeholder_2: "हालको ठेगाना"
+  donors_placeholder_3: "रक्त समूह"
+  donors_placeholder_4: "लि .्ग"
+  donors_placeholder_5: "उमेर"
+  donors_placeholder_6: "सम्पर्क नम्बर"
+  donors_placeholder_7: "वैकल्पिक सम्पर्क नम्बर"
+  donors_placeholder_8: "तौल"
+  donors_placeholder_9: "औषधि स्थिति"
+  #job vacancy form
+  job_vacancy_title: "तपाइँको काम रिक्ति(Job Vacancy) पेश गर्नुहोस्-"
+  job_vacancy_subtitle: "यो मोड्युल मार्फत, व्यक्ति वा कम्पनीले उनीहरूको आवश्यकता अनुसार कर्मचारीहरू फेला पार्न / जागिरमा लिन सक्छ"
+  job_vacancy_text_1: "रोजगारी कोटि छान्नुहोस्, यदि भेटिएन भने .. अरु(Others) छान्नुहोस्"
+  job_vacancy_text_2: "बिभिन्न काम कोटिहरू सिर्जना गरिएका छन्, ताकि यस्तै प्रकारका शैलीहरूमा मानिसहरूलाई भेट्टाउन सजिलो होस्"
+  job_vacancy_text_3: "कामको आवश्यकता अनुसार जानकारी भर्नुहोस्"
+  job_vacancy_text_4: "पूर्ण विवरणहरू प्रदान गर्नुहोस् जस्तै: कम्पनी / फर्म नाम, स्थान / कार्यस्थलको ठेगाना, रोजगार शीर्षक, अपेक्षित तलब, अनुभव आवश्यक छ (यदि), रोजगार विवरण र अन्य उल्लेखित विवरणहरू"
+  job_vacancy_text_5: "मान्छे खोजीरहेको संस्थान ले आफ्नो सम्पर्क नम्बर र मेलिंग ठेगाना अनिवार्य रुपमा  प्रदान गर्नुपर्दछ ताकि  आवेदकहरू सजिलैसँग सम्पर्कमा आउन  सक्नेछन् र आफ्नो बायो डाटार अन्य कागजातहरू सजिलै पठाउन  सक्नेछन्।"
+  job_vacancy_text_6: "मान्छे खोजीरहेको संस्थान ले विस्तृत रोजगार विवरण, कौशल / शिक्षा आवश्यकताहरू खुल्ला रुप मा देखाउनु पर्ने छ जसले  त्यो कामको आवश्यकता पूरा हुनेछ।"
+  #for place holder
+  job_placeholder_1: "कम्पनी नाम-"
+  job_placeholder_2: "रोजगार शीर्षक"
+  job_placeholder_3: "स्थान / ठेगाना"
+  job_placeholder_4: "रोजगार कोटि"
+  job_placeholder_5: "कामको स्तर"
+  job_placeholder_6: "रिक्त पदहरूको संख्या"
+  job_placeholder_7: "प्रस्ताव गरिएको तलब"
+  job_placeholder_8: "निवेदन गर्ने अन्तीम मिति "
+  job_placeholder_9: "शिक्षा स्तर"
+  job_placeholder_10: "अनुभव आवश्यकता"
+  job_placeholder_11: "कामको विवरण"
+  job_placeholder_12: "कम्पनीको बारेमा"
+  job_placeholder_13: "व्यावसायिक सीप आवश्यकता"
+  job_placeholder_14: "अन्य विशिष्टता"
+  job_placeholder_15: "सम्पर्क विवरण"
+  job_placeholder_16: "ईमेल आईडी"
+  job_placeholder_17: "सम्पर्क नम्बर"
+
+  #marketplace form
+  marketplace_title: "बिक्रीको लागि सामान थप्नुहोस्-"
+  marketplace_text_1: "सही विवरण प्रदान गर्नुहोस्।"
+  marketplace_text_2: "विक्रेता र खरीदार सबै लेनदेनको लागि जिम्मेवार हुनेछन्"
+  marketplace_text_3: "तपाईका उत्पादनहरू एक महिना अवधिको लागि सूचीबद्ध हुनेछन्"
+  
+  #for placeholders
+  marketplace_placeholer_1: "सामान को नाम"
+  marketplace_placeholer_2: "सामान को मूल्य"
+  marketplace_placeholer_3: "सम्पर्क फोन नम्बर"
+  marketplace_placeholer_4: "सामानको बारेमा संक्षिप्त विवरण थप्नुहोस्"
+  marketplace_placeholer_5: "तस्बीर हरु थप्नुहोस"
+  marketplace_placeholer_6: "एक वा धेरै तस्बीर थप्न सक्नु हुन्छ"
+
+  #become professional forms
+  professional_title: "कामदार बन्नुहोस्"
+  professional_text_1: "सही विवरण प्रदान गर्नुहोस्"
+  professional_text_2: "पेशेवर सबै लेनदेन को लागी जिम्मेवार हुनेछ।"
+  professional_text_3: "तपाईंले सम्पर्क गर्ने ग्राहकहरूसँग तपाईंले राम्रो व्यवहार गर्नुपर्छ।"
+  #for placeholder
+  professional_placeholder_1: "तपाईंको नाम प्रदान गर्नुहोस्"
+  professional_placeholder_2: "तपाईंको पेशा छान्नुहोस्"
+  professional_placeholder_3: "तपाईंको ठेगाना प्रदान गर्नुहोस्"
+  professional_placeholder_4: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
+  professional_placeholder_5: "प्रोफाइल तस्वीर जोड्नुहोस्"
+  professional_placeholder_6: "प्रोफाइल चित्रले काम पाउने सम्भावना बढाउँदछ।"
+
+  #donation form
+  donation_title: "दान गर्नुहोस्-"
+  donation_text_1: "सही विवरण प्रदान गर्नुहोस्।"
+  donation_text_2: "परियोजना, संगठन र कोष रायकर्ताहरूको बारेमा सबै विवरणहरू पढ्नुहोस्।"
+  donation_text_3: "रेकर्डका लागि दिइएको फारममा आफ्ना विवरणहरू भर्नुहोस् र पछि भुक्तान विवरणहरूमा भुक्तानी गर्नुहोस्।"
+  donation_text_4: "तपाईंले दान गर्नुहोस् बटनमा क्लिक गरे पछि भुक्तानी विवरणहरू प्राप्त गर्नुहुनेछ।"
+  #for placeholders
+  donation_placeholder_1: "तपाईंको नाम प्रदान गर्नुहोस्"
+  donation_placeholder_2: "तपाईंको ठेगाना प्रदान गर्नुहोस्"
+  donation_placeholder_3: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
+  donation_placeholder_4: "दान गर्न रकम प्रदान गर्नुहोस्"
+
+
+
+
+
