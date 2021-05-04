@@ -9,7 +9,7 @@
                 <div class="row">
                 <div class="col-md-12 col-sm-12">
                    <div class="about-title clearfix">
-                      <h1>Donate for <span> <%= @project.project_name %></span></h1>
+                      <h1><%= t('donation_title') %> <span> <%= @project.project_name %></span></h1>
                    </div>
                 </div>
               </div>
@@ -17,10 +17,10 @@
             <div class="row">
             <div class="col-md-6 col-sm-12">
             <ul >
-              <li class="about-paddingB text-justify">Provide accurate details.</li>
-              <li class="about-paddingB text-justify">Read all the details about project, organization and fund raisers.</li>
-              <li class="about-paddingB text-justify">Please refer the payment details below.</li>
-              <li class="about-paddingB text-justify">Fill your details in the form given for record and make the payment to the payment details given afterwards.</li>
+              <li class="about-paddingB text-justify"><%= t('donation_text_1') %></li>
+              <li class="about-paddingB text-justify"><%= t('donation_text_2') %></li>
+              <li class="about-paddingB text-justify"><%= t('donation_text_3') %></li>
+              <li class="about-paddingB text-justify"><%= t('donation_text_4') %></li>
             </ul>
             </div>
                 <div class="col-md-6 col-sm-12">

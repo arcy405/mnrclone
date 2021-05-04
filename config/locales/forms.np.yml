@@ -60,6 +60,31 @@ np:
   marketplace_placeholer_5: "तस्बीर हरु थप्नुहोस"
   marketplace_placeholer_6: "एक वा धेरै तस्बीर थप्न सक्नु हुन्छ"
 
+  #become professional forms
+  professional_title: "कामदार बन्नुहोस्"
+  professional_text_1: "सही विवरण प्रदान गर्नुहोस्"
+  professional_text_2: "पेशेवर सबै लेनदेन को लागी जिम्मेवार हुनेछ।"
+  professional_text_3: "तपाईंले सम्पर्क गर्ने ग्राहकहरूसँग तपाईंले राम्रो व्यवहार गर्नुपर्छ।"
+  #for placeholder
+  professional_placeholder_1: "तपाईंको नाम प्रदान गर्नुहोस्"
+  professional_placeholder_2: "तपाईंको पेशा छान्नुहोस्"
+  professional_placeholder_3: "तपाईंको ठेगाना प्रदान गर्नुहोस्"
+  professional_placeholder_4: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
+  professional_placeholder_5: "प्रोफाइल तस्वीर जोड्नुहोस्"
+  professional_placeholder_6: "प्रोफाइल चित्रले काम पाउने सम्भावना बढाउँदछ।"
+
+  #donation form
+  donation_title: "दान गर्नुहोस्-"
+  donation_text_1: "सही विवरण प्रदान गर्नुहोस्।"
+  donation_text_2: "परियोजना, संगठन र कोष रायकर्ताहरूको बारेमा सबै विवरणहरू पढ्नुहोस्।"
+  donation_text_3: "रेकर्डका लागि दिइएको फारममा आफ्ना विवरणहरू भर्नुहोस् र पछि भुक्तान विवरणहरूमा भुक्तानी गर्नुहोस्।"
+  donation_text_4: "तपाईंले दान गर्नुहोस् बटनमा क्लिक गरे पछि भुक्तानी विवरणहरू प्राप्त गर्नुहुनेछ।"
+  #for placeholders
+  donation_placeholder_1: "तपाईंको नाम प्रदान गर्नुहोस्"
+  donation_placeholder_2: "तपाईंको ठेगाना प्रदान गर्नुहोस्"
+  donation_placeholder_3: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
+  donation_placeholder_4: "दान गर्न रकम प्रदान गर्नुहोस्"
+
 
 
 
