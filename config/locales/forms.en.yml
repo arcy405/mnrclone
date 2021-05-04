@@ -60,3 +60,28 @@ en:
   marketplace_placeholer_5: "Add Images"
   marketplace_placeholer_6: "You can upload multiple images"
 
+  #become professional forms
+  professional_title: "Become professional at"
+  professional_text_1: "Provide accurate details."
+  professional_text_2: "The professional will be responsible for all transactions."
+  professional_text_3: "You must behave properly with customers contacting you."
+  #for placeholder
+  professional_placeholder_1: "Enter your name"
+  professional_placeholder_2: "Select your profession"
+  professional_placeholder_3: "Enter your address"
+  professional_placeholder_4: "Enter your phone number"
+  professional_placeholder_5: "Add Image"
+  professional_placeholder_6: "Profile picture increases possibilty of getting work."
+  #donation form
+  donation_title: "Donate for"
+  donation_text_1: "Provide accurate details."
+  donation_text_2: "Read all the details about project, organization and fund raisers."
+  donation_text_3: "Fill your details in the form given for record and make the payment to the payment details given afterwards."
+  donation_text_4: "You will get payment details after clicking donate  button."
+  #for placeholders
+  donation_placeholder_1: "Enter your name"
+  donation_placeholder_2: "Enter your address"
+  donation_placeholder_3: "Enter your phone number"
+  donation_placeholder_4: "Enter the amount to be donated"
+
+

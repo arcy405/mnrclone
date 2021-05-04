@@ -1,19 +1,17 @@
 
 <%= form_with(model: [@project, @donation], local: true) do |f| %>
 
-		<div class="mb-3">
-    		<%= f.text_field :donor_name, class:"form-control", placeholder:"Enter your name." %>
-  		</div>
-  		<div class="mb-3">
-    		<%= f.text_field :address, class:"form-control", placeholder:"Enter your address." %>
-  		</div>
-  		<div class="mb-3">
-    		<%= f.number_field :contact, class:"form-control", placeholder:"Enter your phone number." %>
-  		</div>
-  		<div class="mb-3">
-    		<%= f.number_field :donation_amount, class:"form-control", placeholder:"Enter the amount to be donated." %>
-  		</div>
-         <div class="d-flex justify-content-center mt-2">
-          <%= f.submit "Donate" , class: "button"%>
-         </div>
+    		<%= f.text_field :donor_name, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_1')}" %>
+    		<%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_2')}" %>
+    		<%= f.number_field :contact, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_3')}" %>
+    		<%= f.number_field :donation_amount, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_4')}" %>
+        
+        <div class="d-flex flex-row">
+          <div class="flex-fill">
+            <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
+          </div>
+          <div class="flex-fill">
+            <%= f.submit "#{t('donate')}" ,class:"button form-control text-white font-weight-bold" %>
+          </div>
+        </div>
   <% end %>
