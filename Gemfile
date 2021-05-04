@@ -108,3 +108,6 @@ gem 'html5_validators'
 
 #profiling
 gem 'rack-mini-profiler'
+
+# for Google maps 
+gem 'geocoder'
