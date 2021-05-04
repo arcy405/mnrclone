@@ -19,6 +19,8 @@ class HomesController < ApplicationController
       name=params[:aa_search_input]
       @listdetails=Listing.where("lower(name) LIKE lower('%#{name}%')")
       @listcount=Listing.where("lower(name) LIKE lower('%#{name}%')").count
+
+      @seach = Listing.search[:aa_search_input]
       
     end
 
