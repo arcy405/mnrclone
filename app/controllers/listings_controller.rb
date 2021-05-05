@@ -5,7 +5,11 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @tags=Tag.order(:title)
+    if  I18n.locale.to_s == "en"
+      @tags=Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_en)}
+    else
+      @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np)}
+    end
     @listing=Listing.new
   end
 
@@ -41,7 +45,7 @@ class ListingsController < ApplicationController
     end
   end
   def search 
-    @tags=Tag.order(:title)
+    @tags=Tag.order(:title_en)
     @list_counts=Listing.group(:tag).count
     
     name=params[:aa_search_input]

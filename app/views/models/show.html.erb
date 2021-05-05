@@ -4,7 +4,7 @@
 <div class="container mt-4">
 	<div class="row">
 		<div class="about-title clearfix">
-            <h1><span><%= @model.name %></span> Age: <%= Time.now.year.to_i - @model.dob.year.to_i %> </h1>
+            <h1 class="form_title"><span class="mnryp_word"><%= @model.name %></span> Age: <%= Time.now.year.to_i - @model.dob.year.to_i %> </h1>
          </div>
 	</div>
 	<%= link_to "View All",models_path, class:"badge bg-info text-dark ml-2", style:"text-decoration:none" %>
