@@ -7,6 +7,7 @@ class Realestate < ApplicationRecord
 	  
 
 	  has_many :realestate_images,dependent: :destroy
+
       accepts_nested_attributes_for :realestate_images, :reject_if => proc {|attributes| attributes['image'].blank? && attributes['image_cache'].blank?}
     
 

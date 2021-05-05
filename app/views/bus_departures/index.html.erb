@@ -31,16 +31,16 @@ a{
 <div class="row mb-0">
     <div class="col-md-3 fixed">
     <div class="border-bottom ml-2">
-        <h4 id="burgundy">Filters<i class="fas fa-filter"></i></h4>
+        <h4 id="burgundy"> <%= t('bd_filter') %> <i class="fas fa-filter"></i></h4>
     </div>
 
   <div id="all_filters">
     <div class="py-2 border-bottom ml-3">
-    <h6 class="font-weight-bold">Place Filter</h6>
+    <h6 class="font-weight-bold"><%= t('bd_place_filter') %> </h6>
         <div id="orange"><span class="fa fa-minus"></span></div>
     <div class="py-2 border-bottom ml-3">
 		  <div class="form-group row">
-		    <label for="destination_search" class="col-form-label col-form-label-sm">MNR To </label>
+		    <label for="destination_search" class="col-form-label col-form-label-sm"><%= t('bd_mnr_to') %> </label>
 		    <div class="ml-1">
 		      <input type="text" class="form-control form-control-sm" placeholder="Destination" id="destination_search" onkeyup="busFilter()">
 		    </div>
@@ -55,32 +55,32 @@ a{
 	</div>
     
     <div class="py-2 border-bottom ml-3">
-        <h6 class="font-weight-bold">Departure Date Filter</h6>
+        <h6 class="font-weight-bold"><%= t('bd_depart_date_filter') %> </h6>
         <div id="orange"><span class="fa fa-minus"></span></div>
 		<input type="date"  placeholder="Select Departure Date" id="datefilter" onchange="busFilter()" />
     </div>
 
     <div class="py-2 border-bottom ml-3">
-        <h6 class="font-weight-bold">Yatayaat Filter</h6>
+        <h6 class="font-weight-bold"><%= t('yatayat') %> </h6>
         <div id="orange"><span class="fa fa-minus"></span></div>
         <select id="yatayaat" name="yatayaat" class="search form-control" onchange="busFilter()">
 		  <option value="all" selected="selected">All</option>
-		  <option value="Mahakali">Mahakali</option>
-		  <option value="Sunaulo">Sunaulo</option>
-		  <option value="Pawandoot">Pawandoot</option>
-		  <option value="Shuklaphanta">Shuklaphanta</option>
-		  <option value="Management">Management</option>
+		  <option value="Mahakali"> <%= t('maahakali') %> </option>
+		  <option value="Sunaulo"><%= t('sunaulo') %> </option>
+		  <option value="Pawandoot"><%= t('pawandut') %> </option>
+		  <option value="Shuklaphanta"><%= t('suklafata') %> </option>
+		  <option value="Management"><%= t('bd_mngt') %> </option>
 		</select>
     </div>
 
     <div class="py-2 border-bottom ml-3">
-        <h6 class="font-weight-bold">Vehicle Type Filter</h6>
+        <h6 class="font-weight-bold"><%= t('bus_type_filter') %> </h6>
         <div id="orange"><span class="fa fa-minus"></span></div>
           <select name="sort" id="bus_type" onchange="busFilter()">
-              <option value="All" selected="selected"><b>All</b></option>
-              <option value="AC"><b>AC</b></option>
-              <option value="Delux"><b>Delux</b></option>
-              <option value="Hayse"><b>Hayse</b></option>
+              <option value="All" selected="selected"><b><%= t('bd_all') %> </b></option>
+              <option value="AC"><b><%= t('ac') %> </b></option>
+              <option value="Delux"><b><%= t('delux') %> </b></option>
+              <option value="Hayse"><b><%= t('hiace') %> </b></option>
           </select>
     </div>
 </div> 
@@ -94,8 +94,8 @@ a{
                               <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
                               <span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
                               <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
-                                <h6><b>Departs at <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
-                                <h6 style="display:none"><b>Departs Date <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
+                                <h6><b><%= t('depart_at') %>  <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
+                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
                                 <h6 class="font-weight-bold company"><%= depart.company %> <span style="color:#ffff">ALL</span></h6>
                                 <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
                             </div>

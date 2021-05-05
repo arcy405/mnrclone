@@ -7,44 +7,44 @@
          <%= image_tag("footerlogo.jpg",class: "rounded-circle p-5",size: "250",loading:"lazy") %> 
         </div>
         <div class="text-white col-md-4 p-4">
-            <h5 class="text-white">Contacts</h5>
-            <h6 class="text-white">Address:</h6>
-            <address>5<sup>th</sup> Street. Top Floor, Everest Bank Building <br />Mahendranagar Bazar</address>
-            <h6 class="text-white">Email:</h6>
+            <h5 class="text-white"><%= t('contacts') %></h5>
+            <h6 class="text-white"><%= t('address') %></h6>
+            <address><%= t('five') %><sup>th</sup> <%= t('location1') %><br /><%= t('location2') %></address>
+            <h6 class="text-white"><%= t('email') %></h6>
             <address>info@narmadainfosys.com</address>
-            <h6 class="text-white">Phone:</h6>
-            <p>9865616888</p>
+            <h6 class="text-white"><%= t('phone') %></h6>
+            <p><%= t('number') %></p>
         </div>
         <div class="col-md-4 p-4">
-        <h5 class="text-white">Follow Us</h5>
+        <h5 class="text-white"><%= t('follow_us') %></h5>
         <ul class="list-unstyled">
         <li><a href="https://www.facebook.com/mnryp/" target="_blank" style="text-decoration:none">
                 <i class="fab fa-facebook fa-2x"></i>
-                <span class="text-white"> MNRYP Directory</span>
+                <span class="text-white"> <%= t('directory') %></span>
              </a>
         </li>
         <li><a href="https://www.facebook.com/fooding.mnryp" target="_blank" style="text-decoration:none">
         <i class="fab fa-facebook fa-2x"></i>
-        <span class="text-white"> MNRYP Fooding</span>
+        <span class="text-white"> <%= t('fooding') %></span>
         </a></li>
         <li><a href="https://www.facebook.com/cakesmnr" target="_blank" style="text-decoration:none">
         <i class="fab fa-facebook fa-2x"></i>
-        <span class="text-white"> MNRYP Cakes</span>
+        <span class="text-white"> <%= t('cakes') %></span>
         </a></li>
        <!----- <li><a href="#"><i class="fab fa-twitter fa-2x"></i></a></li>--->
         <!-----<li><a href="#"><i class="fab fa-instagram fa-2x" style="color:#be113d"></i></a></li>--->
        <!----- <li><a href="#"><i class="fab fa-youtube fa-2x" style="color:#cc1e1e"></i></a></li>--->
         </ul>
         <div class="text-center">
-            Total Visitors Count : <%= Ahoy::Visit.all.count %>
+        <%= t('visitor_count') %> : <%= Ahoy::Visit.all.count %>
         </div>
         </div>
      </div>
     <hr>
     <!---------copyright---------------->
     <div class="footer-copyright py-3 footer2 text-center"> 
-    © Copyright <%= Time.now.year %>:All right reserved. <br />
-    Made with <i class="fas fa-heart" style="color:red"></i> in Mahendranagar. <br />
-    A product of <a href="https://sites.google.com/narmadainfosys.com/narmada-infosys/" target="_blank">Narmada Infosys</a>.
+    <%= t('copyright') %> <%= Time.now.year %><%= t('right') %> <br />
+    <%= t('made_with') %> <i class="fas fa-heart" style="color:red"></i> <%= t('mnr') %> <br />
+    <%= t('product') %> <a href="https://sites.google.com/narmadainfosys.com/narmada-infosys/" target="_blank"><%= t('narmada') %></a>.
     </div>
 </footer>

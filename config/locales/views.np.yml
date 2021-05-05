@@ -1,3 +1,35 @@
 np:
   #JOB Vacancy
   add_job_vancany: "जागिर रिक्त विज्ञापन थप्नुहोस्"
+
+  # agents(index.html.erb)-------------------------
+
+  looking: "तपाई कसलाई खोज्दै हुनुहुन्छ?"
+  bus_book_agent: "बस बुकिंग एजेन्टहरू"
+  book_agent_name: "नाम"
+  book_agent_address: "ठेगाना"
+  book_agent_phone: "फोन"
+  no_result: "कुनै परिणाम छैन"
+
+  #----------------------------------------------
+
+  # bus departure(bd) / (index.html.erb)-----------
+
+  bd_filter: "रोज्नुहोस्"
+  bd_place_filter: "ठाउँ छनौट गर्नुहोस्"
+  bd_mnr_to: "महेन्द्रनगर बाट"
+  bd_depart_date_filter: "प्रस्थान मिति छनौट"
+  yatayat: "यातायात कम्पनी छान्नुहोस् "
+  maahakali: "महाकाली"
+  sunaulo: "सुनउलो"
+  pawandut: "पवनदुत"
+  suklafata: "शुकलाफाटा "
+  bd_mngt: "व्यवस्थापन"
+  bus_type_filter: "गाडीको प्रकार छनौट गर्नुहोस्"
+  bd_all: "सबै"
+  ac: "ए.सी."
+  delux: "डिलक्स"
+  hiace: "हाइएस"
+  depart_at: "प्रस्थान गर्ने समय "
+  depart_date: "प्रस्थान गर्ने मिति "
+  #------------------------------------------------  

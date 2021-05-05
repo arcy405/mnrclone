@@ -1,3 +1,35 @@
 en:
   #JOB Vacancy
   add_job_vancany: "Add Job Vacancy"
+
+  # agents(index.html.erb)-------------------------
+
+  looking: "Who you looking for ?"
+  bus_book_agent: "Bus Booking Agents"
+  book_agent_name: "Name"
+  book_agent_address: "Address"
+  book_agent_phone: "Phone"
+  no_result: "No Results"
+  #----------------------------------------------
+
+  # bus departure(bd) / (index.html.erb)-----------
+
+  bd_filter: "Filters"
+  bd_place_filter: "Place Filter"
+  bd_mnr_to: " Mahendranagar to"
+  bd_depart_date_filter: "Departure Date Filter"
+  maahakali: "Mahakali"
+  sunaulo: "Sunaulo"
+  pawandut: "Pawandoot"
+  suklafata: " Suklaphata"
+  bd_mngt: "Management"
+  bus_type_filter: "Vehicle Type Filter"
+  bd_all: "All"
+  ac: "AC"
+  delux: "Delux"
+  hiace: "Hiace"
+  depart_at: "Departs At"
+  depart_date: "Depart Date"
+  #------------------------------------------------    
+
+

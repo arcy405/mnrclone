@@ -26,6 +26,9 @@ class RealestatesController < ApplicationController
 
             if user_signed_in?
                 current_user.gamification.create!(points:5)
+
+            end
+
              end
             format.html { redirect_to realestates_path notice: 'Realestate was successfully added.' }
           else
@@ -34,6 +37,8 @@ class RealestatesController < ApplicationController
         end
   end
 
+      end
+  
   def edit
     @realestate = Realestate.find(params[:id])
   end
@@ -54,7 +59,7 @@ class RealestatesController < ApplicationController
       format.html { redirect_to realestates_url, notice: 'Realestate was successfully destroyed.' }
     end
   end
-       #####################################
+
       
 
       private

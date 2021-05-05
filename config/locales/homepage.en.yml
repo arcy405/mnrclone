@@ -4,4 +4,56 @@ en:
   nepali: "Nepali"
   english: "English"
   all_listings: "All Listings"
+
+  #for header
+  all_services: "All Services"
+  transport_services: "Transport Services"
+  business: "Bussiness"
+  social_services: "Social Services"
+  fashion_lifestyle: "Fashion and Lifestyle"
+  online_shopping: "Online Shopping"
+  online_fooding: "Online Fooding"
+  online_cake: "Online Cake"
+  welcome: "Welcome"
+
+  home: "Home"
+  about_us: "About Us"
+  contact_us: "Contact Us"
+  bus_booking_agent: "Bus Booking Agents"
+  bus_schedule: "Bus Schedule"
+  real_estates: "Real Estates"
+  job_vacancy: "Job Vacancy"
+  add_business: "Add Bussiness"
+  blood_donors: "Blood Donors"
+  pet_adoption: "Pet Adoption"
+  models: "Models"
+  places_to_visit: "Places To Visit In MNR"
+  register: "Register"
+  sign_out: "Sign Out"
+  sign_in: "Sign In"
+
+  #for footer
+  contacts: "Contacts"
+  address: "Address:"
+  five: "5"
+  location1: "Street. Top Floor, Everest Bank Building"
+  location2: "Mahendranagar Bazar"
+  email: "Email:"
+  phone: "Phone:"
+  number: "9865616888"
+  follow_us: "Follow Us"
+  directory: "MNRYP Directory"
+  fooding: "MNRYP Fooding"
+  cakes: "MNRYP Cakes"
+  visitor_count: "Total Visitors Count :" 
+  copyright: "© Copyright" 
+  right: ":All right reserved."
+  made_with: "Made with" 
+  mnr: "in Mahendranagar."
+  product: "A product of"
+  narmada: "Narmada Infosys"        
+
   
+  
+
+
