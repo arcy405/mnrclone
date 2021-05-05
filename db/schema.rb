@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_150732) do
+ActiveRecord::Schema.define(version: 2021_05_04_083701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -396,12 +396,18 @@ ActiveRecord::Schema.define(version: 2021_05_03_150732) do
     t.string "payment_details"
   end
 
+  create_table "realestate_images", force: :cascade do |t|
+    t.integer "realestate_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "realestates", force: :cascade do |t|
     t.string "seller_name"
     t.string "seller_phone"
     t.string "price"
     t.string "description"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ptype"
@@ -411,6 +417,9 @@ ActiveRecord::Schema.define(version: 2021_05_03_150732) do
     t.string "kitchen"
     t.string "bathroom"
     t.string "slug"
+    t.integer "user_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
 

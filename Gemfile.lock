@@ -476,6 +476,7 @@ DEPENDENCIES
   cloudinary
   devise!
   friendly_id (~> 5.4.0)
+  geocoder
   google-analytics-rails (= 1.1.1)
   groupdate (~> 5.2)
   html5_validators

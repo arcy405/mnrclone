@@ -4,7 +4,12 @@ class Realestate < ApplicationRecord
     extend FriendlyId
     
   	friendly_id :propertyname, use: :slugged
+	  
 
-  	validates_presence_of :seller_name, :seller_phone, :price, :image, :propertyname
-  	
+	  has_many :realestate_images,dependent: :destroy
+      accepts_nested_attributes_for :realestate_images, :reject_if => proc {|attributes| attributes['image'].blank? && attributes['image_cache'].blank?}
+    
+
+  	validates_presence_of :seller_name, :seller_phone, :price, :propertyname ,:user_id  
+  
 end

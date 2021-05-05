@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <% @marketplaces.each do |marketplace| %>
-                <div class="col-xs-12 col-md-3">
+                <div class="col-md-3">
                 	<div class="card h-100">
                         <% marketplace.market_place_images.each do |prod_img| %>
                     		<%= cl_image_tag(prod_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
@@ -32,24 +32,24 @@
 				          <div class="buy d-flex justify-content-between align-items-center">
 				            <div class="text-success"><h5 class="">Rs.<%= marketplace.price %></h5></div>
 				          </div>
-				          <a href="tel:<%= marketplace.phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= marketplace.phone %></h6></a>
-                          <%= link_to marketplace_path(marketplace), class:"float-right" do %>
-                           View More
-                          <% end %>
-				        </div>
+    				          <a href="tel:<%= marketplace.phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= marketplace.phone %></h6></a>
+                              <%= link_to marketplace_path(marketplace), class:"float-right" do %>
+                               View More
+                              <% end %>
                         
-                            <% if user_signed_in? && current_user.id == marketplace.user_id %>
-                            <div class="d-flex flex-row-reverse p-2">
-                                <div>
-                                    <%= link_to  marketplace, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
-                                </div>
-                                <div class="mr-2 ml-2">
-                                    <%= link_to  edit_marketplace_path(marketplace) do %><i class="far fa-edit text-primary"></i><% end %>
-                                </div>
-                            <% end %>
-
+                                <% if user_signed_in? && current_user.id == marketplace.user_id %>
+                                    <div class="d-flex flex-row-reverse p-2">
+                                        <div>
+                                            <%= link_to  marketplace, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                        </div>
+                                        <div class="mr-2 ml-2">
+                                            <%= link_to  edit_marketplace_path(marketplace) do %><i class="far fa-edit text-primary"></i><% end %>
+                                        </div>
+                                    </div>
+                                <% end %>
 				      </div>
                 </div>
+            </div>
             <% end %>
         </div>
     </div>
