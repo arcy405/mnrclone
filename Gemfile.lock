@@ -136,6 +136,7 @@ GEM
       rest-client (>= 2.0.0)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    dalli (2.7.11)
     device_detector (1.0.5)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -474,6 +475,7 @@ DEPENDENCIES
   carrierwave (~> 2.1)
   chartkick (~> 3.4)
   cloudinary
+  dalli
   devise!
   friendly_id (~> 5.4.0)
   geocoder

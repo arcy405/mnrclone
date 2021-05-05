@@ -111,3 +111,6 @@ gem 'rack-mini-profiler'
 
 # for Google maps 
 gem 'geocoder'
+
+#for caching
+gem 'dalli'
