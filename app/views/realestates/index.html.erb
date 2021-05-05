@@ -1,6 +1,7 @@
 <% content_for :title, "Real Estate-MNRYP" %>
   <%= render 'Homepage/navmenu.html.erb' %>
 
+
   <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
@@ -13,12 +14,14 @@
                                         <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "btn btn-danger btn-filter", style:"text-decoration:none;" ,type:"button" %>
                                         <%=  link_to "Rent House", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
                                     </div>
+
                                    <% else %>
                                         <div class="float-right  mr-3 mt-2">
                                         <%= link_to user_session_path do %>
                                         <span  class=" btn-outline-danger rounded p-2 border"> <i class="fas fa-sign-in-alt"></i> <strong>Click To Start SELLING...</strong></span>
                                         <% end %>
                                         </div>
+
                                   <%end %>
                             </div>
                             <button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
@@ -72,6 +75,7 @@
     </div>
       
 </div>
+
 
 
 

@@ -112,6 +112,14 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "document"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "bus_departures", force: :cascade do |t|
     t.string "destination"
     t.datetime "depart_time"
