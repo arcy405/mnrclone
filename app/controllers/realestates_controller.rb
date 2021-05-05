@@ -1,6 +1,6 @@
 class RealestatesController < ApplicationController
 
-  before_action :set_realestate, only: [:show, :edit, :update, :destroy]
+ before_action :set_realestate, only: [:show, :edit, :update, :destroy]
 
   def index
     @Realestates=Realestate.order("created_at DESC")
@@ -26,13 +26,17 @@ class RealestatesController < ApplicationController
 
             if user_signed_in?
                 current_user.gamification.create!(points:5)
+
             end
+
              end
             format.html { redirect_to realestates_path notice: 'Realestate was successfully added.' }
           else
             format.html { render :new }
           end
         end
+  end
+
       end
   
   def edit
@@ -55,6 +59,7 @@ class RealestatesController < ApplicationController
       format.html { redirect_to realestates_url, notice: 'Realestate was successfully destroyed.' }
     end
   end
+
       
 
       private
