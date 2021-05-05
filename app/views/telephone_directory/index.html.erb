@@ -7,13 +7,17 @@
 	 </div>
 	<div class="row">
 	  	<% @important_numbers.each do |number| %>
+	  		<% phone_numbers = number.phone.split(",") %>
 			  	<div class="col-md-3">
 			    <li class="list-group-item ">
 			    <%= number.name %><br />
-			    <span style="color: blue"><%= number.address %></span>
-			    <span class="badge badge-light badge-pill float-right">
-			    	<a href="tel:<%= number.phone %>" style="text-decoration: none;" ><i class="fas fa-phone-alt"></i> <%= number.phone %></a>
+			    <span style="color: #c75252"><%= number.address %></span><br />
+			    <% phone_numbers.each do |num| %>
+			    	<span class="badge badge-light badge-pill">
+			    	<a href="tel:<%= num %>" ><i class="fas fa-phone-alt"></i> <%= num %></a>
 		    	</span>
+			    <% end %>
+			   	
 			  </li>
 		    </div>
 	    <% end %>
@@ -30,12 +34,15 @@
                  </div>
 	  		<ul class="list-group mb-2">
   			<% telephone_number.each do |number| %>
+  			<% phone_numbers = number.phone.to_s.split(",") %>
 			  <li class="list-group-item">
 			    <%= number.name %><br />
-			    <span style="color: blue"><%= number.address %></span>
-			    <span class="badge badge-light badge-pill float-right">
-			    	<a href="tel:<%= number.phone %>" style="text-decoration: none;" ><i class="fas fa-phone-alt"></i> <%= number.phone %></a>
+			    <span style="color: #c75252"><%= number.address %></span><br />
+			    <% phone_numbers.each do |num| %>
+			    	<span class="badge badge-light badge-pill">
+			    	<a href="tel:<%= num %>" ><i class="fas fa-phone-alt"></i> <%= num %></a>
 		    	</span>
+			    <% end %>
 			  </li>
 		    <% end %>
 			</ul>

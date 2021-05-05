@@ -1,0 +1,35 @@
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+      <div id="addlistform" class="about-section paddingTB60 gray-bg">
+          <div class="container">
+              <div class="row">
+                <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="about-title clearfix">
+                      <h1><%= t('professional_title') %> <span>MNRYP</span></h1>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-sm-12">
+            <ul >
+              <li class="about-paddingB text-justify"><%= t('professional_text_1') %></li>
+              <li class="about-paddingB text-justify"><%= t('professional_text_2') %></li>
+              <li class="about-paddingB text-justify"><%= t('professional_text_3') %></li>
+            </ul>
+            </div>
+                <div class="col-md-6 col-sm-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= render partial:"form" %>
+                </div>
+                </div>
+            </div>
+         </div>
+       </div>
+   
+       
+       

@@ -5,6 +5,19 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if:  :devise_controller?
 
+    before_action :set_locale
+
+    private
+
+    private 
+      def set_locale
+        if  user_signed_in? && current_user.admin?
+           I18n.locale = "en"
+        else
+           I18n.locale = session[:locale] || I18n.default_locale
+           session[:locale] = I18n.locale
+        end
+      end
 
     protected
     

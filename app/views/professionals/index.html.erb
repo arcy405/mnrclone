@@ -1,0 +1,70 @@
+<% content_for :title, "MNR Professionals-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<div class="d-md-flex justify-content-between my-2">
+	<div class="mx-2 mt-2"><%= link_to new_professional_path do %>
+           <span  class=" btn-outline-danger rounded p-2 border">Register Yourself <i class="fas fa-plus-circle ml-2"></i></span>
+    	<% end %>  
+    </div>
+    <div class="mx-2 mt-2">
+		<select id="profession" name="profession" class="search btn-outline-danger rounded p-2 border" onchange="professionalFilter()">
+		  <option value="all" selected="selected">Select Profession</option>
+		  <% @professions.each do |profession| %>
+			  <option value="<%= profession.name %>"><%= profession.name %></option>
+		  <% end %>
+		</select>
+    </div>
+</div>
+    <div class="container my-2">
+        <div class="row" id="myItems">
+        	<p id="no_record"></p>
+        	<% @professionals.each do |professional| %>
+            <div class="col-md-3 filter-card" id="cards_landscape_wrap-2">
+					<div class="card-flyer">
+                                <div class="card-body text-center">
+                                    <p><img class="img-fluid card-image-professional" src="https://res.cloudinary.com/di7sekeem/image/upload/v1619251011/assets/footerlogo_fwwgra.png" alt="card image"></p>
+                                    <h4 class="card-title"><%= professional.name %></h4>
+                                    <p class="card-text"><span class="badge rounded-pill bg-warning text-dark p-2 profession"><%= professional.profession.name %></span></p>
+                                    <p>  <i class="fas fa-map-marker-alt"></i> <%= professional.address %></p>
+						             <a href="tel:<%= professional.contact %>"><p>  <i class="fas fa-phone-alt"></i> <%= professional.contact %></p></a>
+                                </div>
+                            </div>
+    		</div>
+            <% end %>
+        </div>
+    </div>
+
+<script type="text/javascript">
+	function professionalFilter(){
+		filter_profession =document.getElementById("profession").value.toUpperCase();
+		cardContainer = document.getElementById("myItems");
+		cards = cardContainer.getElementsByClassName("filter-card");
+		no_record= document.getElementById("no_record")
+
+		number_of_records=0;
+
+		if (filter_profession == "ALL"){
+			for (i = 0; i < cards.length; i++) {cards[i].style.display = "";}
+		}else{
+			for (i = 0; i < cards.length; i++) {
+        dest_profession = cards[i].querySelector(".card-body .profession");
+
+        if (dest_profession.innerText.toUpperCase().indexOf(filter_profession) > -1) {
+
+            cards[i].style.display = "";
+            number_of_records+=1;
+
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+		}
+
+		//for no records found
+		if(filter_profession != "ALL" && number_of_records == 0){
+			no_record.innerHTML="<p>Sorry, No professionals found!!</p>"
+		}else{
+			no_record.innerHTML=""
+		}
+	}
+</script>

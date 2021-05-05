@@ -55,7 +55,12 @@
             </nav>
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="container-fluid" id='map' style='width:100%'></div>
+                <!--The div element for the map -->
+                <% lat = @listdetails.lattitude %>
+                <% long = @listdetails.longitude %>
+                 <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="http://maps.google.com/maps?q=<%= lat %>,<%= long %>&z=15&output=embed" loading="lazy" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                  <div class="m-4"><%= @listdetails.description %></div>                    
@@ -79,17 +84,17 @@
                         <%= f.radio_button(:rating, "1") %> <%= f.label(:rating.to_s + "_1" ) %>
                 </div><br /><br />
                 <div class="row mt-2">
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-6 col-12">
                       <%= f.text_field :name, placeholder: "Name", class:"form-control w-100"  %>
                    </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-4 col-12">
+                    <div class="col-md-6 col-12">
                      <%= f.text_area :comment, placeholder: "Add a comment", class:"form-control w-100" %>
                    </div>
                 </div>
-                    <div class="pt-2">
-                        <%= f.submit "Add Review", class:"btn btn-primary" %>
+                    <div class="mt-2">
+                        <%= f.submit "Add Review", class:"button",style:"width:15% !important;" %>
                     </div>
                 <% end %>
             </div>
@@ -101,121 +106,11 @@
     </div>
     
         <%= render @list.reviews.order("created_at DESC").limit(10) %>
-        </div>
+        
     </div>
     <!------------------------------------------------------------------->
 </div>
-
-       <!-------------new code added by bhupi --end ------------------------------>
-
-<!-----------------------for openbox map------------------->
-<script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmFyZW40MDQiLCJhIjoiY2tnNHJ2dmQ5MG44azJwbzUyaGJ4YWI2ZyJ9.uqYsTqii1M1UWwAq3mAEhg';
-        var map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [80.179080,28.963439], // starting position [lng, lat]
-        zoom: 13 // starting zoom
-        });
-        map.scrollZoom.enable();
-        
-        
-    map.on('load', function () {
-        map.loadImage(
-        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-        // Add an image to use as a custom marker
-        function (error, image) {
-        if (error) throw error;
-        map.addImage('custom-marker', image);
-    
-            map.addSource('places', {
-            'type': 'geojson',
-            'data': {
-            'type': 'FeatureCollection',
-            'features': [
-            {
-
-            'type': 'Feature',
-            'properties': {
-            'description':
-            '<strong><%= @listdetails.name %></strong><p><%= @listdetails.address %></p>'
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [<%= @listdetails.longitude %>, <%= @listdetails.lattitude %>]
-            }}]}
-            });
- 
-// Add a layer showing the places.
-        map.addLayer({
-        'id': 'places',
-        'type': 'symbol',
-        'source': 'places',
-        'layout': {
-        'icon-image': 'custom-marker'
-        }
-        });
-    }
-    );
- 
-// Create a popup, but don't add it to the map yet.
-var popup = new mapboxgl.Popup({
-closeButton: false,
-closeOnClick: false
-});
- 
-map.on('mouseenter', 'places', function (e) {
-// Change the cursor style as a UI indicator.
-map.getCanvas().style.cursor = 'pointer';
- 
-var coordinates = e.features[0].geometry.coordinates.slice();
-var description = e.features[0].properties.description;
- 
-// Ensure that if the map is zoomed out such that multiple
-// copies of the feature are visible, the popup appears
-// over the copy being pointed to.
-while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-}
- 
-// Populate the popup and set its coordinates
-// based on the feature found.
-popup.setLngLat(coordinates).setHTML(description).addTo(map);
-});
- 
-map.on('mouseleave', 'places', function () {
-map.getCanvas().style.cursor = '';
-popup.remove();
-});
-});
-</script>
-
 <!-------------------------for star rating----------------------->
-<script>
-// STAR RATING
-function add(ths, sno) {
-    for (var i = 1; i <= 5; i++) {
-		var cur = document.getElementById("star" + i);
-		cur.setAttribute('data-prefix','far');
-	}
 
-	for (var i = 1; i <= sno; i++) {
-        var cur = document.getElementById("star" + i);
-		if (cur.getAttribute('data-prefix') == "far") {
-			cur.setAttribute('data-prefix','fas');
-		}
-        else{
-            cur.setAttribute('data-prefix','far');
-        }
-    }
-    var rating=sno;
-    alert(sno)
-    $.ajax({
-    //Your ajax code here to submit from via AJAX. refer jquery site . I gave sample eg.
-             url : "Your URL or file name on server",
-             data : sno
-        });
-}
-</script>
 <!------------------------------------------------------->
 
