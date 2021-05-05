@@ -47,7 +47,7 @@
             <%= f.fields_for :realestate_images do |p| %>
              <div class="field">
               <div class="input-group">
-                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control" %>
+                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name: "realestate_images[image][]" %>
                  <%= p.hidden_field :image_cache %>
                
              </div>
