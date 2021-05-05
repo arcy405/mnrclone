@@ -1,32 +1,21 @@
 <% content_for :title, "About Us-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 
-    <div class="about-section paddingTB60 gray-bg">
-        <div class="container">
-            <div class="row">
-              <div class="col-md-6 col-sm-6">
-                 <div class="about-title clearfix">
-                    <h1>About <span>MNRYP</span></h1>
-                    <h3>महेन्द्रनगरको आफ्नो सर्च इन्जिन </h3>
-                    <p class="about-paddingB text-justify">Mnyrp is Mahendranagar's local search engine which provides users with information regarding Mahendranagar. It's a search engine based on the products and services available in Mahendrangar, which makes it easier for users to search and locate the things they're looking for. With an aim of reducing digital divide in our country, Mnyrp focuses on providing the technological facilities to the residents of local areas.
-                        From products like clothes, electronics to services like rental, repair and other necessities like food, hospitals, every detail available in Mahendranagar can be searched using the search engine. This makes it a lot easier and convenient for locals and other people to find the service they're looking for in a click without much of a hassle.</p>
-                   <hr />
-                    <p class="about-paddingB text-justify">
-                    एमएन्वाईआरपी  महेन्द्रनगरको स्थानीय खोज इञ्जिन हो जसले प्रयोगकर्ताहरूलाई महेन्द्रनगर सम्बन्धी जानकारी प्रदान गर्दछ। यो महेन्द्रंगरमा उपलब्ध उत्पादनहरू र सेवाहरूमा आधारित खोजी ईन्जिन हो, जसले प्रयोगकर्ताहरूलाई खोज्न र खोजिरहेका चीजहरू पत्ता लगाउन सजिलो बनाउँदछ। हाम्रो देशमा डिजिटल विभाजन घटाउने उद्देश्यको साथ, एमएन्वाईआरपी  स्थानीय क्षेत्रका बासिन्दाहरूलाई प्राविधिक सुविधाहरू प्रदान गर्नमा केन्द्रित छ।
-लुगाहरू, इलेक्ट्रोनिक्स जस्ता उत्पादनहरू, भाँडा, मर्मत र खाद्यान्न, अस्पतालहरू जस्ता सेवाहरू जस्ता सेवाहरू, महेन्द्रनगरमा उपलब्ध हरेक विवरणहरू खोजी ईन्जिनको प्रयोगले खोजी गर्न सकिन्छ। यसले स्थानियहरू र अन्य व्यक्तिहरूलाई उनीहरूले खोजिरहेको सेवा फेला पार्न धेरै सजिलो र सुविधाजनक बनाउँदछ धेरै समस्या बिना नै।
-                    </p>
-                     <div class="about-icons"> 
-                         <ul>
-                            <li><a href="https://www.facebook.com/mnryp/" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a> </li>
-                            <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a> </li>
-                            <li><a href="#"><i class="fab fa-instagram-square fa-2x"></i></a> </li>
-                         </ul>       
-	                 </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <%= image_tag("barasingha.png",:class=>"img-fluid",:style=>"max-height:100%") %> 
-            </div>
-          </div>
-      </div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+            <h1 class="form_title"><span class="">About</span> <span class="mnryp_word">MNRYP</span></h1>
+            <h3>महेन्द्रनगरको आफ्नो सर्च इन्जिन </h3>
+            <p class="text-muted text-justify"><%= t('about_us_text') %></p>
+           <hr />
+                 <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a href="https://www.facebook.com/mnryp/" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a> </li>
+                    <li class="list-group-item"><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a> </li>
+                    <li class="list-group-item"><a href="#"><i class="fab fa-instagram-square fa-2x"></i></a> </li>
+                 </ul>       
     </div>
+    <div class="col-md-6">
+        <%= image_tag("barasingha.png",:class=>"img-fluid",:style=>"max-height:100%") %> 
+    </div>
+  </div>
+</div>
