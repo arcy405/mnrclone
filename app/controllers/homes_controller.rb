@@ -5,7 +5,7 @@ class HomesController < ApplicationController
     else
       @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np)}
     end
-    @list_count = Rails.cache.fetch('tags', expires_in: 2.days){Listing.all.count}
+    @list_count = Rails.cache.fetch('list_counts', expires_in: 2.days){Listing.all.count}
   end
 
   def show

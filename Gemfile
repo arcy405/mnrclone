@@ -63,9 +63,6 @@ gem "activeadmin", "~> 2.8"
 gem "carrierwave", "~> 2.1"
 gem 'cloudinary'
 
-gem "chartkick", "~> 3.4"
-
-gem "groupdate", "~> 5.2"
 gem 'airbrake'
 
 gem "algoliasearch-rails"
@@ -108,9 +105,6 @@ gem 'html5_validators'
 
 #profiling
 gem 'rack-mini-profiler'
-
-# for Google maps 
-gem 'geocoder'
 
 #for caching
 gem 'dalli'
