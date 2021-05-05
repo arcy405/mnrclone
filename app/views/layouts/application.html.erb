@@ -15,9 +15,9 @@
   <%= yield :recaptcha_js %>
   
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => true %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',:cache => true %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
 
   </head>
   <body>

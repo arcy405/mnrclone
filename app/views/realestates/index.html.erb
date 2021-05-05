@@ -1,83 +1,82 @@
 <% content_for :title, "Real Estate-MNRYP" %>
   <%= render 'Homepage/navmenu.html.erb' %>
-<div class="container-fluid">
-        <div class="conatiner text-center">
-        <!--   <%= image_tag("RE.png",:class=>"img-fluid img-thumbnail",:style=>"max-height:100%") %>     ----->     
-        </div>            
-          <div class=" mt-4">
-              <div class="row">
-                  <div class="col-md-12">
-                    <div class="panel panel-default">
 
-                <!---------------------------------------------------------------------->   
-                        <div class="panel-body">
-                                <div class="float-left ml-3 ">
-                                  <div class="row">
-                                    <div class="col-xs-6 ml-2 mx-auto">
-                                        <a type="button" class="btn btn-danger btn-filter" data-target="sell">Buy House & Land</a>
-                                    </div>
-                                    <div class="col-xs-6 ml-2">
-                                       <a type="button" class="btn btn-danger btn-filter " data-target="rent"> Take House on Rent</a>
-                                     </div>
-                                  </div>
-                                </div>
+
+  <div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="panel panel-default">
+                    <div class="panel-body">
+                            <div class="mt-4 ml-4 mb-2">
                                 <% if user_signed_in? %>
                                     <div class="float-right mt-2 mr-2 ">
                                         <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "btn btn-danger btn-filter ", style:"text-decoration:none;" ,type:"button" %>
                                         <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "btn btn-danger btn-filter", style:"text-decoration:none;" ,type:"button" %>
                                         <%=  link_to "Rent House", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
                                     </div>
+
                                    <% else %>
                                         <div class="float-right  mr-3 mt-2">
                                         <%= link_to user_session_path do %>
                                         <span  class=" btn-outline-danger rounded p-2 border"> <i class="fas fa-sign-in-alt"></i> <strong>Click To Start SELLING...</strong></span>
                                         <% end %>
                                         </div>
-                    
+
                                   <%end %>
-                       </div>
-
-                       
-          <!-----------------cards section started------------------------------------->
-                 
-
-      <div id="cards_landscape_wrap-2">
-        <div class="container">
-            <div class="row">
-                  <% @Realestates.each do |realestate| %>
-                      
-                        <div class="col-md-3">
-                            <%=  link_to  realestate_path(realestate), style:"text-decoration:none" do %>
-                                  <div class="card-flyer ">
-                                      <div class="text-box">
-                                          <div class="card h-100">
-                                              <%= realestate.realestate_images.each do |prop_img| %>
+                            </div>
+                            <button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
+                            <button class="btn btn-danger filter-button mt-2" data-filter="sell">Buy House & Land</button>
+                            <button class="btn btn-danger filter-button mt-2" data-filter="rent">Take House on Rent</button>
+                        </div>
+                        <br/>
+                        <!-------------------property list------------------------>
+                        <div class="row">
+                     <% @Realestates.each do |realestate| %>
+                                  <div class="col-md-3 filter <%= realestate.ptype %>">
+                                      <div class="card h-100">
+                                          <%= realestate.realestate_images.each do |prop_img| %>
                                               <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
-                                                  <% break %>
-                                              <% end %>
-                                                                                                
-                                          </div>
-                                          <div class="text-container text-black ">
-                                              <h6 ><%= realestate.seller_name %></h6>
-                                                  <p>  <i class="fas fa-map-marker-alt"></i> <%= realestate.price%></p>
-                                          </div>
+                                                <% break %>
+                                          <% end %>
+                                    <div class="card-body">
+                                      <h4 class="card-title"><%= realestate.propertyname %></h4>
+                                      <h6 class="card-subtitle mb-2 text-muted">Seller: <%= realestate.seller_name %></h6>
+                                      <div class="buy">
+                                        <div class="text-success"><h5 class="">Rs.<%= realestate.price %></h5></div>
+                                        <div class="text-danger"><h5 class=""><i class="fas fa-map-marker-alt"></i> <%= realestate.address%></h5></div>
                                       </div>
+                                          <a href="tel:<%= realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= realestate.seller_phone %></h6></a>
+                                                  <%= link_to realestate_path(realestate.id), class:"float-right" do %>
+                                                   View More
+                                                  <% end %>
+                                            
+                                                    <% if user_signed_in? && current_user.id == realestate.user_id %>
+                                                        <div class="d-flex flex-row-reverse p-2">
+                                                            <div>
+                                                                <%= link_to  realestate, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                                            </div>
+                                                            <div class="mr-2 ml-2">
+                                                                <%= link_to  edit_realestate_path(realestate,category:"#{realestate.ptype}") do %><i class="far fa-edit text-primary"></i><% end %>
+                                                            </div>
+                                                        </div>
+                                                    <% end %>
                                   </div>
-                              </div>
-                          <% end %>
-                         
-                     
-                  <% end %>     
-            </div>
-        </div>
-    </div>
+                                    </div>
+                                  </div>
 
+                            <%end%>
+                        </div>
+<!---------------------------------------------------------------------------------------->
+            </div>
+          </div>
+        </div>
+            </div>
+            
+    </div>
       
-              <!-----------------cards section ends------------------------------------------------>
-              </div>
-  </div>
-  </div>
-  </div>
-          
+</div>
+
+
+
 
 
