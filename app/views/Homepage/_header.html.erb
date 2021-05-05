@@ -13,78 +13,78 @@
 
 <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <%= link_to "Home", homes_index_path,:style=>'text-decoration:none'%>
+      <%= link_to "#{t('home')}", homes_index_path,:style=>'text-decoration:none'%>
       
     </li>
     <li class="nav-item">
-      <%= link_to "About Us", aboutus_index_path,:style=>'text-decoration:none'%>
+      <%= link_to "#{t('about_us')}", aboutus_index_path,:style=>'text-decoration:none'%>
     </li>
     <li class="nav-item">
-      <%= link_to "Contact Us", contactus_index_path,:style=>'text-decoration:none' %>
+      <%= link_to "#{t('contact_us')}", contactus_index_path,:style=>'text-decoration:none' %>
     </li>
 
 
   <li class="nav-item dropdown has-megamenu">
-    <a class="" href="#" data-toggle="dropdown" style="text-decoration:none"> All Services<i class="fas fa-caret-down"></i></a>
+    <a class="" href="#" data-toggle="dropdown" style="text-decoration:none"><%= t('all_services') %><i class="fas fa-caret-down"></i></a>
       <div class="dropdown-menu megamenu" role="menu">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="col-megamenu">
-                              <h6 class="title">Transport Services</h6>
+                              <h6 class="title"><%= t('transport_services') %></h6>
                               <ul class="list-unstyled">
                                   <li>
-                                     <%= link_to "Bus Booking Agents", agents_path,:style=>'text-decoration:none' %>
+                                     <%= link_to "#{t('bus_booking_agent')}", agents_path,:style=>'text-decoration:none' %>
                                   </li>
                                   <li>
-                                     <%= link_to "Bus Schedule", bus_departures_path,:style=>'text-decoration:none' %>
+                                     <%= link_to "#{t('bus_schedule')}", bus_departures_path,:style=>'text-decoration:none' %>
                                   </li>
                               </ul>
                             </div>  <!-- col-megamenu.// -->
                         </div><!-- end col-3 -->
                         <div class="col-md-3">
                           <div class="col-megamenu">
-                            <h6 class="title">Bussiness</h6>
+                            <h6 class="title"> <%= t('business') %> </h6>
                                 <ul class="list-unstyled">
                                     <li>
-                                       <%= link_to "Real Estates", realestates_path,:style=>'text-decoration:none' %>
+                                       <%= link_to "#{t('real_estates')}", realestates_path,:style=>'text-decoration:none' %>
                                       </li>
                                       <li>
-                                       <%= link_to "Job Vacancy", vacancies_path,:style=>'text-decoration:none' %>
+                                       <%= link_to "#{t('job_vacancy')}", vacancies_path,:style=>'text-decoration:none' %>
                                       </li>
                                       <li>
-                                      <%= link_to "Add Bussiness", listings_new_path,:style=>'text-decoration:none'%>
+                                      <%= link_to "#{t('add_business')}", listings_new_path,:style=>'text-decoration:none'%>
                                     </li>
                                 </ul>
                             </div>  <!-- col-megamenu.// -->
                         </div><!-- end col-3 -->
                         <div class="col-md-3">
                           <div class="col-megamenu">
-                            <h6 class="title">Social Services</h6>
+                            <h6 class="title"><%= t('social_services') %></h6>
                                 <ul class="list-unstyled">
                                     <li>
-                                     <%= link_to "Blood Donors", donors_path,:style=>'text-decoration:none' %>
+                                     <%= link_to "#{t('blood_donors')}", donors_path,:style=>'text-decoration:none' %>
                                     </li>
                                 </ul>
                                 <ul class="list-unstyled">
                                     <li>
-                                     <%= link_to "Pet Adoption", pet_adoptions_path,:style=>'text-decoration:none' %>
+                                     <%= link_to "#{t('pet_adoption')}", pet_adoptions_path,:style=>'text-decoration:none' %>
                                     </li>
                                 </ul>
                             </div>  <!-- col-megamenu.// -->
                         </div>    
                         <div class="col-md-3">
                           <div class="col-megamenu">
-                            <h6 class="title">Fashion and Lifestyle</h6>
+                            <h6 class="title"><%= t('fashion_lifestyle') %></h6>
                                 <ul class="list-unstyled">
                                     <li>
-                                       <%= link_to "Models", models_path,:style=>'text-decoration:none' %>
+                                       <%= link_to "#{t('models')}", models_path,:style=>'text-decoration:none' %>
                                      </li> 
                                       <li>
-                                       <%= link_to "Places To Visit In MNR", tourists_path,:style=>'text-decoration:none' %>
+                                       <%= link_to "#{t('places_to_visit')}", tourists_path,:style=>'text-decoration:none' %>
                                      </li> 
-                                     <li><a href="http://www.sudurpasal.com/" style='text-decoration:none' target="blank">Online Shopping</a></li>
-                                      <li><a href="http://www.cheersmnr.com/" style='text-decoration:none' target="blank">Online Fooding</a></li>
-                                      <li><a href="http://www.cakesmnr.com/" style='text-decoration:none' target="blank">Online Cake</a></li>
+                                     <li><a href="http://www.sudurpasal.com/" style='text-decoration:none' target="blank"><%= t('online_shopping') %></a></li>
+                                      <li><a href="http://www.cheersmnr.com/" style='text-decoration:none' target="blank"><%= t('online_fooding') %></a></li>
+                                      <li><a href="http://www.cakesmnr.com/" style='text-decoration:none' target="blank"><%= t('online_cake') %></a></li>
                                 </ul>
                             </div>  <!-- col-megamenu.// -->
                         </div><!-- end col-3 -->
@@ -95,19 +95,19 @@
   <li class="nav-item">
       <% if user_signed_in? %>
           <%= link_to gamifications_path, class:"nav-item welcome-user", style:"text-decoration:none" do %>
-            <i class="fas fa-user-circle" ></i> Welcome <%= current_user.name %>
+            <i class="fas fa-user-circle" ></i><%= t('welcome') %> <%= current_user.name %>
           <% end %>
       <% else %>
 
-           <%= link_to "Register", new_user_session_path,:style=>'text-decoration:none' %>
+           <%= link_to "#{t('register')}", new_user_session_path,:style=>'text-decoration:none' %>
       <% end %>
     </li>
 
   <li class="nav-item">
     <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete ,:style=>'text-decoration:none', class:"login_links" %>
+        <%= link_to "#{t('sign_out')}", destroy_user_session_path, method: :delete ,:style=>'text-decoration:none', class:"login_links" %>
     <% else %>
-         <%= link_to "Sign In", user_session_path,:style=>'text-decoration:none', class:"login_links"  %>
+         <%= link_to "#{t('sign_in')}", user_session_path,:style=>'text-decoration:none', class:"login_links"  %>
      <% end %>
     </li>
 </span>
