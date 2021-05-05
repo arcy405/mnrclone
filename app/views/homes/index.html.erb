@@ -13,12 +13,16 @@
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
 	 <div class="container-fluid my-2">
-			<%= render 'Homepage/services' %>
+			<% cache do %>
+				<%= render 'Homepage/services' %>
+			<% end %>
 	 </div>
 	 <div class="container-fluid my-2">
 	 	<div class="row">
 	 		<div class="col-md-8">
-	 			<%= render 'Homepage/categorycard' %>
+	 			<% cache do %>
+	 				<%= render 'Homepage/categorycard' %>
+ 				<% end %>
 	 		</div>
 	 		<div class="col-md-4">
 	 			<div class="py-2 mx-2">
