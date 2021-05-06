@@ -41,14 +41,14 @@
 				<a href="tel:<%= @realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= @realestate.seller_phone %></h6></a>
 				<hr />
 			<div class="p-3 mb-2 bg-secondary text-white">
-                 <u> <strong> <%= t('description') %>  </strong> </u>
+                 <u> <strong> <%= t('description_and_features') %> </strong> </u>
                 <h6 class="text-justify"> <%= @realestate.description %></h6>
             </div>
 
              
 
                <!--The div element for the map ----------------------->
-                  <strong> <i class="fas fa-map-marked-alt"></i> <%= t('gmap') %></strong> <br>
+                  <strong> <i class="fas fa-map-marked-alt"></i> <%= t('gmap') %> </strong> <br>
                 <% lat = @realestate.latitude %>
                 <% long = @realestate.longitude %>
                  <div class="embed-responsive embed-responsive-16by9">
