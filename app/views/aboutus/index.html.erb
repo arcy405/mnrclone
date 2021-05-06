@@ -4,6 +4,10 @@
 <div class="container">
     <div class="row">
       <div class="col-md-6">
+      <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1618569084/deer_txd8ww.jpg", :quality=>"auto:low",:class=>"rounded-circle mx-auto mt-4",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy") %>
+
+    </div>
+      <div class="col-md-6">
             <h1 class="form_title"><span class="">About</span> <span class="mnryp_word">MNRYP</span></h1>
             <h3>महेन्द्रनगरको आफ्नो सर्च इन्जिन </h3>
             <p class="text-muted text-justify"><%= t('about_us_text') %></p>
@@ -13,9 +17,6 @@
                     <li class="list-group-item"><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a> </li>
                     <li class="list-group-item"><a href="#"><i class="fab fa-instagram-square fa-2x"></i></a> </li>
                  </ul>       
-    </div>
-    <div class="col-md-6">
-        <%= image_tag("barasingha.png",:class=>"img-fluid",:style=>"max-height:100%") %> 
     </div>
   </div>
 </div>
