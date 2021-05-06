@@ -4,7 +4,8 @@
 <footer class="footer pt-4 footer1 text-white pb-0">
      <div class="row">
         <div class="col-md-4 justify-content-center">
-         <%= image_tag("footerlogo.jpg",class: "rounded-circle p-5",size: "250",loading:"lazy") %> 
+         <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", :quality=>"auto:low",:class=>"rounded-circle p-5",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy",:size=>"250") %>
+
         </div>
         <div class="text-white col-md-4 p-4">
             <h5 class="text-white"><%= t('contacts') %></h5>

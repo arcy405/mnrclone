@@ -3,31 +3,22 @@
   <% end %>
   <%= render 'Homepage/navmenu.html.erb' %>
   
-      <div id="addlistform" class="about-section paddingTB60 gray-bg">
           <div class="container">
-              <div class="row">
-                <div class="row">
-                <div class="col-md-12 col-sm-12">
-                   <div class="about-title clearfix">
-                      <h1><%= t('job_vacancy_title') %> <span>MNRYP</span></h1>
-                   </div>
-                </div>
-              </div>
-            </div>
+                      <h1 class="form_title"><%= t('job_vacancy_title') %> <span class="mnryp_word">MNRYP</span></h1>
             <div class="row">
-            <div class="col-md-6 col-sm-12">
-            <ul >
-              <li class="about-paddingB text-justify"><%= t('job_vacancy_subtitle') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_1') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_2') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_3') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_4') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_5') %></li>
-                <li class="about-paddingB text-justify"><%= t('job_vacancy_text_6') %></li>
-                <span class="about-paddingB text-justify"><%= t('thanks_text') %></span>
-            </ul>
-            </div>
-                <div class="col-md-6 col-sm-12">
+              <div class="col-md-6">
+                <ul >
+                  <li class="text-justify"><%= t('job_vacancy_subtitle') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_1') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_2') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_3') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_4') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_5') %></li>
+                    <li class="text-justify"><%= t('job_vacancy_text_6') %></li>
+                    <span class="text-justify"><%= t('thanks_text') %></span>
+                </ul>
+              </div>
+                <div class="col-md-6">
                 <div class="shadow p-3 mb-5 bg-white rounded">
                 <%= form_for @vacancy do |f| %>
                     
@@ -70,7 +61,6 @@
                 </div>
                 </div>
             </div>
-         </div>
        </div>
    
        

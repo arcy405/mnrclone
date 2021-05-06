@@ -54,22 +54,22 @@
 <div class="container-fluid mt-2">
 	<div class="row">
 		<div class="col-md-6">
-			<div class="about-title clearfix"><span class="fluid-title">What we want to do?</span></div>
+			<div class="mnryp_word"><span class="fluid-title">What we want to do?</span></div>
 			<div class="text-muted text-justify"><%= @project.project_description %></div>
 		</div>
 		<div class="col-md-6">
-			<div class="about-title clearfix"><span class="fluid-title">Whom we are doing for?</span></div>
+			<div class="mnryp_word"><span class="fluid-title">Whom we are doing for?</span></div>
 			<div class="text-muted text-justify"><%= @project.foundation_description %></div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-6">
-			<div class="about-title clearfix"><span class="fluid-title">Who is doing this?</span></div>
+			<div class="mnryp_word"><span class="fluid-title">Who is doing this?</span></div>
 			<div class="text-muted text-justify"><%= @project.organizer_description %></div>
 		</div>
 		<div class="col-md-6">
-			<div class="about-title clearfix"><span class="fluid-title">How can you help?</span></div>
+			<div class="mnryp_word"><span class="fluid-title">How can you help?</span></div>
 			<div class="text-muted text-justify">Click on the Donate now button, fill in your details for the record of MNRYP. You will find all the payment details in the same page. You can make the payment from description given there.
 			</div>
 			<%= link_to new_project_donation_path(@project) do %>
@@ -82,7 +82,7 @@
 
 </div>
 <div class="container my-2">
-	<div class="about-title clearfix text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
+	<div class="mnryp_word text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
 	<hr />
 	<div class="row">
 		<% @donors.each do |donor| %>
