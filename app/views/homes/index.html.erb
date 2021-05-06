@@ -1,28 +1,21 @@
 <html>
 <head>
 
-  <meta name="turbolinks-visit-control" content="reload">
+  	<meta name="turbolinks-visit-control" content="reload">
     <meta name="turbolinks-cache-control" content="no-cache">
-    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-
+    
 </head>
 <body>
 
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
 	 <div class="container-fluid my-2">
-			<% cache do %>
 				<%= render 'Homepage/services' %>
-			<% end %>
 	 </div>
 	 <div class="container-fluid my-2">
 	 	<div class="row">
 	 		<div class="col-md-8">
-	 			<% cache do %>
 	 				<%= render 'Homepage/categorycard' %>
- 				<% end %>
 	 		</div>
 	 		<div class="col-md-4">
 	 			<div class="py-2 mx-2">
@@ -33,6 +26,9 @@
  			
 	 </div>
 	 <div id="fb-root"></div>
+<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
 
 </body>
 </html>

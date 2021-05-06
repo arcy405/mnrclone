@@ -31,13 +31,13 @@ a{
 <div class="row mb-0">
     <div class="col-md-3 fixed">
     <div class="border-bottom ml-2">
-        <h4 id="burgundy"> <%= t('bd_filter') %> <i class="fas fa-filter"></i></h4>
+        <h4 class="mnryp_word"> <%= t('bd_filter') %> <i class="fas fa-filter"></i></h4>
     </div>
 
   <div id="all_filters">
     <div class="py-2 border-bottom ml-3">
     <h6 class="font-weight-bold"><%= t('bd_place_filter') %> </h6>
-        <div id="orange"><span class="fa fa-minus"></span></div>
+        <div class="text-warning"><span class="fa fa-minus"></span></div>
     <div class="py-2 border-bottom ml-3">
 		  <div class="form-group row">
 		    <label for="destination_search" class="col-form-label col-form-label-sm"><%= t('bd_mnr_to') %> </label>
@@ -56,13 +56,13 @@ a{
     
     <div class="py-2 border-bottom ml-3">
         <h6 class="font-weight-bold"><%= t('bd_depart_date_filter') %> </h6>
-        <div id="orange"><span class="fa fa-minus"></span></div>
+        <div class="text-warning"><span class="fa fa-minus"></span></div>
 		<input type="date"  placeholder="Select Departure Date" id="datefilter" onchange="busFilter()" />
     </div>
 
     <div class="py-2 border-bottom ml-3">
         <h6 class="font-weight-bold"><%= t('yatayat') %> </h6>
-        <div id="orange"><span class="fa fa-minus"></span></div>
+        <div class="text-warning"><span class="fa fa-minus"></span></div>
         <select id="yatayaat" name="yatayaat" class="search form-control" onchange="busFilter()">
 		  <option value="all" selected="selected"><%= t('all') %> </option>
 		  <option value="Mahakali"> <%= t('maahakali') %> </option>
@@ -75,7 +75,7 @@ a{
 
     <div class="py-2 border-bottom ml-3">
         <h6 class="font-weight-bold"><%= t('bus_type_filter') %> </h6>
-        <div id="orange"><span class="fa fa-minus"></span></div>
+        <div class="text-warning"><span class="fa fa-minus"></span></div>
           <select name="sort" id="bus_type" onchange="busFilter()">
               <option value="All" selected="selected"><b><%= t('all') %> </b></option>
               <option value="AC"><b><%= t('ac') %> </b></option>

@@ -3,10 +3,10 @@
   <div class="col-sm-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-       <strong class="mr-auto"><h5 class="ext-primary float-left text-primary"><%= comment.name %></h5></strong>
+       <strong class="mr-auto"><h5 class="text-primary float-left text-primary"><%= comment.name %></h5></strong>
       
        <small class="text-muted ml-3"><small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small></small>
-       <small class="ext-primary float-right">
+       <small class="text-primary float-right">
              <% comment.rating.to_i.times do  %>
              <span class="fa fa-star checked"></span>
              <% end %>

@@ -10,23 +10,23 @@
                             <div class="mt-4 ml-4 mb-2">
                                 <% if user_signed_in? %>
                                     <div class="float-right mt-2 mr-2 ">
-                                        <%=  link_to "Sell Land  ", new_realestate_path(category:"land") , class: "btn btn-danger btn-filter ", style:"text-decoration:none;" ,type:"button" %>
-                                        <%=  link_to "Sell House  ", new_realestate_path(category:"house_sell") , class: "btn btn-danger btn-filter", style:"text-decoration:none;" ,type:"button" %>
-                                        <%=  link_to "Rent House", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
+                                        <%=  link_to "#{t('sell_land')}", new_realestate_path(category:"land") , class: "btn btn-danger btn-filter ", style:"text-decoration:none;" ,type:"button" %>
+                                        <%=  link_to "#{t('sell_house')} ", new_realestate_path(category:"house_sell") , class: "btn btn-danger btn-filter", style:"text-decoration:none;" ,type:"button" %>
+                                        <%=  link_to "#{t('rent_house')}", new_realestate_path(category:"house_rent") , class: "btn btn-danger btn-filter " , style:"text-decoration:none;" ,type:"button"%>
                                     </div>
 
                                    <% else %>
                                         <div class="float-right  mr-3 mt-2">
                                         <%= link_to user_session_path do %>
-                                        <span  class=" btn-outline-danger rounded p-2 border"> <i class="fas fa-sign-in-alt"></i> <strong>Click To Start SELLING...</strong></span>
+                                        <span  class=" btn-outline-danger rounded p-2 border"> <i class="fas fa-sign-in-alt"></i> <strong><%= t('click_to_sell') %> </strong></span>
                                         <% end %>
                                         </div>
 
                                   <%end %>
                             </div>
-                            <button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
-                            <button class="btn btn-danger filter-button mt-2" data-filter="sell">Buy House & Land</button>
-                            <button class="btn btn-danger filter-button mt-2" data-filter="rent">Take House on Rent</button>
+                            <button class="btn btn-primary filter-button mt-2" data-filter="all"> <%= t('all') %> </button>
+                            <button class="btn btn-danger filter-button mt-2" data-filter="sell"> <%= t('buy_house_and_land') %></button>
+                            <button class="btn btn-danger filter-button mt-2" data-filter="rent"><%= t('take_house_on_rent') %></button>
                         </div>
                         <br/>
                         <!-------------------property list------------------------>
@@ -40,14 +40,14 @@
                                           <% end %>
                                     <div class="card-body">
                                       <h4 class="card-title"><%= realestate.propertyname %></h4>
-                                      <h6 class="card-subtitle mb-2 text-muted">Seller: <%= realestate.seller_name %></h6>
+                                      <h6 class="card-subtitle mb-2 text-muted"><%= t('seller') %>: <%= realestate.seller_name %></h6>
                                       <div class="buy">
                                         <div class="text-success"><h5 class="">Rs.<%= realestate.price %></h5></div>
                                         <div class="text-danger"><h5 class=""><i class="fas fa-map-marker-alt"></i> <%= realestate.address%></h5></div>
                                       </div>
                                           <a href="tel:<%= realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= realestate.seller_phone %></h6></a>
                                                   <%= link_to realestate_path(realestate.id), class:"float-right" do %>
-                                                   View More
+                                                   <%= t('view_more') %>
                                                   <% end %>
                                             
                                                     <% if user_signed_in? && current_user.id == realestate.user_id %>
