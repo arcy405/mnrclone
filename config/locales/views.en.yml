@@ -1,6 +1,19 @@
 en:
   #JOB Vacancy
   add_job_vancany: "Add Job Vacancy"
+  search_vacency: "Find Vacencies According To Topic"
+  v_art: "Arts"
+  v_business: "Business"
+  v_education: "Eductaion"
+  v_law: "Law Enforcement"
+  v_media: "Media"
+  v_medical: "Medical"
+  v_service_industry: "Service Industry"
+  v_tech: "Technollogy"
+  v_hotel: "Hotel"
+  v_other: "Others"
+  v_apply: "Apply Before"
+
 
   # agents(index.html.erb)-------------------------
 

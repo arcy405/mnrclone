@@ -1,6 +1,18 @@
 np:
-  #JOB Vacancy
-  add_job_vancany: "जागिर रिक्त विज्ञापन थप्नुहोस्"
+  #JOB Vacancy(v)
+  add_job_vancany: "जागिर को लागि विज्ञापन दिनुहोस"
+  search_vacency: "तल को शीर्षक अनुसार विज्ञापन खोज्नुहोस !"
+  v_art: "कला"
+  v_business: "व्यापार"
+  v_education: "शिक्षा"
+  v_law: "कानुन कार्यान्वयन"
+  v_media: "मिडीया"
+  v_medical: "Medical"
+  v_service_industry: "सेवा उद्योग"
+  v_tech: "प्रविधी"
+  v_hotel: "होटेल"
+  v_other: "अन्य"
+  v_apply: "पहिले लागू गर्नुहोस्"
 
   # agents(index.html.erb)-------------------------
 
@@ -26,7 +38,7 @@ np:
   suklafata: "शुकलाफाटा "
   bd_mngt: "व्यवस्थापन"
   bus_type_filter: "गाडीको प्रकार छनौट गर्नुहोस्"
-  bd_all: "सबै"
+  all: "सबै"
   ac: "ए.सी."
   delux: "डिलक्स"
   hiace: "हाइएस"
