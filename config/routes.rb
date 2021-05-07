@@ -36,6 +36,7 @@ Rails.application.routes.draw do
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
    resources :projects, only: [:index,:show]
+   resources :tags, only: [:index]
 
    get 'educational_notes/notes_index'
    get 'educational_notes/notes_show'

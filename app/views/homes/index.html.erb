@@ -9,13 +9,18 @@
 
  <% content_for :title, "Welcome to MNRYP" %>
  <%= render 'Homepage/header.html.erb' %>
+	 <div class="container text-center mt-2">
+	    <%= render 'Homepage/covid_tracker' %>
+	</div>
+
 	 <div class="container-fluid my-2">
-				<%= render 'Homepage/services' %>
+			<%= render 'Homepage/services' %>
 	 </div>
+
 	 <div class="container-fluid my-2">
 	 	<div class="row">
 	 		<div class="col-md-8">
-	 				<%= render 'Homepage/categorycard' %>
+	 			<%= render 'Homepage/top_services' %>
 	 		</div>
 	 		<div class="col-md-4">
 	 			<div class="py-2 mx-2">
@@ -32,4 +37,6 @@
 
 </body>
 </html>
+
+
        

@@ -4,6 +4,12 @@ np:
   nepali: "नेपाली"
   english: "अंग्रेजी"
   all_listings: "सबै व्यवसायहरू"
+  all_listings_sub: "लिस्टिंग निर्देशिका"
+  hamro_mnr: "हाम्रो MNR"
+  main_service_text: "तपाईँ के खोज्दै हुनुहुन्छ?"
+  serving_mnr: "परोपकारी MNR"
+  online_services: "अनलाइन सेवाहरू"
+  top_listings: "शीर्ष सूचिहरू"
   admin:
     misc:
       navigation: "Navigation"

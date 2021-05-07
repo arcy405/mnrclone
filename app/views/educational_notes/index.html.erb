@@ -2,7 +2,7 @@
  <%= render 'Homepage/navmenu.html.erb' %>
  
  <!----------------------------------for FU-------------------------------------------------->
- <% department_FU = ["csit","bba","general science","DEP4","DEP5","DEP6"] %>
+ <% department_FU = ["bba","csit","engineering","education","general science","management"] %>
 
 <div class="tree ">
 <ul>
@@ -18,51 +18,52 @@
 
 			<li><span class="text-uppercase"><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Department<%= i %>" aria-expanded="false" aria-controls="Department<%= i %>"><i class="collapsed"><i class="fas fa-folder"></i></i>
 			<i class="expanded"><i class="far fa-folder-open"></i></i><%= department_FU[i] %></a></span>
-			  <ul><div id="Department<%= i %>" class="collapse">
+			  <ul>
+			  	<div id="Department<%= i %>" class="collapse">
 			  	<!---------------------------semesters------------------------------------------------------>
 			    <li>
-			    	<span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"csit",sem:"sem1"), style:"color:#000; text-decoration:none;" do %>
+			    	<span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem1"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem I Notes
 			    	<% end %>
 			      </li>
 
-			      <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"csit",sem:"sem2"), style:"color:#000; text-decoration:none;" do %>
+			      <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem2"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem II Notes
 			    	<% end %>
 			    	
 			      </li>
 			                        
-			    <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			    <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem3"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem III Notes
 			    	<% end %>
 			    	
 			      </li>
 
-			     <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			     <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem4"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem IV Notes
 			    	<% end %>
 			    	
 			      </li>
 
-			     <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			     <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem5"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem V Notes
 			    	<% end %>
 			    	
 			      </li>
 
-			     <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			     <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem6"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem VI Notes
 			    	<% end %>
 			    	
 			      </li>
 
-			     <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			     <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem7"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem VII Notes
 			    	<% end %>
 			    	
 			      </li>
 			     
-			     <li><span><%= link_to educational_notes_notes_index_path, style:"color:#000; text-decoration:none;" do %>
+			     <li><span><%= link_to educational_notes_notes_index_path(uni:"fu",dept:"#{department_FU[i]}",sem:"sem8"), style:"color:#000; text-decoration:none;" do %>
 			    		<i class="fas fa-folder"></i> Sem VIII Notes
 			    	<% end %>
 			    	
