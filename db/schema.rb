@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_083701) do
+ActiveRecord::Schema.define(version: 2021_05_07_092912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,14 +110,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
     t.datetime "started_at"
     t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.string "document"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bus_departures", force: :cascade do |t|
@@ -465,6 +457,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_083701) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "listings_count"
     t.string "title_np"
+    t.boolean "top_service"
   end
 
   create_table "thredded_categories", force: :cascade do |t|

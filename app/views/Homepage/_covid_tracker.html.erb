@@ -1,0 +1,71 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+        	<div class="card-title text-left ml-2">
+        		<div class="form_title  responsive-text">
+        			<%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1620383322/corona_u9gwqc.png", :quality=>"auto:low",:class=>"profile2 rounded-circle",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy") %>
+        				Nepal's Data
+        		</div>
+        	</div>
+        	<div class="row mb-2">
+        		<div class="col-4">
+        			<div class="text-warning font-weight-bold">
+        			<%= number_with_delimiter(@result["confirmed"]["value"], :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Confirmed</div>
+        		</div>
+        		<div class="col-4">
+        			<div class="text-success font-weight-bold">
+        			<%= number_with_delimiter(@result["recovered"]["value"], :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Recovered</div>
+        		</div>
+        		<div class="col-4">
+        			<div class="text-danger font-weight-bold">
+        			<%= number_with_delimiter(@result["deaths"]["value"], :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Deaths</div>
+        		</div>
+            </div>
+    </div>
+		</div>
+		<div class="col-md-6">
+			<div class="card">
+        	<div class="card-title text-left ml-2">
+        		<div class="form_title responsive-text">
+        			<%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1620383322/corona_u9gwqc.png", :quality=>"auto:low",:class=>"profile2 rounded-circle",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy") %>
+        					Kanchanpur's Data
+        					<span class="float-right mt-2">
+    						<%= link_to new_project_donation_path(2) do %>
+		                    	<span class="help text-white mx-2 px-2 responsive-text">DONATE FOR OXYGEN CYLINDERS</span>
+	           				 <% end %>
+		       				 </span>
+        		</div>
+        	</div>
+        	<div class="row mb-2">
+        		<div class="col-4">
+        			<div class="text-warning font-weight-bold">
+        			<%= number_with_delimiter("-", :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Confirmed</div>
+        		</div>
+        		<div class="col-4">
+        			<div class="text-success font-weight-bold">
+        			<%= number_with_delimiter("-", :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Recovered</div>
+        		</div>
+        		<div class="col-4">
+        			<div class="text-danger font-weight-bold">
+        			<%= number_with_delimiter("-", :delimiter => ',') %>
+        		</div>
+        		<div class="responsive-text font-weight-bold text-muted">Deaths</div>
+        		</div>
+            </div>
+    </div>
+		</div>
+	</div>
+	
+</div>

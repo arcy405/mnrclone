@@ -3,7 +3,13 @@ en:
   language_select: "Select your language for the app"
   nepali: "Nepali"
   english: "English"
-  all_listings: "All Listings"
+  all_listings: "Bussiness"
+  all_listings_sub: "Listing Directory"
+  hamro_mnr: "Hamro MNR"
+  main_service_text: "What are you looking for?"
+  serving_mnr: "Serving MNR"
+  online_services: "Online Services"
+  top_listings: "Top Listings"
 
   #for header
   all_services: "All Services"
