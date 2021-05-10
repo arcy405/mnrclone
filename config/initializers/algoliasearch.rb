@@ -1,6 +1,6 @@
 AlgoliaSearch.configuration = {
-  application_id: 'A7MHFN3M3Q',
-  api_key: 'c4151ecbeb8327fb29c2d69079d451ea',
+  application_id: '110S5077CQ',
+  api_key: 'da8844c8008d9206a1e9846a6f74d5c6',
   connect_timeout: 2,
   receive_timeout: 30,
   send_timeout: 30,

@@ -29,4 +29,5 @@ class HomesController < ApplicationController
 
     def tool
     end
+
 end
