@@ -5,7 +5,15 @@
 	<p class="text-muted">
 		
 	</p>
-	
+	<!-------------for all the searches of tags if any------------------>
+	<% @tags_result.each do |result| %>
+		<%= link_to homes_show_path(category: result.title_en ) do %>
+			<span class="responsive-title">
+				<%= result.title %>
+			</span>
+		<% end %>
+			<p class="responsive-text text-muted"><i class="fas fa-tags text-warning"></i>Bussiness Tags</p>
+	<% end %>
 	<!---------------------for all the searches of listings if any------------------------------------------->
 	<% @listings_result.each do |result| %>
 	  <%= link_to listing_path(result) do %>
