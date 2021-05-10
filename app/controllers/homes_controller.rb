@@ -25,6 +25,8 @@ class HomesController < ApplicationController
       @tags_result= Tag.raw_search(query)
       @listings_result= Listing.raw_search(query)
       
+        @total_time = @tags_result[:processingTimeMS] + @listings_result[:processingTimeMS]
+        @total_records = @tags_result[:nbHits] + @listings_result[:nbHits]
     end
 
     def tool
