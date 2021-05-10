@@ -59,6 +59,8 @@ en:
   #----------tourist(show.html.erb)--------------
   about_place: "About Place"
   location: "Location"
+  #----------MNR forum ( index and show)-----------
+  
   
 
   #-------------common attributes for more than one module (DRY= dont repeat yourself)---------------------------------
