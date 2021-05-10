@@ -19,6 +19,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
 
+
   </head>
   <body>
     <main style="min-height: 100vh;">
@@ -37,6 +38,10 @@
     <% unless controller_name == "errors" %>
         <%= render 'Homepage/footer.html.erb'  %>
     <% end %>
+
+    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js" defer></script>
 
 
   </body>
