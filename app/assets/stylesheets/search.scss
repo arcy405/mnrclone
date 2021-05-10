@@ -1,3 +1,24 @@
+.aa-input-container {
+  display: inline-block;
+  position: relative;
+}
+.aa_search_input {
+  width: 300px;
+  padding: 12px 28px 12px 12px;
+  border: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.aa_search_input::-webkit-search-decoration, .aa_search_input::-webkit-search-cancel-button,
+.aa_search_input::-webkit-search-results-button, .aa_search_input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.aa-suggestions-category {
+  text-align: start;
+}
 
 .aa-dropdown-menu {
   width: 100%;
@@ -12,19 +33,6 @@
   cursor: pointer;
   text-align: start;
   width: 100%;
-}
-.aa-suggestions-category {
-  border-bottom: 1px solid rgba(228, 228, 228, 0.6);
-  border-top: 1px solid rgba(228, 228, 228, 0.6);
-  padding: 6px 12px;
-}
-.aa-dropdown-menu > div {
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
-}
-.aa-empty {
-  padding: 6px 12px;
 }
 
 .algolia-autocomplete {
@@ -62,21 +70,4 @@
   border: 0;
   box-shadow: none;
   border-left: solid 0px #ccc;
-}
-
-#custom-search-input .glyphicon-search{
-  font-size: 23px;
-}
-
-//css for search display page
-.card-horizontal {
-  display: flex;
-  flex: 1 1 auto;
-}
-.searchresultcard{
-height: 50%;
-}
-.cardimage{
-  height:30px;
-  width: auto;
 }

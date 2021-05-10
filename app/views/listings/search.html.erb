@@ -1,38 +1,5 @@
 <% content_for :title, "Search results-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<div class="container-fluid">
-<h4>Showing <%= @listcount %> results for <i style="color:blue"><%= params[:aa_search_input] %></i></h4>
-</div>
-
-<% if @listcount != 0 %>
-    <div class="container-fluid">
-      <div class="row">
-      <% @listdetails.each do |list| %>
-        <div class="col col-lg-4 col-md-6 col-sm-12 col-xs-12">     
-          <%= link_to listings_show_path(id: list.id),:style=>'text-decoration:none' do%>
-              <div class="card">
-                <div class="card-body">
-                  <div class="media align-items-center">
-                      <% if list.image.present? %>
-                                    <%= image_tag list.image_url , :class =>'avatar avatar-xl mr-3'%>
-                        <%end%>
-                    <div class="media-body overflow-hidden">
-                      <h5 class="card-text mb-0"><%= list.name %></h5>
-                      <p class="card-text text-muted"><%= list.address %></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-        </div>
- <% end %>
-    </div>
-</div>
-<% end %>
-<% if @listcount == 0 %>
-   <!-----category cards---->
-    <div class="container-fluid">
-      <h5>We are sorry to not find what you are looking for. You can check our all listing categories below.</h5>
-      <%= render 'Homepage/categorycard.html.erb' %>
-    </div>
+<% @result.each do |result| %>
+  <%= result.name %>
 <% end %>

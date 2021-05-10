@@ -1,12 +1,10 @@
-<div class="d-flex justify-content-center h4">
-    <span class="badge badge-pill badge-info d-none d-sm-block">
-    <%= t('all_listings') %>
-        (<%= @list_count %>)
-</span>
-</div>
-<div class="container row">
+<div class="container">
+	<div class="mnryp_word mt-2">
+    	<h2 class="responsive-title"><%= t('top_listings') %></h2>
+    </div>
+    <div class="row">
     <% @tags.each do |tag| %>
-        <div class="col-md-3 mt-2">
+        <div class="col-md-6 mt-2">
             <%= link_to homes_show_path(category: tag.title_en ),:style=>'text-decoration:none' do%>
                 <div class="card shadow h-100 ">
                     <div class="card-body">
@@ -26,6 +24,7 @@
                     </div>
                 </div>
             <% end %>
-        </div>
-    <%end%>
+	        </div>
+	    <%end%>
+	</div>
 </div>
