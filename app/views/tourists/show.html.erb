@@ -1,9 +1,4 @@
 
-
-<!------------------------------for map----------------------------------->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js' defer></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
- 
  <%= render 'Homepage/navmenu.html.erb' %>
 
  <div class="row px-4">
@@ -41,11 +36,11 @@
                 <strong><%= @tourist.place_name %></strong>
             </h2>
             <p>
-                <span class="badge badge-info">Contact Us</span>
+                <span class="badge badge-info"> <%= t('contact') %> </span>
             </p>
                 <p class="card-text"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= @tourist.location %></p>
                 <p class="card-text"><i class="fas fa-phone-alt"></i>&nbsp;<%= @tourist.contact %></p>
-                <i class="fas fa-check-double"></i> <strong> Features :</strong> <br>
+                <i class="fas fa-check-double"></i> <strong> <%= t('description_and_features') %> :</strong> <br>
                         
                     <% splitted=@tourist.feature.split(',') %>
                     <% splitted.each do|feature| %>
@@ -61,15 +56,15 @@
                 <div class="col-md-12">
                     <nav>
                         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="text-decoration:none;">Our Location</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="text-decoration:none;">About Place</a>
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="text-decoration:none;"> <%= t('location') %> </a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" style="text-decoration:none;"> <%= t('about_place')%> </a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                             <table class="table" cellspacing="0">
                                 <!--The div element for the map ----------------------->
-                                    <strong> <i class="fas fa-map-marked-alt"></i> See the place in GMAP</strong> <br>
+                                    <strong> <i class="fas fa-map-marked-alt"></i> <%= t('gmap') %> </strong> <br>
                                     <% lat = @tourist.lattitude %>
                                     <% long = @tourist.longitude %>
                                     <div class="embed-responsive embed-responsive-16by9">
