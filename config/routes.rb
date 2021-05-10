@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   get 'homes/show', to:"homes#show"
   get 'homes/index', to:"homes#index"
   get 'homes/tool', to:"homes#tool"
+  get 'homes/search', to:"homes#search"
 
   get 'set_mylanguage/np', to:"set_mylanguage#np"
   get 'set_mylanguage/en', to:"set_mylanguage#en"
 
 
   get 'aboutus/index', to:"aboutus#index"
-  
   get 'contactus/index', to: "contactus#index"
   get 'contactus/new', to: "contactus#new"
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
 
-   get 'homes/search', to:"homes#search"
+   
 
    resources :bus_departures
    resources :models
