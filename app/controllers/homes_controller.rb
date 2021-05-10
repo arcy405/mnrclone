@@ -1,11 +1,17 @@
 class HomesController < ApplicationController
+  
   def index
+
+    url = "https://covid19.mathdro.id/api/countries/nepal"
+    response = HTTParty.get(url)
+
+    @result = response.parsed_response
+
     if  I18n.locale.to_s == "en"
-      @tags=Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_en)}
-    else
-      @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np)}
-    end
-    @list_count = Rails.cache.fetch('list_counts', expires_in: 2.days){Listing.all.count}
+        @tags=Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_en).where("top_service = ?", true).limit(10)}
+      else
+        @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np).where("top_service = ?", true).limit(10)}
+      end
   end
 
   def show
@@ -15,15 +21,13 @@ class HomesController < ApplicationController
     end
 
     def search
-    	
-      name=params[:aa_search_input]
-      @listdetails=Listing.where("lower(name) LIKE lower('%#{name}%')")
-      @listcount=Listing.where("lower(name) LIKE lower('%#{name}%')").count
-
-      @seach = Listing.search[:aa_search_input]
-      
+      query=params[:aa_search_input]
+      @tags_result= Tag.algolia_search(query)
+      @listings_result= Listing.algolia_search(query)
+      @searh_result_count = @tags_result.count + @listings_result.count
     end
 
     def tool
     end
+
 end

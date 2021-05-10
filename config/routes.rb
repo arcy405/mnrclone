@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get 'contactus/index', to: "contactus#index"
   get 'contactus/new', to: "contactus#new"
 
-   get 'listings/search', to:"listings#search"
    get 'listings/show', to:"listings#show"
    get 'listings/new', to:"listings#new"
    post 'listings/new', to:"listings#new"
@@ -36,6 +35,7 @@ Rails.application.routes.draw do
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
    resources :projects, only: [:index,:show]
+   resources :tags, only: [:index]
 
    get 'educational_notes/notes_index'
    get 'educational_notes/notes_show'
