@@ -14,7 +14,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("channels")
 
-require("custom/search")
+require("custom/search.js")
 require("custom/filtertable.js")
 require("custom/singleimage.js")
 require("custom/messenger.js")

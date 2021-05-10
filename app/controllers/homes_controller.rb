@@ -21,13 +21,10 @@ class HomesController < ApplicationController
     end
 
     def search
-    	
-      name=params[:aa_search_input]
-      @listdetails=Listing.where("lower(name) LIKE lower('%#{name}%')")
-      @listcount=Listing.where("lower(name) LIKE lower('%#{name}%')").count
-
-      @seach = Listing.search[:aa_search_input]
-      
+      query=params[:aa_search_input]
+      @tags_result= Tag.algolia_search(query)
+      @listings_result= Listing.algolia_search(query)
+      @searh_result_count = @tags_result.count + @listings_result.count
     end
 
     def tool
