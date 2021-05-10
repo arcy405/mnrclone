@@ -24,8 +24,10 @@ class HomesController < ApplicationController
       query=params[:aa_search_input]
       @tags_result= Tag.raw_search(query)
       @listings_result= Listing.raw_search(query)
-
-      
+      if !@tags_result.nil? && !@listings_result.nil?
+        @total_time = @tags_result["processingTimeMS"] + @listings_result["processingTimeMS"]
+        @total_records = @tags_result["nbHits"] + @listings_result["nbHits"]
+      end
     end
 
     def tool
