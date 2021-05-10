@@ -7,4 +7,5 @@ class TagsController < ApplicationController
 	    end
 	    @list_count = Rails.cache.fetch('list_counts', expires_in: 2.days){Listing.all.count}
 	end
+	
 end

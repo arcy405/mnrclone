@@ -12,7 +12,7 @@ class Listing < ApplicationRecord
 
   include AlgoliaSearch
   algoliasearch auto_index: true do
-    attribute :name
+    attribute :name, :id
     searchableAttributes ['name']
   end
 end
