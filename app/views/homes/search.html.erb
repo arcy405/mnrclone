@@ -1,9 +1,16 @@
 <% content_for :title, "Search results-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-
+<%  if !@tags_result.nil? && !@listings_result.nil? %>
 <div class="container">
-	  
-	<%= @tags_result %>
+
+	<p class="text-muted">
+		<%if @total_records == 0 %>
+			Sorry, No results found for your search. Go back to <%= link_to "Home", root_path %> to discover all the services of MNRYP.
+		<% else %>
+			Total <%= @total_records %> result found for "<%= params[:aa_search_input] %>" in <%= @total_time/100.00 %> seconds.
+		<% end %>
+		
+	</p>
 	<!-------------for all the searches of tags if any------------------>
 	<% @tags_result["hits"].each do |result| %>
 		<%= link_to homes_show_path(category: result["title_en"] ) do %>
@@ -23,4 +30,4 @@
 			<p class="responsive-text text-muted"><i class="fas fa-tags text-danger"></i>Bussiness Listings</p>
 	<% end %>
 </div>
-
+<% end %>
