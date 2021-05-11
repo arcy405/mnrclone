@@ -7,27 +7,17 @@
                     <a href="#" style="text-decoration: none" class="text-uppercase">/<%= params[:sem] %></a>
             </div>
         </div>
-
-        <% notes_api = JSON.parse(@release_assets.asset_url.gsub(/=>/,":")) %>
-        <% notes_api[0]['assets'] %>
-      <!--------------------------------------------------------->
-<% if !notes_api.nil? %>
+<% if @notes_subject == [] %>
+	<pre class="container text-danger">No Notes Found for this semester. We will upload notes for this semester very soon.</pre>
+<% else %>
 <div class="row container-fluid py-2">
-			<% notes_api[0]['assets'].each do |note|%>
-				<% uni = note['name'].to_s.split("_")[0] %>
-				<% dept = note['name'].to_s.split("_")[1] %>
-				<% sem = note['name'].to_s.split("_")[2] %>
-				<% subj = note['name'].to_s.split("_")[3] %>
-				<% if uni == params[:uni] && dept==params[:dept] && sem==params[:sem] %>
-				
-						<%= link_to  educational_notes_notes_show_path(uni:"fu",dept:"csit",sem:"sem1",sub:subj), style:"text-decoration:none" do %>
-							<div class="col text-center">
-								<i class="fas fa-folder fa-4x ml-2" style="color: #fcc72c;"></i><br />
-								<span class="text-capitalize"><%= subj %></span>
-							</div>
-						<% end %>
-				<% end %>
-			<% end %>
-<% end %>
+	<% @notes_subject.each do |subject| %>
+		<%= link_to  educational_notes_notes_show_path(uni:"fu",dept:params[:dept],sem:params[:sem],sub:subject), style:"text-decoration:none" do %>
+			<div class="col text-center">
+				<i class="fas fa-folder fa-4x ml-2" style="color: #fcc72c;"></i><br />
+				<span class="text-capitalize"><%= subject %></span>
+			</div>
+		<% end %>
+	<% end %>
 </div>
-
+<% end %>
