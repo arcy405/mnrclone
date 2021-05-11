@@ -81,39 +81,74 @@
 	</div>
 
 </div>
-<div class="container my-2">
-	<div class="mnryp_word text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
-	<hr />
-	<div class="row">
 
-		<% @donors.each do |donor| %>
-		<div class="col-md-3">
-			<div class="card px-2">
-				<div class="card-title"><%= donor.donor_name %></div>
-				<div>Rs.<%= donor.donation_amount %></div>
-			</div>
+<div class="container-fluid my-2">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="mnryp_word"><span class="fluid-title">Project Expense Details</span></div>
+			<ul class="list-group">
+				<% @project_expense.each do |expn| %>
+					<li class="list-group-item">
+						<div class="d-flex">
+						  <div class="flex-grow-1"><%= expn.expenditure_title %></div>
+						  <div>Rs.<%= expn.spent_amount %> /-</div>
+						  <div class="ml-2">
+						  <span img-src="<%= expn.biils %>" expense-title="<%= expn.expenditure_title %>" spent-amount="<%= expn.spent_amount %>" onclick="modal_value(this)" style="cursor:pointer" class="badge rounded-pill bg-info text-dark" data-toggle="modal" data-target="#billModal">
+  									View Bill
+							</span>
+							
+						</div>
+					     </li>
+				<% end %>
+			</ul>
 		</div>
-		<% end %>
+		<div class="col-md-6">
+			<div class="mnryp_word"><span class="fluid-title">Donors Till Date</span></div>
+			<ul class="list-group">
+				<% @donors.each do |donor| %>
+					<li class="list-group-item">
+						<div class="d-flex">
+						  <div class="flex-grow-1"><%= donor.donor_name %></div>
+						  <div class="font-weight-bold">Rs.<%= donor.donation_amount %></div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+			
+		</div>
 	</div>
 </div>
+<!-- Button trigger modal -->
 
- <!-----------PROJECT EXPENSES------------------->
-  <div class="container my-3">
-     <h3> <strong> <u> Project Expenses </u></strong> </h3>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
-         <% @project_expense.each do |expn| %>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title "> <strong> Title of payment : <%= expn.expenditure_title %>   </strong> </h6>
-                        <p class="card-text"><strong> Amount : Rs.<%= expn.ammount %> /-   </strong> </p>
-                        <pre> Project : <%= expn.project_belongs_to %> </pre>
-                    <!--		<%= cl_image_tag(expn.bills, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %> -->
-                    </div>
-                    </div>
-                </div>
-        <% end %>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="billModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5><span class="ml-4 my-auto text-muted" id="spent_amount"></span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 
+      </div>
+
+      <div class="modal-body">
+         <img id="bills-image" src="" alt="bill" class="img-fluid" />
+      </div>
     </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	function modal_value(e){
+		var img_src = e.getAttribute("img-src");
+		var proj_title = e.getAttribute("expense-title");
+		var spent_amount = e.getAttribute("spent-amount");
+
+		document.getElementById("bills-image").src=img_src;
+		document.getElementById("exampleModalLabel").innerHTML= proj_title;
+		document.getElementById("spent_amount").innerHTML= "Rs." + spent_amount;
+	
+	}
+</script>
