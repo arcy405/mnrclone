@@ -3,7 +3,7 @@
 
 
 <div id="app" class="crowd-funding pt-2">
- 
+
   <div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
   background-position: center;'>
   	<!---------------------------------------------------------------->
@@ -21,7 +21,7 @@
   			<div class="about-title clearfix mt-8">
                     <h1><span class="text-white"><%= @project.project_name %></span></h1></div>
   		</div>
-  		<div class="col-md-4 my-auto mt-8"> 
+  		<div class="col-md-4 my-auto mt-8">
   			<div  class="float-right">
 			<h1><%= @number_of_people %></h1>
 			<p class="days-to-go">people donated</p>
@@ -85,6 +85,7 @@
 	<div class="mnryp_word text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
 	<hr />
 	<div class="row">
+
 		<% @donors.each do |donor| %>
 		<div class="col-md-3">
 			<div class="card px-2">
@@ -96,3 +97,23 @@
 	</div>
 </div>
 
+ <!-----------PROJECT EXPENSES------------------->
+  <div class="container my-3">
+     <h3> <strong> <u> Project Expenses </u></strong> </h3>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
+         <% @project_expense.each do |expn| %>
+                <div class="col">
+                    <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title "> <strong> Title of payment : <%= expn.expenditure_title %>   </strong> </h6>
+                        <p class="card-text"><strong> Amount : Rs.<%= expn.ammount %> /-   </strong> </p>
+                        <pre> Project : <%= expn.project_belongs_to %> </pre>
+                    <!--		<%= cl_image_tag(expn.bills, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %> -->
+                    </div>
+                    </div>
+                </div>
+        <% end %>
+        </div>
+
+    </div>
