@@ -1,6 +1,19 @@
 en:
   #JOB Vacancy
   add_job_vancany: "Add Job Vacancy"
+  search_vacency: "Find Vacencies According To Topic"
+  v_art: "Arts"
+  v_business: "Business"
+  v_education: "Eductaion"
+  v_law: "Law Enforcement"
+  v_media: "Media"
+  v_medical: "Medical"
+  v_service_industry: "Service Industry"
+  v_tech: "Technollogy"
+  v_hotel: "Hotel"
+  v_other: "Others"
+  v_apply: "Apply Before"
+
 
   # agents(index.html.erb)-------------------------
 
@@ -9,7 +22,7 @@ en:
   book_agent_name: "Name"
   book_agent_address: "Address"
   book_agent_phone: "Phone"
-  no_result: "No Results"
+  
   #----------------------------------------------
 
   # bus departure(bd) / (index.html.erb)-----------
@@ -24,7 +37,6 @@ en:
   suklafata: " Suklaphata"
   bd_mngt: "Management"
   bus_type_filter: "Vehicle Type Filter"
-  bd_all: "All"
   ac: "AC"
   delux: "Delux"
   hiace: "Hiace"
@@ -33,5 +45,30 @@ en:
   #------------------------------------------------    
 
 
-#about us
+  #about us-------------------------------------
   about_us_text: "Mnyrp is Mahendranagar's local search engine which provides users with information regarding Mahendranagar. It's a search engine based on the products and services available in Mahendrangar, which makes it easier for users to search and locate the things they're looking for. With an aim of reducing digital divide in our country, Mnyrp focuses on providing the technological facilities to the residents of local areas. From products like clothes, electronics to services like rental, repair and other necessities like food, hospitals, every detail available in Mahendranagar can be searched using the search engine. This makes it a lot easier and convenient for locals and other people to find the service they're looking for in a click without much of a hassle."
+  #--------------------------
+  # realestate(re) / index.html.erb and show.html.erb-----------------------------------
+  sell_land: "Sell Land"
+  sell_house: "Sell House"
+  rent_house: "Rent House"
+  click_to_sell: "Click To Start SELLING..."
+  buy_house_and_land: "Buy House / Land"
+  take_house_on_rent: "Take House on Rent"
+
+  #----------tourist(show.html.erb)--------------
+  about_place: "About Place"
+  location: "Location"
+  #----------MNR forum ( index and show)-----------
+  
+  
+
+  #-------------common attributes for more than one module (DRY= dont repeat yourself)---------------------------------
+  gmap: "See the place in GMAP"
+  view_more: "View More"
+  no_result: "No Results"
+  all: "All"
+  seller: "Seller"
+  contact: "Contact Us"
+  description_and_features: "Description & Features"
+  #----------------------------
