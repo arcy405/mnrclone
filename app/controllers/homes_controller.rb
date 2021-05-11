@@ -22,9 +22,11 @@ class HomesController < ApplicationController
 
     def search
       query=params[:aa_search_input]
-      @tags_result= Tag.algolia_search(query)
-      @listings_result= Listing.algolia_search(query)
-      @searh_result_count = @tags_result.count + @listings_result.count
+      @tags_result= Tag.raw_search(query)
+      @listings_result= Listing.raw_search(query)
+      
+        @total_time = @tags_result[:processingTimeMS] + @listings_result[:processingTimeMS]
+        @total_records = @tags_result[:nbHits] + @listings_result[:nbHits]
     end
 
     def tool

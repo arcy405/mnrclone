@@ -58,8 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 
-gem "activeadmin", "~> 2.8"
-
 gem "carrierwave", "~> 2.1"
 gem 'cloudinary'
 
@@ -84,9 +82,6 @@ gem 'friendly_id', '~> 5.4.0'
 
 #for metrics and track
 gem 'ahoy_matey'
-
-#for latex to pdf of FU notes
-gem 'rails-latex'
 
 #for fetching API
 gem 'httparty'

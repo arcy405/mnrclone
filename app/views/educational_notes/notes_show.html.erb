@@ -9,33 +9,24 @@
                     <a href="#" style="text-decoration: none">/ <span class="text-capitalize"><%= params[:sub] %></span></a>
             </div>
         </div>
-        <!------------------------------------------------------------------------------->
-        <% notes_api = JSON.parse(@release_assets.asset_url.gsub(/=>/,":")) %>
-        <% notes_api[0]['assets'] %>
-      <!--------------------------------------------------------->
-<% if !notes_api.nil? %>
-<div class="row container-fluid py-2">
-			<% notes_api[0]['assets'].each do |note|%>
-				<% uni = note['name'].to_s.split("_")[0] %>
-				<% dept = note['name'].to_s.split("_")[1] %>
-				<% sem = note['name'].to_s.split("_")[2] %>
-				<% subj = note['name'].to_s.split("_")[3] %>
-
-				<% if uni == params[:uni] && dept==params[:dept] && sem==params[:sem] && sem==params[:sem] && subj==params[:sub] %>
-						<div class="col text-center">
-							<a href="<%= note['browser_download_url'] %>" style="text-decoration: none;">
+<%if  @notes_chapters == [] %>
+	<pre class="container text-danger">No Notes Found for this subject. We will upload notes for this subject very soon.</pre>
+<% else %>
+    <div class="row container-fluid py-2">
+        <% @notes_chapters.each_with_index do |chapter,index| %>
+        	<div class="col text-center">
+							<a href="<%= @notes_download_link[index] %>">
 									<div class="ml-2">
 									        <div class="card-body">
 									            <i class="fas fa-file-pdf fa-2x"></i><br />
 									            <i class="fas fa-download"></i>
 									            <h6 class="text-capitalize">
-									            	<%= subj+"/"+note['name'].to_s.split("_")[4] %>
+									            	<%= chapter %>
 									            </h6>
 									     	</div>
 									</div>
 							</a>
 						</div>
-				<% end %>
-			<% end %>
-</div>
+        <% end %>
+    </div>       
 <% end %>
