@@ -85,6 +85,26 @@ np:
   donation_placeholder_3: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
   donation_placeholder_4: "दान गर्न रकम प्रदान गर्नुहोस्"
 
+  #realestate form
+  realestate_title: "तपाईंको सम्पत्ति बेच्नुहोस्-"
+  realestate_text1: "सही विवरण प्रदान गर्नुहोस्"
+  realestate_text2: "विक्रेता र खरीदार सबै लेनदेनको लागि जिम्मेवार हुनेछन्"
+  realestate_text3: "तपाईका सम्पत्ति एक महिना अवधिको लागि सूचीबद्ध हुनेछन्"
+
+  #for placeholders
+  realestate_placeholder_1: "सम्पत्ती नाम प्रदान गर्नुहोस्"
+  realestate_placeholder_2: "सम्पत्ती मूल्य प्रदान गर्नुहोस्"
+  realestate_placeholder_3: "सम्पत्ती ठेगाना प्रदान गर्नुहोस्"
+  realestate_placeholder_4: "मालिकको नाम प्रदान गर्नुहोस्"
+  realestate_placeholder_5: "सम्पर्क नम्बर प्रदान गर्नुहोस्"
+  realestate_placeholder_6: "सम्पत्ती विवरण प्रदान गर्नुहोस्"
+  realestate_placeholder_7: "तपाईंको स्थानको को-ओर्डिनेट्स"
+  realestate_placeholder_8: "ल्याटिट्यूड"
+  realestate_placeholder_9: "लाँगिट्यूड"
+  realestate_placeholder_10: "बेडरूम को संख्या"
+  realestate_placeholder_11: "भान्छाको संख्या"
+  realestate_placeholder_12: "बाथरूमको संख्या"
+
 
 
 

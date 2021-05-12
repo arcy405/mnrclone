@@ -52,9 +52,9 @@ en:
   sell_land: "Sell Land"
   sell_house: "Sell House"
   rent_house: "Rent House"
-  click_to_sell: "Click To Start SELLING..."
-  buy_house_and_land: "Buy House / Land"
-  take_house_on_rent: "Take House on Rent"
+  click_to_sell: "Click To Start SELLING"
+  buy_house_and_land: "Buy House/Land"
+  take_house_on_rent: "Get House on Rent"
 
   #----------tourist(show.html.erb)--------------
   about_place: "About Place"

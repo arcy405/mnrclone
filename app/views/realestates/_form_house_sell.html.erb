@@ -4,60 +4,35 @@
 
  <!-------------hidden field ------------------->
   <%= f.hidden_field :user_id, value: "#{current_user.id}"  %>
+  <%= f.hidden_field :ptype, value: "sell"  %>
   <!------------------------------------------------>
-    <div class="row p-2">
-        <%= f.text_field :propertyname , placeholder: "House Name" ,:required => true %>
-    </div>
-    <div class="row p-2">
-        <%= f.text_field :price, placeholder: "House Price  " ,:required => true %>
-    </div>
-    <div class="row p-2">
-        <%= f.text_field :address, placeholder: "House Address " ,:required => true %>
-    </div>
-   
-    <div class="row p-2">
-        <%= f.text_field :seller_name  , placeholder: "House Owner Name  " ,:required => true %>
-    </div>
-    <div class="row p-2">
-        <%= f.text_field :seller_phone , placeholder: "House Owner Phone " ,:required => true %>
-    </div>
-     <div class="row p-2">
-        <%= f.text_area :description , placeholder: "House description " , :rows => "4" , :required => true %>
-    </div>
-      <!------------co-ordinates ---->
-    <div class="mt-2">
-      <pre> <i class="fas fa-map-marker-alt"></i> Co-ordinates of your location </pre> 
-      <pre> (This will show your place in Gmap) </pre>
-        <div class="row p-2">
-        <%= f.text_field :latitude ,placeholder: "latitude of your location" %>
-        </div>
-        <div class="row p-2">
-        <%= f.text_field :longitude ,placeholder: "longitude of your location" %>
-        </div>
-    </div>
+    <%= f.text_field :propertyname , placeholder: "#{t('realestate_placeholder_1')}" ,class:"form-control mb-2" %>
+        <%= f.text_field :price, placeholder: "#{t('realestate_placeholder_2')}" ,class:"form-control mb-2" %>
+        <%= f.text_field :address, placeholder: "#{t('realestate_placeholder_3')}" ,class:"form-control mb-2" %>
+        <%= f.text_field :seller_name , placeholder: "#{t('realestate_placeholder_4')}" ,class:"form-control mb-2" %>
+        <%= f.text_field :seller_phone , placeholder: "#{t('realestate_placeholder_5')}" ,class:"form-control mb-2" %>
+        <%= f.text_area :description , placeholder: "#{t('realestate_placeholder_6')}" ,:rows => "4" , class:"form-control mb-2" %>
+     <!------------co-ordinates ---->
+      <pre> <i class="fas fa-map-marker-alt"></i><%= t('realestate_placeholder_7') %></pre> 
+      <div class="row">
+        <div class="col-6"><%= f.text_field :latitude ,placeholder: "#{t('realestate_placeholder_8')}", class:"form-control" %></div>
+        <div class="col-6"><%= f.text_field :longitude ,placeholder: "#{t('realestate_placeholder_9')}", class:"form-control" %></div>
+      </div>
     <!----------------------------->
-     <div class="row p-2">
-         	
-            <label class="mr-2">Add Images </label>
+      <hr />
+    <div class="text-muted"><%= t('marketplace_placeholer_5') %></div>
             <%= f.fields_for :realestate_images do |p| %>
-             <div class="field">
-              <div class="input-group">
-
-                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name: "realestate_images[image][]" %>
-
-
-
-
+                 <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]" %>
                  <%= p.hidden_field :image_cache %>
-             </div>
-             <pre>You can upload multiple images.</pre>
-           </div>
            <% end %>
-        </div>
-    
-    <%= f.hidden_field :ptype, value: "sell"  %>
-   
-    <div class="d-flex justify-content-center mt-2">
-        <%= f.submit "Add to market" , class: "button"%>
+     <pre><%= t('marketplace_placeholer_6') %></pre>
+
+    <div class="d-flex flex-row">
+      <div class="flex-fill">
+        <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center"><%= t('cancel')%></span><% end %>
+      </div>
+      <div class="flex-fill">
+        <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold" %>
+      </div>
     </div>
 <% end %>
