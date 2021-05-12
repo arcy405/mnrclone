@@ -1,4 +1,7 @@
 <% content_for :title, "MNR-Today-MNRYP" %>
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+<% end %>
 <%= render 'Homepage/navmenu.html.erb' %>
 
 <div class="container">
@@ -34,7 +37,7 @@
                    <div class="d-flex justify-content-center">
                     <%= f.submit "Add" , class: "button"%>
                    </div>
-                     <%= recaptcha_action('pet_adoption') %>
+                     <%= recaptcha_action('events') %>
                 <% end %>
               </div>
           </div>

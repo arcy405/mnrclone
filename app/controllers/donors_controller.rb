@@ -18,16 +18,19 @@ class DonorsController < ApplicationController
   def create
     @donor = Donor.new(donor_params)
 
-    respond_to do |format|
-      if @donor.save
-        if user_signed_in?
-          current_user.gamification.create!(points:5)
-        end
-        format.html { redirect_to donors_path notice: 'Blood was successfully created.' }
+    if NewGoogleRecaptcha.human?(
+      params[:new_google_recaptcha_token],
+      "donors",
+      NewGoogleRecaptcha.minimum_score,
+      @post
+      ) && @donor.save
+          if user_signed_in?
+            current_user.gamification.create!(points:5)
+          end
+          format.html { redirect_to donors_path notice: 'Blood was successfully created.' }
       else
         format.html { render :new }
       end
-    end
   end
 
   def edit

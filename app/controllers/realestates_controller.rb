@@ -18,8 +18,12 @@ class RealestatesController < ApplicationController
   def create
         @realestate = Realestate.new(realestate_params)
     
-        respond_to do |format|
-          if @realestate.save
+        if NewGoogleRecaptcha.human?(
+        params[:new_google_recaptcha_token],
+        "realestate",
+        NewGoogleRecaptcha.minimum_score,
+        @post
+        ) && @realestate.save
             params[:realestate_images]['image'].each do |i|
               @realestate_image = @realestate.realestate_images.create!(:image => i)
             end
@@ -31,7 +35,6 @@ class RealestatesController < ApplicationController
             format.html { redirect_to realestates_path notice: 'Realestate was successfully added.' }
           else
             format.html { render :new }
-          end
         end
   end
   

@@ -9,17 +9,20 @@ class ProfessionalsController < ApplicationController
 	def create
         @professional = Professional.new(professional_params)
     
-        respond_to do |format|
-          if @professional.save
-            if user_signed_in?
-                current_user.gamification.create!(points:10)
-             end
-            format.html { redirect_to professionals_path, notice: 'Professional was successfully created.' }
-          else
-            format.html { render :new }
-          end
+        if NewGoogleRecaptcha.human?(
+        params[:new_google_recaptcha_token],
+        "professional",
+        NewGoogleRecaptcha.minimum_score,
+        @post
+        ) && @professional.save
+          if user_signed_in?
+              current_user.gamification.create!(points:10)
+           end
+          format.html { redirect_to professionals_path, notice: 'Professional was successfully created.' }
+        else
+          format.html { render :new }
         end
-      end
+  end
     
       private
         # Only allow a list of trusted parameters through.
