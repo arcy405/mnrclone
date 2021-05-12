@@ -51,9 +51,9 @@ np:
   sell_land: "जग्गा बेच्नुहोस्"
   sell_house: "घर बेच्नुहोस्"
   rent_house: "घर भाडामा"
-  click_to_sell: "सम्पत्ति बेच्नुहोस / भाडामा दिनुहोस.."
-  buy_house_and_land: "घर / जग्गा किन्नुहोस "
-  take_house_on_rent: "घर भाडा मा लिनुहोस"
+  click_to_sell: "सम्पत्ति बेच्नुहोस/भाडामा दिनुहोस"
+  buy_house_and_land: "घर/जग्गा किन्नुहोस "
+  take_house_on_rent: "भाडा मा लिनुहोस"
 
   #----------tourist(show.html.erb)--------------
   about_place: "ठाउ को विवरण"
