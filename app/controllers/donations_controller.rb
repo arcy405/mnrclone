@@ -47,18 +47,21 @@ class DonationsController < ApplicationController
     end
 
 	def create
-    @donation = @project.donations.new(donation_params)
+        @donation = @project.donations.new(donation_params)
 
-    respond_to do |format|
-      if @donation.save
-        if user_signed_in?
-          current_user.gamification.create!(points:20)
+        if NewGoogleRecaptcha.human?(
+          params[:new_google_recaptcha_token],
+          "donation",
+          NewGoogleRecaptcha.minimum_score,
+          @post
+        ) && @donation.save
+                if user_signed_in?
+                  current_user.gamification.create!(points:20)
+                end
+                format.html { redirect_to project_donation_path(@project,@donation) }
+        else
+                format.html { render :new }
         end
-        format.html { redirect_to project_donation_path(@project,@donation) }
-      else
-        format.html { render :new }
-      end
-    end
   end
 
 

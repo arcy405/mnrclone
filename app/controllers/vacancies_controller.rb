@@ -16,8 +16,12 @@ class VacanciesController < ApplicationController
   def create
     @vacancy = Vacancy.new(vacancy_params)
 
-    respond_to do |format|
-      if @vacancy.save
+    if NewGoogleRecaptcha.human?(
+      params[:new_google_recaptcha_token],
+      "vacancy",
+      NewGoogleRecaptcha.minimum_score,
+      @post
+    ) && @vacancy.save
         if user_signed_in?
           current_user.gamification.create!(points:5)
         end
@@ -25,7 +29,6 @@ class VacanciesController < ApplicationController
       else
         format.html { render :new }
       end
-    end
   end
 
   
