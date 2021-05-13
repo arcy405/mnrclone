@@ -72,3 +72,7 @@ en:
   contact: "Contact Us"
   description_and_features: "Description & Features"
   #----------------------------
+
+  #blood donation
+  new_donor: "Be a Donor"
+  alert_text: "For listing yourself as available and eligible donor, your blood pressure should be normal.You must be above 18 years old and weighing more than 45 kgs. You must not be using any kinds of regular drugs, alcohol or any such unhealhty consumptions. Incase of women, donor is not allowed to donate blood 8 days prior and after mensuration."

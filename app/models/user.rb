@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :image
   has_many :gamification, dependent: :destroy
+  has_many :donors, dependent: :destroy
 
    include SimpleDiscussion::ForumUser
 

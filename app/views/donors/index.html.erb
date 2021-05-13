@@ -1,75 +1,92 @@
 <% content_for :title, "List of donors-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container mt-4">
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+<div class="panel-body">
+    <div class="mt-4  mb-2">
+        <% if user_signed_in? %>
+            <%= link_to new_donor_path do %>
+	          <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
+            <% end %>
+        <% else %>
+            <%= link_to user_session_path do %>
+                <span  class="btn-outline-danger rounded p-2 border">Log In To Become Donor.</span>
+            <% end %>
+        <% end %>  
+    </div>
+    
+	<button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
+	<button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="Bpos">B+</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="Bneg">B-</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="Opos">O+</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="Oneg">O-</button>
+    <button class="btn btn-danger filter-button mt-2" data-filter="ABpos">AB+</button>
+	<button class="btn btn-danger filter-button mt-2" data-filter="ABneg">AB-</button>
+    </div>
+    <br/>
+    <!-------------------donnars list------------------------>
     <div class="row">
-    		<div class="col-md-12">
-				<div class="panel panel-default">
-                    <div class="panel-body">
-                            <div class="mt-4 ml-4 mb-2">
-                                <%= link_to new_donor_path, style:"text-decoration:none; font-size: 20px;" do %>
-						Be A DONOR<i class="fas fa-plus-circle ml-2"></i>
-						<% end %>  
-                            </div>
-                        <div class="container">
-                        <div>
-                    	<button class="btn btn-primary filter-button mt-2" data-filter="all">ALL</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
-						<button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="Bpos">B+</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="Bneg">B-</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="Opos">O+</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="Oneg">O-</button>
-                        <button class="btn btn-danger filter-button mt-2" data-filter="ABpos">AB+</button>
-						<button class="btn btn-danger filter-button mt-2" data-filter="ABneg">AB-</button>
-                        </div>
-                        <br/>
-                        <!-------------------donnars list------------------------>
-                        <div class="row">
-                            <% @donors.each do |donor| %>
-                             <% if donor.blood_group.include?'+' %>
-                             	<% bloodgroup = donor.blood_group.sub! '+','pos' %>
+        <% @donors.each do |donor| %>
+         <% if donor.blood_group.include?'+' %>
+         	<% bloodgroup = donor.blood_group.sub! '+','pos' %>
+         <% else %>
+         	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
+         <% end %>
+            <div class="col-md-4 mb-4 filter <%= bloodgroup %>">
+            	<div class="media align-middle border shadow">
+                    <div class="card bloodgroup">
+                        <div class="card-body">
+                        	<% if donor.blood_group.include?'pos' %>
+                             	<% bloodgroup = donor.blood_group.sub! 'pos','+' %>
                              <% else %>
-                             	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
+                             	<% bloodgroup = donor.blood_group.sub! 'neg','-' %>
                              <% end %>
-                                <div class="col-md-4 mb-4 filter <%= bloodgroup %>">
-                                	<div class="media align-middle">
-                                        <div class="card m-1 bloodgroup">
-                                            <div class="card-body">
-                                            	<% if donor.blood_group.include?'pos' %>
-					                             	<% bloodgroup = donor.blood_group.sub! 'pos','+' %>
-					                             <% else %>
-					                             	<% bloodgroup = donor.blood_group.sub! 'neg','-' %>
-					                             <% end %>
-                                              <%= donor.blood_group %>
-                                            </div>
-                                          </div>
-											<div class="media-body align-middle">
-												
-												<h4 class="title text-capitalize responsive-text"> 
-                                                <%= donor.name %>, <%=donor.gender %><br />
-													<span>
-                                                    Age: <%= donor.age %></span><br />
-                                                    <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br />
-                                                <a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
-                                                <span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
-                                                </a>
-												</h4>
-											</div>
-									</div>
-                                </div>
-                            <%end%>
+                          <%= donor.blood_group %>
                         </div>
-<!---------------------------------------------------------------------------------------->
+                      </div>
+						<div class="media-body align-middle mx-2">
+							
+							<h4 class="title text-capitalize responsive-text"> 
+                            <%= donor.name %>, <%=donor.gender %><br />
+								<span>
+                                Age: <%= donor.age %></span><br />
+                                <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br />
+                            <a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
+                            <% if !donor.dont_display_phone %>
+                                <span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>
+                            <% end %>
+                            </a>
+							</h4>
 						</div>
-					</div>
+                        <% if user_signed_in? && current_user.id === donor.user_id %>
+                            <div class="d-flex flex-row-reverse p-2">
+                                <div>
+                                    <%= link_to  donor, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                </div>
+                                <div class="mr-2 ml-2">
+                                    <%= link_to  edit_donor_path(donor) do %><i class="far fa-edit text-primary"></i><% end %>
+                                </div>
+                            </div>
+                        <% end %>
 				</div>
             </div>
-            
+        <%end%>
     </div>
-    	
+<!---------------------------------------------------------------------------------------->
+	</div>
+</div>
+</div>
 </div>
 
-				
+</div>
+
+</div>
+
+
 
 
 

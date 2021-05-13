@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_093811) do
+ActiveRecord::Schema.define(version: 2021_05_13_104432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -192,7 +192,10 @@ ActiveRecord::Schema.define(version: 2021_05_11_093811) do
     t.string "gender"
     t.string "slug"
     t.integer "age"
+    t.bigint "user_id"
+    t.boolean "dont_display_phone"
     t.index ["slug"], name: "index_donors_on_slug", unique: true
+    t.index ["user_id"], name: "index_donors_on_user_id"
   end
 
   create_table "emergency_numbers", force: :cascade do |t|
@@ -767,6 +770,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_093811) do
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "donations", "projects"
+  add_foreign_key "donors", "users"
   add_foreign_key "forum_posts", "forum_threads"
   add_foreign_key "forum_posts", "users"
   add_foreign_key "forum_subscriptions", "forum_threads"
