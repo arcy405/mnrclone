@@ -105,5 +105,7 @@ gem 'rack-mini-profiler'
 #for caching
 gem 'dalli'
 
+gem 'rails-i18n'
+
 
 
