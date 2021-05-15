@@ -16,12 +16,6 @@ class VacanciesController < ApplicationController
   def create
     @vacancy = Vacancy.new(vacancy_params)
     
-        if NewGoogleRecaptcha.human?(
-          params[:new_google_recaptcha_token],
-          "vacancy",
-          NewGoogleRecaptcha.minimum_score,
-          @vacancy
-        ) 
         respond_to do |format|
            if @vacancy.save
               if user_signed_in?
@@ -31,7 +25,6 @@ class VacanciesController < ApplicationController
             else
               format.html { render :new }
             end
-        end
     end
   end
 

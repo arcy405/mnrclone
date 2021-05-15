@@ -13,12 +13,6 @@ class PetAdoptionsController < ApplicationController
         @pet_adoptions = PetAdoption.new(pet_adoption_params)
       
       
-          if NewGoogleRecaptcha.human?(
-            params[:new_google_recaptcha_token],
-            "pet_adoption",
-            NewGoogleRecaptcha.minimum_score,
-            @pet_adoptions
-          ) 
           respond_to do |format|
              if @pet_adoptions.save
                 if user_signed_in?
@@ -28,7 +22,6 @@ class PetAdoptionsController < ApplicationController
               else
                 format.html { render :new }
             end
-          end
         end
       end
     
