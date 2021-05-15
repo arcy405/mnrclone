@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_104432) do
+ActiveRecord::Schema.define(version: 2021_05_14_103013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,12 @@ ActiveRecord::Schema.define(version: 2021_05_13_104432) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "donations", force: :cascade do |t|
@@ -346,9 +352,18 @@ ActiveRecord::Schema.define(version: 2021_05_13_104432) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.string "asset_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "university_id"
+    t.bigint "university_semester_id"
+    t.string "subject_name"
+    t.integer "chapter_number"
+    t.string "chapter_name"
+    t.string "notes_pdf"
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_notes_on_department_id"
+    t.index ["university_id"], name: "index_notes_on_university_id"
+    t.index ["university_semester_id"], name: "index_notes_on_university_semester_id"
   end
 
   create_table "pet_adoptions", force: :cascade do |t|
@@ -724,6 +739,26 @@ ActiveRecord::Schema.define(version: 2021_05_13_104432) do
     t.string "description"
   end
 
+  create_table "universities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "university_departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "university_id"
+    t.index ["university_id"], name: "index_university_departments_on_university_id"
+  end
+
+  create_table "university_semesters", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -780,6 +815,9 @@ ActiveRecord::Schema.define(version: 2021_05_13_104432) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
+  add_foreign_key "notes", "departments"
+  add_foreign_key "notes", "universities"
+  add_foreign_key "notes", "university_semesters"
   add_foreign_key "professionals", "professions"
   add_foreign_key "reviews", "listings"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
@@ -787,4 +825,5 @@ ActiveRecord::Schema.define(version: 2021_05_13_104432) do
   add_foreign_key "thredded_user_post_notifications", "thredded_posts", column: "post_id", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "users", on_delete: :cascade
   add_foreign_key "tourist_images", "tourists"
+  add_foreign_key "university_departments", "universities"
 end

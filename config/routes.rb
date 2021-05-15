@@ -31,14 +31,14 @@ Rails.application.routes.draw do
    resources :bus_departures
    resources :models
    resources :reviews, :events, :marketplaces,:professionals
-   resources :educational_notes, only: [:index]
+   resources :notes, only: [:index]
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]
    resources :projects, only: [:index,:show]
    resources :tags, only: [:index]
 
-   get 'educational_notes/notes_index'
-   get 'educational_notes/notes_show'
+   get 'notes/notes_index'
+   get 'notes/notes_show'
 
    #routes for arcy#
    resources :donors

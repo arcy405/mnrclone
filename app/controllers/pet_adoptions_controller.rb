@@ -11,19 +11,21 @@ class PetAdoptionsController < ApplicationController
    
     def create
         @pet_adoptions = PetAdoption.new(pet_adoption_params)
-    
-        if NewGoogleRecaptcha.human?(
-          params[:new_google_recaptcha_token],
-          "pet_adoption",
-          NewGoogleRecaptcha.minimum_score,
-          @post
-        ) &&  @pet_adoptions.save
-            if user_signed_in?
-                current_user.gamification.create!(points:5)
-             end
-            format.html { redirect_to pet_adoptions_path notice: 'Pet was successfully created.' }
-          else
-            format.html { render :new }
+      
+      respond_to do |format|
+          if NewGoogleRecaptcha.human?(
+            params[:new_google_recaptcha_token],
+            "pet_adoption",
+            NewGoogleRecaptcha.minimum_score,
+            @post
+          ) &&  @pet_adoptions.save
+              if user_signed_in?
+                  current_user.gamification.create!(points:5)
+               end
+              format.html { redirect_to pet_adoptions_path notice: 'Pet was successfully created.' }
+            else
+              format.html { render :new }
+          end
         end
       end
     

@@ -17,25 +17,26 @@ class RealestatesController < ApplicationController
   end
   def create
         @realestate = Realestate.new(realestate_params)
-    
-        if NewGoogleRecaptcha.human?(
-        params[:new_google_recaptcha_token],
-        "realestate",
-        NewGoogleRecaptcha.minimum_score,
-        @post
-        ) && @realestate.save
-            params[:realestate_images]['image'].each do |i|
-              @realestate_image = @realestate.realestate_images.create!(:image => i)
-            end
+      respond_to do |format|
+          if NewGoogleRecaptcha.human?(
+          params[:new_google_recaptcha_token],
+          "realestate",
+          NewGoogleRecaptcha.minimum_score,
+          @post
+          ) && @realestate.save
+              params[:realestate_images]['image'].each do |i|
+                @realestate_image = @realestate.realestate_images.create!(:image => i)
+              end
 
-            if user_signed_in?
-                current_user.gamification.create!(points:5)
-            end
+              if user_signed_in?
+                  current_user.gamification.create!(points:5)
+              end
 
-            format.html { redirect_to realestates_path notice: 'Realestate was successfully added.' }
-          else
-            format.html { render :new }
-        end
+              format.html { redirect_to realestates_path notice: 'Realestate was successfully added.' }
+            else
+              format.html { render :new }
+          end
+      end
   end
   
   def edit
