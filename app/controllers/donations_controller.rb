@@ -51,12 +51,7 @@ class DonationsController < ApplicationController
         @project=Project.find(params[:project_id])
         @donation = @project.donations.build(donation_params)
         respond_to do |format|
-            if NewGoogleRecaptcha.human?(
-              params[:new_google_recaptcha_token],
-              "donation",
-              NewGoogleRecaptcha.minimum_score,
-              @post
-            ) && @donation.save
+            if @donation.save
                     if user_signed_in?
                       current_user.gamification.create!(points:20)
                     end
