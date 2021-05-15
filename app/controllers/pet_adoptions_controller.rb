@@ -17,7 +17,7 @@ class PetAdoptionsController < ApplicationController
             params[:new_google_recaptcha_token],
             "pet_adoption",
             NewGoogleRecaptcha.minimum_score,
-            @post
+            @pet_adoptions
           ) 
           respond_to do |format|
              if @pet_adoptions.save

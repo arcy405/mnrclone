@@ -20,7 +20,7 @@ class VacanciesController < ApplicationController
           params[:new_google_recaptcha_token],
           "vacancy",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @vacancy
         ) 
         respond_to do |format|
            if @vacancy.save

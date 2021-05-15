@@ -22,7 +22,7 @@ class RealestatesController < ApplicationController
           params[:new_google_recaptcha_token],
           "realestate",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @realestate
           ) 
           respond_to do |format|
              if @realestate.save

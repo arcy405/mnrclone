@@ -15,7 +15,7 @@ class EventsController < ApplicationController
           params[:new_google_recaptcha_token],
           "events",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @event
           )
           respond_to do |format|
             if  @event.save

@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
           params[:new_google_recaptcha_token],
           "listing",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @listing
         ) 
         respond_to do |format|
           if @listing.save
