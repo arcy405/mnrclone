@@ -13,7 +13,7 @@ class ProfessionalsController < ApplicationController
           params[:new_google_recaptcha_token],
           "professional",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @professional
           )
           respond_to do |format|
              if @professional.save

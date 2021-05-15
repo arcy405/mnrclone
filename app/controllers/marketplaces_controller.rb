@@ -20,7 +20,7 @@ class MarketplacesController < ApplicationController
           params[:new_google_recaptcha_token],
           "marketplace",
           NewGoogleRecaptcha.minimum_score,
-          @post
+          @marketplace
         ) 
           respond_to do |format|
              if @marketplace.save
