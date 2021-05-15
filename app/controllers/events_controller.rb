@@ -16,8 +16,7 @@ class EventsController < ApplicationController
           "events",
           NewGoogleRecaptcha.minimum_score,
           @event
-          )
-          && @event.save
+          ) && @event.save
               if user_signed_in?
                 current_user.gamification.create!(points:5)
               end
