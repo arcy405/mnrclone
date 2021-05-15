@@ -5,8 +5,6 @@ class TouristsController < ApplicationController
      
     def show
       @tourist = Tourist.find(params[:id])
-    
-      
     end
 end
 

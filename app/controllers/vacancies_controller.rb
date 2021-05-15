@@ -15,20 +15,21 @@ class VacanciesController < ApplicationController
 
   def create
     @vacancy = Vacancy.new(vacancy_params)
-
-    if NewGoogleRecaptcha.human?(
-      params[:new_google_recaptcha_token],
-      "vacancy",
-      NewGoogleRecaptcha.minimum_score,
-      @post
-    ) && @vacancy.save
-        if user_signed_in?
-          current_user.gamification.create!(points:5)
-        end
-        format.html { redirect_to vacancies_path notice: 'vacancy was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    respond_to do |format|
+        if NewGoogleRecaptcha.human?(
+          params[:new_google_recaptcha_token],
+          "vacancy",
+          NewGoogleRecaptcha.minimum_score,
+          @post
+        ) && @vacancy.save
+            if user_signed_in?
+              current_user.gamification.create!(points:5)
+            end
+            format.html { redirect_to vacancies_path notice: 'vacancy was successfully created.' }
+          else
+            format.html { render :new }
+          end
+    end
   end
 
   

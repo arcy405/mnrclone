@@ -1,0 +1,19 @@
+<% content_for :title, "Notes" %>
+ <%= render 'Homepage/navmenu.html.erb' %>
+<!----------------------------------------breadcrumb section-------------------------------------->
+        <div class="row p-3">
+            <div class="breadcrumb-default ml-2">
+                <%= link_to "#{params[:uni]}-#{params[:dept]}", notes_path,style:"text-decoration: none",class:"text-uppercase" %>
+                    <a href="#" style="text-decoration: none" class="text-uppercase">/<%= params[:sem] %></a>
+            </div>
+        </div>
+<div class="row container-fluid py-2">
+	<% @subjects.each do |subject| %>
+		<%= link_to  notes_notes_show_path(uni:params[:uni],dept:params[:dept],sem:params[:sem],sub:subject) do %>
+			<div class="col text-center">
+						<i class="fas fa-folder fa-4x ml-2" style="color: #fcc72c;"></i><br />
+						<span class="text-capitalize"><%= subject %></span>
+			</div>
+			<% end %>
+	<% end %>
+</div>

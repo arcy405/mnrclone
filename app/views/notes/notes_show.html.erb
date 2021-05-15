@@ -1,0 +1,30 @@
+<% content_for :title, "Notes" %>
+ <%= render 'Homepage/navmenu.html.erb' %>
+
+<!----------------------------------------breadcrumb section-------------------------------------->
+        <div class="row p-3">
+            <div class="breadcrumb-default ml-2">
+                <%= link_to "#{params[:uni]}-#{params[:dept]}/",notes_path,class:"text-uppercase" %>
+                <%= link_to "#{params[:sem]}", :back,class:"text-uppercase" %>
+                    <a href="#">/ <span class="text-capitalize"><%= params[:sub] %></span></a>
+            </div>
+        </div>
+
+<div class="row container-fluid py-2">
+	<% @chapters.each do |chapter| %>
+			<div class="col text-center">
+			<a href="<%= chapter.notes_pdf %>" download= 'data'>
+				<div class="ml-2">
+				        <div class="card-body">
+				            <i class="fas fa-file-pdf fa-2x"></i><br />
+				            <i class="fas fa-download"></i>
+				            <span >
+				            	Chapter <%= chapter.chapter_number %>
+				            </span><br>
+				            <span class="text-capitalize"><%= chapter.chapter_name %></span>
+				     	</div>
+				</div>
+			</a>
+			</div>
+	<% end %>
+</div>
