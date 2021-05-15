@@ -9,12 +9,6 @@ class ProfessionalsController < ApplicationController
 	def create
         @professional = Professional.new(professional_params)
     
-          if NewGoogleRecaptcha.human?(
-          params[:new_google_recaptcha_token],
-          "professional",
-          NewGoogleRecaptcha.minimum_score,
-          @professional
-          )
           respond_to do |format|
              if @professional.save
               if user_signed_in?
@@ -23,7 +17,6 @@ class ProfessionalsController < ApplicationController
               format.html { redirect_to professionals_path, notice: 'Professional was successfully created.' }
             else
               format.html { render :new }
-            end
           end
         end
   end

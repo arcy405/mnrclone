@@ -16,13 +16,7 @@ class MarketplacesController < ApplicationController
 	def create
         @marketplace = Marketplace.new(marketplace_params)
     
-        if NewGoogleRecaptcha.human?(
-          params[:new_google_recaptcha_token],
-          "marketplace",
-          NewGoogleRecaptcha.minimum_score,
-          @marketplace
-        ) 
-          respond_to do |format|
+        respond_to do |format|
              if @marketplace.save
                     params[:market_place_images]['image'].each do |a|
                     @marketplace_image = @marketplace.market_place_images.create!(:image => a, :marketplace_id => @marketplace.id)
@@ -35,7 +29,6 @@ class MarketplacesController < ApplicationController
               else
                     format.html { render :new }
               end
-          end
         end
     
   end

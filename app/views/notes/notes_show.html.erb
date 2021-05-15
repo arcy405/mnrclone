@@ -12,6 +12,8 @@
 
 <div class="row container-fluid py-2">
 	<% @chapters.each do |chapter| %>
+	<%= chapter.notes_pdf.to_s.split("/")[-1] %>
+	<%= cl_image_tag("#{chapter.notes_pdf.to_s.split("/")[-1]}", :flag=>"attachment") %>
 			<div class="col text-center">
 			<a href="<%= chapter.notes_pdf %>" download= 'data'>
 				<div class="ml-2">

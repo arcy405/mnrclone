@@ -17,16 +17,13 @@ class EventsController < ApplicationController
           NewGoogleRecaptcha.minimum_score,
           @event
           )
-          respond_to do |format|
-            if  @event.save
+          && @event.save
               if user_signed_in?
                 current_user.gamification.create!(points:5)
               end
-              format.html { redirect_to events_path notice: 'Event was successfully created.' }
-            else
-              format.html { render :new }
-            end
-          end
+            redirect_to events_path, notice: 'Event was successfully created.' 
+          else
+            render :new 
         end
 	end
 
