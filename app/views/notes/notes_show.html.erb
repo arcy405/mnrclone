@@ -9,31 +9,34 @@
                     <a href="#">/ <span class="text-capitalize"><%= params[:sub] %></span></a>
             </div>
         </div>
-
-<div class="row container-fluid py-2">
-	<% @chapters.each do |chapter| %>
-		<%
-			chapter_number = chapter["name"].to_s.split("_")[0]
-			chapter_name = chapter["name"].to_s.split("_")[1]
-			filename = chapter_number + "_" + chapter_name
-		%>
-		<%= link_to notes_notes_download_path(download_url:chapter["download_url"],filename:filename), target: '_self',data: {
-        disable_with: "Please wait..."
-      } do %>
-				<div class="col text-center">
-					<div class="ml-2">
-					        <div class="card-body">
-					            <i class="fas fa-file-pdf fa-2x"></i><br />
-					            <i class="fas fa-download"></i>
-					            <span class="text-capitalize">
-					            	<%= chapter_number %>
-					            </span><br>
-					            <span class="text-capitalize"><%= chapter_name.split(".")[0] %></span>
-					     	</div>
-					</div>
-				</div>
-			<% end %>		
-	<% end %> 
+<div class="container-fluid">
+	<div class="row">
+		<% @chapters.each do |chapter| %>
+			<%
+				chapter_number = chapter["name"].to_s.split("_")[0]
+				chapter_name = chapter["name"].to_s.split("_")[1]
+				filename = chapter_number + "_" + chapter_name
+			%>
+			<div class="col-6 col-md-3 text-center mt-2">
+				<%= link_to notes_notes_download_path(download_url:chapter["download_url"],filename:filename), target: '_self',data: {disable_with: "Please wait..."} do %>
+					<div class="card h-100">
+				        <div class="card-body">
+				            <i class="fas fa-file-pdf fa-2x text-danger"></i><br />
+				            <i class="fas fa-download"></i>
+				            <span class="text-capitalize responsive-text">
+				            	<%= chapter_number %>
+				            </span><br>
+				            <span class="text-capitalize responsive-text">
+				            	<% chapter["name"].to_s.split("_")[1].split(".")[0].split("-").each do |name| %>
+				            		<%= name %>
+				            	<% end %>
+				            		
+				            	</span>
+				     	</div>
+			    	 </div>
+				<% end %>	
+				</div>	
+		<% end %> 
+	</div>
 </div>
-
 	
