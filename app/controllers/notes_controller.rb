@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 	def index
-		@universities = University.order(:name)
+		@universities = University.includes(:university_departments).includes(:sub_departments)
 		@semesters = UniversitySemester.order(:name)
 	end
 
