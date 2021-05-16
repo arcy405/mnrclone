@@ -6,7 +6,7 @@ class NotesController < ApplicationController
 
 	def notes_index
 		headers = {'Authorization':'token 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'} 
-		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sem]}"
+		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sub_dept]}/#{params[:sem]}"
 		response = HTTParty.get(url,headers: headers)
 
 		result = response.parsed_response 
@@ -16,7 +16,7 @@ class NotesController < ApplicationController
 
 	def notes_show
 		headers = {'Authorization':'token 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'} 
-		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sem]}/#{params[:sub]}"
+		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sub_dept]}/#{params[:sem]}/#{params[:sub]}"
 		response = HTTParty.get(url,headers: headers)
 
 		result = response.parsed_response 

@@ -54,7 +54,7 @@
 										<% @semesters.each do |semester| %>
 									    <li>
 									    	<span>
-									    		<%= link_to notes_notes_index_path(uni:"#{university.name}",dept:"#{department.name}",sem:"#{semester.name}"), style:"color:#000; text-decoration:none;" do %>
+									    		<%= link_to notes_notes_index_path(uni:"#{university.name}",dept:"#{department.name}",sub_dept:"#{sub_department.name.to_s.delete(" ")}",sem:"#{semester.name}"), style:"color:#000; text-decoration:none;" do %>
 									    		<i class="fas fa-folder"></i> <%= semester.name %>
 									    		<% end %>
 									    	</span>
