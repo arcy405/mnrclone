@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_055317) do
+ActiveRecord::Schema.define(version: 2021_05_16_091127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -456,6 +456,16 @@ ActiveRecord::Schema.define(version: 2021_05_16_055317) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sub_departments", force: :cascade do |t|
+    t.string "name"
+    t.bigint "university_department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "university_id"
+    t.index ["university_department_id"], name: "index_sub_departments_on_university_department_id"
+    t.index ["university_id"], name: "index_sub_departments_on_university_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "title_en"
     t.string "image"
@@ -796,6 +806,8 @@ ActiveRecord::Schema.define(version: 2021_05_16_055317) do
   add_foreign_key "listings", "tags"
   add_foreign_key "professionals", "professions"
   add_foreign_key "reviews", "listings"
+  add_foreign_key "sub_departments", "universities"
+  add_foreign_key "sub_departments", "university_departments"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "thredded_posts", column: "post_id", on_delete: :cascade
