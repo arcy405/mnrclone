@@ -12,18 +12,28 @@
 
 <div class="row container-fluid py-2">
 	<% @chapters.each do |chapter| %>
-
-			<div class="col text-center">
-				<div class="ml-2">
-				        <div class="card-body">
-				            <i class="fas fa-file-pdf fa-2x"></i><br />
-				            <i class="fas fa-download"></i>
-				            <span >
-				            	Chapter <%= chapter.chapter_number %>
-				            </span><br>
-				            <span class="text-capitalize"><%= chapter.chapter_name %></span>
-				     	</div>
+		<%
+			chapter_number = chapter["name"].to_s.split("_")[0]
+			chapter_name = chapter["name"].to_s.split("_")[1]
+			filename = chapter_number + "_" + chapter_name
+		%>
+		<%= link_to notes_notes_download_path(download_url:chapter["download_url"],filename:filename), target: '_self',data: {
+        disable_with: "Please wait..."
+      } do %>
+				<div class="col text-center">
+					<div class="ml-2">
+					        <div class="card-body">
+					            <i class="fas fa-file-pdf fa-2x"></i><br />
+					            <i class="fas fa-download"></i>
+					            <span class="text-capitalize">
+					            	<%= chapter_number %>
+					            </span><br>
+					            <span class="text-capitalize"><%= chapter_name.split(".")[0] %></span>
+					     	</div>
+					</div>
 				</div>
-			</div>
-	<% end %>
+			<% end %>		
+	<% end %> 
 </div>
+
+	
