@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
    get 'notes/notes_index'
    get 'notes/notes_show'
+   get 'notes/notes_download'
 
    #routes for arcy#
    resources :donors

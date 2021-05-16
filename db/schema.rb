@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_103013) do
+ActiveRecord::Schema.define(version: 2021_05_16_055317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,12 +165,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_103013) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
-  end
-
-  create_table "departments", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "donations", force: :cascade do |t|
@@ -349,21 +343,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_103013) do
     t.string "asset_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "university_id"
-    t.bigint "university_semester_id"
-    t.string "subject_name"
-    t.integer "chapter_number"
-    t.string "chapter_name"
-    t.string "notes_pdf"
-    t.bigint "department_id"
-    t.index ["department_id"], name: "index_notes_on_department_id"
-    t.index ["university_id"], name: "index_notes_on_university_id"
-    t.index ["university_semester_id"], name: "index_notes_on_university_semester_id"
   end
 
   create_table "pet_adoptions", force: :cascade do |t|
@@ -815,9 +794,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_103013) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
-  add_foreign_key "notes", "departments"
-  add_foreign_key "notes", "universities"
-  add_foreign_key "notes", "university_semesters"
   add_foreign_key "professionals", "professions"
   add_foreign_key "reviews", "listings"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
