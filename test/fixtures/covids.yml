@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confirmed: 1
+  recovered: 1
+  deaths: 1
+
+two:
+  confirmed: 1
+  recovered: 1
+  deaths: 1

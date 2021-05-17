@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_091127) do
+ActiveRecord::Schema.define(version: 2021_05_17_044824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 2021_05_16_091127) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
     t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+  end
+
+  create_table "covids", force: :cascade do |t|
+    t.integer "confirmed"
+    t.integer "recovered"
+    t.integer "deaths"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "donations", force: :cascade do |t|
@@ -464,6 +472,16 @@ ActiveRecord::Schema.define(version: 2021_05_16_091127) do
     t.bigint "university_id"
     t.index ["university_department_id"], name: "index_sub_departments_on_university_department_id"
     t.index ["university_id"], name: "index_sub_departments_on_university_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "sub_department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "university_semester_id"
+    t.index ["sub_department_id"], name: "index_subjects_on_sub_department_id"
+    t.index ["university_semester_id"], name: "index_subjects_on_university_semester_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -808,6 +826,8 @@ ActiveRecord::Schema.define(version: 2021_05_16_091127) do
   add_foreign_key "reviews", "listings"
   add_foreign_key "sub_departments", "universities"
   add_foreign_key "sub_departments", "university_departments"
+  add_foreign_key "subjects", "sub_departments"
+  add_foreign_key "subjects", "university_semesters"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "thredded_posts", column: "post_id", on_delete: :cascade
