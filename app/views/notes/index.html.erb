@@ -1,107 +1,134 @@
 <% content_for :title, "Notes" %>
- <%= render 'Homepage/navmenu.html.erb' %>
- 
- <!----------------------------------for-------------------------------------------------->
- <% department_FU = ["bba","csit","engineering","education","general science","management"] %>
- <div class="row">
+<%= render 'Homepage/navmenu.html.erb' %>
+<div class="row scrolling-wrapper row flex-row ">
 <% @universities.each do |university| %>
-<div class="col-md-4">
+	<div class="col-md-4">
 		<div class="tree ">
-		<ul>
+		    <ul>
+		    	<!-------universities------------->
+		        <li>
+					<span class="px-2">
+						<a 
+						style="color:#000;" 
+						data-toggle="collapse" 
+						href="#<%= university.name.to_s.delete(" ") %>departments" 
+						aria-expanded="true" 
+						aria-controls="<%= university.name.to_s.delete(" ") %>departments">
+							<i class="collapsed"><i class="fas fa-folder"></i></i>
+							<i class="expanded"><i class="far fa-folder-open"></i></i>
+							<%= university.name %>
+						</a>
+					</span>
+					<!-------------departments------------->
+					<div id="<%= university.name.to_s.delete(" ") %>departments" class="collapse show">
+						<ul>
+							<% university.university_departments.each do |department| %>
+								<li>
+									<span class="text-uppercase responsive-text px-2">
+									  <a 
+									    style="color:#000;"
+									    data-toggle="collapse"
+									    href="#<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>subdepartments" 
+									    aria-expanded="false" 
+									    aria-controls="<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>subdepartments">
 
-		<li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#<%= university.name %>" aria-expanded="true" aria-controls="<%= university.name %>"><i class="collapsed"><i class="fas fa-folder"></i></i>
-		<i class="expanded"><i class="far fa-folder-open"></i></i> <%= university.name %></a></span>
-		<!---------------------departments- 1--------------------------------------------->
-		<div id="<%= university.name %>" class="collapse show">
-		<ul>
-			<!-------------------loops to generate all departments------------------------>
-			
-			<% university.university_departments.each do |department| %>
-		<li>
-			<span class="text-uppercase">
-				<a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#<%= university.name %><%= department.name %>" aria-expanded="false" aria-controls="<%= university.name %><%= department.name %>">
-					<i class="collapsed"><i class="fas fa-folder"></i></i>
-					<i class="expanded"><i class="far fa-folder-open"></i></i><%= department.name %>
-				</a>
-			</span>
-		  <ul>
-		  	<div id="<%= university.name %><%= department.name %>" class="collapse">
-		  	<ul>
-		  	<% department.sub_departments.each do |sub_department| %>
-			    <li>
-						<span class="text-uppercase">
-							<a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>" aria-expanded="false" aria-controls="<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>">
-								<i class="collapsed"><i class="fas fa-folder"></i></i>
-								<i class="expanded"><i class="far fa-folder-open"></i></i><%= sub_department.name %>
-							</a>
-						</span>
-						<div id="<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>" class="collapse">
-							<ul>
+										    <i class="collapsed"><i class="fas fa-folder"></i></i>
+										    <i class="expanded"><i class="far fa-folder-open"></i></i>
+										    <%= department.name %>
+									  </a>
+									</span>
+									<!------------sub departments---------------------------->
+									<div id="<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>subdepartments" class="collapse">
+										<ul>
+											<% department.sub_departments.each do |sub_department| %>
+												<li>
+													<span class="text-uppercase responsive-text px-2">
+														<a 
+														style="color:#000;" 
+														data-toggle="collapse" 
+														href="#<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>semesters" 
+														aria-expanded="false" 
+														aria-controls="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>semesters">
 
-							<!-------Type of documents-notes/questionpaper--------->
-							<!------------link to Notes------------>
-						    <li>
-						    	<span>
-						    		<a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>notes" aria-expanded="false" aria-controls="<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>notes">
-										<i class="collapsed"><i class="fas fa-folder"></i></i>
-										<i class="expanded"><i class="far fa-folder-open"></i></i>Notes
-									</a>
-								</span>
-								<!-------------------all semesters-------------------------->
-								<div id="<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>notes" class="collapse">
-									<ul>
-										<!-------semesters---------->
-										<% @semesters.each do |semester| %>
-									    <li>
-									    	<span>
-									    		<%= link_to notes_notes_index_path(uni:"#{university.name}",dept:"#{department.name}",sub_dept:"#{sub_department.name.to_s.delete(" ")}",sem:"#{semester.name}"), style:"color:#000; text-decoration:none;" do %>
-									    		<i class="fas fa-folder"></i> <%= semester.name %>
-									    		<% end %>
-									    	</span>
-									      </li>
-									      <% end %>
-										<!---------end of semesters------->
+															<i class="collapsed"><i class="fas fa-folder"></i></i>
+															<i class="expanded"><i class="far fa-folder-open"></i></i>
+															<%= sub_department.name %>
 
-									</ul>
-								</div>
-								<!----------------------------------------------------------->
-						      </li>
-						      <!-------------###################---------------------------->
-						      <!------------link to old question papers------------>
-						      <li>
-						    	<span>
-									<i class="collapsed"><i class="fas fa-folder"></i></i> Question Papers
-								</span>
-						      </li>
-						      <!-------------###################---------------------------->
-							<!---------end of Type of documents------->
+														</a>
+													</span>
+													<!-----------semesters------------------>
+													<div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>semesters" class="collapse">
+														<ul>
+															<% @semesters.each do |semester| %>
+																<li>
+																	<span class="responsive-text px-2">
+																		<a 
+																		style="color:#000;" 
+																		data-toggle="collapse" 
+																		href="#<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name %><%= semester.name.to_s.delete(" ") %>subjects" 
+																		aria-expanded="false" 
+																		aria-controls="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name %><%= semester.name.to_s.delete(" ") %>subjects">
 
+																			<i class="collapsed"><i class="fas fa-folder"></i></i>
+																			<i class="expanded"><i class="far fa-folder-open"></i></i>
+																			<%= semester.name %>
 
-							</ul>
-							</div>	
-			      </li>
+																		</a>
+																	</span>
+																	<!----------------semesters----------------------------->
+																	<div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= semester.name.to_s.delete(" ") %>subjects" class="collapse">
+																		<ul>
+																			<% semester.subjects.where("sub_department_id=?",sub_department.id).each do  |subject| %>
+																				<li>
+																					<span class="responsive-text px-1">
+																					<a 
+																					style="color:#000;" 
+																					data-toggle="collapse" 
+																					href="#<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= subject.name.to_s.delete(" ") %>" 
+																					aria-expanded="false" 
+																					aria-controls="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= subject.name.to_s.delete(" ") %>">
 
-		      <% end %>
+																						<i class="collapsed"><i class="fas fa-folder"></i></i>
+																						<i class="expanded"><i class="far fa-folder-open"></i></i>
+																						<%= subject.name %>
 
-		  </ul>
-		    </div>					    
-		   
-		      
-		     <!--------------------end -departments- 1--------------------------------------------->
-		  </ul>
-		</li>
-<% end %>
-					<!-------------end of loops--------------------------------------->
-		</ul>
-		</div>
-		</li>
-		</ul>
-
+																					</a>
+																					</span>
+																					<div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= subject.name.to_s.delete(" ") %>" class="collapse">
+																						<ul>
+																							<li>
+																								<%= link_to notes_notes_index_path(uni:"#{university.name.to_s.delete(" ")}",dept:"#{department.name.to_s.delete(" ")}",sub_dept:"#{sub_department.name.to_s.delete(" ")}",sem:"#{semester.name.to_s.delete(" ")}",sub:"#{subject.name.to_s.delete(" ")}"), style:"color:#000; text-decoration:none;" do %>
+																									<span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Notes</span>
+																								<% end %>
+																							</li>
+																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Syllabus</span></li>
+																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Question Papers</span></li>
+																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Case Studies</span></li>
+																						</ul>
+																					</div>
+																				</li>
+																			<% end %>
+																		</ul>
+																	</div>
+		                                    
+																</li>
+															<% end %>
+														</ul>
+													</div>
+												</li>
+											<% end %>
+										</ul>
+									</div>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+		        </li>
+		    </ul>
 		</div>
 	</div>
 <% end %>
 </div>
-<!-------------------------------------------------------------------------------------------->
-
-
-
+<style type="text/css">.scrolling-wrapper{
+	overflow-x: auto;
+}</style>
