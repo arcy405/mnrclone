@@ -5,7 +5,7 @@ class SetMylanguageController < ApplicationController
   set_session_and_redirect
  end
 
- #Arabic
+ #Nepali
  def np
   I18n.locale = :np
   set_session_and_redirect
