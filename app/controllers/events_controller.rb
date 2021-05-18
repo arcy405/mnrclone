@@ -9,19 +9,21 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		
-	@event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        if user_signed_in?
-          current_user.gamification.create!(points:5)
+	   @event = Event.new(event_params)
+     
+        if NewGoogleRecaptcha.human?(
+          params[:new_google_recaptcha_token],
+          "events",
+          NewGoogleRecaptcha.minimum_score,
+          @event
+          ) && @event.save
+              if user_signed_in?
+                current_user.gamification.create!(points:5)
+              end
+            redirect_to events_path, notice: 'Event was successfully created.' 
+          else
+            render :new 
         end
-        format.html { redirect_to events_path notice: 'Event was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
 	end
 
 	private

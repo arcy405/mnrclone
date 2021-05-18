@@ -17,19 +17,20 @@ class MarketplacesController < ApplicationController
         @marketplace = Marketplace.new(marketplace_params)
     
         respond_to do |format|
-          if @marketplace.save
-            params[:market_place_images]['image'].each do |a|
-            @marketplace_image = @marketplace.market_place_images.create!(:image => a, :marketplace_id => @marketplace.id)
-          end
+             if @marketplace.save
+                    params[:market_place_images]['image'].each do |a|
+                    @marketplace_image = @marketplace.market_place_images.create!(:image => a, :marketplace_id => @marketplace.id)
+                  end
 
-            if user_signed_in?
-                current_user.gamification.create!(points:5)
-             end
-            format.html { redirect_to marketplaces_path notice: 'Product was successfully added.' }
-          else
-            format.html { render :new }
-          end
+                    if user_signed_in?
+                        current_user.gamification.create!(points:5)
+                     end
+                    format.html { redirect_to marketplaces_path notice: 'Product was successfully added.' }
+              else
+                    format.html { render :new }
+              end
         end
+    
   end
 
   def edit

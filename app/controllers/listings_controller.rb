@@ -17,19 +17,16 @@ class ListingsController < ApplicationController
     @tag=Tag.find(params[:tag_id])
     @listing = @tag.listings.new(listing_params)
 
-    if NewGoogleRecaptcha.human?(
-      params[:new_google_recaptcha_token],
-      "listing",
-      NewGoogleRecaptcha.minimum_score,
-      @post
-    ) &&  @listing.save
-      if user_signed_in?
-          current_user.gamification.create!(points:5)
-        end
-      redirect_to listings_sucess_path
-    else
-      redirect_to listings_new_path, alert: "Error creating listing."
-    end
+        respond_to do |format|
+          if @listing.save
+            if user_signed_in?
+                current_user.gamification.create!(points:5)
+              end
+            redirect_to listings_sucess_path
+          else
+            redirect_to listings_new_path, alert: "Error creating listing."
+          end
+       end
   end
 
   def show

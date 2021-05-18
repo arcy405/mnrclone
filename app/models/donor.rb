@@ -2,6 +2,8 @@ class Donor < ApplicationRecord
     include ActiveModel::Validations
 	extend FriendlyId
 
+	belongs_to :user
+
   	friendly_id :name, use: :slugged
 
   	validates_presence_of :name, :address, :blood_group, :gender, :age, :phone1

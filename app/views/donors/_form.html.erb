@@ -1,0 +1,28 @@
+<%= form_for @donor do |f| %>
+    
+    <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
+
+    <%= f.text_field :name, placeholder: "#{t('donors_placeholder_1')}" ,class:"form-control mb-2" %>
+    <%= f.text_field :address, placeholder: "#{t('donors_placeholder_2')}" ,class:"form-control mb-2" %>
+    <%= f.label :blood_group, "#{t('donors_placeholder_3')}", class:"mr-2" %>
+    <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-']  %>
+    <%= f.label :gender, "#{t('donors_placeholder_4')}", class:"mr-2 ml-auto" %>
+    <%= f.select :gender, ['Male','Female','Others'] %>
+    <%= f.number_field :age,placeholder: "#{t('donors_placeholder_5')}" ,class:"form-control mb-2" %>
+    <%= f.text_field :phone1, placeholder: "#{t('donors_placeholder_6')}",class:"form-control mb-2" %>
+    <%= f.text_field :phone2, placeholder: "#{t('donors_placeholder_7')}",class:"form-control mb-2" %>
+    <pre>Don't make my phone number Public <span class="mt-4"> <%= f.check_box :dont_display_phone %></span></pre>
+    <%= f.label :status, "Status" %>
+    <%= f.select :status, ['Available','Unavailable'] %>
+
+    <div class="d-flex flex-row mt-2">
+      <div class="flex-fill">
+        <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
+      </div>
+      <div class="flex-fill">
+        <%= f.submit "Add" , class:"button form-control text-white font-weight-bold"%>
+      </div>
+    </div>
+    
+     <%= recaptcha_action('donors') %>
+<% end %>

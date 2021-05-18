@@ -1,6 +1,12 @@
 
 <%= form_with(model: [@project, @donation], local: true) do |f| %>
 
+<% if @donation.errors.any? %>
+  <% @donation.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
     		<%= f.text_field :donor_name, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_1')}" %>
     		<%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_2')}" %>
     		<%= f.number_field :contact, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_3')}" %>
@@ -14,4 +20,5 @@
             <%= f.submit "#{t('donate')}" ,class:"button form-control text-white font-weight-bold" %>
           </div>
         </div>
+            <%= recaptcha_action('donation') %>
   <% end %>

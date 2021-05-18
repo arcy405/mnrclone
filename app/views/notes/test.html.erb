@@ -1,0 +1,125 @@
+<% content_for :title, "Notes" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+  <% @universities.each do |university| %>
+      <div class="tree ">
+        <ul>
+          <li>
+            <span>
+              <a 
+                style="color:#000; text-decoration:none;" 
+                data-toggle="collapse" 
+                href="#<%= university.name.to_s.delete(" ") %>" 
+                aria-expanded="true" 
+                aria-controls="<%= university.name.to_s.delete(" ") %>">
+                <i class="collapsed"><i class="fas fa-folder"></i></i>
+                <i class="expanded"><i class="far fa-folder-open"></i></i>
+                 <%= university.name %>
+                  </a>
+              </span>
+            
+              <div id="<%= university.name.to_s.delete(" ") %>" class="collapse show">
+                <ul>
+                <!-------------------DEPARTMENTS------------------------------->
+                <% university.university_departments.each do |department| %>
+                  <li>
+                    <span class="text-uppercase responsive-text">
+                      <a 
+                        style="color:#000;"
+                        data-toggle="collapse"
+                        href="#<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>" 
+                        aria-expanded="false" 
+                        aria-controls="<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>">
+
+                        <i class="collapsed"><i class="fas fa-folder"></i></i>
+                        <i class="expanded"><i class="far fa-folder-open"></i></i>
+                        <%= department.name %>
+                      </a>
+                    </span>
+                  <ul>
+                    <div id="<%= university.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>" class="collapse">
+                      <ul>
+                        <!-------sUB DEPARTMENTS---------->
+                        <% department.sub_departments.each do |sub_department| %>
+                        <li>
+                          <span class="text-uppercase responsive-text">
+                            <a 
+                              style="color:#000;" 
+                              data-toggle="collapse" 
+                              href="#<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>" 
+                              aria-expanded="false" 
+                              aria-controls="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>">
+
+                              <i class="collapsed"><i class="fas fa-folder"></i></i>
+                              <i class="expanded"><i class="far fa-folder-open"></i></i>
+                              <%= sub_department.name %>
+
+                            </a>
+                          </span>
+                          <div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %>" class="collapse">
+                            <ul>
+                              <!-------semesters---------->
+                              <% @semesters.each do |semester| %>
+                                  <li>
+                                    <span class="responsive-text">
+                                      <a 
+                                      style="color:#000;" 
+                                      data-toggle="collapse" 
+                                      href="#<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= semester.name.to_s.delete(" ") %>" 
+                                      aria-expanded="false" 
+                                      aria-controls="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= semester.name.to_s.delete(" ")%>">
+                                      
+                                      <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                      <i class="expanded"><i class="far fa-folder-open"></i></i>
+                                      <%= semester.name %>
+
+                                    </a>
+                                    </span>
+
+                                  <div id="<%= university.name.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.name.to_s.delete(" ") %><%= semester.name.name.to_s.delete(" ") %>" class="collapse">
+                                    <ul>
+                                      <!-------Subjects---------->
+                                      <% semester.subjects.where("sub_department_id=?",sub_department.id).each do  |subject| %>
+                                        <li>
+                                          <span class="responsive-text">
+                                          <a 
+                                            style="color:#000;" 
+                                            data-toggle="collapse" 
+                                            href="#<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>notes" 
+                                            aria-expanded="false" 
+                                            aria-controls="<%= university.name %><%= sub_department.name.to_s.delete(" ") %><%= department.name %>notes">
+
+                                            <i class="collapsed"><i class="fas fa-folder"></i></i>
+                                            <i class="expanded"><i class="far fa-folder-open"></i></i>
+                                            <%= subject.name %>
+
+                                          </a>
+                                        </span>
+                                          </li>
+                                          <% end %>
+                                    </ul>
+                                  </div>
+                                  </li>
+                                  <% end %>
+                            </ul>
+                          </div>  
+                      </li>
+
+                      <% end %>
+
+                      </ul>
+                    </div>              
+                    </ul>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+          </li>
+        </ul>
+
+      </div>
+  <% end %>
+<!-------------------------------------------------------------------------------------------->
+
+
+

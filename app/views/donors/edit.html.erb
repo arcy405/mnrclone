@@ -1,0 +1,31 @@
+
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+<% end %>
+
+<%= render 'Homepage/navmenu.html.erb' %>
+
+  <div class="container">
+    <h1 class="form_title"><%= t('donors_title') %> <span class="mnryp_word">MNRYP</span></h1>
+    <div class="row">
+        <div class="col-md-6">
+            <ul >
+              <li class="text-justify"><%= t('donors_text_1') %></li>
+              <li class="text-justify"><%= t('donors_text_2') %></li>
+              <li class="text-justify"><%= t('donors_text_3') %></li>
+              <li class="text-justify"><%= t('donors_text_4') %></li>
+              <li class="text-justify"><%= t('donors_text_6') %></li>
+              <span class="text-justify"><%= t('thanks_text') %></span>
+            </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="shadow p-3 mb-5 bg-white rounded">
+            <%= render partial: "form" %>
+            
+          </div>
+        </div>
+    </div>
+  </div>
+ 
+     
+     
