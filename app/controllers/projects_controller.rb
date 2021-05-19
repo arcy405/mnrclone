@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
 		@number_of_people = @project.donations.where("verification=?", true).count
 		@total_amount=@project.donations.where("verification=?", true).sum(:donation_amount)
-		@donors = @project.donations.order("created_at DESC").where("verification=?", true )
+		@donors = @project.donations.order("created_at").where("verification=?", true )
 
 	end
 end
