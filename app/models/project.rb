@@ -1,4 +1,9 @@
 class Project < ApplicationRecord
+
+	extend FriendlyId
+    
+  	friendly_id :project_name, use: :slugged
+  	
 	mount_uploader :coverimage, ProjectUploader
 	# mount_uploader :coverimage, ProjectbillsUploader
 
@@ -7,5 +12,7 @@ class Project < ApplicationRecord
   	has_many :project_expenses,dependent: :destroy
     accepts_nested_attributes_for :project_images, :project_expenses
     has_many :donations,dependent: :destroy
+
+
 
 end
