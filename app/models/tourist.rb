@@ -1,5 +1,9 @@
 class Tourist < ApplicationRecord
     has_many :tourist_image, dependent: :destroy
+    extend FriendlyId
+    
+    friendly_id :place_name, use: :slugged
+    
     def to_s 
         return self.place_name 
     end 

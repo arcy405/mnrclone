@@ -45,7 +45,7 @@
                   <div class="text-danger"><h5 class=""><i class="fas fa-map-marker-alt"></i> <%= realestate.address%></h5></div>
                 </div>
                     <a href="tel:<%= realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= realestate.seller_phone %></h6></a>
-                            <%= link_to realestate_path(realestate.id), class:"float-right" do %>
+                            <%= link_to realestate_path(realestate), class:"float-right" do %>
                              <%= t('view_more') %>
                             <% end %>
                       
