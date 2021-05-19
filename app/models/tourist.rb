@@ -7,4 +7,11 @@ class Tourist < ApplicationRecord
         return self.to_s
     end 
 
+    #for search
+    include AlgoliaSearch
+	  algoliasearch auto_index: true do
+	    attribute :place_name
+	    searchableAttributes ['place_name']
+	  end
+
 end
