@@ -1,16 +1,53 @@
-<%= form_for @donor do |f| %>
+<%= form_for @donor,html: {class:"needs-validation", :novalidate=>true} do |f| %>
+  
+    <!--------------Errors-------------------------------------->
+<% if @donor.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    <% @donor.errors.full_messages.each do |message|%>
+        <p class="responsive-text"><%= message %> </p>
+      <%end%>
+  </div>
+<%end%>
+<!------------------------------------------------------------------------------->
     
     <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
 
-    <%= f.text_field :name, placeholder: "#{t('donors_placeholder_1')}" ,class:"form-control mb-2" %>
-    <%= f.text_field :address, placeholder: "#{t('donors_placeholder_2')}" ,class:"form-control mb-2" %>
-    <%= f.label :blood_group, "#{t('donors_placeholder_3')}", class:"mr-2" %>
-    <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-']  %>
-    <%= f.label :gender, "#{t('donors_placeholder_4')}", class:"mr-2 ml-auto" %>
-    <%= f.select :gender, ['Male','Female','Others'] %>
-    <%= f.number_field :age,placeholder: "#{t('donors_placeholder_5')}" ,class:"form-control mb-2" %>
-    <%= f.text_field :phone1, placeholder: "#{t('donors_placeholder_6')}",class:"form-control mb-2" %>
-    <%= f.text_field :phone2, placeholder: "#{t('donors_placeholder_7')}",class:"form-control mb-2" %>
+    <div class="input-group has-validation">
+      <%= f.text_field :name, placeholder: "#{t('donors_placeholder_1')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.text_field :address, placeholder: "#{t('donors_placeholder_2')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Address.
+      </div>
+    </div>
+    <div class="mt-2">
+      <%= f.label :blood_group, "#{t('donors_placeholder_3')}", class:"mr-2" %>
+      <%= f.select :blood_group, ['A+','A-','B+','B-','O+','O-','AB+','AB-']  %>
+      <%= f.label :gender, "#{t('donors_placeholder_4')}", class:"mr-2 ml-auto" %>
+      <%= f.select :gender, ['Male','Female','Others'] %>
+    </div>
+
+    <div class="input-group has-validation">
+      <%= f.number_field :age,placeholder: "#{t('donors_placeholder_5')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Age.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.telephone_field :phone1, placeholder: "#{t('donors_placeholder_6')}",class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Phone Number.
+      </div>
+    </div>
+
+    <%= f.text_field :phone2, placeholder: "#{t('donors_placeholder_7')}",class:"form-control mt-2 mb-2" %>
     <pre>Don't make my phone number Public <span class="mt-4"> <%= f.check_box :dont_display_phone %></span></pre>
     <%= f.label :status, "Status" %>
     <%= f.select :status, ['Available','Unavailable'] %>
