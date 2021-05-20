@@ -17,28 +17,7 @@
     </div>
       <div class="col-md-6">
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <%= form_for @pet_adoptions,html: { multipart: true } do |f| %>
-        
-           <div class="row p-2">
-              <%= f.text_field :pet_name, placeholder: "Pet Name" ,class:"w-100",:required => true %>
-           </div>
-           
-           
-           
-           <div class="row p-2">
-              <%= f.text_field :contact, placeholder: "Contact Number" ,class:"w-100",:required => true %>
-           </div>
-           <div class="row p-2">
-              <label for="image">Add Image </label>
-              <%= f.file_field :image, direct_upload: true %>
-              <%= f.hidden_field :image_cache %>
-           </div>
-           <div class="d-flex justify-content-center">
-            <%= f.submit "Add" , class: "button"%>
-           </div>
-             <%= recaptcha_action('pet_adoption') %>
-        <% end %>
-        
+        <%= render partial:"form" %>
       </div>
       </div>
   </div>
