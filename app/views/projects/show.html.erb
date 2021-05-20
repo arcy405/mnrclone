@@ -103,12 +103,12 @@
 			</ul>
 		</div>
 		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Donors Till Date</span></div>
+			<div class="mnryp_word">Donors Till Date(<%= @number_of_people %>)</div>
 			<ul class="list-group">
-				<% @donors.each do |donor| %>
+				<% @donors.each_with_index do |donor,index| %>
 					<li class="list-group-item">
 						<div class="d-flex">
-						  <div class="flex-grow-1"><%= donor.donor_name %></div>
+						  <div class="flex-grow-1"><%= index + 1 %>. <%= donor.donor_name %></div>
 						  <div class="font-weight-bold">Rs.<%= donor.donation_amount %></div>
 						</div>
 					</li>

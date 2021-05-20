@@ -31,7 +31,8 @@ a{
 <div class="row mb-0">
     <div class="col-md-3 fixed">
     <div class="border-bottom ml-2">
-        <h4 class="mnryp_word"> <%= t('bd_filter') %> <i class="fas fa-filter"></i></h4>
+        <h4 class="mnryp_word"> <%= t('bd_filter') %> <i class="fas fa-filter"></i>
+        </h4>
     </div>
 
   <div id="all_filters">
@@ -84,11 +85,13 @@ a{
           </select>
     </div>
 </div> 
-    </div>
 
+    </div>
+                
     <div class="col-md-9 scrollit mt-4">
 							 <div class="row" id="myItems">
-                        <% @busdeparture.each do |depart|%>
+                <% if params[:destination] %>
+                  <% @busdeparture.where("destination=?",params[:destination]).each do |depart|%>
                         <div class="col-md-4 offset-md-0 offset-sm-1 mt-2 card">
                             <div class="card-body">
                               <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
@@ -96,12 +99,29 @@ a{
                               <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
                                 <h6><b><%= t('depart_at') %>  <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
                                 <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
-                                <h6 class="font-weight-bold company"><%= depart.company %> <span style="color:#ffff">ALL</span></h6>
+                                <h6 class="font-weight-bold company">
+                                  <%= depart.company %> <span style="color:#ffff">ALL</span></h6>
                                 <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
                             </div>
                         </div>
+                      <% end %>
+                <% else %>
+                    <% @busdeparture.each do |depart|%>
+                        <div class="col-md-4 offset-md-0 offset-sm-1 mt-2 card">
+                            <div class="card-body">
+                              <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
+                              <span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
+                              <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
+                                <h6><b><%= t('depart_at') %>  <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
+                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
+                                <h6 class="font-weight-bold company">
+                                  <%= depart.company %> <span style="color:#ffff">ALL</span></h6>
+                                <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
+                            </div>
+                        </div>
+                      <% end %>
+                <% end %>
                         
-                        <% end %>
                     </div>
          </div>
 </div>
@@ -111,7 +131,6 @@ a{
 <script type="text/javascript">
 	
 	function busFilter(){
-
 
       input = document.getElementById("destination_search");
       filter_place = input.value.toUpperCase();

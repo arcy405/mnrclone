@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_044824) do
+ActiveRecord::Schema.define(version: 2021_05_19_090131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -334,6 +334,8 @@ ActiveRecord::Schema.define(version: 2021_05_17_044824) do
     t.string "phone"
     t.string "description"
     t.integer "user_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_marketplaces_on_slug", unique: true
   end
 
   create_table "models", force: :cascade do |t|
@@ -408,6 +410,8 @@ ActiveRecord::Schema.define(version: 2021_05_17_044824) do
     t.string "coverimage"
     t.string "tagline"
     t.string "payment_details"
+    t.string "slug"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
   create_table "realestate_images", force: :cascade do |t|
@@ -744,6 +748,8 @@ ActiveRecord::Schema.define(version: 2021_05_17_044824) do
     t.string "lattitude"
     t.string "feature"
     t.string "description"
+    t.string "slug"
+    t.index ["slug"], name: "index_tourists_on_slug", unique: true
   end
 
   create_table "universities", force: :cascade do |t|

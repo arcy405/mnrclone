@@ -4,7 +4,7 @@ class TouristsController < ApplicationController
     end 
      
     def show
-      @tourist = Tourist.find(params[:id])
+      @tourist = Tourist.friendly.find(params[:id])
     end
 end
 

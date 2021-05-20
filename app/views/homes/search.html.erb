@@ -17,7 +17,7 @@
 			</span>
 		<% end %>
 			<p class="responsive-text text-muted"><i class="fas fa-tags text-warning"></i>Bussiness Tags</p>
-	<% end %><hr />
+	<% end %>
 	<!---------------------for all the searches of listings if any------------------------------------------->
 	<% @listings_result[:hits].each do |result| %>
 	  <%= link_to listing_path(result[:objectID]) do %>
@@ -27,4 +27,52 @@
 		<% end %>
 			<p class="responsive-text text-muted"><i class="fas fa-tags text-danger"></i>Bussiness Listings</p>
 	<% end %>
+	
+	<!---------------------for all the searches of bus schedules if any------------------------------------------->
+	<% @bus_result[:hits].each do |result| %>
+	  <%= link_to bus_departures_path(destination: result[:destination]) do %>
+			<span class="responsive-title">
+				Bus To <%= result[:destination] %>
+			</span>
+		<% end %>
+			<p class="responsive-text text-muted"><i class="fas fa-bus-alt text-success"></i>Bus Schedules</p>
+	<% end %>
+	
+	<!---------------------for all the searches of blood donors if any------------------------------------------->
+	<% @blood_result[:hits].each do |result| %>
+	  <%= link_to donors_path(blood_group:result[:blood_group]) do %>
+			<span class="responsive-title">
+				<%= result[:blood_group] %> Blood Donors
+			</span>
+		<% end %>
+			<p class="responsive-text text-muted"><i class="fas fa-tint text-danger"></i>Blood Donors</p>
+			<% break %>
+	<% end %>
+	<!---------------------for all the searches of Emergency numbers if any------------------------------------------->
+	<% @imp_number_result[:hits].each do |result| %>
+			<span class="responsive-title">
+				<%= result[:name] %>
+			</span><br>
+			<a href="tel:<%= result[:phone] %>" class="responsive-text text-primary"><i class="fas fa-phone-alt"></i> <%= result[:phone] %> </a>
+			<% break %>
+	<% end %>
+	<!---------------------for all the searches of Profession if any------------------------------------------->
+	<% @profession_result[:hits].each do |result| %>
+		<%= link_to professionals_path(profession:result[:name]) do %>
+			<span class="responsive-title">
+				<%= result[:name] %>
+			</span>
+			<p  class="responsive-text text-primary"><i class="fas fa-user-tie text-warning"></i>Professionals</p>
+		<% end %>
+	<% end %>
+	<!---------------------for all the searches of Tourist places --------------------------------------->
+	<% @tourist_result[:hits].each do |result| %>
+		<%= link_to tourist_path(result[:objectID]) do %>
+			<span class="responsive-title">
+				<%= result[:place_name] %>
+			</span>
+			<p  class="responsive-text text-info"><i class="fas fa-map-marked text-info"></i></i>Tourist Place</p>
+		<% end %>
+	<% end %>
+	
 </div>

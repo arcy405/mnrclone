@@ -4,8 +4,8 @@ class VacanciesController < ApplicationController
   end
 
   def show
-    @vacancy = Vacancy.find(params[:id]) 
-    @job_relevent=Vacancy.where('job_category=? AND id !=?',@vacancy.job_category,params[:id]).limit(6)
+    @vacancy = Vacancy.friendly.find(params[:id]) 
+    @job_relevent=Vacancy.where('job_category=? AND id !=?',@vacancy.job_category,@vacancy.id).limit(6)
     
   end
 
