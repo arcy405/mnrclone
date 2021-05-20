@@ -5,12 +5,9 @@ class Realestate < ApplicationRecord
     
   	friendly_id :propertyname, use: :slugged
 	  
+	has_many :realestate_images,dependent: :destroy
+	accepts_nested_attributes_for :realestate_images, :reject_if => proc {|attributes| attributes['image'].blank? && attributes['image_cache'].blank?}
 
-	  has_many :realestate_images,dependent: :destroy
-
-      accepts_nested_attributes_for :realestate_images, :reject_if => proc {|attributes| attributes['image'].blank? && attributes['image_cache'].blank?}
-    
-
-  	validates_presence_of :seller_name, :seller_phone, :price, :propertyname ,:user_id  
+	validates_presence_of :seller_name, :seller_phone, :price, :propertyname ,:user_id ,:realestate_images, :description 
   
 end

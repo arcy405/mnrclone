@@ -3,7 +3,7 @@
 # .NET, PHP, Python, Node, and Go applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated November 8, 2020
+# Generated May 16, 2021
 #
 # This configuration file is custom generated for NewRelic Administration
 #
@@ -12,11 +12,11 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: eu01xxbf1027293dbac1f885f0c9e99b8455NRAL
+  license_key: 22b8d3322811b47732a5a12cf7729ae06bdaNRAL
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: MNRYP Directory
+  app_name: MNRYP
 
   distributed_tracing:
     enabled: true
@@ -33,7 +33,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: MNRYP Directory (Development)
+  app_name: MNRYP (Development)
 
 test:
   <<: *default_settings
@@ -42,7 +42,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: MNRYP Directory (Staging)
+  app_name: MNRYP (Staging)
 
 production:
   <<: *default_settings

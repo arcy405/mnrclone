@@ -1,120 +1,179 @@
 <% content_for :title, "#{@project.project_name}-MNRYP" %>
-<%= render 'Homepage/navmenu.html.erb' %>
+	<%= render 'Homepage/navmenu.html.erb' %>
 
 
-<div id="app" class="crowd-funding pt-2">
+		<div id="app" class="crowd-funding pt-2">
 
-  <div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
+			<div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
   background-position: center;'>
-  	<!---------------------------------------------------------------->
-  	<div class="row mt-8">
-  		<div class="col-md-4 my-auto">
-		  			<%= link_to new_project_donation_path(@project) do %>
-		  			    <div class="about-title clearfix">
-		                    <h1><span class="help text-white px-2">DONATE NOW</span></h1>
-		                </div>
-		            <% end %>
-            <%= @project.tagline %>
-        </div>
+				<!---------------------------------------------------------------->
+				<div class="row mt-8">
+					<div class="col-md-4 my-auto">
+						<%= link_to new_project_donation_path(@project) do %>
+							<div class="about-title clearfix">
+								<h1><span class="help text-white px-2">DONATE NOW</span></h1>
+							</div>
+							<% end %>
+								<%= @project.tagline %>
+					</div>
 
-  		<div class="col-md-4 my-auto mx-auto">
-  			<div class="about-title clearfix mt-8">
-                    <h1><span class="text-white"><%= @project.project_name %></span></h1></div>
-  		</div>
-  		<div class="col-md-4 my-auto mt-8">
-  			<div  class="float-right">
-			<h1><%= @number_of_people %></h1>
-			<p class="days-to-go">people donated</p>
-			<div class="funding-counter">
-				<p><strong>Rs.<%= number_with_delimiter(@total_amount, :delimiter => ',') %> raised</strong></p>
-				<div class="progress" style="height: 10px;">
-				    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="col-md-4 my-auto mx-auto">
+						<div class="about-title clearfix mt-8">
+							<h1><span class="text-white">
+									<%= @project.project_name %>
+								</span></h1>
+						</div>
+					</div>
+					<div class="col-md-4 my-auto mt-8">
+						<div class="float-right">
+							<h1>
+								<%= @number_of_people %>
+							</h1>
+							<p class="days-to-go">people donated</p>
+							<div class="funding-counter">
+								<p><strong>Rs.<%= number_with_delimiter(@total_amount, :delimiter=> ',') %>
+											raised</strong></p>
+								<div class="progress" style="height: 10px;">
+									<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+										aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!---------------------------------------------------------------->
 				</div>
 			</div>
-      </div>
-  </div>
-  	<!---------------------------------------------------------------->
-  </div>
-</div>
-</div>
-
-<!---------------all the images related to project------------------------------->
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container my-2">
-	<div class="row">
-		<% @project_gallery.each do |gallery| %>
-		<div class="col-md-3 col-sm-4 col-6">
-					<%= cl_image_tag(gallery.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"img-fluid", loading:"lazy") %>
-			</div>
-		<% end %>
-    </div>
-</div>
-<!--------------------------------------------------------------------------------------->
-<div class="container-fluid mt-2">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">What we want to do?</span></div>
-			<div class="text-muted text-justify"><%= @project.project_description %></div>
 		</div>
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Whom we are doing for?</span></div>
-			<div class="text-muted text-justify"><%= @project.foundation_description %></div>
-		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Who is doing this?</span></div>
-			<div class="text-muted text-justify"><%= @project.organizer_description %></div>
-		</div>
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">How can you help?</span></div>
-			<div class="text-muted text-justify">Click on the Donate now button, fill in your details for the record of MNRYP. You will find all the payment details in the same page. You can make the payment from description given there.
-			</div>
-			<%= link_to new_project_donation_path(@project) do %>
-				<div class="about-title clearfix my-2">
-                    <h1><span class="help px-2 ">DONATE NOW</span></h1>
-                </div>
-            <% end %>
-		</div>
-	</div>
+		<!---------------all the images related to project------------------------------->
+		<!------ Include the above in your HEAD tag ---------->
 
-</div>
-<div class="container my-2">
-	<div class="mnryp_word text-center"><span class="fluid-title">Donors till date-MNRYP Heroes</span></div>
-	<hr />
-	<div class="row">
-
-		<% @donors.each do |donor| %>
-		<div class="col-md-3">
-			<div class="card px-2">
-				<div class="card-title"><%= donor.donor_name %></div>
-				<div>Rs.<%= donor.donation_amount %></div>
+		<div class="container my-2">
+			<div class="row">
+				<% @project_gallery.each do |gallery| %>
+					<div class="col-md-3 col-sm-4 col-6">
+						<%= cl_image_tag(gallery.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" ,
+							:class=>"img-fluid", loading:"lazy") %>
+					</div>
+					<% end %>
 			</div>
 		</div>
-		<% end %>
-	</div>
-</div>
+		<!--------------------------------------------------------------------------------------->
+		<div class="container-fluid mt-2">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">What we want to do?</span></div>
+					<div class="text-muted text-justify">
+						<%= @project.project_description %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">Whom we are doing for?</span></div>
+					<div class="text-muted text-justify">
+						<%= @project.foundation_description %>
+					</div>
+				</div>
+			</div>
 
- <!-----------PROJECT EXPENSES------------------->
-  <div class="container my-3">
-     <h3> <strong> <u> Project Expenses </u></strong> </h3>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">Who is doing this?</span></div>
+					<div class="text-muted text-justify">
+						<%= @project.organizer_description %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">How can you help?</span></div>
+					<div class="text-muted text-justify">Click on the Donate now button, fill in your details for the
+						record of MNRYP. You will find all the payment details in the same page. You can make the
+						payment from description given there.
+					</div>
+					<%= link_to new_project_donation_path(@project) do %>
+						<div class="about-title clearfix my-2">
+							<h1><span class="help px-2 ">DONATE NOW</span></h1>
+						</div>
+						<% end %>
+				</div>
+			</div>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4 my-3">
-         <% @project_expense.each do |expn| %>
-                <div class="col">
-                    <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title "> <strong> Title of payment : <%= expn.expenditure_title %>   </strong> </h6>
-                        <p class="card-text"><strong> Amount : Rs.<%= expn.ammount %> /-   </strong> </p>
-                        <pre> Project : <%= expn.project_belongs_to %> </pre>
-                    <!--		<%= cl_image_tag(expn.bills, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %> -->
-                    </div>
-                    </div>
-                </div>
-        <% end %>
-        </div>
+		</div>
 
-    </div>
-    
+		<div class="container-fluid my-2">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">Project Expense Details</span></div>
+					<ul class="list-group">
+						<% @project_expense.each do |expn| %>
+							<li class="list-group-item">
+								<div class="d-flex">
+									<div class="flex-grow-1">
+										<%= expn.expenditure_title %>
+									</div>
+									<div>Rs.<%= expn.spent_amount %> /-</div>
+									<div class="ml-2">
+										<span img-src="<%= expn.biils %>" expense-title="<%= expn.expenditure_title %>"
+											spent-amount="<%= expn.spent_amount %>" onclick="modal_value(this)"
+											style="cursor:pointer" class="badge rounded-pill bg-info text-dark"
+											data-toggle="modal" data-target="#billModal">
+											View Bill
+										</span>
+
+									</div>
+							</li>
+							<% end %>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<div class="mnryp_word"><span class="fluid-title">Donors Till Date</span></div>
+					<ul class="list-group">
+						<% @donors.each do |donor| %>
+							<li class="list-group-item">
+								<div class="d-flex">
+									<div class="flex-grow-1">
+										<%= donor.donor_name %>
+									</div>
+									<div class="font-weight-bold">Rs.<%= donor.donation_amount %>
+									</div>
+								</div>
+							</li>
+							<% end %>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+		<!-- Button trigger modal -->
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="billModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel"></h5><span class="ml-4 my-auto text-muted"
+							id="spent_amount"></span>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+					</div>
+
+					<div class="modal-body">
+						<img id="bills-image" src="" alt="bill" class="img-fluid" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function modal_value(e) {
+				var img_src = e.getAttribute("img-src");
+				var proj_title = e.getAttribute("expense-title");
+				var spent_amount = e.getAttribute("spent-amount");
+
+				document.getElementById("bills-image").src = img_src;
+				document.getElementById("exampleModalLabel").innerHTML = proj_title;
+				document.getElementById("spent_amount").innerHTML = "Rs." + spent_amount;
+
+			}
+		</script>

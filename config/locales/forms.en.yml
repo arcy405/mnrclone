@@ -84,4 +84,24 @@ en:
   donation_placeholder_3: "Enter your phone number"
   donation_placeholder_4: "Enter the amount to be donated"
 
+  #realestate form
+  realestate_title: "Sell Your Property To"
+  realestate_text1: "Provide accurate details."
+  realestate_text2: "The seller and buyer will be responsible for all transactions."
+  realestate_text3: "Your property will be listed for a period of one month."
+  #for placeholders
+  realestate_placeholder_1: "Enter Property Name"
+  realestate_placeholder_2: "Enter Property Price"
+  realestate_placeholder_3: "Enter Property Address"
+  realestate_placeholder_4: "Enter Owner's Name"
+  realestate_placeholder_5: "Enter Contact Number"
+  realestate_placeholder_6: "Enter Property Description"
+  realestate_placeholder_7: "Co-ordinates of your location"
+  realestate_placeholder_8: "Latitude"
+  realestate_placeholder_9: "Longitude"
+  realestate_placeholder_10: "Number of Bedrooms"
+  realestate_placeholder_11: "Number of Kitchens"
+  realestate_placeholder_12: "Number of Bathrooms"
+
+
 

@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load",function() { 
 
-      const client = algoliasearch('110S5077CQ', 'da8844c8008d9206a1e9846a6f74d5c6');
+      const client = algoliasearch('110S5077CQ', '32aa983c15ccc5618142767ed638f3f2');
       
         const listing = client.initIndex('Listing');
         const tag = client.initIndex('Tag');
