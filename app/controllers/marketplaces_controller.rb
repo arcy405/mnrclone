@@ -7,7 +7,7 @@ class MarketplacesController < ApplicationController
 	end
 
   def show
-    @marketplace = Marketplace.find(params[:id])
+    @marketplace = Marketplace.friendly.find(params[:id])
   end
 	def new
 		@marketplace = Marketplace.new
@@ -34,7 +34,7 @@ class MarketplacesController < ApplicationController
   end
 
   def edit
-    @marketplace = Marketplace.find(params[:id])
+    @marketplace = Marketplace.friendly.find(params[:id])
   end
 
   def update
@@ -56,7 +56,7 @@ class MarketplacesController < ApplicationController
     
       private
          def set_marketplace
-            @marketplace = Marketplace.find(params[:id])
+            @marketplace = Marketplace.friendly.find(params[:id])
          end
 
         def marketplace_params

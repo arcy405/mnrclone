@@ -1,12 +1,12 @@
 class DonationsController < ApplicationController
 
 	def new
-        @project=Project.find(params[:project_id])
+        @project=Project.friendly.find(params[:project_id])
 		@donation = @project.donations.build
 	end
 
   def show
-    @project=Project.find(params[:project_id])
+    @project=Project.friendly.find(params[:project_id])
     @payment_links=[
         {"name":"Khalti","links":"https://play.google.com/store/apps/details?id=com.khalti&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102429/Banks%20For%20Nepaila/vtoxj9t4UWl6qxWUPGpv7ndJuJs_W3UTnQYpBwJ7xBMuRJ2TE6d71NrwWU6Nkbq0Zs8_s180_sjfojl.png"},
         {"name":"Esewa","links":"https://play.google.com/store/apps/details?id=com.f1soft.esewa&hl=en_AU","img":"https://res.cloudinary.com/di7sekeem/image/upload/v1620102542/Banks%20For%20Nepaila/MRzMmiJAe0-xaEkDKB0MKwv1a3kjDieSfNuaIlRo750_EgqxjRFWKKF7xQyRSb4O95Y_s180_htkaxs.png"},
@@ -48,7 +48,7 @@ class DonationsController < ApplicationController
     end
 
 	def create
-        @project=Project.find(params[:project_id])
+        @project=Project.friendly.find(params[:project_id])
         @donation = @project.donations.build(donation_params)
         respond_to do |format|
             if @donation.save

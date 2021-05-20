@@ -97,72 +97,19 @@
 			</div>
 
 		</div>
-
-		<div class="container-fluid my-2">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="mnryp_word"><span class="fluid-title">Project Expense Details</span></div>
-					<ul class="list-group">
-						<% @project_expense.each do |expn| %>
-							<li class="list-group-item">
-								<div class="d-flex">
-									<div class="flex-grow-1">
-										<%= expn.expenditure_title %>
-									</div>
-									<div>Rs.<%= expn.spent_amount %> /-</div>
-									<div class="ml-2">
-										<span img-src="<%= expn.biils %>" expense-title="<%= expn.expenditure_title %>"
-											spent-amount="<%= expn.spent_amount %>" onclick="modal_value(this)"
-											style="cursor:pointer" class="badge rounded-pill bg-info text-dark"
-											data-toggle="modal" data-target="#billModal">
-											View Bill
-										</span>
-
-									</div>
-							</li>
-							<% end %>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="mnryp_word"><span class="fluid-title">Donors Till Date</span></div>
-					<ul class="list-group">
-						<% @donors.each do |donor| %>
-							<li class="list-group-item">
-								<div class="d-flex">
-									<div class="flex-grow-1">
-										<%= donor.donor_name %>
-									</div>
-									<div class="font-weight-bold">Rs.<%= donor.donation_amount %>
-									</div>
-								</div>
-							</li>
-							<% end %>
-					</ul>
-
-				</div>
-			</div>
-		</div>
-		<!-- Button trigger modal -->
-
-
-		<!-- Modal -->
-		<div class="modal fade" id="billModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel"></h5><span class="ml-4 my-auto text-muted"
-							id="spent_amount"></span>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-
-					</div>
-
-					<div class="modal-body">
-						<img id="bills-image" src="" alt="bill" class="img-fluid" />
-					</div>
-				</div>
-			</div>
+		<div class="col-md-6">
+			<div class="mnryp_word">Donors Till Date(<%= @number_of_people %>)</div>
+			<ul class="list-group">
+				<% @donors.each_with_index do |donor,index| %>
+					<li class="list-group-item">
+						<div class="d-flex">
+						  <div class="flex-grow-1"><%= index + 1 %>. <%= donor.donor_name %></div>
+						  <div class="font-weight-bold">Rs.<%= donor.donation_amount %></div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+			
 		</div>
 
 		<script type="text/javascript">
