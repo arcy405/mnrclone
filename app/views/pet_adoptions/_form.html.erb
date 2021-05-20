@@ -1,0 +1,50 @@
+<%= form_for @pet_adoptions,html: { multipart: true,class:"needs-validation", :novalidate=>true } do |f| %>        
+	<!--------------Errors-------------------------------------->
+		<% if @pet_adoptions.errors.any? %>
+		  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+		    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		    <% @pet_adoptions.errors.full_messages.each do |message|%>
+		        <p class="responsive-text"><%= message %> </p>
+		      <%end%>
+		  </div>
+		<%end%>
+<!------------------------------------------------------------------------------->
+	<div class="input-group has-validation">
+		<%= f.text_field :pet_name, placeholder: "Pet Name" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Pet Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+    	<%= f.telephone_field :contact, placeholder: "Contact Number" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Phone Number.
+      </div>
+    </div>
+
+    <label for="image">Add Image </label>
+    <div class="input-group has-validation">
+    	<%= f.file_field :image, direct_upload: true, class:"form-control",required:true %>
+              <%= f.hidden_field :image_cache %>
+      <div class="invalid-feedback">
+         Please upload an Image.
+      </div>
+    </div>
+
+         
+  <!-------------form buttons-------------------->
+  <div class="d-flex flex-row mt-2">
+    <div class="flex-fill">
+      <%= link_to :back do %>
+        <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+      <% end %>
+    </div>
+    <div class="flex-fill">
+      <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+    </div>
+  </div>
+  <!---------------------#########################-------------------------->
+             <%= recaptcha_action('pet_adoption') %>
+<% end %>

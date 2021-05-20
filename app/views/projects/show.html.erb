@@ -108,7 +108,8 @@
 				<% @donors.each_with_index do |donor,index| %>
 					<li class="list-group-item">
 						<div class="d-flex">
-						  <div class="flex-grow-1"><%= index + 1 %>. <%= donor.donor_name %></div>
+						  <div class="flex-grow-1"><%= index + 1 %>. <%= donor.donor_name %>
+						  	<% if donor.country? %><span clas="text-warning">(<%= donor.country %>)</span><% end %></div>
 						  <div class="font-weight-bold">Rs.<%= donor.donation_amount %></div>
 						</div>
 					</li>

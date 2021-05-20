@@ -1,24 +1,55 @@
 
-<%= form_with(model: [@project, @donation], local: true) do |f| %>
+<%= form_with(model: [@project, @donation], local: true,html: {class:"needs-validation", :novalidate=>true}) do |f| %>
 
+<!--------------Errors-------------------------------------->
 <% if @donation.errors.any? %>
-  <% @donation.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    <% @donation.errors.full_messages.each do |message|%>
+        <p class="responsive-text"><%= message %> </p>
+      <%end%>
+  </div>
+<%end%>
+<!------------------------------------------------------------------------------->
 
-    		<%= f.text_field :donor_name, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_1')}" %>
-    		<%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_2')}" %>
-    		<%= f.number_field :contact, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_3')}" %>
-    		<%= f.number_field :donation_amount, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_4')}" %>
-        
-        <div class="d-flex flex-row">
+    <div class="input-group has-validation">
+      <%= f.text_field :donor_name, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_1')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_2')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Address.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.telephone_field :contact, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_3')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Phone Number.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.number_field :donation_amount, class:"form-control mb-2", placeholder:"#{t('donation_placeholder_4')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Amount.
+      </div>
+    </div>
+
+         <!-------------form buttons-------------------->
+        <div class="d-flex flex-row mt-2">
           <div class="flex-fill">
-            <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
+            <%= link_to :back do %>
+              <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+            <% end %>
           </div>
           <div class="flex-fill">
-            <%= f.submit "#{t('donate')}" ,class:"button form-control text-white font-weight-bold" %>
+            <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
           </div>
         </div>
+  <!---------------------#########################-------------------------->
             <%= recaptcha_action('donation') %>
   <% end %>
