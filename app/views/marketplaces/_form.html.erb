@@ -1,40 +1,73 @@
 
-	<%= form_for @marketplace,:html => { :multipart => true } do |f| %>
+	<%= form_for @marketplace,:html => { :multipart => true,class:"needs-validation", :novalidate=>true } do |f| %>
+
+                <!--------------Errors-------------------------------------->
+        <% if @marketplace.errors.any? %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            <% @marketplace.errors.full_messages.each do |message|%>
+                <p class="responsive-text"><%= message %> </p>
+              <%end%>
+          </div>
+        <%end%>
+        <!------------------------------------------------------------------------------->
+
 
 		<%= f.hidden_field :seller_name, value:"#{current_user.name}" %>
 		<%= f.hidden_field :user_id, value:"#{current_user.id}" %>
 
-         <div class="row p-2">
-            <%= f.text_field :prod_name, placeholder: "#{t('marketplace_placeholer_1')}", class:"form-control w-100" %>
-         </div>
-            
-         <div class="row p-2">
-            <%= f.number_field :price, placeholder: "#{t('marketplace_placeholer_2')}", class:"form-control w-100" %>
-         </div>
-         <div class="row p-2">
-            <%= f.number_field :phone, placeholder: "#{t('marketplace_placeholer_3')}", class:"form-control w-100" %>
-         </div>
+        <div class="input-group has-validation">
+            <%= f.text_field :prod_name, placeholder: "#{t('marketplace_placeholer_1')}", class:"form-control MT-2" %>
+            <div class="invalid-feedback">
+                Please enter a valid Product Name.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.number_field :price, placeholder: "#{t('marketplace_placeholer_2')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter a valid Price.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.telephone_field :phone, placeholder: "#{t('marketplace_placeholer_3')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter a valid Phone number.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.text_area :description, placeholder: "#{t('marketplace_placeholer_4')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter a valid Bussiness Address.
+            </div>
+        </div>
 
+        <hr />
+        <label class="mr-2"><%= t('marketplace_placeholer_5') %></label>
          <div class="row p-2">
-            <%= f.text_area :description, placeholder: "#{t('marketplace_placeholer_4')}", class:"form-control w-100" %>
-         </div>
-<hr />
-         <div class="row p-2">
-         	
-            <label class="mr-2"><%= t('marketplace_placeholer_5') %></label>
             <%= f.fields_for :market_place_images do |p| %>
-             <div class="field">
-              <div class="input-group">
-                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name:"market_place_images[image][]" %>
+                <div class="input-group has-validation">
+                <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name:"market_place_images[image][]",required:true %>
                  <%= p.hidden_field :image_cache %>
+                 <div class="invalid-feedback">
+                    Please uplaod Product Images.
+                 </div>
              </div>
              <pre><%= t('marketplace_placeholer_6') %></pre>
+            <% end %>
            </div>
-           <% end %>
-         </div>
-         
-         <div class="d-flex justify-content-center mt-2">
-          <%= f.submit "Sell" , class: "button"%>
-         </div>
+        <hr />
+         <!-------------form buttons-------------------->
+          <div class="d-flex flex-row mt-2">
+            <div class="flex-fill">
+              <%= link_to :back do %>
+                <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+              <% end %>
+            </div>
+            <div class="flex-fill">
+              <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+            </div>
+          </div>
            <%= recaptcha_action('marketplace') %>
   <% end %>

@@ -1,27 +1,65 @@
 
-<%= form_for @professional do |f| %>
-<% if @professional.errors.any? %>
-  <% @professional.errors.full_messages.each do |message|%>
-  <h3><%= message %> </h3>
-  <%end%>
-<%end%></br>
-    		<%= f.text_field :name, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_1')}" %>
-  			<%= f.label :profession_id, "#{t('professional_placeholder_2')}" %>
-  			   <%= f.select :profession_id, options_from_collection_for_select(Profession.all, 'id', 'name'),{:prompt =>"#{t('professional_placeholder_2')}"} %>
-    		<%= f.text_field :address, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_3')}" %>
-    		<%= f.number_field :contact, class:"form-control mb-2", placeholder:"#{t('professional_placeholder_4')}" %>
-	        <label for="image"><%= t('professional_placeholder_5') %></label>
-	        <%= f.file_field :image, direct_upload: true %>
-	        <%= f.hidden_field :image_cache %>
-	        <div class="form-text text-mutes">*<%= t('professional_placeholder_6') %></div>
+<%= form_for @professional,html: {class:"needs-validation", :novalidate=>true} do |f| %>
+<!-----------------error messages---------------------->
+    <% if @professional.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        <% @professional.errors.full_messages.each do |message|%>
+            <p class="responsive-text"><%= message %> </p>
+          <%end%>
+      </div>
+    <%end%>
+<!----------------------------------------------------------------->
+    <div class="input-group has-validation">
+      <%= f.text_field :name, class:"form-control mt-2", placeholder:"#{t('professional_placeholder_1')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.select :profession_id, options_from_collection_for_select(Profession.all, 'id', 'name'),{:prompt =>"#{t('professional_placeholder_2')}"},class:"form-control mt-2",required:true %>
+      <div class="invalid-feedback">
+         Please select a Profession.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.text_field :address, class:"form-control mt-2", placeholder:"#{t('professional_placeholder_3')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Address.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.telephone_field :contact, class:"form-control mt-2", placeholder:"#{t('professional_placeholder_4')}" %>
+      <div class="invalid-feedback">
+         Please enter a valid Phone Number.
+      </div>
+    </div>
+  
+    <hr />
+      <label for="image"><%= t('professional_placeholder_5') %></label>
+      <%= f.file_field :image, direct_upload: true,class:"form-control mt-2" %>
+      <%= f.hidden_field :image_cache %>
 
-        <div class="d-flex flex-row">
-          <div class="flex-fill">
-            <%= link_to :back do %><span class="cancel-button form-control font-weight-bold text-center">Cancel</span><% end %>
-          </div>
-          <div class="flex-fill">
-            <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
-          </div>
-        </div>
-            <%= recaptcha_action('professional') %>
+      <div class="form-text text-mutes">*<%= t('professional_placeholder_6') %></div>
+    <hr />
+  
+  
+  
+
+  <!-------------form buttons-------------------->
+  <div class="d-flex flex-row mt-2">
+    <div class="flex-fill">
+      <%= link_to :back do %>
+        <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+      <% end %>
+    </div>
+    <div class="flex-fill">
+      <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+    </div>
+  </div>
+  <!---------------------#########################-------------------------->
+  <%= recaptcha_action('professional') %>
 <% end %>
+

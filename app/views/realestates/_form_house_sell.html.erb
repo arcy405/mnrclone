@@ -1,31 +1,88 @@
+<%= form_for @realestate,html: {:multipart => true,class:"needs-validation", :novalidate=>true} do |f| %>
 
-
-<%= form_for @realestate,:html => { :multipart => true } do |f| %>
+   <!--------------Errors-------------------------------------->
+  <% if @realestate.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      <% @realestate.errors.full_messages.each do |message|%>
+          <p class="responsive-text"><%= message %> </p>
+        <%end%>
+    </div>
+  <%end%>
+  <!------------------------------------------------------------------------------->
 
  <!-------------hidden field ------------------->
   <%= f.hidden_field :user_id, value: "#{current_user.id}"  %>
   <%= f.hidden_field :ptype, value: "sell"  %>
   <!------------------------------------------------>
-    <%= f.text_field :propertyname , placeholder: "#{t('realestate_placeholder_1')}" ,class:"form-control mb-2" %>
-        <%= f.text_field :price, placeholder: "#{t('realestate_placeholder_2')}" ,class:"form-control mb-2" %>
-        <%= f.text_field :address, placeholder: "#{t('realestate_placeholder_3')}" ,class:"form-control mb-2" %>
-        <%= f.text_field :seller_name , placeholder: "#{t('realestate_placeholder_4')}" ,class:"form-control mb-2" %>
-        <%= f.text_field :seller_phone , placeholder: "#{t('realestate_placeholder_5')}" ,class:"form-control mb-2" %>
-        <%= f.text_area :description , placeholder: "#{t('realestate_placeholder_6')}" ,:rows => "4" , class:"form-control mb-2" %>
+    <div class="input-group has-validation">
+      <%= f.text_field :propertyname , placeholder: "#{t('realestate_placeholder_1')}" ,class:"form-control mb-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Property Name.
+      </div>
+    </div>
+    <!------------------------------------------------>
+    <div class="input-group has-validation">
+      <%= f.text_field :propertyname , placeholder: "#{t('realestate_placeholder_1')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Property Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.number_field :price, placeholder: "#{t('realestate_placeholder_2')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Price.
+      </div>
+    </div>     
+    <div class="input-group has-validation">
+      <%= f.text_field :address, placeholder: "#{t('realestate_placeholder_3')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Address.
+      </div>
+    </div> 
+    <div class="input-group has-validation">
+      <%= f.text_field :seller_name , placeholder: "#{t('realestate_placeholder_4')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Name.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.telephone_field :seller_phone , placeholder: "#{t('realestate_placeholder_5')}" ,class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Phone Number.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.text_area :description , placeholder: "#{t('realestate_placeholder_6')}" ,:rows => "4" , class:"form-control mt-2" %>
+      <div class="invalid-feedback">
+         Please enter a valid Description.
+      </div>
+    </div> 
+        
+        <hr />
      <!------------co-ordinates ---->
       <pre> <i class="fas fa-map-marker-alt"></i><%= t('realestate_placeholder_7') %></pre> 
       <div class="row">
         <div class="col-6"><%= f.text_field :latitude ,placeholder: "#{t('realestate_placeholder_8')}", class:"form-control" %></div>
         <div class="col-6"><%= f.text_field :longitude ,placeholder: "#{t('realestate_placeholder_9')}", class:"form-control" %></div>
       </div>
-    <!----------------------------->
       <hr />
+    <!----------------------------->
+      
     <div class="text-muted"><%= t('marketplace_placeholer_5') %></div>
             <%= f.fields_for :realestate_images do |p| %>
-                 <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]" %>
+                <div class="input-group has-validation">
+                   <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]", required:true %>
+                   <div class="invalid-feedback">
+                      Please upload property Images.
+                    </div>
+                </div>
                  <%= p.hidden_field :image_cache %>
            <% end %>
      <pre><%= t('marketplace_placeholer_6') %></pre>
+     <hr />
 
     <div class="d-flex flex-row">
       <div class="flex-fill">
