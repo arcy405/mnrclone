@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_085537) do
+ActiveRecord::Schema.define(version: 2021_05_21_043833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_085537) do
     t.integer "donation_amount"
     t.boolean "verification"
     t.string "country"
+    t.string "image"
     t.index ["project_id"], name: "index_donations_on_project_id"
   end
 

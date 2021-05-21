@@ -83,6 +83,7 @@ en:
   donation_placeholder_2: "Enter your address"
   donation_placeholder_3: "Enter your phone number"
   donation_placeholder_4: "Enter the amount to be donated"
+  donation_placeholder_5: "You can upload your Image."
 
   #realestate form
   realestate_title: "Sell Your Property To"

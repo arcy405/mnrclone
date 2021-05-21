@@ -84,6 +84,7 @@ np:
   donation_placeholder_2: "तपाईंको ठेगाना प्रदान गर्नुहोस्"
   donation_placeholder_3: "तपाईको फोन नम्बर प्रदान गर्नुहोस्"
   donation_placeholder_4: "दान गर्न रकम प्रदान गर्नुहोस्"
+  donation_placeholder_5: "तपाईं आफ्नो तस्वीर अपलोड गर्न सक्नुहुन्छ।"
 
   #realestate form
   realestate_title: "तपाईंको सम्पत्ति बेच्नुहोस्-"
