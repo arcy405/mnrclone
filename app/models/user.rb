@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
    include SimpleDiscussion::ForumUser
 
-  devise :omniauthable, omniauth_providers: %i[facebook]
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   devise :database_authenticatable,:recoverable, :rememberable, :validatable, :registerable
   
