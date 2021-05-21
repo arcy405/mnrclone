@@ -14,12 +14,12 @@
 <!------------------------------------------------------------------------------->
 
 	<div class="input-group has-validation">
-		<%= f.text_field :title, placeholder: "Event Name" ,class:"form-control mt-2" %>
+		<%= f.text_field :title, placeholder: "#{t('event_placeholder1')}" ,class:"form-control mt-2" %>
 		<div class="invalid-feedback">
 			 Please enter a valid Event Title.
 		</div>
     </div>
-    <%= label :date, "Event Date",class:" mt-2" %>
+    <%= label :date, " #{t('event_placeholder2')}",class:" mt-2" %>
     <div class="input-group has-validation">
     	<%= f.date_field :date ,class:"form-control" %>
 		<div class="invalid-feedback">
@@ -27,13 +27,13 @@
 		</div>
     </div>
     <div class="input-group has-validation">
-    	<%= f.text_field :location, placeholder: "Event Location" ,class:"form-control mt-2" %>
+    	<%= f.text_field :location, placeholder: "#{t('event_placeholder3')}" ,class:"form-control mt-2" %>
 		<div class="invalid-feedback">
 			 Please enter a valid Event Location.
 		</div>
     </div>
     <div class="input-group has-validation">
-    	<%= f.text_area :description, placeholder: "Event Description (Max. 50 words)" ,class:"form-control mt-2" %>
+    	<%= f.text_area :description, placeholder: "#{t('event_placeholder4')}" ,class:"form-control mt-2" %>
 		<div class="invalid-feedback">
 			 Please enter a valid Event Description.
 		</div>
@@ -43,11 +43,11 @@
   <div class="d-flex flex-row mt-2">
     <div class="flex-fill">
       <%= link_to :back do %>
-        <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+        <span class="cancel-button form-control font-weight-bold text-center"> <%= t('cancel') %></span>
       <% end %>
     </div>
     <div class="flex-fill">
-      <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+      <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
     </div>
   </div>
   <!---------------------#########################-------------------------->
