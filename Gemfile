@@ -66,6 +66,7 @@ gem 'airbrake'
 gem "algoliasearch-rails"
 gem 'newrelic_rpm'
 
+gem "omniauth", "~> 1.9.1"
 #facebook login
 gem 'omniauth-facebook'
 
