@@ -97,3 +97,13 @@ np:
   login_to_become_donor: "रक्तदाता बन्नको लागि यहा थिच्नुहोस "
   #pet Adoption 
   add_pets: "गोद लिनका लागि घरपालुवा जनावर थप्नुहोस्"
+  #covid-homepage 
+  nepal_data: "नेपाल को कोविड तथ्यांक "
+  kanchanpur_data: "कंचनपुर  को कोविड तथ्यांक"
+  confirmed: "कोरोना पुष्टि "
+  recovered: "सन्चो भएका "
+  deaths: "मृत्यु भएका "
+  donate: "अक्सिजन सिलिण्डर का लागि दान गर्नुहोस "
+  #models 
+  male: "पुरुष"
+  female: "महिला"

@@ -3,9 +3,9 @@
 
 <div class="container-fluid px-4 mt-4">
    <div class="mb-4">
-   		<button class="badge bg-info text-dark filter-button mt-2" data-filter="all">All</button>
-        <button class="badge bg-info text-dark filter-button mt-2" data-filter="Male">Male</button>
-        <button class="badge bg-info text-dark filter-button mt-2" data-filter="Female">Female</button>
+   		<button class="badge bg-info text-dark filter-button mt-2" data-filter="all"> <%= t('all') %> </button>
+        <button class="badge bg-info text-dark filter-button mt-2" data-filter="Male"> <%= t('male') %> </button>
+        <button class="badge bg-info text-dark filter-button mt-2" data-filter="Female"> <%= t('female') %> </button>
     </div>
 <div class="row">
 <% @models.each do |model| %>
