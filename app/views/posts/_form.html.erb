@@ -1,4 +1,4 @@
-<%= form_for @post ,html: {class:"needs-validation", :novalidate=>true} do |f| %>
+<%= form_for @post ,html: {:multipart => true,class:"needs-validation", :novalidate=>true} do |f| %>
 <!-----------------error messages---------------------->
     <% if @post.errors.any? %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -11,18 +11,24 @@
       </div>
     <%end%>
 <!----------------------------------------------------------------->
-<div class="input-group has-validation">
-      <%= f.select :post_category_id, options_from_collection_for_select(PostCategory.all, 'id', 'name'),{:prompt =>"Select Category"},class:"form-control mt-2",required:true %>
-      <div class="invalid-feedback">
-         Please select a Category.
-      </div>
-    </div>
     <div class="input-group has-validation">
       <%= f.text_area :content, class:"form-control mt-2", placeholder:"What you want to share with MNR?" %>
       <div class="invalid-feedback">
          Please enter a valid Content.
       </div>
     </div>
+
+    <%= f.fields_for :post_images do |p| %>
+      <label class="rounded-pills border p-2 mt-2" style="cursor: pointer;">
+        <i class="fas fa-images"></i>Add Images
+        <span style="display:none;">
+          <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name:"post_images[image][]" %>
+          <%= p.hidden_field :image_cache %>
+        </span>
+      </label>
+    <% end %>
+
+   
 
     <!-------------form buttons-------------------->
   <div class="d-flex flex-row mt-2">

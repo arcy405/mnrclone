@@ -4,10 +4,9 @@ class PostsController < ApplicationController
 
     def index
         @posts=Post.includes(:post_comments).order("updated_at DESC")
-        @post_categories = PostCategory.order(:name)
-        @comments=PostComment.all
         if user_signed_in?
             @post=current_user.posts.build
+            @post_image = @post.post_images.build
             @comment=PostComment.new
         end
     end
@@ -17,6 +16,11 @@ class PostsController < ApplicationController
     
        respond_to do |format|
         if  @post.save
+
+              params[:post_images]['image'].each do |a|
+                    @marketplace_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+              end
+
               if user_signed_in?
                 current_user.gamification.create!(points:5)
               end
@@ -78,7 +82,7 @@ class PostsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:content, :images,:user_id,:post_category_id)
+        params.require(:post).permit(:content, :images,:user_id,post_images_attributes: [:id, :post_id, :image, :image_cache])
       end
 
 end

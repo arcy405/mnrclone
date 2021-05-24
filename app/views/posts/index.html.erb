@@ -10,6 +10,11 @@
 .scrollit {
    height:100vh;
    overflow-y:scroll; 
+   :-webkit-scrollbar {
+    display: none;
+    }
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
 
 }
 </style>
@@ -30,13 +35,6 @@
             <% end %>
         <% end %>
         <hr />
-        <div class="mnryp_word m-2">Categories</div>
-        <% @post_categories.each do |post_category| %>
-            <div class="mx-2">
-                <%= icon "fa-fw fas", "circle", style: "color: #{post_category.color}" %>
-                <%= post_category.name %>
-            </div>
-        <% end %>
     </div>
 
     <div class="col-md-12 mx-2 mr-2 d-block d-sm-none">
@@ -49,8 +47,18 @@
             <% end %>
     </div> 
 
-    <div class="col-md-9 scrollit">
-        <%= render partial:"postcard"%>
+    <div class="col-md-6 scrollit">
+        <%= render partial:"postcard" %>
+    </div>
+    <div class="col-md-3">
+        <div class="text-muted font-weight-bold">
+            <span class="text-center">Members Of MNR_Forum</span>
+            <% User.joins(:posts).group('users.id').having('count(posts.id) > 1').each do |member| %>
+                <div class="responsive-text text-primary">
+                    <%= member.name %> (<%= member.posts.count %> posts)
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
 
