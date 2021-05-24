@@ -1,0 +1,2 @@
+document.getElementById('form_post-<%= @post.id %>').style.display="";
+document.getElementById("form_post-<%= @post.id %>").innerHTML = "<%= j render "posts/edit_form" %>";

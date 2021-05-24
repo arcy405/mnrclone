@@ -1,0 +1,56 @@
+<% content_for :title, "MNR Forum-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+
+<style type="text/css">
+
+.fixed { 
+    height:600px; 
+   overflow:hidden; 
+   }
+.scrollit {
+   height:100vh;
+   overflow-y:scroll; 
+
+}
+</style>
+
+<div class="row">
+    <div class="col-md-3 fixed d-none d-sm-block">
+    <% if user_signed_in? %>
+        <div class="card">
+            <div class="profile-card">
+                    <div class="text-center px-2" id="form_post">
+                        <%= render partial: "form" %>
+                    </div>
+            </div>
+        </div>
+        <% else %>
+        <%= link_to user_session_path do %>
+                <div  class="btn-outline-danger rounded mx-2 my-2 p-2 border text-center">Log In To Post.</div>
+            <% end %>
+        <% end %>
+        <hr />
+        <div class="mnryp_word m-2">Categories</div>
+        <% @post_categories.each do |post_category| %>
+            <div class="mx-2">
+                <%= icon "fa-fw fas", "circle", style: "color: #{post_category.color}" %>
+                <%= post_category.name %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="col-md-12 mx-2 mr-2 d-block d-sm-none">
+            <% if user_signed_in? %>
+                <%= render partial: "form" %>
+            <% else %>
+                <%= link_to user_session_path do %>
+                    <span  class=" btn-outline-danger rounded p-2 border">Log In To Post.</span>
+                <% end %>
+            <% end %>
+    </div> 
+
+    <div class="col-md-9 scrollit">
+        <%= render partial:"postcard"%>
+    </div>
+</div>
+

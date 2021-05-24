@@ -1,0 +1,84 @@
+<% @posts.each do |post| %>
+<div class="card mt-2">
+    <div class="fb-clone-card">
+        <div class="fb-card-main-content">
+            <div class="fb-card-header">
+                <div class="user-post-info">
+                    <div class="user-thumb text-center py-2 font-weight-bold bg-warning">
+                        <img src="" alt="<%= post.user.name.split("")[0] if user_signed_in?%>" class="img-responsive" />
+                    </div>
+                    <div class="text-primary font-weight-bold float-left">
+                        <%= post.user.name%>
+                        <small class="text-muted">
+                            <%= icon "fa-fw fas", "circle", style: "color: #{post.post_category.color}" %>
+                            <%= post.post_category.name %>
+                        </small>
+                <br>
+                        <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
+                    </div>
+                </div>
+                <div class="post-action">
+                <% if user_signed_in? %>
+                    <% if post.user.id == current_user.id %>
+                        <div class="d-flex flex-row-reverse p-2">
+                            <div>
+                                <%= link_to  post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                            </div>
+                            <div class="mr-2 ml-2">
+                                <%= link_to  edit_post_path(post), remote: true do %><i class="far fa-edit text-primary"></i><% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+                </div>
+            </div>
+                    <div class="text-center px-2" id="form_post-<%= post.id %>" style="display: none">
+                        <%= render partial: "edit_form" %>
+                    </div>
+            <div class="text-justified mx-2 mt-2">
+                <p><%= post.content %></p>
+            </div>
+        </div>
+        <div class="container d-flex flex-row">
+                <div class="p-2">
+                    <div id="like-post-container<%=post.id%>">
+                        <%= render partial:"likes_count", locals:{post:post}  %>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div id="like-post-container<%=post.id%>">
+                        <%= render partial:"dislikes_count", locals:{post:post}  %>
+                    </div>
+                </div>
+                
+                <div class="p-2">
+                    <a data-toggle="collapse" href="#collapseComment<%= post.id %>" aria-controls="collapseComment<%= post.id %>" role="button" ><i class="far fa-comment-alt"></i> <%= post.post_comments.count%></a>
+                </div>
+                <!--<div class="fb-btn-holder">
+                    <a href="#"><i class="far fa-share-square mr-1"></i> Share</a>
+                </div>-------->
+        </div>
+
+
+        <div class="collapse p-2" id="collapseComment<%= post.id %>">
+            <% if user_signed_in? %>
+                 <%= form_for @comment, url:post_post_comments_path(post), remote: true do |f| %>
+                    <div class="row">
+                    <div class="col-md-10 col-7">
+                        <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
+                        <%= f.text_field :comment, class:"form-control w-100 rounded-pill",id:"post_comment_#{post.id}", placeholder:"Write a comment..." %>
+                    </div>
+                    <div class="col-md-2 col-5">
+                        <%= f.submit "Comment" , class:"button form-control responsive-text text-white font-weight-bold p-2", data: { disable_with: "Posting..." } %>
+                    </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <div id="comments-<%= post.id %>">
+                <%= render partial:"postComments",locals:{post:post} %>
+            </div>
+    </div>
+</div>
+</div>
+<% end %>
+                    

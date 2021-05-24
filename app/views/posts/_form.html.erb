@@ -1,0 +1,35 @@
+<%= form_for @post ,html: {class:"needs-validation", :novalidate=>true} do |f| %>
+<!-----------------error messages---------------------->
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        <% @post.errors.full_messages.each do |message|%>
+            <p class="responsive-text"><%= message %> </p>
+          <%end%>
+      </div>
+    <%end%>
+<!----------------------------------------------------------------->
+<div class="input-group has-validation">
+      <%= f.select :post_category_id, options_from_collection_for_select(PostCategory.all, 'id', 'name'),{:prompt =>"Select Category"},class:"form-control mt-2",required:true %>
+      <div class="invalid-feedback">
+         Please select a Category.
+      </div>
+    </div>
+    <div class="input-group has-validation">
+      <%= f.text_area :content, class:"form-control mt-2", placeholder:"What you want to share with MNR?" %>
+      <div class="invalid-feedback">
+         Please enter a valid Content.
+      </div>
+    </div>
+
+    <!-------------form buttons-------------------->
+  <div class="d-flex flex-row mt-2">
+    <div class="flex-fill">
+      <%= f.submit "Post" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Posting..." } %>
+    </div>
+  </div>
+  <!---------------------#########################-------------------------->
+
+<% end %>
