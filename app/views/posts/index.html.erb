@@ -53,7 +53,7 @@
     <div class="col-md-3">
         <div class="text-muted font-weight-bold">
             <span class="text-center">Members Of MNR_Forum</span>
-            <% User.joins(:posts).group('users.id').having('count(posts.id) > 1').each do |member| %>
+            <% User.joins(:posts).group('users.id').having('count(posts.id) > 0').each do |member| %>
                 <div class="responsive-text text-primary">
                     <%= member.name %> (<%= member.posts.count %> posts)
                 </div>
