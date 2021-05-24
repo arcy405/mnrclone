@@ -1,0 +1,25 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  	<% post.post_images.each_with_index do |post_img,index| %>
+  		<% active_class = "active" if index==0 %>
+  		<div class="carousel-item <%= active_class %>">
+    	<%= cl_image_tag(post_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"post-carousel-img", loading:"lazy") %>
+    	</div>
+  	<% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<style type="text/css">
+	.post-carousel-img{
+		height:300px;
+		width: 100%;
+	}
+</style>

@@ -9,10 +9,6 @@
                     </div>
                     <div class="text-primary font-weight-bold float-left">
                         <%= post.user.name%>
-                        <small class="text-muted">
-                            <%= icon "fa-fw fas", "circle", style: "color: #{post.post_category.color}" %>
-                            <%= post.post_category.name %>
-                        </small>
                 <br>
                         <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
                     </div>
@@ -37,6 +33,7 @@
                     </div>
             <div class="text-justified mx-2 mt-2">
                 <p><%= post.content %></p>
+                  <%= render partial:"image_card",locals:{post:post} %>
             </div>
         </div>
         <div class="container d-flex flex-row">
@@ -64,11 +61,11 @@
             <% if user_signed_in? %>
                  <%= form_for @comment, url:post_post_comments_path(post), remote: true do |f| %>
                     <div class="row">
-                    <div class="col-md-10 col-7">
+                    <div class="col-md-9 col-7">
                         <%= f.hidden_field :user_id, value:"#{current_user.id}" %>
                         <%= f.text_field :comment, class:"form-control w-100 rounded-pill",id:"post_comment_#{post.id}", placeholder:"Write a comment..." %>
                     </div>
-                    <div class="col-md-2 col-5">
+                    <div class="col-md-3 col-5">
                         <%= f.submit "Comment" , class:"button form-control responsive-text text-white font-weight-bold p-2", data: { disable_with: "Posting..." } %>
                     </div>
                     </div>
@@ -81,4 +78,6 @@
 </div>
 </div>
 <% end %>
+
+
                     
