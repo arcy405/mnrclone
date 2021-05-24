@@ -16,10 +16,11 @@ class PostsController < ApplicationController
     
        respond_to do |format|
         if  @post.save
-
+            if params[:post_images]
               params[:post_images]['image'].each do |a|
                     @marketplace_image = @post.post_images.create!(:image => a, :post_id => @post.id)
               end
+            end
 
               if user_signed_in?
                 current_user.gamification.create!(points:5)
