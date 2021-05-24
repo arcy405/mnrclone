@@ -108,6 +108,6 @@ gem 'dalli'
 
 gem 'rails-i18n'
 
-
+gem 'acts_as_votable'
 
 

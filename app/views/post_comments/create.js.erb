@@ -1,0 +1,2 @@
+console.log(document.getElementById("post_comment_<%= @post.id %>").value = "")
+document.getElementById("comments-<%= @post.id %>").innerHTML = "<%= j render "posts/postComments", post: @post %>";

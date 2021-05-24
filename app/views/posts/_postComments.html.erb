@@ -1,0 +1,16 @@
+<% post.post_comments.order("created_at DESC").each do |post_comment| %>
+    <div class="p-2">
+        <div class="comment-input-holder">
+            <div class="user-thumb text-center py-2 font-weight-bold bg-info">
+                <img src="" alt="<%= post_comment.user.name.split("")[0] if user_signed_in?%>" class="img-responsive" />
+            </div>
+             <div class="card p-2">
+                <div class="text-primary font-weight-bold float-left">
+                    <%= post_comment.user.name%>
+                    <small class="text-muted"><%= time_ago_in_words(post_comment.created_at) %> ago</small>
+                </div>
+                <%= post_comment.comment %>
+            </div>
+        </div>
+    </div>
+<% end %>
