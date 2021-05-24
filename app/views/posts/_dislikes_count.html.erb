@@ -1,6 +1,6 @@
 
 <%= link_to dislike_post_path(post), method: :put, remote: true, id: "dislike-link-#{post.id}" do %>
-<% if current_user.disliked? post %>
+<% if user_signed_in? && (current_user.disliked? pos) %>
       <% disliked_class = "fas fa-thumbs-down" %>
     <% else %>
         <% disliked_class = "far fa-thumbs-down" %>
