@@ -28,9 +28,11 @@
                 <% end %>
                 </div>
             </div>
+            <% if user_signed_in? %>
                     <div class="text-center px-2" id="form_post-<%= post.id %>" style="display: none">
                         <%= render partial: "edit_form" %>
                     </div>
+            <% end %>
             <div class="text-justified mx-2 mt-2">
                 <p><%= post.content %></p>
                   <%= render partial:"image_card",locals:{post:post} %>
