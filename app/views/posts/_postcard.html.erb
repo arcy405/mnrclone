@@ -5,10 +5,16 @@
             <div class="fb-card-header">
                 <div class="user-post-info">
                     <div class="user-thumb text-center py-2 font-weight-bold bg-warning">
-                        <img src="" alt="<%= post.user.name.split("")[0] if user_signed_in?%>" class="img-responsive" />
+                        <img src="" alt="<%= post.user.name.split("")[0] %>" class="img-responsive" />
                     </div>
                     <div class="text-primary font-weight-bold float-left">
-                        <%= post.user.name%>
+                        <%= post.user.name%> 
+                            <% followed = post.user %>
+                            <% if user_signed_in? &&  current_user.id != post.user.id %>
+                                <span class="follow-<%= post.user.id %>" >
+                                     <%= render partial:"follow_user", locals:{followed:followed} %>
+                                </span>
+                            <% end %>
                 <br>
                         <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
                     </div>

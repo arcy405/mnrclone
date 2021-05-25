@@ -77,6 +77,8 @@ Rails.application.routes.draw do
     member do
       put "like" => "posts#upvote"
       put "dislike" => "posts#downvote"
+      put "follow" => "posts#follow"
+      put "unfollow" => "posts#unfollow"
     end
   end
 

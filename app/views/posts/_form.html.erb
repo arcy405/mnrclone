@@ -20,7 +20,7 @@
 
     <%= f.fields_for :post_images do |p| %>
       <label class="rounded-pills border p-2 mt-2" style="cursor: pointer;">
-        <i class="fas fa-images"></i>Add Images
+        <i class="fas fa-images text-primary"></i>Upload Images
         <span style="display:none;">
           <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name:"post_images[image][]" %>
           <%= p.hidden_field :image_cache %>

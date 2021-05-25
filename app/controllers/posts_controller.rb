@@ -4,7 +4,9 @@ class PostsController < ApplicationController
 
     def index
         @posts=Post.includes(:post_comments).order("updated_at DESC")
+
         if user_signed_in?
+            @profile_post_count= User.joins(:posts).where("user_id=?",current_user.id).count
             @post=current_user.posts.build
             @post_image = @post.post_images.build
             @comment=PostComment.new
@@ -74,6 +76,23 @@ class PostsController < ApplicationController
           end
         end
        
+    end
+
+    def follow
+      @user = User.find(params[:id])
+      respond_to do |format|
+          if current_user.follow(@user)
+            format.js
+          end
+        end
+    end
+    def unfollow
+      @user = User.find(params[:id])
+      respond_to do |format|
+          if current_user.stop_following(@user)
+            format.js
+          end
+        end
     end
 
       private
