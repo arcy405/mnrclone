@@ -1,0 +1,5 @@
+partials = document.getElementsByClassName("follow-<%= @user.id %>")
+
+for (i = 0; i < partials.length; i++) {
+	partials[i].innerHTML = "<%= j render "posts/follow_user", followed: @user %>";
+}
