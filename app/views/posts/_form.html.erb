@@ -1,0 +1,41 @@
+<%= form_for @post ,html: {:multipart => true,class:"needs-validation", :novalidate=>true} do |f| %>
+<!-----------------error messages---------------------->
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        <% @post.errors.full_messages.each do |message|%>
+            <p class="responsive-text"><%= message %> </p>
+          <%end%>
+      </div>
+    <%end%>
+<!----------------------------------------------------------------->
+    <div class="input-group has-validation">
+      <%= f.text_area :content, class:"form-control mt-2", placeholder:"What you want to share with MNR?" %>
+      <div class="invalid-feedback">
+         Please enter a valid Content.
+      </div>
+    </div>
+
+    <%= f.fields_for :post_images do |p| %>
+      <label class="rounded-pills border p-2 mt-2" style="cursor: pointer;">
+        <i class="fas fa-images text-primary"></i>Upload Images
+        <span style="display:none;">
+          <%= p.file_field :image, direct_upload: true,:multiple => true,class:"form-control",name:"post_images[image][]" %>
+          <%= p.hidden_field :image_cache %>
+        </span>
+      </label>
+    <% end %>
+
+   
+
+    <!-------------form buttons-------------------->
+  <div class="d-flex flex-row mt-2">
+    <div class="flex-fill">
+      <%= f.submit "Post" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Posting..." } %>
+    </div>
+  </div>
+  <!---------------------#########################-------------------------->
+
+<% end %>

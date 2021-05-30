@@ -39,7 +39,12 @@
       </div>
     </div>
 
+    <p><%= t('donation_placeholder_5') %></p>
+    <%= f.file_field :image, direct_upload: true, class:"form-control"%>
+    <%= f.hidden_field :image_cache %>
+
          <!-------------form buttons-------------------->
+
         <div class="d-flex flex-row mt-2">
           <div class="flex-fill">
             <%= link_to :back do %>

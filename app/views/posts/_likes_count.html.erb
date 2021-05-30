@@ -1,0 +1,12 @@
+
+<%= link_to like_post_path(post), method: :put, remote: true, id: "like-link-#{post.id}" do %>
+
+    <% if user_signed_in? && (current_user.liked? post) %>
+      <% liked_class = "fas fa-thumbs-up" %>
+    <% else %>
+        <% liked_class = "far fa-thumbs-up" %>
+    <% end %>
+  <div class="fb-btn-holder">
+    <i class="<%= liked_class %>"></i> <%= post.get_upvotes.size %>
+  </div>
+<% end %>

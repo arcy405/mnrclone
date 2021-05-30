@@ -4,10 +4,17 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :gamification, dependent: :destroy
   has_many :donors, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+
+  acts_as_voter
+
+  acts_as_followable
+  acts_as_follower
 
    include SimpleDiscussion::ForumUser
 
-  devise :omniauthable, omniauth_providers: %i[facebook]
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   devise :database_authenticatable,:recoverable, :rememberable, :validatable, :registerable
   

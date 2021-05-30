@@ -66,7 +66,7 @@ class DonationsController < ApplicationController
 private
 
   def donation_params
-      params.require(:donation).permit(:donor_name,:address,:contact,:donation_amount)
+      params.require(:donation).permit(:donor_name,:address,:contact,:donation_amount,:image)
     end
 
 end

@@ -99,17 +99,26 @@
 		</div>
 		<div class="col-md-6">
 			<div class="mnryp_word">Donors Till Date(<%= @number_of_people %>)</div>
-			<ul class="list-group">
+			<div class="row">
 				<% @donors.each_with_index do |donor,index| %>
-					<li class="list-group-item">
-						<div class="d-flex">
-						  <div class="flex-grow-1"><%= index + 1 %>. <%= donor.donor_name %>
-						  	<% if donor.country? %><span clas="text-warning">(<%= donor.country %>)</span><% end %></div>
-						  <div class="font-weight-bold">Rs.<%= donor.donation_amount %></div>
-						</div>
-					</li>
+					<div class="col-md-6 mt-2">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+										<% if donor.image.present? %>
+											<%= cl_image_tag(donor.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"img-fluid card-image-professional",loading:"lazy") %>
+										<% else %>
+											<%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy",:class=>"img-fluid card-image-professional",loading:"lazy") %>
+										<%end%>
+                                        <h4 class="card-title responsive-title"><%= donor.donor_name %></h4>
+                                        <% if donor.country? %>
+                                        	<p class="card-text"><span class="badge rounded-pill bg-warning text-dark p-2 profession">(<%= donor.country %>)</span></p>
+                                        <% end %>
+                                         <p>Rs.<%= donor.donation_amount %></p>
+                                    </div>
+                                </div>
+                            </div>
 				<% end %>
-			</ul>
+			</div>
 			
 		</div>
 

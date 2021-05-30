@@ -11,5 +11,5 @@ class Marketplace < ApplicationRecord
     
     validates_presence_of :prod_name, :seller_name, :price, :phone, :description, :user_id
     validates_numericality_of :phone
-  validates_length_of :phone, is: 10
+  	validates_length_of :phone, is: 10
 end

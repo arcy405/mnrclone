@@ -1,0 +1,12 @@
+
+<%= link_to dislike_post_path(post), method: :put, remote: true, id: "dislike-link-#{post.id}" do %>
+<% if user_signed_in? && (current_user.disliked? post) %>
+      <% disliked_class = "fas fa-thumbs-down" %>
+    <% else %>
+        <% disliked_class = "far fa-thumbs-down" %>
+    <% end %>
+
+  <div class="fb-btn-holder">
+    <i class="<%= disliked_class %>"></i> <%= post.get_downvotes.size %>
+  </div>
+<% end %>

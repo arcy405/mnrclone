@@ -56,7 +56,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'devise'
 
 gem "carrierwave", "~> 2.1"
 gem 'cloudinary'
@@ -66,6 +66,7 @@ gem 'airbrake'
 gem "algoliasearch-rails"
 gem 'newrelic_rpm'
 
+gem "omniauth", "~> 1.9.1"
 #facebook login
 gem 'omniauth-facebook'
 
@@ -107,6 +108,6 @@ gem 'dalli'
 
 gem 'rails-i18n'
 
-
-
+gem 'acts_as_votable'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 

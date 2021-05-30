@@ -1,0 +1,11 @@
+
+<% if user_signed_in? && !current_user.following?(followed) %>
+    <%= link_to follow_post_path(followed.to_param), method: :put, remote: true do %>
+        <span class="badge rounded-pill bg-light text-dark responsive-text">Follow</span>
+    <% end %>
+<% else %>
+    <%= link_to unfollow_post_path(followed.to_param), method: :put, remote: true do %>
+        <span class="badge rounded-pill bg-light text-dark responsive-text">Unfollow</span>
+    <% end %>
+<% end %>
+

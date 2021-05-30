@@ -9,6 +9,7 @@
 //= require bootstrap-sprockets
 //= require commontator/application
 
+
 require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -20,8 +21,6 @@ require("custom/singleimage.js")
 require("custom/messenger.js")
 require("custom/facebookpage.js")
 require("custom/form_validation.js")
-
-
 
 import "bootstrap";
 import "../stylesheets/application"

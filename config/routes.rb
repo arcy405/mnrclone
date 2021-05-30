@@ -71,4 +71,17 @@ Rails.application.routes.draw do
 
   mount SimpleDiscussion::Engine => "/forum"
 
+  #mnr forum
+  resources :posts do
+    resources :post_comments
+    member do
+      put "like" => "posts#upvote"
+      put "dislike" => "posts#downvote"
+      put "follow" => "posts#follow"
+      put "unfollow" => "posts#unfollow"
+    end
+  end
+
+  mount ActionCable.server => '/cable'
+
 end
