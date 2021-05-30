@@ -30,7 +30,6 @@ class MarketplacesController < ApplicationController
                     format.html { render :new }
               end
         end
-    
   end
 
   def edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_065621) do
+ActiveRecord::Schema.define(version: 2021_05_28_062654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -363,6 +363,31 @@ ActiveRecord::Schema.define(version: 2021_05_25_065621) do
     t.string "image"
   end
 
+  create_table "poll_answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "poll_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["poll_id"], name: "index_poll_answers_on_poll_id"
+  end
+
+  create_table "poll_votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "poll_answer_id", null: false
+    t.bigint "poll_id", null: false
+    t.index ["poll_answer_id"], name: "index_poll_votes_on_poll_answer_id"
+    t.index ["poll_id"], name: "index_poll_votes_on_poll_id"
+    t.index ["user_id"], name: "index_poll_votes_on_user_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.string "question"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "post_comments", force: :cascade do |t|
     t.string "comment"
     t.bigint "post_id", null: false
@@ -637,6 +662,10 @@ ActiveRecord::Schema.define(version: 2021_05_25_065621) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
+  add_foreign_key "poll_answers", "polls"
+  add_foreign_key "poll_votes", "poll_answers"
+  add_foreign_key "poll_votes", "polls"
+  add_foreign_key "poll_votes", "users"
   add_foreign_key "post_comments", "posts"
   add_foreign_key "post_comments", "users"
   add_foreign_key "post_images", "posts"

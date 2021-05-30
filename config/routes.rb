@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   mount SimpleDiscussion::Engine => "/forum"
 
   #mnr forum
+  resources :poll_votes
   resources :posts do
     resources :post_comments
     member do
