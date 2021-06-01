@@ -101,3 +101,13 @@ en:
   login_to_become_donor: "Login to Become Blood Donor"
   #pet Adoption 
   add_pets: "Add Pets For Adoption  "
+  #covid-homepage 
+  nepal_data: "Nepal's Covid Data "
+  kanchanpur_data: "Kanchanpur's Covid Data "
+  confirmed: " Covid Confirmed"
+  recovered: "Recovered"
+  deaths: "Deaths"
+  Donate: "Donate For Oxygen Cylinders "
+  #models 
+  male: "male"
+  female: "female"

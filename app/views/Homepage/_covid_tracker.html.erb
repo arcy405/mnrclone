@@ -6,7 +6,7 @@
         	<div class="card-title text-left ml-2">
         		<div class="form_title  responsive-text">
         			<%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1620383322/corona_u9gwqc.png", :quality=>"auto:low",:class=>"profile2 rounded-circle",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy") %>
-        				Nepal's Data
+        				<%= t('nepal_data') %>
         		</div>
         	</div>
         	<div class="row mb-2">
@@ -14,19 +14,19 @@
         			<div class="text-warning font-weight-bold">
         			<%= number_with_delimiter(@result["confirmed"]["value"], :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Confirmed</div>
+        		<div class="responsive-text font-weight-bold text-muted"> <%= t('confirmed') %></div>
         		</div>
         		<div class="col-4">
         			<div class="text-success font-weight-bold">
         			<%= number_with_delimiter(@result["recovered"]["value"], :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Recovered</div>
+        		<div class="responsive-text font-weight-bold text-muted"> <%=  t('recovered')%></div>
         		</div>
         		<div class="col-4">
         			<div class="text-danger font-weight-bold">
         			<%= number_with_delimiter(@result["deaths"]["value"], :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Deaths</div>
+        		<div class="responsive-text font-weight-bold text-muted"><%=  t('deaths')%></div>
         		</div>
             </div>
     </div>
@@ -36,10 +36,10 @@
         	<div class="card-title text-left ml-2">
         		<div class="form_title responsive-text">
         			<%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1620383322/corona_u9gwqc.png", :quality=>"auto:low",:class=>"profile2 rounded-circle",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy") %>
-        					Kanchanpur's Data
+        					<%=  t('kanchanpur_data')%>
         					<span class="float-right mt-2">
     						<%= link_to new_project_donation_path(2) do %>
-		                    	<span class="help text-white mx-2 px-2 responsive-text">DONATE FOR OXYGEN CYLINDERS</span>
+		                    	<span class="help text-white mx-2 px-2 responsive-text"><%= t('donate') %></span>
 	           				 <% end %>
 		       				 </span>
         		</div>
@@ -49,19 +49,19 @@
         			<div class="text-warning font-weight-bold">
         			<%= number_with_delimiter("#{@kanchanpur_covid_data.confirmed}", :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Confirmed</div>
+        		<div class="responsive-text font-weight-bold text-muted"><%= t('confirmed') %></div>
         		</div>
         		<div class="col-4">
         			<div class="text-success font-weight-bold">
         			<%= number_with_delimiter("#{@kanchanpur_covid_data.recovered}", :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Recovered</div>
+        		<div class="responsive-text font-weight-bold text-muted"><%=  t('recovered')%></div>
         		</div>
         		<div class="col-4">
         			<div class="text-danger font-weight-bold">
         			<%= number_with_delimiter("#{@kanchanpur_covid_data.deaths}", :delimiter => ',') %>
         		</div>
-        		<div class="responsive-text font-weight-bold text-muted">Deaths</div>
+        		<div class="responsive-text font-weight-bold text-muted"><%=  t('deaths')%></div>
         		</div>
             </div>
     </div>

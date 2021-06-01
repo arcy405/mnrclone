@@ -1,23 +1,53 @@
  <%= render 'Homepage/navmenu.html.erb' %>
 
+    <% if user_signed_in? %>
+        <div class="mt-4 ml-4 mb-2">
+            <%= link_to new_tourist_path, style:"text-decoration:none; font-size: 20px;" do %>
+               Add New Tourist Places 
+            <i class="fas fa-plus-circle ml-2"></i>
+            <% end %>  
+        </div>
+        <% else %>
+        <div class="mt-4 ml-4 mb-2">
+            <%= link_to user_session_path do %>
+            <span  class=" btn-outline-danger rounded p-2 border"> Please Login To add Tourist Places  </span>
+            <% end %>
+        </div>
+    <% end %>
+  
   <!------------------tourism cards started---------------------------------->
-   
+    
     <div id="cards_landscape_wrap-2">
         <div class="container">
-            <div class="row">
-            <% @tourist.each do |place| %>
+        <h1 style="color:green;"> <strong>   Places To Visit   </strong> </h1>
+            <div class="row">  
+            <% @tourist.each do |tourist| %>
                
                 <div class="col-md-3">
-                <%=  link_to  tourist_path(place), style:"text-decoration:none" do %>
+                <%=  link_to  tourist_path(tourist), style:"text-decoration:none" do %>
                         <div class="card-flyer ">
                             <div class="text-box">
                                 <div class="image-box">
-                                <img src=" <%= place.tourist_image.first.image %>" loading="lazy" alt="MNRYP">
+                                <% tourist.tourist_images.each do |place_img| %>
+                                    <%= cl_image_tag(place_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy" ) %>
+                                    <% break %>
+                                <% end %>
                                 </div>
                                 <div class="text-container text-black ">
-                                    <h6 ><%= place.place_name %></h6>
-                                         <p>  <i class="fas fa-map-marker-alt"></i> <%= place.location%></p>
+                                    <h6 ><%= tourist.place_name %></h6>
+                                         <p>  <i class="fas fa-map-marker-alt"></i> <%= tourist.location%></p>
                                 </div>
+
+                                 <% if user_signed_in? && current_user.id == tourist.user_id %>
+                                    <div class="d-flex flex-row-reverse p-2">
+                                        <div>
+                                            <%= link_to  tourist, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                        </div>
+                                        <div class="mr-2 ml-2">
+                                            <%= link_to  edit_tourist_path(tourist) do %><i class="far fa-edit text-primary"></i><% end %>
+                                        </div>
+                                    </div>
+                                <% end %>
                                
                             </div>
                         </div>
@@ -27,7 +57,10 @@
            <% end %>     
             </div>
         </div>
+                
     </div>
+
+ 
 
        
    <!-----------------tourism cards end----------------------------------------------->

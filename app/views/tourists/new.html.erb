@@ -1,0 +1,25 @@
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+          <div class="container">
+                <h1 class="form_title"> Add Tourist Places to   <span class="mnryp_word">MNRYP</span></h1>
+                   
+            <div class="row">
+              <div class="col-md-6">
+                <ul >
+                    <li class="about-paddingB text-justify"> The Entered Tourists Places must exists </li>
+                    <li class="about-paddingB text-justify"> You can multiple Images about Place</li>
+                    <li class="about-paddingB text-justify"> The Image of Place must as same as the Real Place</li>
+                    <li class="about-paddingB text-justify"> Enter Phone Number Related to Place so that visitors would able contact to corresponding people</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+              <%= render partial:"form" %>
+              </div>
+              </div>
+            </div>
+         </div>
+   
