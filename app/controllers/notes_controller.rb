@@ -26,4 +26,14 @@ class NotesController < ApplicationController
       	:type => 'application/pdf/docx/html/htm/doc',
       	:disposition => 'attachment')  
 	end
+
+	def syllabus_index
+		headers = {'Authorization':'token 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'} 
+		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sub_dept]}/#{params[:sem]}/#{params[:sub]}/#{params[:syllabus]}"
+		response = HTTParty.get(url,headers: headers)
+
+		result = response.parsed_response 
+
+		@syllabus  = result
+	end 
 end
