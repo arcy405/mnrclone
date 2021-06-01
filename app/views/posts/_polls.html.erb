@@ -1,0 +1,27 @@
+<% poll.poll_answers.includes(:poll_votes).each do |poll_answer|%>
+    <% total_votes = poll.poll_votes.count %>
+    <% vote_share_num = poll_answer.poll_votes.count %>
+    <% vote_share = (poll_answer.poll_votes.count/total_votes.to_f) * 100 %>
+
+    <div class="list-group">
+        <% if user_signed_in? %>
+            <% user_vote_check = poll.poll_votes.where("user_id IN (?)", current_user.id).count %>
+            <% if user_vote_check == 0 %>
+                <%= form_with model: PollVote.new do |f| %>
+                    <%= f.hidden_field :poll_answer_id, value:poll_answer.id %>
+                    <%= f.hidden_field :poll_id, value:poll.id %>
+                    <input type="submit" name="commit" class="list-group-item list-group-item-action" value="<%= poll_answer.answer %>: <%= pluralize(vote_share_num,'Vote') %>">
+                    </input>
+                <% end %>
+            <% else %>
+                <div class="list-group-item list-group-item-action"><%= poll_answer.answer %>: <%= pluralize(vote_share_num,'Vote') %>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="list-group-item list-group-item-action"><%= poll_answer.answer %>: <%= pluralize(vote_share_num,'Vote') %></div>
+        <% end %>
+        <div class="progress mb-2" style="height: 6px;">
+            <div class="progress-bar text-left p-2" role="progressbar" style="width: <%= vote_share %>%;" aria-valuenow="<%= vote_share %> " aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+<% end %>
