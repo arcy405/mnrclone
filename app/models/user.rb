@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :donors, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :poll_votes
 
   acts_as_voter
 

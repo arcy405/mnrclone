@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
     def index
         @posts=Post.includes(:post_comments).order("updated_at DESC")
+        @polls=Poll.includes(:poll_answers)
 
         if user_signed_in?
             @profile_post_count= User.joins(:posts).where("user_id=?",current_user.id).count

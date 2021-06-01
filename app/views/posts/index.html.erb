@@ -3,11 +3,6 @@
 
 <style type="text/css">
    @media only screen and (min-width: 768px) {
-
-        .fixed { 
-        height:600px; 
-       overflow:hidden; 
-       }
     .scrollit {
        height:100vh;
        overflow-y:scroll; 
@@ -22,7 +17,7 @@
 </style>
 <div class="container-fluid my-2">
 <div class="row">
-    <div class="col-md-3 fixed">
+    <div class="col-md-3 scrollit">
     <% if user_signed_in? %>
             <div class="card">
                 <div class="profile-card">
@@ -51,11 +46,30 @@
             <% end %>
         <% end %>
         <hr />
+        <!-------------Poll section---------------------------->
+        
+            <section class="poll-section">
+    <span class="text-center responsive-text text-warning font-weight-bold">MNRYP-Polls</span>
+    <% @polls.each do |poll| %>
+        <div class="card p-2">
+            <div class="card-title font-weight-bold">
+                <%= poll.question %>
+            </div>
+            <div class="card-content">
+                    <div id="poll-<%= poll.id %>">
+                        <%= render partial:"polls",locals:{poll:poll} %>
+                    </div>
+            </div>
+        </div>
+    <% end %>
+</section>
+         
+            <!-------------------------------------------------->
     </div>
     <div class="col-md-6 scrollit">
         <%= render partial:"postcard" %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 scrollit">
         <div class="container text-muted font-weight-bold">
             <span class="text-center">Members Of MNR_Forum</span>
             <% User.joins(:posts).group('users.id').having('count(posts.id) > 0').each do |member| %>
