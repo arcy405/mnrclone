@@ -29,7 +29,7 @@ class NotesController < ApplicationController
 
 	def syllabus_index
 		headers = {'Authorization':'token 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'} 
-		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sub_dept]}/#{params[:sem]}/#{params[:sub]}/#{params[:syllabus]}"
+		url = "https://api.github.com/repos/Naren404/MNRYP_notes/contents/#{params[:uni]}/#{params[:dept]}/#{params[:sub_dept]}/#{params[:sem]}/#{params[:sub]}/syllabus"
 		response = HTTParty.get(url,headers: headers)
 
 		result = response.parsed_response 

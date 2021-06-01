@@ -17,7 +17,7 @@
 		<div class="row">
 			<% @syllabus.each do |syllabus| %>
 				<%
-					filename = params[:sub] + params[:syllabus]
+					filename = params[:sub]+"syllabus"
 				%>
 				<div class="col-6 col-md-3 text-center mt-2">
 					<%= link_to notes_notes_download_path(download_url:syllabus["download_url"],filename:filename), target: '_self',data: {disable_with: "Please wait..."} do %>
