@@ -12,19 +12,19 @@
 		<%end%>
 <!------------------------------------------------------------------------------->
 	<div class="input-group has-validation">
-		<%= f.text_field :pet_name, placeholder: "#{t('pet_placeholer_1')}" ,class:"form-control mt-2" %>
+		<%= f.text_field :pet_name, placeholder: "#{t('pet_placeholder1')}" ,class:"form-control mt-2" %>
       <div class="invalid-feedback">
          Please enter a valid Pet Name.
       </div>
     </div>
     <div class="input-group has-validation">
-    	<%= f.telephone_field :contact, placeholder: "#{t('pet_paceholder_2')}" ,class:"form-control mt-2" %>
+    	<%= f.telephone_field :contact, placeholder: "#{t('pet_placeholder2')}" ,class:"form-control mt-2" %>
       <div class="invalid-feedback">
          Please enter a valid Phone Number.
       </div>
     </div>
 
-    <label for="image"> <%= t('pet_placeholder_3') %> </label>
+    <label for="image"> <%= t('pet_placeholder3') %> </label>
     <div class="input-group has-validation">
     	<%= f.file_field :image, direct_upload: true, class:"form-control",required:true %>
               <%= f.hidden_field :image_cache %>
