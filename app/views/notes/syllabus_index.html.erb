@@ -1,0 +1,39 @@
+<% content_for :title, "Syllabus" %>
+ <%= render 'Homepage/navmenu.html.erb' %> 
+<!----------------------------------------breadcrumb section-------------------------------------->
+        <div class="row p-3">
+            <div class="breadcrumb-default ml-2">
+                <%= link_to "#{params[:uni]}-#{params[:dept]}-#{params[:sub_dept]}-#{params[:sub]}", notes_path,class:"text-capitalize" %>
+                    <a href="#" class="text-capitalize">/<%= params[:sem] %>-Syllabus</a>
+            </div>
+        </div>
+
+<% if @syllabus.to_a[0][1] == "Not Found" %>
+	<div class="container">
+		<pre class="responsive-text text-danger">Syllabus for this semester are not available. We will be adding them very soon. Thank You!!</pre>
+	</div>
+<% else %>
+	<div class="container-fluid">
+		<div class="row">
+			<% @syllabus.each do |syllabus| %>
+				<%
+					filename = params[:sub]+"syllabus"
+				%>
+				<div class="col-6 col-md-3 text-center mt-2">
+					<%= link_to notes_notes_download_path(download_url:syllabus["download_url"],filename:filename), target: '_self',data: {disable_with: "Please wait..."} do %>
+						<div class="card h-100">
+					        <div class="card-body">
+					            <i class="fas fa-file-pdf fa-2x text-danger"></i><br />
+					            <i class="fas fa-download"></i>
+					            <span class="text-capitalize responsive-text">
+					            	<%= params[:sub] %>
+					            </span><br>
+					           
+					     	</div>
+				    	 </div>
+					<% end %>	
+					</div>	
+			<% end %> 
+		</div>
+	</div>
+<% end %>

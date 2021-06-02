@@ -94,6 +94,7 @@
 
 																					</a>
 																					</span>
+																					<!-----------------notes-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 																					<div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= subject.name.to_s.delete(" ") %>" class="collapse">
 																						<ul>
 																							<li>
@@ -101,12 +102,18 @@
 																									<span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Notes</span>
 																								<% end %>
 																							</li>
-																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Syllabus</span></li>
+																							<li>
+																							<%= link_to notes_syllabus_index_path(uni:"#{university.name.to_s.delete(" ")}",dept:"#{department.name.to_s.delete(" ")}",sub_dept:"#{sub_department.name.to_s.delete(" ")}",sem:"#{semester.name.to_s.delete(" ")}",sub:"#{subject.name.to_s.delete(" ")}"), syllabus:"syllabus", style:"color:#000; text-decoration:none;" do %>
+																									<span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Syllabus</span>
+																								<% end %>
+																							</li>
 																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Question Papers</span></li>
 																							<li><span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Case Studies</span></li>
 																						</ul>
 																					</div>
-																				</li>
+																					<!---------------------syllabus------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+																				
+																				</li> 
 																			<% end %>
 																		</ul>
 																	</div>
