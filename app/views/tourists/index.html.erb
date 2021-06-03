@@ -3,14 +3,14 @@
     <% if user_signed_in? %>
         <div class="mt-4 ml-4 mb-2">
             <%= link_to new_tourist_path, style:"text-decoration:none; font-size: 20px;" do %>
-               Add New Tourist Places 
+                <%= t('add_new_places') %>
             <i class="fas fa-plus-circle ml-2"></i>
             <% end %>  
         </div>
         <% else %>
         <div class="mt-4 ml-4 mb-2">
             <%= link_to user_session_path do %>
-            <span  class=" btn-outline-danger rounded p-2 border"> Please Login To add Tourist Places  </span>
+            <span  class=" btn-outline-danger rounded p-2 border"> <%= t('sign_in_to_add_tourist') %>  </span>
             <% end %>
         </div>
     <% end %>
@@ -37,9 +37,8 @@
                                     <h6 ><%= tourist.place_name %></h6>
                                          <p>  <i class="fas fa-map-marker-alt"></i> <%= tourist.location%></p>
                                 </div>
-
-                                 <% if user_signed_in? && current_user.id == tourist.user_id %>
-                                    <div class="d-flex flex-row-reverse p-2">
+                                <!----------if user is signed in as well as admin only then delete and edit buttons are available-------------->
+                                <% if user_signed_in? && current_user.admin? && current_user.id  %> <div class="d-flex flex-row-reverse p-2">
                                         <div>
                                             <%= link_to  tourist, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
                                         </div>
@@ -47,12 +46,9 @@
                                             <%= link_to  edit_tourist_path(tourist) do %><i class="far fa-edit text-primary"></i><% end %>
                                         </div>
                                     </div>
+                                   
                                 <% end %>
-
-                                <% if current_user.admin? %>
-                                      hello 
-                                      <% end %>
-                               
+                                <!--------------------------------------------------------------------------------------------------------->
                             </div>
                         </div>
                 </div>

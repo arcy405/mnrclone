@@ -1,6 +1,6 @@
 class TouristsController < ApplicationController
   
-  before_action :set_tourist, only: [:show ]
+  before_action :set_tourist, only: [:show , :destroy, :edit, :update]
   
   def index 
         @tourist=Tourist.order(:place_name)
@@ -32,6 +32,25 @@ class TouristsController < ApplicationController
             render :new 
         end 
 
+    end 
+
+    def edit 
+      @tourist = Tourist.friendly.find(params[:id])
+    end 
+
+    def update 
+      if @tourist.update(tourist_params)
+        redirect_to @tourist
+      else
+        render :edit
+      end 
+
+    end 
+
+    def destroy
+      if @tourist.destroy
+        redirect_to @tourist
+      end 
     end 
 
   

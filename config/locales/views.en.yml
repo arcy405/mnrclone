@@ -111,3 +111,6 @@ en:
   #models 
   male: "male"
   female: "female"
+  #tourists
+  add_new_places: "Add New Tourist Places"
+  sign_in_to_add_tourist: "Please Login To add Tourist Places"

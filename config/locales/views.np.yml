@@ -103,7 +103,10 @@ np:
   confirmed: "कोरोना पुष्टि "
   recovered: "सन्चो भएका "
   deaths: "मृत्यु भएका "
-  donate: "अक्सिजन सिलिण्डर का लागि दान गर्नुहोस "
+  
   #models 
   male: "पुरुष"
   female: "महिला"
+  #tourists
+  add_new_places: "नया पर्यटक स्थान थप्नुहोस"
+  sign_in_to_add_tourist: "नया पर्यटक स्थान थप्न साइन इन गर्नुहोस"
