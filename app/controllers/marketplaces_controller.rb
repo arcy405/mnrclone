@@ -3,7 +3,7 @@ class MarketplacesController < ApplicationController
     before_action :set_marketplace, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@marketplaces = Marketplace.all
+		@marketplaces = Marketplace.includes(:market_place_images)
 	end
 
   def show

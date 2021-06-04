@@ -15,6 +15,14 @@
                             <div class="row justify-content-center">
                                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                                   <%= render "devise/shared/error_messages", resource: resource %>
+                                  
+                                  <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Profile Image</span>
+                                        </div>
+                                        <%= f.file_field :image, direct_upload: true,class:"form-control" %>
+                                        <%= f.hidden_field :image_cache %>
+                                      </div><br />
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-at"></i></span>

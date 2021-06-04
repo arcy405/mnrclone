@@ -4,9 +4,17 @@
         <div class="fb-card-main-content">
             <div class="fb-card-header">
                 <div class="user-post-info">
-                    <div class="user-thumb text-center py-2 font-weight-bold bg-warning">
-                        <img src="" alt="<%= post.user.name.split("")[0] %>" class="img-responsive" />
+                    
+                    <% if !post.user.image_url.nil? %>
+                    <div class="user-thumb text-center font-weight-bold bg-warning">
+                        <%= cl_image_tag(post.user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", loading:"lazy",class:"img-responsive") %>
                     </div>
+                    <% else %>
+                        <div class="user-thumb text-center py-2 font-weight-bold bg-warning">
+                            <img src="" alt="<%= post.user.name.split("")[0] %>" class="img-responsive" />
+                        </div>
+                    <% end %>
+                    
                     <div class="text-primary font-weight-bold float-left">
                         <%= post.user.name%> 
                             <% followed = post.user %>
@@ -39,8 +47,8 @@
                         <%= render partial: "edit_form" %>
                     </div>
             <% end %>
-            <div class="text-justified mx-2 mt-2">
-                <p><%= post.content %></p>
+            <div class="mx-2 mt-2">
+                <p class="text-justify"><%= post.content %></p>
                   <%= render partial:"image_card",locals:{post:post} %>
             </div>
         </div>
