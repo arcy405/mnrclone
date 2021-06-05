@@ -1,60 +1,55 @@
 
+ <link rel="stylesheet" href="sign_up.scss">
  <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
     <div class="card card0 border-0">
         <div class="row d-flex">
             <div class="col-md-6">
                 <div class="card1 pb-5">
                     <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-                              <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", :quality=>"auto:low",:class=>"image",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy",:size=>"250") %> 
+                               <%= cl_image_tag("https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", :quality=>"auto:low",:class=>"image",:fetch_format=>"auto",:flags=>"lossy",:loading=>"lazy",:size=>"400") %>  
                       </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card2 card border-0 px-4 py-5">
-                    <div class="row px-3"> <label class="mb-1">
-                            <div class="row justify-content-center">
-                                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                                  <%= render "devise/shared/error_messages", resource: resource %>
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-at"></i></span>
-                                        </div>
-                                        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Enter Your Email" %>
-                                      </div><br />
-
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
-                                        </div>
-                                        <%= f.text_field :name, class:"form-control", autofocus: true, placeholder:"Enter Your Full Name" %>
-                                      </div><br />
-                                       <i>(leave blank if you don't want to change it)</i><br />
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fa fa-key icon"></i></span>
-                                        </div>
-                                          <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"Password" %>
-                                      </div><br />
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fa fa-key icon"></i></span>
-                                        </div>
-                                          <%= f.password_field :password_confirmation, autocomplete: "current-password",class:"form-control" ,placeholder:"Confirm Password" %>
-                                      </div><br />
-                                      <i>(we need your current password to confirm your changes)</i><br />
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fa fa-key icon"></i></span>
-                                        </div>
-                                          <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control" ,placeholder:"Current Password" %>
-                                      </div><br />
-
-                                      <%= f.submit "Update",class:"btn btn-success form-control" %>
-                                <% end %>
-                             </div>
+                <div class="login-wrap1">
+                  <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab font-weight-bold">Sign Up</label>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+                      <div class="login-form">
+                        <div class="sign-in-htm">
+                          <div class="group">
+                            <label for="user" class="label font-weight-bold">Username or Email</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Enter Your Email" %>
+                          </div>
+                          <div class="group">
+                            <label for="user" class="label font-weight-bold">Username or Email</label>
+                            <%= f.text_field :name, class:"form-control", autofocus: true, placeholder:"Enter Your Full Name" %>
+                          </div>
+                          <div class="group">
+                            <label for="pass" class="label font-weight-bold">Password</label>
+                            <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"Password" %>
+                          </div>
+                            <div class="group">
+                            <label for="pass" class="label font-weight-bold"> Confirm Password</label>
+                            <%= f.password_field :password_confirmation, autocomplete: "current-password",class:"form-control" ,placeholder:"Confirm Password" %>
+                          </div>
+                          <div class="group">
+                            <%= f.submit "Sign Up",class:"btn btn-success form-control" %>
+                          </div>
+                          <div class="hr"></div>
+                        </div>
+                      <div class="row mb-4 px-3"> <strong class="font-weight-bold">Already have an account? 
+                            <%= link_to "Log in", new_session_path(resource_name) ,class:"text-success"  %></strong>
+                      </div>
+                    <% end %>
+                </div>
+					</div>
             </div>
         </div>
     </div>
 </div>
 
 
+
+         

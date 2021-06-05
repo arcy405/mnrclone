@@ -103,6 +103,48 @@ en:
   realestate_placeholder_10: "Number of Bedrooms"
   realestate_placeholder_11: "Number of Kitchens"
   realestate_placeholder_12: "Number of Bathrooms"
+  # event 
+  event_title: "Fill the Event Details"
+  event_text1: "Make sure fill every field."
+  event_text2: "Give proper title to the event / Programme."
+  event_text3: " Provide the location of event / Programme."
+  event_text4: "Give a brief description of event/ Programme "
+  #event placeholders 
+  event_placeholder1: "Event / Programme Name"
+  event_placeholder2: " EventEvent / Programme Date"
+  event_placeholder3: "Event / Programme  Location "
+  event_placeholder4: "Event / Programme Description (Maximum 50 words)"
+  #pet adoption 
+  pet_title: "Fill The Pet Details"
+  pet_text1: "Make sure fill every field"
+  pet_text2: "Use the name of Pet and also give your name"
+  pet_text3: "Use the address from where pet can be adopted."
+  pet_text4: "Your information is safe with us, you will be called for pet adoption in future, THANK YOU!"
+  #pet placeholders 
+  pet_placeholder1: "Pet Name"
+  pet_placeholder2: "Contact Number"
+  pet_placeholder3: "Image "
+  #tourists
+  tourist_title: "Enter Tourist Places to"
+  tourist_text1: "The Entered Tourists Places must exists "
+  tourist_text2: "You can enter information related to place in both english and nepali language "
+  tourist_text3: "You can add multiple Images about Place"
+  tourist_text4: "The Image of Place must as same as the Real Place"
+  tourist_text5: "Enter Phone Number Related to Place so that visitors could able contact to corresponding people"
+  tourist_text6: "Longitude and latitude of place are used to show place in the google map below"
+  tourist_text7: "Longitude & Latitude : you can get your place's longitude and latitude by opening google maps(at the place area) in your phone or laptop"
+  #tourist_placeholders
+  tourist_placeholder1: "Enter Name of Tourist Place"
+  tourist_placeholder2: "Enter Location of Place"
+  tourist_placeholder3: "Enter Contact number related to Place"
+  tourist_placeholder4: "Enter longitude of Place "
+  tourist_placeholder5: "Enter latitude of Place "
+  tourist_placeholder6: "Add Features about Place : separate features by commas(,)"
+  tourist_placeholder7: "Add Description about Place"
+  tourist_placeholder8: "Add Images"
+  tourist_placeholder9: "You can Upload multiples images at a time"
+
+
 
 
 

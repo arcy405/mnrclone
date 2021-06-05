@@ -1,28 +1,167 @@
-<% content_for :title, "Stats Of MNR-MNRYP" %>
+<% content_for :title, "Kanchanpur-Statistics" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<% area,population,wards,map = "" %>
-<% @stats.each do |stat| %>
-		<% area = stat.area %>
-		<% population = stat.population %>.
-		<% wards = stat.wards %>
-		<% map = stat.map %>
-<% end %>
+
 <div class="container-fluid">
         <h1 class="form_title">About <span class="mnryp_word">MNR</span></h1>
 	<div class="row">
-		<div class="col-md-4">
-			<img src="<%= map %>" alt="map" class="img-thumbnail map-img" />
+		<div class="col-sm-4">
+			<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781938/kanchanpur_statistics/Kanchanpur_Recon_Wads_zduwjw.jpg" alt="map" class="img-fluid map-img" />
+				<a href="#map" class="font-weight-bold my-2 btn ">विस्तृत नक्सा को लागि यहा क्लिक गर्नुहोस </a>
 		</div>
-		<div class="col-md-2">
-			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">Area</span><br /><%= area %></span></div>
-			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">Population</span><br /><%= population %></span></div>
-			<div class="card info-card text-center my-auto"><span class="my-auto"><span class="font-weight-bold">No. Of Wards</span><br /><%= wards %></span></div>
-		</div>
-		<div class="col-md-6">
-			<div class="text-justify my-auto mx-2">
-				सुदूरपश्चिम प्रदेश (तत्कालिन सुदूरपश्चिमाञ्चल विकास क्षेत्रमा पर्ने महाकाली अञ्चल), कञ्चनपुर जिल्लाको सदरमुकामको रुपमा भीमदत्त नगरपालिका राजधानी काठमाडौंबाट ७५० कि.मी. को दुरीमा रहेको छ । कंचनपुर जील्लामा भएका ९ स्थानिय तहमा सात वटा नगरपालिका मध्ये सबैभन्दा जेठो नगरपालिका हो। तत्कालिन महेन्द्रनगर पञ्चायतको रुपमा वि.सं. २०३४ सालमा भूजेला,सिद्धनाथ र आदर्श गाँउ पञ्चायतका सम्पुर्ण भाग तथा सुडा र ऐरी गाँउ पञ्चायतको आंशिक भू-भाग मिलाई गठन भएको हो । महेन्द्रनगर नामाकरण गर्नुपुर्व यसको बजार क्षेत्रलाई धुसुडी बजार भनिन्थ्यो । वि.सं. २०४७ सालको जनआन्दोलन पश्चात महेन्द्रनगर नगरपञ्चायत बाट नाम परिवर्तन गरी महेन्द्रनगर नगरपालिका बनाइयो र वि.सं. २०६५ साल कार्तिक २० गतेको नेपाल सरकार मन्त्रि परिषदको निर्णयानुसार (शहिद भीमदत्त पन्तको सम्मानस्वरुप उहाँको नाममा) यस नगरपालिकालाई भीमदत्त नगरपालिका नामाकरण गरियो ।
+	
+		<div class="col-sm-6">
+			<div class="text-justify my-3 mx-2 ">
+				<h2 class="text-center sm-3 mb-3 fs-1 font-weight-bold">कंचनपुर जिल्लाको इतिहास  </h2>
+				सुदूरपश्चिम प्रदेश (तत्कालिन सुदूरपश्चिमाञ्चल विकास क्षेत्रमा पर्ने महाकाली अञ्चल), कञ्चनपुर जिल्लाको सदरमुकामको रुपमा भीमदत्त नगरपालिका राजधानी काठमाडौंबाट ७५० कि.मी. को दुरीमा रहेको छ । कंचनपुर जील्लामा
+				 भएका ९ स्थानिय तहमा सात वटा नगरपालिका मध्ये सबैभन्दा जेठो नगरपालिका हो। तत्कालिन महेन्द्रनगर पञ्चायतको रुपमा वि.सं. २०३४ सालमा भूजेला,सिद्धनाथ र आदर्श गाँउ पञ्चायतका सम्पुर्ण भाग तथा सुडा र ऐरी 
+				 गाँउ पञ्चायतको आंशिक भू-भाग मिलाई गठन भएको हो । महेन्द्रनगर नामाकरण गर्नुपुर्व यसको बजार क्षेत्रलाई धुसुडी बजार भनिन्थ्यो । वि.सं. २०४७ सालको जनआन्दोलन पश्चात महेन्द्रनगर नगरपञ्चायत बाट नाम परिवर्तन गरी 
+				 महेन्द्रनगर नगरपालिका बनाइयो र वि.सं. २०६५ साल कार्तिक २० गतेको नेपाल सरकार मन्त्रि परिषदको निर्णयानुसार (शहिद भीमदत्त पन्तको सम्मानस्वरुप उहाँको नाममा) यस नगरपालिकालाई भीमदत्त नगरपालिका नामाकरण गरियो ।
 			</div>
 		</div>
 	</div>
 	
 </div>
+<br>
+<!-------------------------------kanchanpur statistics--------------------------------->
+
+    <style>
+        .card:hover {
+            cursor: pointer;
+            background: rgb(160, 207, 200);
+        }
+
+        #full {
+            background-color: rgb(236, 211, 188);
+        }
+		.list-group-item{
+				background-color: rgb(187, 231, 193);
+		}
+    </style>
+
+<div id="full">
+    <h2 class="text-center sm-3 mb-3 fs-1 font-weight-bold">कंचनपुर जिल्लाको विवरण </h2>
+    <div class="container-fluid">
+        <div class="row sm g-4">
+
+            <div class="col mb-2">
+                <a href="#nagarpalika_list" class="text-decoration-none">
+                    <div class="card h-100">
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781973/kanchanpur_statistics/Nagarpalika_gjrevn.png" class=" img-fluid p-4" alt="icon">
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="card-title text-center text-dark">नगरपालिका</h5>
+                            <p class="card-text text-center text-dark">७</p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col mb-2">
+                <a href="#gaunpalika_list" class="text-decoration-none">
+
+                    <div class="card h-100">
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781873/kanchanpur_statistics/Gaunpalika_uinv61.png" class="img-fluid p-4" alt="icon">
+
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="card-title text-center text-dark">गाँउपालिका</h5>
+                            <p class="card-text text-center text-dark">२ </p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#nagarpalika_gaupalika_list" class="text-decoration-none">
+                    <div class="card h-100 ">
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622782005/kanchanpur_statistics/Total_fprxdn.png" class="img-fluid p-4 " alt=" icon">
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="card-title text-center text-dark">जम्मा नपा/गापा</h5>
+                            <p class="card-text text-center text-dark">९</p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#map" class="text-decoration-none">
+
+                    <div class="card h-100">
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622782007/kanchanpur_statistics/Ward_y58isu.png" class="img-fluid p-3" alt="icon">
+
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="card-title text-center text-dark">जम्मा वडा संख्या</h5>
+                            <p class="card-text text-center text-dark">९१ </p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#total_population" class="text-decoration-none">
+                    <div class="card h-100">
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781974/kanchanpur_statistics/Population_ut5vze.png" class="img-fluid p-4 " alt="icon">
+                        <div class="card-body d-flex flex-column justify-content-end">
+
+                            <h5 class="card-title text-center text-dark">जम्मा जनसंख्या </h5>
+                            <p class="card-text text-center text-dark">४,४८,५०३ </p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+       
+        </div>
+    </div>
+    <div class='container sm-2 mt-5 p-3 ' id="nagarpalika_list">
+
+        <h2 class=" mt-0 fs-1 font-weight-bold"> <u>नगरपालिकाहरु:</u></h2>
+        <h4 class=" mt-0 fs-3 ">(थप विवरण हेर्नको लागी click गर्नुहोला)</h4>
+		<ol>
+				<li> <h3><span class="badge rounded-pill bg-primary"> भीमदत्त नगरपालिका</span>   </h3></li>
+				<li> <h3><span class="badge rounded-pill bg-secondary">पुर्नवास नगरपालिका</span> </h3></li>
+				<li><h3> <span class="badge rounded-pill bg-success">वेदकोट नगरपालिका </span> </h3></li>
+				<li> <h3> <span class="badge rounded-pill bg-danger">महाकाली नगरपालिका <b>(हाल विवरण उपलब्द छैन)</b></span> </h3></li>
+				<li> <h3><span class="badge rounded-pill bg-warning text-dark">शुक्लाफाँटा नगरपालिका</span>  </h3></li>
+				<li><h3><span class="badge rounded-pill bg-info text-dark">बेलौरी नगरपालिका</span> </h3></li>
+				<li> <h3> <span class="badge rounded-pill bg-light text-dark">कृष्णपुरनगरपालिका</span> </h3></li>
+                
+		</ol>
+		
+    </div>
+
+    <div class='container sm-2  p-3' id="gaunpalika_list">
+
+
+        <h2 class=" mt-0 fs-1 font-weight-bold"> <u>गाउँपालिकाहरु:</u></h2>
+        <h4 class=" mt-0 fs-3">(थप विवरण हेर्नको लागी click गर्नुहोला)</h4>
+		<ol>
+			<li> <h3><span class="badge rounded-pill bg-primary"> बेलडाडी गाउँपालिका</span> </h3></li>
+			<li><h3><span class="badge rounded-pill bg-secondary">लालझाडी गाउँपालिका</span> </h3></li>
+		</ol>
+		
+    </div>
+
+    <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="nagarpalika_gaupalika_list">
+
+
+        <h2 class=" mt-0 fs-1 font-weight-bold"> <u>जम्मा नगरपालिका र गाउँपालिकाहरु:</u> </h2>
+        <h3 class=" mt-0 fs-3">७ नगरपालिका + २ गाउँपालिका = ९</h3>
+
+
+    </div>
+    <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="map">
+
+        <h2 class=" mt-0 fs-1 font-weight-bold">नक्सा:</h2>
+        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781938/kanchanpur_statistics/Kanchanpur_Recon_Wads_zduwjw.jpg" class="img-fluid rounded mx-auto d-block" alt="map">
+
+
+    </div>
+    <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="total_population">
+
+        <h2 class=" mt-0 fs-1 font-weight-bold">कुल जनसंख्या: </h2>
+        <h3 class=" mt-0 fs-3">४,४८,५०३</h3>
+
+    </div>
+
+</div>
+
+</html>
