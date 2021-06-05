@@ -11,16 +11,19 @@
                 </div>
             </div>
             <div class="col-md-6">
+
                 <div class="login-wrap1">
                   <div class="login-html">
                     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab font-weight-bold">Sign Up</label>
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                       <%= render "devise/shared/error_messages", resource: resource %>
                       <div class="login-form">
+                      
                         <div class="sign-in-htm">
                           <div class="group">
-                            <label for="user" class="label font-weight-bold">Username or Email</label>
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Enter Your Email" %>
+                            <label for="image" class="label font-weight-bold">Profile Picture</label>
+                            <%= f.file_field :image, direct_upload: true,class:"form-control" %>
+                                        <%= f.hidden_field :image_cache %>
                           </div>
                           <div class="group">
                             <label for="user" class="label font-weight-bold">Username or Email</label>

@@ -22,9 +22,15 @@
             <div class="card">
                 <div class="profile-card">
                     <center class="mt-2">
+                    <% if !current_user.image_url.nil? %>
+                        <div class="user-thumb-profile text-center font-weight-bold bg-warning">
+                             <%= cl_image_tag(current_user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", loading:"lazy",class:"img-fluid") %>
+                        </div>
+                    <% else %>
                         <div class="user-thumb-profile text-center py-2 font-weight-bold bg-warning">
                             <img src="" alt="<%= current_user.name.split("")[0] %>" class="img-responsive" />
                         </div>
+                    <% end %>
                     </center>
                    
                         <div class="text-center text-primary font-weight-bold"><%= current_user.name %></div>
