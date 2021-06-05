@@ -26,7 +26,12 @@
 			<h1><%= @number_of_people %></h1>
 			<p class="days-to-go">people donated</p>
 			<div class="funding-counter">
-				<p><strong>Rs.<%= number_with_delimiter(@total_amount, :delimiter => ',') %> raised</strong></p>
+				<p><% remaining_amount = @total_amount - @total_amount_spent %>
+				<strong>Rs.<%= number_with_delimiter(@total_amount, :delimiter => ',') %> Raised</strong><br >
+				<strong>Rs.<%= number_with_delimiter(@total_amount_spent, :delimiter => ',') %> Spent</strong><br>
+				<strong>Rs.<%= number_with_delimiter(remaining_amount, :delimiter => ',') %> Remaining</strong>
+				</p>
+				<p></p>
 				<div class="progress" style="height: 10px;">
 				    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
@@ -96,7 +101,6 @@
 						  <span img-src="<%= expn.biils %>" expense-title="<%= expn.expenditure_title %>" spent-amount="<%= expn.spent_amount %>" onclick="modal_value(this)" style="cursor:pointer" class="badge rounded-pill bg-info text-dark" data-toggle="modal" data-target="#billModal">
   									View Bill
 							</span>
-							
 						</div>
 					     </li>
 				<% end %>
