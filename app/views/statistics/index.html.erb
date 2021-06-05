@@ -22,20 +22,13 @@
 	
 </div>
 <br>
-<!-------------------------------kanchanpur statistics--------------------------------->
-
+    <!-------------------------------kanchanpur statistics--------------------------------->
     <style>
-        .card:hover {
-            cursor: pointer;
-            background: rgb(160, 207, 200);
-        }
 
-        #full {
+        #full{
             background-color: rgb(236, 211, 188);
         }
-		.list-group-item{
-				background-color: rgb(187, 231, 193);
-		}
+	
     </style>
 
 <div id="full">
@@ -104,7 +97,6 @@
                             <h5 class="card-title text-center text-dark">जम्मा जनसंख्या </h5>
                             <p class="card-text text-center text-dark">४,४८,५०३ </p>
                         </div>
-
                     </div>
                 </a>
             </div>
@@ -116,13 +108,16 @@
         <h2 class=" mt-0 fs-1 font-weight-bold"> <u>नगरपालिकाहरु:</u></h2>
         <h4 class=" mt-0 fs-3 ">(थप विवरण हेर्नको लागी click गर्नुहोला)</h4>
 		<ol>
-				<li> <h3><span class="badge rounded-pill bg-primary"> भीमदत्त नगरपालिका</span>   </h3></li>
-				<li> <h3><span class="badge rounded-pill bg-secondary">पुर्नवास नगरपालिका</span> </h3></li>
-				<li><h3> <span class="badge rounded-pill bg-success">वेदकोट नगरपालिका </span> </h3></li>
-				<li> <h3> <span class="badge rounded-pill bg-danger">महाकाली नगरपालिका <b>(हाल विवरण उपलब्द छैन)</b></span> </h3></li>
-				<li> <h3><span class="badge rounded-pill bg-warning text-dark">शुक्लाफाँटा नगरपालिका</span>  </h3></li>
-				<li><h3><span class="badge rounded-pill bg-info text-dark">बेलौरी नगरपालिका</span> </h3></li>
-				<li> <h3> <span class="badge rounded-pill bg-light text-dark">कृष्णपुरनगरपालिका</span> </h3></li>
+				
+                <li> <%= link_to statistics_bhimdatt_index_path, class:"text-dark" do %><h3> <span class="badge rounded-pill bg-success">  भीमदत्त नगरपालिका  </span> </h3> <% end %></li>  
+                 <li> <%= link_to statistics_betkot_index_path, class:"text-dark" do %><h3> <span class="badge rounded-pill bg-light text-dark"> वेदकोट नगरपालिका </span> </h3> <% end %></li>
+				<li> <%= link_to statistics_krishnapur_index_path, class:"text-dark" do %><h3> <span class="badge rounded-pill bg-success"> कृष्णपुर नगरपालिका</span> </h3> <% end %></li>
+                <li> <%= link_to statistics_belauri_index_path, class:"text-dark" do %><h3><span class="badge rounded-pill bg-info text-dark">बेलौरी नगरपालिका</span> </h3> <% end %></li>
+                <li> <%= link_to statistics_punarbas_index_path, class:"text-dark" do %><h3><span class="badge rounded-pill bg-secondary">पुर्नवास नगरपालिका</span> </h3> <% end %> </li>
+				<li> <%= link_to statistics_mahakali_index_path, class:"text-dark" do %><h3> <span class="badge rounded-pill bg-danger">महाकाली नगरपालिका </span> </h3> <% end %> </li>
+				<li> <%= link_to statistics_suklaphata_index_path, class:"text-dark" do %><h3><span class="badge rounded-pill bg-warning text-dark">शुक्लाफाँटा नगरपालिका</span> <% end %> </h3></li>
+				
+				
                 
 		</ol>
 		
@@ -134,25 +129,22 @@
         <h2 class=" mt-0 fs-1 font-weight-bold"> <u>गाउँपालिकाहरु:</u></h2>
         <h4 class=" mt-0 fs-3">(थप विवरण हेर्नको लागी click गर्नुहोला)</h4>
 		<ol>
-			<li> <h3><span class="badge rounded-pill bg-primary"> बेलडाडी गाउँपालिका</span> </h3></li>
-			<li><h3><span class="badge rounded-pill bg-secondary">लालझाडी गाउँपालिका</span> </h3></li>
+			<li> <%= link_to statistics_beldadi_index_path, class:"text-dark" do %><h3><span class="badge rounded-pill bg-primary"> बेलडाडी गाउँपालिका</span> </h3> <% end %></li>
+			<li> <%= link_to statistics_laljhadi_index_path, class:"text-dark" do %><h3><span class="badge rounded-pill bg-secondary">लालझाडी गाउँपालिका</span> </h3> <% end %></li>
 		</ol>
 		
     </div>
 
     <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="nagarpalika_gaupalika_list">
 
-
         <h2 class=" mt-0 fs-1 font-weight-bold"> <u>जम्मा नगरपालिका र गाउँपालिकाहरु:</u> </h2>
         <h3 class=" mt-0 fs-3">७ नगरपालिका + २ गाउँपालिका = ९</h3>
-
 
     </div>
     <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="map">
 
         <h2 class=" mt-0 fs-1 font-weight-bold">नक्सा:</h2>
         <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1622781938/kanchanpur_statistics/Kanchanpur_Recon_Wads_zduwjw.jpg" class="img-fluid rounded mx-auto d-block" alt="map">
-
 
     </div>
     <div class='container sm-2 mt-5 mb-3 p-3 border border-danger border-2 rounded' id="total_population">
