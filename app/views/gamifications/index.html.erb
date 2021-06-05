@@ -10,7 +10,11 @@
 										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png" class="img-fluid" style="height:100%; width:100%; object-fit: cover;">
 									</div>
 									<div class="user-image">
+									<% if !current_user.image_url.nil? %>
+										<%= cl_image_tag(current_user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", loading:"lazy") %>
+									<% else %>
 										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1618569084/deer_txd8ww.jpg" >
+									<% end %>
 									</div>
 								</div>
 
