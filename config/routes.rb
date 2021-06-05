@@ -42,6 +42,19 @@ Rails.application.routes.draw do
    get 'notes/notes_download'
    get 'notes/syllabus_index'
 
+
+   #routes for statistics
+  
+   get 'statistics/bhimdatt_index'
+   get 'statistics/punarbas_index'
+   get 'statistics/krishnapur_index'
+   get 'statistics/mahakali_index'
+   get 'statistics/suklaphata_index'
+   get 'statistics/belauri_index'
+   get 'statistics/betkot_index'
+   get 'statistics/laljhadi_index'
+   get 'statistics/beldadi_index'
+
    #routes for arcy#
    resources :donors
    resources :vacancies
