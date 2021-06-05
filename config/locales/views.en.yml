@@ -76,3 +76,41 @@ en:
   #blood donation
   new_donor: "Be a Donor"
   alert_text: "For listing yourself as available and eligible donor, your blood pressure should be normal.You must be above 18 years old and weighing more than 45 kgs. You must not be using any kinds of regular drugs, alcohol or any such unhealhty consumptions. Incase of women, donor is not allowed to donate blood 8 days prior and after mensuration."
+
+  #professionals 
+  skill_register: "Register Yourself"
+  select_profession: "Select Profession"
+
+  #telephone directory 
+  emergency_numbers: "Emergency and Important Phone Numbers"
+  all_directory: "Telephone Directory"
+  #MNR_Marketplace 
+  add_product: "Add Product for Selling "
+  login_to_sell: " Log-In to Start Selling "
+  #events 
+  mnr: "MNR"
+  today: "Today"
+  add_event: "Add Event or Programme "
+  todays: "Today's"
+  events: " Events And Programmes"
+  no_events_today: "No Events Today "
+  upcoming: "Upcoming "
+  upevents: " Events and Programmes"
+  no_upcoming_events: "No Upcoming Events  "
+  #blood donors
+  login_to_become_donor: "Login to Become Blood Donor"
+  #pet Adoption 
+  add_pets: "Add Pets For Adoption  "
+  #covid-homepage 
+  nepal_data: "Nepal's Covid Data "
+  kanchanpur_data: "Kanchanpur's Covid Data "
+  confirmed: " Covid Confirmed"
+  recovered: "Recovered"
+  deaths: "Deaths"
+  Donate: "Donate For Oxygen Cylinders "
+  #models 
+  male: "male"
+  female: "female"
+  #tourists
+  add_new_places: "Add New Tourist Places"
+  sign_in_to_add_tourist: "Please Login To add Tourist Places"

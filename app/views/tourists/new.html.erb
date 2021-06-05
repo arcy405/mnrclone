@@ -1,0 +1,29 @@
+<%= content_for :recaptcha_js do %>
+    <%= include_recaptcha_js %>
+  <% end %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+  
+          <div class="container">
+                <h1 class="form_title"> <%= t('tourist_title') %>   <span class="mnryp_word">MNRYP</span></h1>
+                   
+            <div class="row">
+              <div class="col-md-6">
+                <ul >
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text1') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text2') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text3') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text4') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text5') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text6') %> </li>
+                    <li class="about-paddingB text-justify"> <%= t('tourist_text7') %> </li>
+                    
+                </ul>
+              </div>
+              <div class="col-md-6">
+              <div class="shadow p-3 mb-5 bg-white rounded">
+              <%= render partial:"form" %>
+              </div>
+              </div>
+            </div>
+         </div>
+   

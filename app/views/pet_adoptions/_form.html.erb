@@ -12,19 +12,19 @@
 		<%end%>
 <!------------------------------------------------------------------------------->
 	<div class="input-group has-validation">
-		<%= f.text_field :pet_name, placeholder: "Pet Name" ,class:"form-control mt-2" %>
+		<%= f.text_field :pet_name, placeholder: "#{t('pet_placeholder1')}" ,class:"form-control mt-2" %>
       <div class="invalid-feedback">
          Please enter a valid Pet Name.
       </div>
     </div>
     <div class="input-group has-validation">
-    	<%= f.telephone_field :contact, placeholder: "Contact Number" ,class:"form-control mt-2" %>
+    	<%= f.telephone_field :contact, placeholder: "#{t('pet_placeholder2')}" ,class:"form-control mt-2" %>
       <div class="invalid-feedback">
          Please enter a valid Phone Number.
       </div>
     </div>
 
-    <label for="image">Add Image </label>
+    <label for="image"> <%= t('pet_placeholder3') %> </label>
     <div class="input-group has-validation">
     	<%= f.file_field :image, direct_upload: true, class:"form-control",required:true %>
               <%= f.hidden_field :image_cache %>
@@ -38,11 +38,11 @@
   <div class="d-flex flex-row mt-2">
     <div class="flex-fill">
       <%= link_to :back do %>
-        <span class="cancel-button form-control font-weight-bold text-center">Cancel</span>
+        <span class="cancel-button form-control font-weight-bold text-center"> <%= t('cancel') %></span>
       <% end %>
     </div>
     <div class="flex-fill">
-      <%= f.submit "Save" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
+      <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Saving..." } %>
     </div>
   </div>
   <!---------------------#########################-------------------------->

@@ -1,0 +1,90 @@
+
+	<%= form_for @tourist,:html => { :multipart => true,class:"needs-validation", :novalidate=>true } do |f| %>
+
+                <!--------------Errors-------------------------------------->
+        <% if @tourist.errors.any? %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            <% @tourist.errors.full_messages.each do |message|%>
+                <p class="responsive-text"><%= message %> </p>
+              <%end%>
+          </div>
+        <%end%>
+        <!------------------------------form fields ------------------------------------------------->
+
+		
+        <div class="input-group has-validation">
+            <%= f.text_field :place_name, placeholder: " #{t('tourist_placeholder1')}  ", class:"form-control MT-2", required:true %>
+            <div class="invalid-feedback">
+                Please enter a valid Place  Name.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.text_field :location, placeholder: "#{t('tourist_placeholder2')} ", class:"form-control mt-2", required:true %>
+            <div class="invalid-feedback">
+                Please enter a valid Location.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.telephone_field :contact, placeholder: "#{t('tourist_placeholder3')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter a valid Phone number.
+            </div>
+        </div>
+        <div class="input-group has-validation">
+            <%= f.text_field :longitude, placeholder: "#{t('tourist_placeholder4')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter  valid longitude of place .
+            </div>
+        </div>
+                <div class="input-group has-validation">
+            <%= f.text_field :lattitude, placeholder: "#{t('tourist_placeholder5')}", class:"form-control mt-2" %>
+            <div class="invalid-feedback">
+                Please enter valid latitude of place.
+            </div>
+        </div>
+                <div class="input-group has-validation">
+            <%= f.text_area :feature, placeholder: "#{t('tourist_placeholder6')}", class:"form-control mt-2", :rows => "3", required:true %>
+            <div class="invalid-feedback">
+                Please enter some features about place .
+            </div>
+        </div>
+        <div>
+                <div class="input-group has-validation">
+            <%= f.text_area :description, placeholder: "  #{t('tourist_placeholder7')} ", class:"form-control mt-2", :rows => "4", required:true %>
+            <div class="invalid-feedback">
+                Please enter some description about place .
+            </div>
+        </div>
+        <!-------------image section ------------------------------------------------------>
+        <hr />
+        <label class="mr-2"> </label>
+         <div class="row p-2">
+                <strong> <%= t('tourist_placeholder8') %> </strong>
+            <%= f.fields_for :tourist_images do |p| %>
+                <div class="input-group has-validation">
+                <%= p.file_field :image , direct_upload: true,:multiple => true,class:"form-control",name:"tourist_images[image][]",required:true %>
+                 <%= p.hidden_field :image_cache %>
+                 <div class="invalid-feedback">
+                    Please uplaod Place  Images.
+                 </div>
+             </div>
+             <pre> <%= t('tourist_placeholder9') %> </pre>
+            <% end %>
+           </div>
+        <hr />
+         <!-------------form buttons-------------------->
+          <div class="d-flex flex-row mt-2">
+            <div class="flex-fill">
+              <%= link_to :back do %>
+                <span class="cancel-button form-control font-weight-bold text-center"> <%= t('cancel') %> </span>
+              <% end %>
+            </div>
+            <div class="flex-fill">
+              <%= f.submit " #{t('save')}" , class:"button form-control text-white font-weight-bold", data: { disable_with: "Adding..." } %>
+            </div>
+          </div>
+           <%= recaptcha_action('marketplace') %>
+  <% end %>
