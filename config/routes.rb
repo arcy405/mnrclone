@@ -42,7 +42,7 @@ Rails.application.routes.draw do
    get 'notes/notes_download'
    get 'notes/syllabus_index'
 
-
+   
    #routes for statistics
   
    get 'statistics/bhimdatt_index'
