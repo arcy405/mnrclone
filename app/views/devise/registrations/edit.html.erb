@@ -10,48 +10,69 @@
                       </div>
                 </div>
             </div>
-            <div class="col-md-6">
+             <div class="col-md-4 border border-radius-dark-2">
+                  <div class="Back">
+                        <i class="fa fa-arrow-left" onclick="Back()"></i>
+                        <script>
+                          function Back() {
+                            window.history.back();
+                          }
+                          </script>
+                    </div>
 
-                <div class="login-wrap1">
-                  <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab font-weight-bold">Sign Up</label>
-                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <p class="h2 text-center">Edit User</p>
+                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                       <%= render "devise/shared/error_messages", resource: resource %>
-                      <div class="login-form">
-                      
-                        <div class="sign-in-htm">
-                          <div class="group">
-                            <label for="image" class="label font-weight-bold">Profile Picture</label>
-                            <%= f.file_field :image, direct_upload: true,class:"form-control" %>
+                      <div class="preview text-center">
+                          
+                          <% if !current_user.image_url.nil? %>
+                                <%= cl_image_tag(current_user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", loading:"lazy", class:"prof-pic") %>
+                                <% else %>
+                                <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
+                          <% end %>
+                          <div class="browse-button">
+                              <i class="fa fa-pencil-alt"></i>
+                              <%= f.file_field :image, direct_upload: true,class:"form-control browse-input", id:"UploadedFile" %>
                                         <%= f.hidden_field :image_cache %>
                           </div>
-                          <div class="group">
-                            <label for="user" class="label font-weight-bold">Username or Email</label>
-                            <%= f.text_field :name, class:"form-control", autofocus: true, placeholder:"Enter Your Full Name" %>
-                          </div>
-                          <div class="group">
-                            <label for="pass" class="label font-weight-bold">Password</label>
-                            <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"Password" %>
-                          </div>
-                            <div class="group">
-                            <label for="pass" class="label font-weight-bold"> Confirm Password</label>
-                            <%= f.password_field :password_confirmation, autocomplete: "current-password",class:"form-control" ,placeholder:"Confirm Password" %>
-                          </div>
-                          <div class="group">
-                            <%= f.submit "Sign Up",class:"btn btn-success form-control" %>
-                          </div>
-                          <div class="hr"></div>
-                        </div>
-                      <div class="row mb-4 px-3"> <strong class="font-weight-bold">Already have an account? 
-                            <%= link_to "Log in", new_session_path(resource_name) ,class:"text-success"  %></strong>
+                          <span class="Error"></span>
                       </div>
-                    <% end %>
-                </div>
-					</div>
+                      <label>Name:</label>
+                      <div class="form-group">
+                          <%= f.text_field :name, class:"form-control", autofocus: true, placeholder:"Enter Your Full Name" %>
+                          <span class="Error"></span>
+                      </div>
+                      <label>Email:</label>
+                      <div class="form-group">
+                          <%= f.text_field :email, class:"form-control", autofocus: true, placeholder:"Enter Your Email" %>
+                          <span class="Error"></span>
+                      </div>
+                      <div class="form-group">
+                          <label>Password:</label>
+                          <%= f.password_field :password, autocomplete: "current-password",class:"form-control" ,placeholder:"Password" %>
+                          <span class="Error"></span>
+                      </div>
+                       <div class="form-group">
+                          <label>Current assword:</label>
+                          <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control" ,placeholder:"Password" %>
+                          <span class="Error"></span>
+                      </div>
+                       <div class="form-group">
+                          <label> Confirm Password:</label>
+                          <%= f.password_field :password_confirmation, autocomplete: "current-password",class:"form-control" ,placeholder:"Confirm Password" %>
+                          <span class="Error"></span>
+                      </div>
+                      <div class="form-group">
+                          <%= f.submit "Sign Up",class:"btn btn-success form-control" %>
+                      </div>
+                  <% end %>
+              </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 
