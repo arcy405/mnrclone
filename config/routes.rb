@@ -42,6 +42,9 @@ Rails.application.routes.draw do
    get 'notes/notes_download'
    get 'notes/syllabus_index'
 
+
+   get 'gamifications/reward'
+
    
    #routes for statistics
   

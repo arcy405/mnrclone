@@ -1,36 +1,56 @@
 <% content_for :title, "#{current_user.name}-MNRYP" %>
+
 <%= render 'Homepage/navmenu.html.erb' %>
+        <div class="body1">
 			<div class="container-fluid mt-2">
 				<div class="row">
-					<div class="col-md-4">
-						<div class="card">
-							<div class="profile-card">
-								<div class="profile-header">
-									<div class="cover-image">
-										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png" class="img-fluid" style="height:100%; width:100%; object-fit: cover;">
-									</div>
-									<div class="user-image">
-									<% if !current_user.image_url.nil? %>
-										<%= cl_image_tag(current_user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", loading:"lazy") %>
-									<% else %>
-										<img src="https://res.cloudinary.com/di7sekeem/image/upload/v1618569084/deer_txd8ww.jpg" >
-									<% end %>
-									</div>
-								</div>
-
-								<div class="profile-content">
-											<h5 class=" text-center text-primary font-weight-bold mx-3 my-3"><%= current_user.name %></h5> 
-									<div class="text-center text-dark"><%= @points %> Points</div> 
-									<%= link_to edit_user_registration_path do  %>
-										 Edit Profile <i class="far fa-edit text-primary"></i>
-									<% end %>
-									<p class="text-success responsive-text text-center my-2">MNRYP team thanks you for making MNR beautiful.</p>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-8">
+                   
+                        <div class="row py-5 px-4">
+                            <h2 class="mx-auto font-weight-bold">   MY PROFILE </h2>
+                            <div class="col-md-5 mx-auto">
+                                <!-- Profile widget -->
+                                <div class="bg-white shadow rounded overflow-hidden">
+                                    <div class="px-4 pt-0 pb-4 cover">
+                                        <div class="media align-items-end profile-head">
+                                            <div class="profile mr-3"> <%= cl_image_tag(current_user.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy", class:"rounded mb-2 img-thumbnail", width:"130" ) %> <%= link_to edit_user_registration_path, class:"btn btn-outline-dark btn-sm btn-block" do %> Edit profile <% end %> </div>
+                                            <div class="media-body mb-5 text-white">
+                                                <h4 class="mt-0 mb-0"><%= current_user.name %></h4>
+                                                <p class="small mb-4 "> <i class="fas fa-map-marker-alt mr-2"></i> <%= current_user.address %> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="px-3 py-3 my-4">
+                                        <div class="p-4 rounded shadow-lg bg-light">
+                                            <ul>
+                                                <li><p class=" mb-0 font-weight-bold "> <%= current_user.work %></p></li>
+                                                <li><p class=" mb-0 font-weight-bold "> <u> MNRYP Email:</u> <%= current_user.email.slice(0..19) %> <br> <%= current_user.email.slice(20..23)%></p> </li>
+                                                <li><p class="font-weight-bold mb-0"> <u>Gmail:</u> <%= current_user.gmail.slice(0..19)  %> <br> <%= current_user.gmail.slice(20..23)%></p> </li>
+                                                <li><p class="font-weight-bold mb-0"><i class="fas fa-phone-alt"></i> <%= current_user.phone %></p> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="py-4 px-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <h5 class="mb-0 font-weight-bold">My Contributions</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-10 mb-2 pr-lg-1 badge bg-success w-75"> <%= @points %> MNRYP Points  </div> 
+                                            <div class="col-lg-10 pr-lg-1 lg-1 text-info font-weight-bold"> RealEstate Listings:  </div>
+                                            <div class="col-lg-10 pr-lg-1 lg-1  text-info font-weight-bold"> Pet Listings  </div>
+                                            <div class="col-lg-10 pr-lg-1 lg-1 text-info font-weight-bold">  Notes Listings: </div>
+                                            <div class="col-lg-10 pr-lg-1 lg-1  text-info font-weight-bold"> Blood Donations:  </div>
+                                            <div class="col-lg-10 pr-lg-1 lg-1  text-info font-weight-bold">  Business Listings:  </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                       
 					</div>
 
-					<div class="col-md-8">
+					<div class="col-md-4 my-5">
 						<div class="card">
 							<div class="card-body">
 								<p class="card-title font-weight-bold">MNRYP</p>
@@ -51,12 +71,17 @@
 									<li class="about-items">1000 points = <span class="text-success">Rs. 1000</span></li>
 									<li class="about-items">2000 points = <span class="text-success">Rs. 2500</span></li>
 								</ul>
+
+
+                                    <div class="font-weight-bold text-danger">You can Recieve Reward if you have Earned 500+ points,</div> <br>
+
+                                   <%=  link_to gamifications_reward_path, class:"btn btn-success" do  %>Click <% end %>  <div class="font-weight-bold text-success"> to recieve your Rewards </div>
 							</div>
 						</div>
 					</div>
 
 				</div>
 			</div>
-
+        </div>
 
 
