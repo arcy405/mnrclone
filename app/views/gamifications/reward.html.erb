@@ -1,0 +1,11 @@
+<% if current_user.gamification.all.sum(:points) >= 500 %>
+
+    <div class="d-flex">
+        <h1 class=" mx-auto d-flex justify-content-center text-center">
+            Call In the following Number : 9805769058
+        </h1>
+    </div>
+
+<% else %>
+   <%= render 'gamifications/error_gamification' %>
+<% end %>

@@ -1,0 +1,8 @@
+  <div class="error-wrapper">
+        <div class="man-icon"></div>
+        <h3 class="title"> Sorry! You have only <%= current_user.gamification.all.sum(:points) %> Points</h3>
+        <p class="info"> Try to collect at least 500+ Points </p>
+        <%= link_to gamifications_path , style:"text-decoration:none"  do %>
+        	Go Back To Your Profile For More Information <i class="fas fa-user-circle"></i>MyProfile
+        <% end %>
+    </div>
