@@ -25,8 +25,8 @@
                                         <div class="p-4 rounded shadow-lg bg-light">
                                             <ul>
                                                 <li><p class=" mb-0 font-weight-bold "> <%= current_user.work %></p></li>
-                                                <li><p class=" mb-0 font-weight-bold "> <u> MNRYP Email:</u> <%= current_user.email.slice(0..19) %> <br> <%= current_user.email.slice(20..23)%></p> </li>
-                                                <li><p class="font-weight-bold mb-0"> <u>Gmail:</u> <%= current_user.gmail.slice(0..19)  %> <br> <%= current_user.gmail.slice(20..23)%></p> </li>
+                                                <li><div class=" mb-0 font-weight-bold responsive-text"> <u> MNRYP Email:</u> <%= current_user.email %> </div> </li>
+                                                <li><p class="font-weight-bold mb-0"> <u>Gmail:</u> <%= current_user.gmail  %> </p> </li>
                                                 <li><p class="font-weight-bold mb-0"><i class="fas fa-phone-alt"></i> <%= current_user.phone %></p> </li>
                                             </ul>
                                         </div>
