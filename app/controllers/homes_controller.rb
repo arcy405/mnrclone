@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   
   def index
 
-    url = "https://covid19.mathdro.id/api/countries/nepal"
+    url = "https://covid19.mathdro.id/api/countries/nepal" 
     response = HTTParty.get(url)
 
     @result = response.parsed_response
