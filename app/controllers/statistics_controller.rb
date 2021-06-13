@@ -26,5 +26,8 @@ class StatisticsController < ApplicationController
 
 	def beldadi_index
 	end 
+	
+	def krishnapur_index
+	end 
 
 end
