@@ -21,7 +21,7 @@ class PostsController < ApplicationController
         if  @post.save
             if params[:post_images]
               params[:post_images]['image'].each do |a|
-                    @marketplace_image = @post.post_images.create!(:image => a, :post_id => @post.id)
+                    @post_image = @post.post_images.create!(:image => a, :post_id => @post.id)
               end
             end
 

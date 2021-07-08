@@ -95,6 +95,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
+    brakeman (5.0.4)
     builder (3.2.4)
     bullet (6.1.4)
       activesupport (>= 3.0.0)
@@ -372,6 +373,16 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sentry-rails (4.6.1)
+      railties (>= 5.0)
+      sentry-ruby-core (~> 4.6.0)
+    sentry-ruby (4.6.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      faraday (>= 1.0)
+      sentry-ruby-core (= 4.6.1)
+    sentry-ruby-core (4.6.1)
+      concurrent-ruby
+      faraday
     simple_discussion (1.3.0)
       font-awesome-sass (>= 5.13.0)
       friendly_id (>= 5.2.0)
@@ -394,6 +405,8 @@ GEM
     thread_safe (0.3.6)
     thread_safe (0.3.6-java)
     tilt (2.0.10)
+    traceroute (0.8.1)
+      rails (>= 3.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -450,6 +463,7 @@ DEPENDENCIES
   airbrake
   algoliasearch-rails
   bootsnap (>= 1.4.2)
+  brakeman
   bullet
   byebug
   cancancan
@@ -479,9 +493,12 @@ DEPENDENCIES
   redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   simple_discussion
   spring
   spring-watcher-listen
+  traceroute
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

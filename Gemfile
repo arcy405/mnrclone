@@ -43,6 +43,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'bullet', group: 'development'
+  gem 'brakeman'
+  gem 'traceroute'
 end
 
 group :test do
@@ -111,3 +113,5 @@ gem 'rails-i18n'
 gem 'acts_as_votable'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
+gem "sentry-ruby"
+gem "sentry-rails"

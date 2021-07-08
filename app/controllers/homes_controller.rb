@@ -13,7 +13,7 @@ class HomesController < ApplicationController
         @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np).where("top_service = ?", true).limit(10)}
       end
       @kanchanpur_covid_data = Covid.last
-  end
+  
 
   def show
     category=params[:category]
@@ -35,7 +35,5 @@ class HomesController < ApplicationController
         @total_records = @tags_result[:nbHits] + @listings_result[:nbHits] + @bus_result[:nbHits] + @blood_result[:nbHits] + @imp_number_result[:nbHits] + @profession_result[:nbHits] + @tourist_result[:nbHits] 
     end
 
-    def tool
-    end
 
 end
