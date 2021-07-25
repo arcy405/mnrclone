@@ -28,9 +28,10 @@ Rails.application.routes.draw do
 
    
 
-   resources :bus_departures
-   resources :models
-   resources :reviews, :events, :marketplaces,:professionals
+   resources :bus_departures, only: [:index]
+   resources :models, only: [:index, :show]
+   resources :events,only: [:index,:new,:create]
+   resources :marketplaces,:professionals
    resources :notes, only: [:index]
    resources :gamifications, only: [:index]
    resources :statistics, only: [:index]

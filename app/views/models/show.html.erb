@@ -10,7 +10,7 @@
 	<%= link_to "View All",models_path, class:"badge bg-info text-dark ml-2", style:"text-decoration:none" %>
 
     <div class="card-columns">
-        <% @model.gallery.each do |photo| %>
+        <% @model.galleries.each do |photo| %>
             <div class="card ">
               <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="<%= @model.name %>"
                          data-image="<%= photo.image %>" data-target="#image-gallery">
