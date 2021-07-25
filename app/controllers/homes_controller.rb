@@ -13,8 +13,7 @@ class HomesController < ApplicationController
         @tags = Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_np).where("top_service = ?", true).limit(10)}
       end
       @kanchanpur_covid_data = Covid.last
-  
-
+  end
   def show
     category=params[:category]
     @catname=category
