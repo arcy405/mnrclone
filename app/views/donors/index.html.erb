@@ -156,15 +156,9 @@
 <div class="panel panel-default">
 <div class="panel-body">
     <div class="mt-4  mb-2">
-        <% if user_signed_in? %>
-            <%= link_to new_donor_path do %>
+            <%= link_to new_donor_path, class:"text-white btn bg-danger " do %>
 	          <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
             <% end %>
-        <% else %>
-            <%= link_to user_session_path do %>
-                <span  class="btn-outline-danger rounded p-2 border"><%= t('login_to_become_donor') %></span>
-            <% end %>
-        <% end %>  
     </div>
     <% if !params[:blood_group] %>
     	<button class="btn btn-primary filter-button mt-2" data-filter="all">  <%= t('all') %></button>
