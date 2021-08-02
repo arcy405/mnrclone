@@ -15,9 +15,7 @@ class DonorsController < ApplicationController
 
    respond_to do |format|
     if  @donor.save
-          if user_signed_in?
-            current_user.gamification.create!(points:5)
-          end
+         
           format.html { redirect_to donors_path, notice: 'Donor was successfully created.' }
       else
         format.html { render :new }
