@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_104128) do
+ActiveRecord::Schema.define(version: 2021_08_06_082746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -475,7 +475,6 @@ ActiveRecord::Schema.define(version: 2021_06_09_104128) do
     t.string "seller_name"
     t.string "seller_phone"
     t.string "price"
-    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ptype"
@@ -488,6 +487,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_104128) do
     t.integer "user_id"
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
 
