@@ -10,7 +10,24 @@
 				<img class="postcard__img " src="https://res.cloudinary.com/di7sekeem/image/upload/v1623659655/blood_donors/blood_xvn3cs.jpg" alt="Image Title" />	
 			</div>
 			<div class="postcard__text t-dark">
-				<h1 class="postcard__title red"> विश्व रक्तदाता दिवस </h1>
+                <div class="row">
+                    <div class="col-md-8">
+				        <h1 class="postcard__title red"> विश्व रक्तदाता दिवस </h1>
+                    </div>
+                     <div class="col-md-4 ">
+				         <div class="mt-4  mb-2">
+                            <% if user_signed_in? %>
+                                <%= link_to new_donor_path, class:"font-weight-bold help btn bg-danger text-white", style:"width:100%; height:3rem" do %>
+                                <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
+                                <% end %>
+                            <% else %>
+                                <%= link_to user_session_path do %>
+                                    <span  class="btn-outline-danger rounded p-2 border"><%= t('login_to_become_donor') %></span>
+                                <% end %>
+                            <% end %>  
+                        </div>
+                    </div>
+                </div>
 				<div class="postcard__subtitle small">
 					<time datetime="2020-05-25 12:00:00">
 						<i class="fas fa-calendar-alt mr-2"></i> 
@@ -157,7 +174,7 @@
 <div class="panel-body">
     <div class="mt-4  mb-2">
         <% if user_signed_in? %>
-            <%= link_to new_donor_path do %>
+            <%= link_to new_donor_path, class:"font-weight-bold help btn bg-success" do %>
 	          <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
             <% end %>
         <% else %>
@@ -214,9 +231,9 @@
                                 <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br />
 
                                 <% if donor.blood_donated == nil %>
-                                 <span class="summary text-capitalize responsive-text fs-5 text-danger " id="donated_times"> <p> Not Donated Yet !</p> </span>
+                                 <span class="summary text-capitalize responsive-text fs-5 text-danger " id="donated-times"> <p> Not Donated Yet !</p> </span>
                                  <% else %>
-                                 <span class="summary text-capitalize responsive-text fs-5 text-success " id="donated_times"> <p> Donated <span class="font-weight-bold"><%= donor.blood_donated_times %> </span>  Times </p> </span>
+                                 <span class="summary text-capitalize responsive-text fs-5 text-success " id="donated-times"> <p> Donated <span class="font-weight-bold"><%= donor.blood_donated_times %> </span>  Times </p> </span>
                                 <% end %>
                             <a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
                             <% if !donor.dont_display_phone %>
