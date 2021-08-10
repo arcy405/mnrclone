@@ -225,14 +225,14 @@
 						<div class="media-body align-middle mx-2">
 							
 							<h4 class="title text-capitalize responsive-text"> 
-                            <span class="font-weight-bold"> <%= donor.name %></span>, <%=donor.gender %><br />
+                            <span> <h6 class="font-weight-bold "> <%= donor.name %> </h6> </span> <%=donor.gender %>  <br>
 								<span>
                                 Age: <%= donor.age %></span><br />
                                 <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br>
                                 <%# blood donated condition --------------------- %>
                                 <div class="mt-1">
                                     <% if donor.blood_donated == true %>
-                                        <span class="summary text-capitalize responsive-text fs-5 text-success " id="donated-times"> <span class="badge bg-success text-white">  Donated Before !</span> </span>
+                                         <span class="badge bg-success text-white ">  Donated Before !</span> </span>
                                     <% else %>
                                     <span class="summary text-capitalize responsive-text fs-5 text-danger " id="donated-times"> <p>  Not Donated Before !</p> </span> 
                                     <% end %>
