@@ -208,10 +208,16 @@
 						<div class="media-body align-middle mx-2">
 							
 							<h4 class="title text-capitalize responsive-text"> 
-                            <%= donor.name %>, <%=donor.gender %><br />
+                            <span class="font-weight-bold"> <%= donor.name %></span>, <%=donor.gender %><br />
 								<span>
                                 Age: <%= donor.age %></span><br />
                                 <span class="summary text-capitalize responsive-text"><%= donor.address %></span><br />
+
+                                <% if donor.blood_donated == nil %>
+                                 <span class="summary text-capitalize responsive-text fs-5 text-danger " id="donated_times"> <p> Not Donated Yet !</p> </span>
+                                 <% else %>
+                                 <span class="summary text-capitalize responsive-text fs-5 text-success " id="donated_times"> <p> Donated <span class="font-weight-bold"><%= donor.blood_donated_times %> </span>  Times </p> </span>
+                                <% end %>
                             <a href="tel:<%= donor.phone1 %>" class="phoneMe" style="text-decoration:none" >
                             <% if !donor.dont_display_phone %>
                                 <span class="phone mt-4"><i class="fas fa-mobile-alt mr-2"></i><%=donor.phone1 %></span>

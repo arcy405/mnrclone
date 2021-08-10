@@ -48,8 +48,15 @@
 
     <%= f.text_field :phone2, placeholder: "#{t('donors_placeholder_7')}",class:"form-control mt-2 mb-2" %>
     <pre>Don't make my phone number Public <span class="mt-4"> <%= f.check_box :dont_display_phone %></span></pre>
+
     <%= f.label :status, "Status" %>
     <%= f.select :status, ['Available','Unavailable'] %>
+
+    <pre>Have You Ever Donated Blood Before ?<span class="mt-4"> <%= f.check_box :blood_donated %></span></pre>
+
+    <%= f.label :blood_donated_times, "How Many Times You have Donated Blood ?" %>
+    <%= f.number_field :blood_donated_times %>
+
 
     <div class="d-flex flex-row mt-2">
       <div class="flex-fill">

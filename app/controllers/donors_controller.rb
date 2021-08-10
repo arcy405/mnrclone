@@ -30,7 +30,7 @@ class DonorsController < ApplicationController
   def update
     respond_to do |format|
       if @donor.update(donor_params)
-        format.html { redirect_to donors_path, notice: 'Donor was successfully updated.' }
+        format.html { redirect_to donors_path, notice: 'Thank You, Donor was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -40,7 +40,7 @@ class DonorsController < ApplicationController
   def destroy
     @donor.destroy
     respond_to do |format|
-      format.html { redirect_to donors_path, notice: 'Donor was successfully destroyed.' }
+      format.html { redirect_to donors_path, notice: ' Donor was successfully destroyed.' }
     end
   end
 
@@ -50,7 +50,7 @@ class DonorsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def donor_params
-      params.require(:donor).permit(:name, :address, :gender, :blood_group,:user_id,:dont_display_phone, :phone1, :phone2, :status, :verified,:age)
+      params.require(:donor).permit(:name, :address, :gender, :blood_group,:user_id,:dont_display_phone, :phone1, :phone2, :status, :verified,:age, :blood_donated, :blood_donated_times)
     end
 end
 
