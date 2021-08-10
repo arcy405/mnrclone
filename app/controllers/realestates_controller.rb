@@ -3,9 +3,11 @@ class RealestatesController < ApplicationController
   before_action :set_realestate, only: [:show, :edit, :update, :destroy]
  
    def index
-         @Realestates=Realestate.order("created_at DESC")
+         @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
          @Realestate_rent=Realestate.where("ptype=?", "rent")
          @Realestate_sell=Realestate.where("ptype=?", "sell")
+         
+         
    end
  
    def show
@@ -20,8 +22,10 @@ class RealestatesController < ApplicationController
      
          respond_to do |format|
            if @realestate.save
+            if params[:realestate_images]
              params[:realestate_images]['image'].each do |i|
              @realestate_image = @realestate.realestate_images.create!(:image => i)
+            end
            end
  
              if user_signed_in?
