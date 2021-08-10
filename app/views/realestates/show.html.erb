@@ -7,10 +7,14 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <% @realestate.realestate_images.each_with_index do |prop_img,index| %>
-            <% active_class = "active" if index==0 %>
+            <% if prop_img.image == nil %>
+             <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png"> 
+             <% else %>
+              <% active_class = "active" if index==0 %>
               <div class="carousel-item <%= active_class %>" style="height:400px; width: 100%;">
                   <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"img-fluid w-100", loading:"lazy",style:"height:400px;") %>
               </div>
+            <% end %>
           <% end %>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

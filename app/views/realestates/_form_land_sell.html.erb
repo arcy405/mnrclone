@@ -38,7 +38,7 @@
     <div class="input-group has-validation">
       <%= f.text_field :seller_name , placeholder: "#{t('realestate_placeholder_4')}" ,class:"form-control mt-2" %>
       <div class="invalid-feedback">
-         Please enter a valid Name.
+         Please enter a valid Seller Name.
       </div>
     </div>
     <div class="input-group has-validation">
@@ -68,7 +68,7 @@
       <div class="text-muted"><%= t('marketplace_placeholer_5') %></div>
             <%= f.fields_for :realestate_images do |p| %>
                 <div class="input-group has-validation">
-                   <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]", required:true %>
+                   <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]" %>
                    <div class="invalid-feedback">
                       Please upload property Images.
                     </div>
