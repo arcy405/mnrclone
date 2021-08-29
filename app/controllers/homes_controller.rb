@@ -30,8 +30,8 @@ class HomesController < ApplicationController
       @profession_result= Profession.raw_search(query)
       @tourist_result= Tourist.raw_search(query)
       
-        @total_time = @tags_result[:processingTimeMS] + @listings_result[:processingTimeMS]  + @bus_result[:processingTimeMS] + @blood_result[:processingTimeMS] + @imp_number_result[:processingTimeMS] + @profession_result[:processingTimeMS] + @tourist_result[:processingTimeMS] 
-        @total_records = @tags_result[:nbHits] + @listings_result[:nbHits] + @bus_result[:nbHits] + @blood_result[:nbHits] + @imp_number_result[:nbHits] + @profession_result[:nbHits] + @tourist_result[:nbHits] 
+        # @total_time = @tags_result[:processingTimeMS] + @listings_result[:processingTimeMS]  + @bus_result[:processingTimeMS] + @blood_result[:processingTimeMS] + @imp_number_result[:processingTimeMS] + @profession_result[:processingTimeMS] + @tourist_result[:processingTimeMS] 
+        # @total_records = @tags_result[:nbHits] + @listings_result[:nbHits] + @bus_result[:nbHits] + @blood_result[:nbHits] + @imp_number_result[:nbHits] + @profession_result[:nbHits] + @tourist_result[:nbHits] 
     end
 
 
