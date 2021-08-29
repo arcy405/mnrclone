@@ -2,11 +2,6 @@
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
 	<p class="text-muted">
-		<%if @total_records == 0 %>
-			Sorry, No results found for your search. Go back to <%= link_to "Home", root_path %> to discover all the services of MNRYP.
-		<% else %>
-			Total <%= @total_records %> result found for "<%= params[:aa_search_input] %>" in <%= @total_time/100.00 %> seconds.
-		<% end %>
 		
 	</p>
 	<!-------------for all the searches of tags if any------------------>
