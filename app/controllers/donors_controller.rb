@@ -3,7 +3,9 @@ class DonorsController < ApplicationController
   before_action :set_donors, only: [:edit, :update, :destroy]
 
   def index
-    @donors=Donor.order(:blood_group).where("status=?","Available")
+    district = params[:district] || "Kanchanpur"
+    @donors=Donor.order(:blood_group).where("status=? AND district=?","Available", district)
+
   end
 
   def new
@@ -50,7 +52,7 @@ class DonorsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def donor_params
-      params.require(:donor).permit(:name, :address, :gender, :blood_group,:user_id,:dont_display_phone, :phone1, :phone2, :status, :verified,:age, :blood_donated, :blood_donated_times)
+      params.require(:donor).permit(:name, :address, :gender, :blood_group,:user_id,:dont_display_phone, :phone1, :phone2, :status, :verified,:age, :blood_donated, :blood_donated_times, :district)
     end
 end
 

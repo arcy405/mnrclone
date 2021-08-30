@@ -172,37 +172,62 @@
 <div class="col-md-12">
 <div class="panel panel-default">
 <div class="panel-body">
-    <div class="mt-4  mb-2">
-        <% if user_signed_in? %>
-            <%= link_to new_donor_path, class:"font-weight-bold help btn bg-success" do %>
-	          <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
-            <% end %>
-        <% else %>
-            <%= link_to user_session_path do %>
-                <span  class="btn-outline-danger rounded p-2 border"><%= t('login_to_become_donor') %></span>
-            <% end %>
-        <% end %>  
+    <div class="d-flex">
+        <div class="justify-content-left">
+            <div class="mt-4  mb-2">
+                <% if user_signed_in? %>
+                    <%= link_to new_donor_path, class:"font-weight-bold help btn bg-success" do %>
+                    <%= t('new_donor') %><i class="fas fa-plus-circle ml-2"></i>
+                    <% end %>
+                <% else %>
+                    <%= link_to user_session_path do %>
+                        <span  class="btn-outline-danger rounded p-2 border"><%= t('login_to_become_donor') %></span>
+                    <% end %>
+                <% end %>  
+            </div>
+        </div>
     </div>
-    <% if !params[:blood_group] %>
-    	<button class="btn btn-primary filter-button mt-2" data-filter="all">  <%= t('all') %></button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
-    	<button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="Bpos">B+</button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="Bneg">B-</button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="Opos">O+</button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="Oneg">O-</button>
-        <button class="btn btn-danger filter-button mt-2" data-filter="ABpos">AB+</button>
-    	<button class="btn btn-danger filter-button mt-2" data-filter="ABneg">AB-</button>
-    <% else %>
-         <%= link_to "SEE ALL",donors_path,class:"btn-outline-danger border p-2 rounded" %>
-    <% end %>
+<div class="row">
+        <div class="col-md-6">
+            <% if !params[:blood_group] %>
+                <button class="btn btn-primary filter-button mt-2" data-filter="all">  <%= t('all') %></button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Bpos">B+</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Bneg">B-</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Opos">O+</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="Oneg">O-</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="ABpos">AB+</button>
+                <button class="btn btn-danger filter-button mt-2" data-filter="ABneg">AB-</button>
+
+            <% else %>
+                <%= link_to "SEE ALL",donors_path,class:"btn-outline-danger border p-2 rounded" %>
+            <% end %>
+        </div>
+    <%# ------------ %>
+   
+    <div class="col-md-6 mr-3 mt-3 ">
+      <%= form_tag donors_path, :method =>"get" do %>
+                <div id="custom-search-input">
+                    <div class="input-group " >
+                      <%= search_field_tag :district, params[:district],class:"form-control", autocomplete:'on', placeholder:'Search by District', :required => 'required' %>
+                            <%= button_tag(type: "submit", class: "btn btn-info btn-sm") do %>
+                                <% end %>
+                    </div>
+                </div>
+                <div id="autocomplete-area"></div>
+            <% end %>
+        <%# -------------- %>
     </div>
+    
+</div >
     <br/>
     <!-------------------donnars list------------------------>
     <% if params[:blood_group] %>
         <% @donors= @donors.where("blood_group=?",params[:blood_group]) %>
-        
+    
     <% end %>
+    
     <div class="row">
         <% @donors.each do |donor| %>
          <% if donor.blood_group.include?'+' %>
