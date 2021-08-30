@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_235738) do
+ActiveRecord::Schema.define(version: 2021_08_30_082029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,12 @@ ActiveRecord::Schema.define(version: 2021_08_09_235738) do
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "bus_departures", force: :cascade do |t|
     t.string "destination"
     t.datetime "depart_time"
@@ -155,6 +161,12 @@ ActiveRecord::Schema.define(version: 2021_08_09_235738) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "donations", force: :cascade do |t|
     t.string "donor_name"
     t.string "address"
@@ -186,6 +198,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_235738) do
     t.boolean "dont_display_phone"
     t.boolean "blood_donated"
     t.string "blood_donated_times"
+    t.string "district"
     t.index ["slug"], name: "index_donors_on_slug", unique: true
     t.index ["user_id"], name: "index_donors_on_user_id"
   end
@@ -319,6 +332,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_235738) do
     t.integer "rating"
     t.integer "status"
     t.string "slug"
+    t.string "location"
     t.index ["slug"], name: "index_listings_on_slug", unique: true
     t.index ["tag_id"], name: "index_listings_on_tag_id"
   end
