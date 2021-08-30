@@ -33,9 +33,14 @@
   <% @Realestates.each do |realestate| %>
             <div class="col-md-3 mt-2 filter <%= realestate.ptype %>">
                 <div class="card h-100">
+                
                     <%= realestate.realestate_images.each do |prop_img| %>
+                      <% if prop_img.image == nil %>
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", class="card-image">
+                      <% else %>
                         <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
-                          <% break %>
+                        <% break %>
+                      <% end %>
                     <% end %>
               <div class="card-body">
                 <h4 class="card-title"><%= realestate.propertyname %></h4>
