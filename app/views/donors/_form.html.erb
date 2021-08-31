@@ -52,6 +52,11 @@
     <%= f.label :status, "Status" %>
     <%= f.select :status, ['Available','Unavailable'] %>
 
+    <div class="mx-auto my-auto  "> Select Your district </div>
+    <div class="my-2">
+      <%= f.select(:district, options_for_select([ :Dadeldhura, :Kanchanpur, :Kailali])) %>
+    </div>
+
     <pre>Have You Donated Blood Before ?<span class="mt-4"> <%= f.check_box :blood_donated %></span></pre>
 
     <%= f.label :blood_donated_times, "How Many Times You have Donated Blood?" %>
