@@ -208,12 +208,12 @@
    
     <div class="col-md-6 mr-3 mt-3 ">
         <div class="mx-auto my-2 font-weight-bold ">  Search by district </div>
-      <%= form_tag donors_path, :method =>"get" do %>
-                      <%= select_tag(:district, options_for_select([ :Dadeldhura, :Kanchanpur, :Kailali])) %>
-                            <%= button_tag(type: "submit", class: "btn btn-primary bg-primary btn-sm") do %>
-                                    Find
-                                <% end %>
-            <% end %>
+        <%= form_tag donors_path, :method =>"get" do %>
+            <%= select_tag(:district, options_for_select([ :Dadeldhura, :Kanchanpur, :Kailali])) %>
+                <%= button_tag(type: "submit", class: "btn btn-primary bg-primary btn-sm") do %>
+                        Find
+                <% end %>
+        <% end %>
         <%# -------------- %>
     </div>
     
