@@ -103,4 +103,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  #for API
+  mount API::Base, at: "/"
+
 end

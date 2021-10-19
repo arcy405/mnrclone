@@ -112,3 +112,8 @@ gem 'rails-i18n'
 
 gem 'acts_as_votable'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
+#for API of this app
+gem 'grape'
+gem 'rack-cors'
+gem 'grape-active_model_serializers'
