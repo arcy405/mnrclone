@@ -6,7 +6,7 @@ module API
                 params do
                     requires :id, type: Integer, desc: 'Tag ID.'
                 end
-                desc "Return all tags"
+                desc "Return all Listings for given category"
                     route_param :id do
                         get do
                             tag = Tag.find(params[:id])
