@@ -5,7 +5,7 @@ module API
             resource :tags do
             desc "Return all tags"
                 get "" do
-                    Tag.all
+                    Tag.order(:title_en)
                 end 
             end
         end

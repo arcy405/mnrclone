@@ -1,5 +1,4 @@
 class Profession < ApplicationRecord
-
 	has_many :professionals, dependent: :destroy
 	#for search
     include AlgoliaSearch

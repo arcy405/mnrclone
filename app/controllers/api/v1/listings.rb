@@ -10,7 +10,7 @@ module API
                     route_param :id do
                         get do
                             tag = Tag.find(params[:id])
-                            tag.listings.all
+                            tag.listings.order(:name)
                         end 
                     end
             end
