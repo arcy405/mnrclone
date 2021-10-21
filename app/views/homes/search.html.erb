@@ -1,6 +1,7 @@
 <% content_for :title, "Search results-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
+
 	<!-------------for all the searches of tags if any------------------>
 		<% @tags_result[:hits]&.each do |result| %>
 			<%= link_to homes_show_path(category: result[:title_en] ) do %>
@@ -11,8 +12,8 @@
 				<p class="responsive-text text-muted"><i class="fas fa-tags text-warning"></i>Bussiness Tags</p>
 		<% end %>
 	<!---------------------for all the searches of listings if any------------------------------------------->
-	<% @listings_result[:hits]&.each do |result| %>
-	  <%= link_to listing_path(result[:objectID]) do %>
+	<% @listing_result_array&.each do |result| %>
+	  <%= link_to listing_path(result[:id]) do %>
 			<span class="responsive-title">
 				<%= result[:name] %>
 			</span>
