@@ -18,6 +18,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload',:cache => 'cached/all' %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js" defer></script>
 
 
   </head>
@@ -32,7 +34,6 @@
     <% end %>
 
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js" defer></script>
 
 
