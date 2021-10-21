@@ -5,16 +5,16 @@
 		
 	</p>
 	<!-------------for all the searches of tags if any------------------>
-	<% @tags_result[:hits].each do |result| %>
-		<%= link_to homes_show_path(category: result[:title_en] ) do %>
-			<span class="responsive-title">
-				<%= result[:title_en] %>
-			</span>
+		<% @tags_result[:hits]&.each do |result| %>
+			<%= link_to homes_show_path(category: result[:title_en] ) do %>
+				<span class="responsive-title">
+					<%= result[:title_en] %>
+				</span>
+			<% end %>
+				<p class="responsive-text text-muted"><i class="fas fa-tags text-warning"></i>Bussiness Tags</p>
 		<% end %>
-			<p class="responsive-text text-muted"><i class="fas fa-tags text-warning"></i>Bussiness Tags</p>
-	<% end %>
 	<!---------------------for all the searches of listings if any------------------------------------------->
-	<% @listings_result[:hits].each do |result| %>
+	<% @listings_result[:hits]&.each do |result| %>
 	  <%= link_to listing_path(result[:objectID]) do %>
 			<span class="responsive-title">
 				<%= result[:name] %>
@@ -24,7 +24,7 @@
 	<% end %>
 	
 	<!---------------------for all the searches of bus schedules if any------------------------------------------->
-	<% @bus_result[:hits].each do |result| %>
+	<% @bus_result[:hits]&.each do |result| %>
 	  <%= link_to bus_departures_path(destination: result[:destination]) do %>
 			<span class="responsive-title">
 				Bus To <%= result[:destination] %>
@@ -34,7 +34,7 @@
 	<% end %>
 	
 	<!---------------------for all the searches of blood donors if any------------------------------------------->
-	<% @blood_result[:hits].each do |result| %>
+	<% @blood_result[:hits]&.each do |result| %>
 	  <%= link_to donors_path(blood_group:result[:blood_group]) do %>
 			<span class="responsive-title">
 				<%= result[:blood_group] %> Blood Donors
@@ -44,7 +44,7 @@
 			<% break %>
 	<% end %>
 	<!---------------------for all the searches of Emergency numbers if any------------------------------------------->
-	<% @imp_number_result[:hits].each do |result| %>
+	<% @imp_number_result[:hits]&.each do |result| %>
 			<span class="responsive-title">
 				<%= result[:name] %>
 			</span><br>
@@ -52,7 +52,7 @@
 			<% break %>
 	<% end %>
 	<!---------------------for all the searches of Profession if any------------------------------------------->
-	<% @profession_result[:hits].each do |result| %>
+	<% @profession_result[:hits]&.each do |result| %>
 		<%= link_to professionals_path(profession:result[:name]) do %>
 			<span class="responsive-title">
 				<%= result[:name] %>
@@ -61,7 +61,7 @@
 		<% end %>
 	<% end %>
 	<!---------------------for all the searches of Tourist places --------------------------------------->
-	<% @tourist_result[:hits].each do |result| %>
+	<% @tourist_result[:hits]&.each do |result| %>
 		<%= link_to tourist_path(result[:objectID]) do %>
 			<span class="responsive-title">
 				<%= result[:place_name] %>
