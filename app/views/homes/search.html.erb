@@ -1,9 +1,6 @@
 <% content_for :title, "Search results-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
-	<p class="text-muted">
-		
-	</p>
 	<!-------------for all the searches of tags if any------------------>
 		<% @tags_result[:hits]&.each do |result| %>
 			<%= link_to homes_show_path(category: result[:title_en] ) do %>
