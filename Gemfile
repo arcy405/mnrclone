@@ -65,7 +65,7 @@ gem 'cloudinary'
 
 gem 'airbrake'
 
-gem "algoliasearch-rails", "~>2.1.1"
+gem "algoliasearch-rails", "2.1.1"
 gem 'newrelic_rpm'
 
 gem "omniauth", "~> 1.9.1"
