@@ -1,6 +1,6 @@
 <% content_for :title, "Bus Departure-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
-<!-------------------logic to produce all the departure dates for bus this year--------------------------------->
+<!-------------------logic to produce all the departure dates for bus this year-------------
 <% depart_dates=[] %>
 <% initial_date = DateTime.now %>
 <% current_year = "2021" %>
@@ -11,6 +11,7 @@
 	depart_dates=depart_dates.push(initial_date.to_s)
 	
 end %>
+-------------------->
 <!----------------------------------------------------->
 <style type="text/css">
 
@@ -97,8 +98,10 @@ a{
                               <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
                               <span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
                               <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
+                              <!------------
                                 <h6><b><%= t('depart_at') %>  <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
-                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
+                                -------->
+                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart&.departure_dates %></b></span></h6>
                                 <h6 class="font-weight-bold company">
                                   <%= depart.company %> <span style="color:#ffff">ALL</span></h6>
                                 <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
@@ -112,8 +115,10 @@ a{
                               <h4><span class="badge badge-pill badge-dark"><%= depart.bus_number %></span></h4>
                               <span class="bus_type badge badge-warning"><%= depart.bus_type %><span style="color:#ffc107">ALL</span></span>
                               <h6 class="destination"><b>MNR To <span id="burgundy" class=""><%= depart.destination %></b></span> </h6>
+                                <!-------
                                 <h6><b><%= t('depart_at') %>  <span id="burgundy" class=""><%= depart.depart_time.strftime("%l:%M%p") %></b></span> </h6>
-                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart.departure_dates %></b></span></h6>
+                                -------->
+                                <h6 style="display:none"><b><%= t('depart_date') %>  <span id="burgundy" class="date"><%= depart&.departure_dates %></b></span></h6>
                                 <h6 class="font-weight-bold company">
                                   <%= depart.company %> <span style="color:#ffff">ALL</span></h6>
                                 <a class="mt-2" href="tel:<%= depart.phone_number %>"><h6 class="font-weight-bold text-primary"><i class="fas fa-phone-alt mr-2"></i><%= depart.phone_number %></h6></a>
