@@ -7,6 +7,7 @@ module API
         mount API::V1::Donors
         mount API::V1::Realestates
         mount API::V1::Vacancies
+        mount API::V1::Models
       end
     end
   end
