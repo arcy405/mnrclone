@@ -188,6 +188,31 @@
         </div>
     </div>
 <div class="row">
+         <div class="col-md-12">
+                
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Kanchanpur"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do %>
+                                Kanchanpur
+                        <% end %>
+                <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Dadeldhura"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Dadeldhura
+                        <% end %>
+                <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Kailali"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Kailali
+                        <% end %>
+                <% end %>
+        </div>
+
         <div class="col-md-6">
             <% if !params[:blood_group] %>
                 <button class="btn btn-primary filter-button mt-2" data-filter="all">  <%= t('all') %></button>
@@ -206,16 +231,7 @@
         </div>
     <%# ------------ %>
    
-    <div class="col-md-6 mr-3 mt-3 ">
-        <div class="mx-auto my-2 font-weight-bold ">  Search by district </div>
-        <%= form_tag donors_path, :method =>"get" do %>
-            <%= select_tag(:district, options_for_select([ :Dadeldhura, :Kanchanpur, :Kailali])) %>
-                <%= button_tag(type: "submit", class: "btn btn-primary bg-primary btn-sm") do %>
-                        Find
-                <% end %>
-        <% end %>
-        <%# -------------- %>
-    </div>
+
     
 </div >
     <br/>
@@ -296,6 +312,12 @@
 </div>
 
 </div>
+
+<style>
+form {
+    display: inline-block; //Or display: inline; 
+}
+</style>
 
 
 
