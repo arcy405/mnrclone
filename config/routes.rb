@@ -13,6 +13,21 @@ Rails.application.routes.draw do
   get 'homes/tool', to:"homes#tool"
   get 'homes/search', to:"homes#search"
 
+  # utility
+  get 'homes/dateConverter', to:"homes#dateConverter"
+  get 'homes/currency', to:"homes#currency"
+  get 'homes/freeConverter', to:"homes#freeConverter"
+  get 'homes/goldSilver', to:"homes#goldSilver"
+  get 'homes/nepaliCalendar', to:"homes#nepaliCalendar"
+  get 'homes/panchang', to:"homes#panchang"
+  get 'homes/rashifall', to:"homes#rashifall"
+  get 'homes/unicode', to:"homes#unicode"
+  get 'homes/weather', to:"homes#weather"
+
+
+
+
+
   get 'set_mylanguage/np', to:"set_mylanguage#np"
   get 'set_mylanguage/en', to:"set_mylanguage#en"
 
