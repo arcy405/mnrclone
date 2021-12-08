@@ -219,6 +219,13 @@
                         <% end %>
                 <% end %>
                 <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Darchula"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Darchula
+                        <% end %>
+                <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Bajhang"%>
                 <%= hidden_field_tag "district", arcy %>
                         <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
