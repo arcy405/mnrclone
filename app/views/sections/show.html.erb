@@ -1,0 +1,10 @@
+<%= render 'Homepage/navmenu.html.erb' %>
+<div class="container mt-2">
+    <% @section.document.each do |document|%>
+
+    <a target="_blank" href="<%=document.doc_image%>"><i class="fas fa-hand-point-right"></i> <%= document.title%></a><br/>
+    <a target="_blank" href="https://www.youtube.com/watch?v=DdWVovZt_Ys"><i class="fas fa-hand-point-right"></i> hashirama senju</a><br/>
+
+
+    <% end %>
+</div>    

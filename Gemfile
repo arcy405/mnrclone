@@ -25,7 +25,6 @@ group :development do
 
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'bullet', group: 'development'
   gem 'brakeman'
   gem 'traceroute'
 end

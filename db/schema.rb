@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_094756) do
+ActiveRecord::Schema.define(version: 2022_01_14_110310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,17 @@ ActiveRecord::Schema.define(version: 2021_12_08_094756) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "title"
+    t.string "doc_image"
+    t.string "doc_pdf"
+    t.string "doc_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "section_id", null: false
+    t.index ["section_id"], name: "index_documents_on_section_id"
   end
 
   create_table "donations", force: :cascade do |t|
@@ -499,6 +510,12 @@ ActiveRecord::Schema.define(version: 2021_12_08_094756) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "section_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "statistics", force: :cascade do |t|
     t.string "population"
     t.string "wards"
@@ -648,6 +665,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_094756) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "documents", "sections"
   add_foreign_key "donations", "projects"
   add_foreign_key "donors", "users"
   add_foreign_key "forum_posts", "forum_threads"

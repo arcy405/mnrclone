@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'documents/index'
   get 'errors/not_found'
   get 'errors/internal_server_error'
   get 'telephone_directory/index'
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   get 'homes/rashifall', to:"homes#rashifall"
   get 'homes/unicode', to:"homes#unicode"
   get 'homes/weather', to:"homes#weather"
+  get 'homes/document', to:"homes#document"
+
 
 
 
@@ -78,6 +81,9 @@ Rails.application.routes.draw do
    resources :donors
    resources :vacancies
    resources :pet_adoptions
+   resources :documents
+   resources :sections
+
    #################
 
 

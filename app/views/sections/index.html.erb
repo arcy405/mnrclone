@@ -1,0 +1,70 @@
+<%= render 'Homepage/navmenu' %>
+
+<div class="container mt-2">
+	<div class="row">
+		<div class="col-md-6">
+			<span class="mnryp_word"><%= t('all_listings') %></span>
+		</div>
+		<div class="col-md-6">
+			<input type="text" class="form-control form-control-md" placeholder="Search For Business" id="business_search" onkeyup="sectionsFilter()">
+		</div>
+	</div>
+</div>
+<div class="m-2">
+  <i id="noresult" class="text-danger" style="display: none;">No Businesses for your search!! Try searching something else!!</i>
+</div>
+<div class="mt-2">
+	<div class="row"  id="myItems">
+        <% @sections.each do |section| %>
+
+				<div class="col-md-3 col-12 pt-2 filtercard" >
+                
+                    <div class="card utility_card mx-auto">
+                        <%= link_to section_path(section) do %>
+                        <div class="card-body">
+						
+                            <div class="text-wrap">
+                                <h6 class="card-category-title ml-2 mt-2"><%= section.section_name %></h6>
+                                <span class="business_section sr-only"><%= section.section_name %></span>
+                            </div>
+                     </div>
+                     <% end %>
+                </div>
+                
+            </div>
+            <% end %>
+			
+</div>
+
+
+<script type="text/javascript">
+	
+	function sectionsFilter(){
+
+      input = document.getElementById("business_search");
+      filter_place = input.value.toUpperCase();
+
+      cardContainer = document.getElementById("myItems");
+      cards = cardContainer.getElementsByClassName("filtercard");
+      count=0
+      for (i = 0; i < cards.length; i++) {
+        business_section = cards[i].querySelector(".card-body .business_section");
+
+        if (business_section.innerText.toUpperCase().indexOf(filter_place) > -1) {
+            count+=1
+            cards[i].style.display = "";
+        } else {
+                cards[i].style.display = "none";
+            }
+        }
+        if (count === 0){
+          document.getElementById("noresult").style.display =""
+        }
+        else{
+          document.getElementById("noresult").style.display ="none"
+        
+        }
+      
+    }
+
+</script>

@@ -2,10 +2,10 @@ class HomesController < ApplicationController
   
   def index
 
-    url = "https://covid19.mathdro.id/api/countries/nepal" 
-    response = HTTParty.get(url)
+    # url = "https://covid19.mathdro.id/api/countries/nepal" 
+    # response = HTTParty.get(url)
 
-    @result = response.parsed_response
+    # @result = response.parsed_response
 
     if  I18n.locale.to_s == "en"
         @tags=Rails.cache.fetch('tags', expires_in: 2.days){Tag.order(:title_en).where("top_service = ?", true).limit(10)}
