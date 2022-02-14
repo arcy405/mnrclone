@@ -1,65 +1,88 @@
-<% content_for :title, "List of vacancies-MNRYP" %>
-<%= render 'Homepage/navmenu.html.erb' %>
-<div class="row bg-light">
-<div class="container mt-4">
-    <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                            <div class="mt-4 ml-4 mb-2">
+<div class="container">
+<div class="mt-4  mb-2">
                                 <%= link_to new_vacancy_path, style:"text-decoration:none; font-size: 20px;" do %>
                                 <%= t('add_job_vancany') %><i class="fas fa-plus-circle ml-2"></i>
                                 <% end %>   
                             </div>
-                        <div class="container">
-                            <div class="mt-4"> <strong> <%= t('search_vacency')%> </strong> </div>
-                        <div>
-                            <button class="btn btn-primary filter-button mt-2" data-filter="all"><%= t('all') %> </button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Arts"><%= t('v_art')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Business"><%= t('v_business')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Education"><%= t('v_education')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Law Enforcement"> <%= t('v_law')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Media"><%= t('v_media')%></button>
-                            <button class="btn btn-default filter-button mt-2"  data-filter="Medical"><%= t('v_medical') %></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Service Industry"><%= t('v_service_industry')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Technology"><%= t('v_tech')%></button>
-                            <button class="btn btn-default filter-button mt-2" data-filter="Technology"><%= t('v_hotel')%></button>
-                            <button class="btn btn-default filter-button mt-2 data-filter="Others"><%= t('v_other')%></button>
-                        </div>
-                        <br/>
-                        
-                        <div class="row">
+<div class="row">
+    <div class="col-lg-12 card-margin">
+        <div class="card mt-3">
+                    <div class="btn-group flex-wrap" role="group" aria-label="Basic example">
+     <button type="button" class="btn btn-secondary filter-button" data-filter="all"><%= t('all') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Arts"><%= t('v_art') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Business" ><%= t('v_business') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Education"><%= t('v_education') %></button>
+    <button type="button" class="btn btn-secondary filter-button" data-filter="Law Enforcement" ><%= t('v_law') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Media" ><%= t('v_media') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Medical" ><%= t('v_medical') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Service" ><%= t('v_service_industry') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Technology" ><%= t('v_tech') %></button>
+  <button type="button" class="btn btn-secondary filter-button" data-filter="Hotel" ><%= t('v_hotel') %></button>
+    <button type="button" class="btn btn-secondary filter-button" data-filter="Others" ><%= t('v_other') %></button>
+</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-12">
+            <div class="card card-margin">
+                <div class="card-body">
+                    <div class="row search-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-body">
+                                    <div class="table-responsive">
+                                        <table class="table widget-26">
+                                            <tbody>
                             <% @vacancies.each do |vacancy| %>
-                                <%= link_to vacancy_path(vacancy), style: "text-decoration: none;" do %>
-                                <div class="col-md-4 mb-4 filter <%=vacancy.job_category%>">
-                                
-                                    <div class="card ">
-                                    <div class="card-body ">
-                                    <div class="row">
-                                        
-                                        <div class="col-10">
-                                        <h4 class="card-title summary text-capitalize">
-                                        <%=vacancy.job_title%></h4>
-                                        
-                                        <p class="card-text summary text-capitalize"><i class="fas fa-building"></i> <%=vacancy.company_name%></p>
-                                        <p class="card-text summary text-capitalize"><i class="fas fa-map-marker-alt"></i> <%=vacancy.location%></p>
-                                        <p class="card-text"><%= t('v_apply')%> <%= vacancy.apply_before.strftime("%B %d, %Y")%></p>
-                                        
-                                        <span class="pull-right"><%= link_to "Apply now" ,vacancy_path(vacancy), style: "text-decoration: none; font-weight: bold;" %> </span>
-                                        </div>
+                                                <tr onclick="location.href='<%= vacancy_path(vacancy) %>'"data-link="/vacancy/id" class = "filter <%= vacancy.job_category %> pinter"   >
+                                                    <td>
+                                                        <div class="widget-26-job-emp-img">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Company" />
+                                                            <%# <%= image_tag "swastik.jpg" %> 
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-title">
+                                                            <a href="#"><%= vacancy.job_title %></a>
+                                                            <p class="m-0"><a href="#" class="employer-name"><%= vacancy.company_name %></a> <span class="text-muted time">deadline: <%= vacancy.apply_before.strftime("%Y-%m-%d") %></span></p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-info">
+                                                            <p class="type m-0"><%= vacancy.job_level %></p>
+                                                            <p class="text-muted m-0">in <span class="location"><%= vacancy.location %></span></p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-salary">Rs <%= vacancy.offered_salary %></div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-category bg-soft-warning">
+                                                            <i class="indicator bg-warning"></i>
+                                                            <span><%= vacancy.job_category%></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-category bg-soft-success">
+                                                               <span>Apply Now</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <% end %>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    </div>
-                                    </div>
-                                    
                                 </div>
-                                <%end%>
-                            <%end%>
+                            </div>
                         </div>
                     </div>
-                 </div>  
-            </div> 
-        </div> 
-       </div> 
-    </div>  
-</div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script>
+
+</script>

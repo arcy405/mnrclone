@@ -1,88 +1,7 @@
-<% content_for :title, "Models-MNRYP" %>
-<%= render 'Homepage/navmenu.html.erb' %>
 
-<div class="container-fluid px-4 mt-4">
-<div class="row" >
-         <div class="col-md-12">
-          <%= form_tag models_path,style: "display: inline;", :method =>"get" do %>
-                <% arcy = "All"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2")do %>
-                                All
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path,style: "display: inline;", :method =>"get" do %>
-                <% arcy = "Kanchanpur"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2")do %>
-                                Kanchanpur
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path,style: "display: inline;", :method =>"get" do %>
-                <% arcy = "Dadeldhura"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Dadeldhura
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path,style: "display: inline;", :method =>"get" do %>
-                <% arcy = "Kailali"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Kailali
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path, style: "display: inline;", :method =>"get" do %>
-                <% arcy = "Baitadi"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Baitadi
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path, style: "display: inline;", :method =>"get" do %>
-                <% arcy = "Darchula"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Darchula
-                        <% end %>
-                <% end %>
-                <%= form_tag models_path, :method =>"get", style: "display: inline;" do %>
-                <% arcy = "Bajhang"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Bajhang
-                        <% end %>
-                <% end %>
-				 <%= form_tag models_path, :method =>"get", style: "display: inline;" do %>
-                <% arcy = "Doti"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Doti
-                        <% end %>
-                <% end %>
-				 <%= form_tag models_path, :method =>"get", style: "display: inline;" do %>
-                <% arcy = "Achham"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-								Achham
-                        <% end %>
-                <% end %>
-				 <%= form_tag models_path, :method =>"get", style: "display: inline;" do %>
-                <% arcy = "Bajura"%>
-                <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "badge bg-info text-dark filter-button mt-2") do %>
-                                Bajura
-                        <% end %>
-                <% end %>
-				
-        </div>
-		</div>
-   <div class="mb-4">
    		<button class="badge-warning badge badge-pill  text-dark filter-button mt-2" data-filter="all"> <%= t('all') %> </button>
         <button class="badge-warning badge badge-pill text-dark filter-button mt-2" data-filter="Male"> <%= t('male') %> </button>
         <button class="badge-warning badge badge-pill text-dark filter-button mt-2" data-filter="Female"> <%= t('female') %> </button>
-    </div>
-	<div class="row">
 
 <% @models.each do |model| %>
 	<%= link_to model_path(model), style:"text-decoration:none" do %>
@@ -99,5 +18,3 @@
 		</div>
 	<% end %>
 <% end %>
-</div>
-</div>
