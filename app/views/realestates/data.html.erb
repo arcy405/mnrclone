@@ -1,0 +1,151 @@
+<% content_for :title, "Real Estate-MNRYP" %>
+  <%= render 'Homepage/navmenu.html.erb' %>
+
+  <div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+          <!----------filter buttons-------------------------->
+            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="all"> <%= t('all') %> </button>
+            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="sell"> <%= t('buy_house_and_land') %></button>
+            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="rent"><%= t('take_house_on_rent') %></button>
+          <!-------------------------------------------------->
+        </div>
+        <div class="col-md-6">
+          <!--------------------button to let list property-------------------->
+          <div class="float-right">
+          <% if user_signed_in? %>
+                  <%=  link_to "#{t('sell_land')}", new_realestate_path(category:"land") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1" %>
+                  <%=  link_to "#{t('sell_house')} ", new_realestate_path(category:"house_sell") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1" %>
+                  <%=  link_to "#{t('rent_house')}", new_realestate_path(category:"house_rent") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1"  %>
+             <% else %>
+                  <%= link_to user_session_path do %>
+                    <span  class=" btn-outline-danger rounded p-2 border"><%= t('click_to_sell') %></span>
+                  <% end %>
+            <%end %>
+          </div>
+          <!------------------------------------------------------------------->
+        </div>
+    </div>
+
+    <!--------------all cards to display data--------------------->
+     <!-------------------property list------------------------>
+    <div class="container"> 
+        <% @Realestates.each do |realestate| %>
+           <div class="row" >
+                 <div class="card">
+            <div class="card-header">
+              <%= realestate.realestate_images.each do |prop_img| %>
+                      <% if prop_img.image == nil %>
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", class="card-image">
+                      <% else %>
+                        <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
+                        <% break %>
+                      <% end %>
+                    <% end %>
+            </div>
+            <div class="card-body">
+            <span class="tag tag-purple"><%= realestate.propertyname %></span>
+            <h4>
+                How to Keep Going When You Don’t Know What’s Next
+            </h4>
+            <p>
+                The future can be scary, but there are ways to
+                deal with that fear.
+            </p>
+            <div class="user">
+                <img src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo" alt="user" />
+                <div class="user-info">
+                <h5>Eyup Ucmaz</h5>
+                <small>Yesterday</small>
+                </div>
+            </div>
+            </div>
+        </div>
+           </div>
+        <%end%>
+    </div>
+  <div class="row">
+  <% @Realestates.each do |realestate| %>
+            <div class="col-md-3 mt-2 filter <%= realestate.ptype %>">
+                <div class="card h-100">
+                
+                    <%= realestate.realestate_images.each do |prop_img| %>
+                      <% if prop_img.image == nil %>
+                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", class="card-image">
+                      <% else %>
+                        <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
+                        <% break %>
+                      <% end %>
+                    <% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= realestate.propertyname %></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><%= t('seller') %>: <%= realestate.seller_name %></h6>
+                <div class="buy">
+                  <div class="text-success"><h5 class="">Rs.<%= realestate.price %></h5></div>
+                  <div class="text-danger"><h5 class=""><i class="fas fa-map-marker-alt"></i> <%= realestate.address%></h5></div>
+                </div>
+                    <a href="tel:<%= realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= realestate.seller_phone %></h6></a>
+                            <%= link_to realestate_path(realestate), class:"float-right" do %>
+                             <%= t('view_more') %>
+                            <% end %>
+                      
+                              <% if user_signed_in? && current_user.id == realestate.user_id %>
+                                  <div class="d-flex flex-row-reverse p-2">
+                                      <div>
+                                          <%= link_to  realestate, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                                      </div>
+                                      <div class="mr-2 ml-2">
+                                          <%= link_to  edit_realestate_path(realestate,category:"#{realestate.ptype}") do %><i class="far fa-edit text-primary"></i><% end %>
+                                      </div>
+                                  </div>
+                              <% end %>
+            </div>
+              </div>
+            </div>
+
+      <%end%>
+  </div>
+<!---------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------->
+  </div>
+  
+  <%#------------form yo imnplement--------  %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<button type="button" id="leather">leather</button>
+<button type="button" id="gumboots">gumboots</button>
+<button type="button" id="room">room</button>
+<div id="pages">
+  <div id="leather" class="" style="display: none;">
+   Block 1
+  </div>
+  <div id="gumboots" class="" style="display: none;">
+   AREWFEW2
+</div>
+<div id="room" class="" style="display: none;">
+   roojm
+</div>
+
+<script>
+$("#leather").click(function() {
+  var id = $(this).attr("id");
+  $("#pages div#gumboots").css("display", "none");
+    $("#pages div#room").css("display", "none");
+
+  $("#pages div#" + id + "").css("display", "block");
+});
+$("#gumboots").click(function() {
+  var id = $(this).attr("id");
+  $("#pages div#leather").css("display", "none");
+    $("#pages div#room").css("display", "none");
+
+  $("#pages div#" + id + "").css("display", "block");
+});
+$("#room").click(function() {
+  var id = $(this).attr("id");
+  $("#pages div#leather").css("display", "none");
+    $("#pages div#gumboots").css("display", "none");
+
+  $("#pages div#" + id + "").css("display", "block");
+});
+</script>
+<%# -------------------------------- %>

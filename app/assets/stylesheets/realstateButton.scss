@@ -1,0 +1,109 @@
+.text-center {
+  text-align: center;
+}body.homepage {
+  // some css for homepage elements
+  background-color: #f1c99c;
+ }
+
+ .button-71 {
+  background-color: #f3b509;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-71:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+}
+
+.button-71:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+  .button-71 {
+    padding: 16px 48px;
+  }
+
+.btnGroup{
+  display: inline-block;
+   font-size: 0;
+}
+
+button.button-71{
+  display: block;
+}
+
+.btnGroup .button-71 {
+  margin-bottom:6px;
+}
+
+.wrapper {
+  height: 50px;
+  left: 50%;
+  position: absolute;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    height: 50px;
+    left: 58%;
+    position: absolute;
+    top: 22%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+  }
+}
+
+
+.estate_group button {
+  background-color: #e4b859; /* Green background */
+  border: 1px solid rgb(187, 143, 21); /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.estate_group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.estate_group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.estate_group button:hover {
+  background-color: #e2b317;
+}

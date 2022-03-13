@@ -21,6 +21,7 @@ require("custom/singleimage.js")
 require("custom/messenger.js")
 require("custom/facebookpage.js")
 require("custom/form_validation.js")
+require("custom/realestate_form.js")
 
 import "bootstrap";
 import "../stylesheets/application"

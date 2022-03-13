@@ -36,3 +36,5 @@
   document.addEventListener('turbolinks:request-start', saveFacebookRoot)
   document.addEventListener('turbolinks:load', restoreFacebookRoot)
 }(jQuery));
+
+

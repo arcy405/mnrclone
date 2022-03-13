@@ -1,0 +1,58 @@
+<% content_for :title, "List of rent-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
+<div class="container">
+<div class="mt-4  mb-2">
+                                <%= link_to new_realestate_path(category:"rent") do %>
+        <button class="button-71 saleButton mt-2 ml-3" role="button" style="mt-2">+ GIVE ON RENT</button>
+      <% end %>
+                            </div>
+<div class="row">
+    <div class="col-lg-12 card-margin">
+        <div class="card mt-3">
+                   <div class="btn-group estate_group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-warning filter-button" data-filter="all">All</button>
+  <button type="button" class="btn btn-warning filter-button" data-filter="house">House</button>
+  <button type="button" class="btn btn-warning filter-button" data-filter="room">Room</button>
+    <button type="button" class="btn btn-warning filter-button" data-filter="flat">Flat</button>
+  <button type="button" class="btn btn-warning filter-button" data-filter="shutter">Shutter</button>
+
+</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-12">
+            <div class="card card-margin">
+                <div class="card-body">
+                    <div class="row search-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-body">
+                                      <div class="col-md-4 mb-4 filter house">
+            	HOUSE
+            </div>
+
+                <div class="col-md-4 mb-4 filter room">
+            	ROOM
+            </div>
+
+                <div class="col-md-4 mb-4 filter flat">
+            	FLAT
+            </div>
+
+                <div class="col-md-4 mb-4 filter shutter">
+            	SHUTTER
+            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>

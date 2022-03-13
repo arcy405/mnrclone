@@ -1,0 +1,84 @@
+
+<%= form_for @realestate,html: {:multipart => true,class:"needs-validation", :novalidate=>true}  do |f| %> 
+
+<!--------------Errors-------------------------------------->
+  <% if @realestate.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      <% @realestate.errors.full_messages.each do |message|%>
+          <p class="responsive-text"><%= message %> </p>
+        <%end%> 
+    </div>
+  <%end%>
+  <!------------------------------------------------------------------------------->
+ <!-------------hidden field to capture user id------------------->
+    <%= f.hidden_field :user_id, value: "#{current_user.id}"  %> 
+    <%= f.hidden_field :ptype, value: "rent"  %>
+  <!------------------------------------------------>
+  
+            <div class="input_field"> 
+              <%= f.text_field :seller_name, placeholder: "Seller Name", :required => true%>
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> 
+                    <%= f.text_field :seller_phone, placeholder: "Seller Phone", :required => true%>
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> 
+                    <%= f.text_field :price, placeholder: "Selling Price", :required => true%>
+                </div>
+              </div>
+            </div>
+            <div class="input_field"> 
+              <%= f.text_field :propertyname, placeholder: "Property Name", :required => true%>
+            </div>
+            <div class="input_field"> 
+              <%= f.text_field :address, placeholder: "Address", :required => true%>
+            </div>
+            <div class="input_field"> 
+              <%= f.text_field :description, placeholder: "Add Description", :required => true%>
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> 
+                  <%= f.text_field :latitude, placeholder: "Latitude", :required => true%>
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> 
+                  <%= f.text_field :longitude, placeholder: "Longitude", :required => true%>
+                </div>
+              </div>
+            </div>
+            <%# -----------options for buton select----------------- %>
+          
+
+            <button type="button" id="house" class="btn btn-outline-warning mr-3">House</button>
+            <button type="button" id="flat" class="btn btn-outline-warning mr-3">Flat</button>
+            <button type="button" id="room" class="btn btn-outline-warning mr-3">Room</button>
+            <button type="button" id="shutter" class="btn btn-outline-warning mr-3">Shutter</button>
+            <div id="pages">
+              <div id="house" class="" style="display: none;">
+              <%= render partial: "rent_house", locals: {f: f} %>
+              </div>
+              <div id="flat" class="" style="display: none;">
+                <%= render partial: "rent_flat", locals: {f: f}%>
+              </div>
+              <div id="room" class="" style="display: none;">
+                  <%= render partial: "rent_room", locals: {f: f}%>
+              </div>
+              <div id="shutter" class="" style="display: none;">
+                  <%= render partial: "rent_shutter", locals: {f: f}%>
+              </div>
+            </div>  
+            <%# ------------------------------------------------------- %>
+
+<% end %>  
+
+<%# -------------form jquery----------- %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<%# ----------------------------------- %>

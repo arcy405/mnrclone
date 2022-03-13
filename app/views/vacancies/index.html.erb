@@ -1,3 +1,5 @@
+<% content_for :title, "List of vacancies-MNRYP" %>
+<%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
 <div class="mt-4  mb-2">
                                 <%= link_to new_vacancy_path, style:"text-decoration:none; font-size: 20px;" do %>
@@ -7,7 +9,7 @@
 <div class="row">
     <div class="col-lg-12 card-margin">
         <div class="card mt-3">
-                    <div class="btn-group flex-wrap" role="group" aria-label="Basic example">
+                    <div class="btn-group vacancy_group flex-wrap" role="group" aria-label="Basic example">
      <button type="button" class="btn btn-secondary filter-button" data-filter="all"><%= t('all') %></button>
   <button type="button" class="btn btn-secondary filter-button" data-filter="Arts"><%= t('v_art') %></button>
   <button type="button" class="btn btn-secondary filter-button" data-filter="Business" ><%= t('v_business') %></button>

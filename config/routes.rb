@@ -26,14 +26,10 @@ Rails.application.routes.draw do
   get 'homes/weather', to:"homes#weather"
   get 'homes/document', to:"homes#document"
 
-
-
-
-
-
   get 'set_mylanguage/np', to:"set_mylanguage#np"
   get 'set_mylanguage/en', to:"set_mylanguage#en"
 
+  get 'realestates/rent', to:"realestates#rent"
 
   get 'aboutus/index', to:"aboutus#index"
   get 'contactus/index', to: "contactus#index"
@@ -43,8 +39,6 @@ Rails.application.routes.draw do
    get 'listings/new', to:"listings#new"
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
-
-   
 
    resources :bus_departures, only: [:index]
    resources :models, only: [:index, :show]
@@ -60,8 +54,6 @@ Rails.application.routes.draw do
    get 'notes/notes_show'
    get 'notes/notes_download'
    get 'notes/syllabus_index'
-
-
    get 'gamifications/reward'
 
    

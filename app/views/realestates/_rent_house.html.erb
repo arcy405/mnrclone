@@ -1,0 +1,53 @@
+<div class="row clearfix">
+        <%= f.hidden_field :pfor, value: "house"  %>
+
+    <div class="col_half">
+    <div class="input_field"> 
+        <%= f.select :bedroom, options_for_select([["No. of Bedroom", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]) %>
+    </div>
+    </div>
+    <div class="col_half">
+    <div class="input_field"> 
+        <%= f.select :kitchen, options_for_select([["No. of Kitchen", ""], "One", "Two", "Three", "Four"]) %>
+    </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col_half">
+    <div class="input_field"> 
+        <%= f.select :hall, options_for_select([["No. of Hall", ""], "One", "Two", "Three", "Four"]) %>
+    </div>
+    </div>
+    <div class="col_half">
+    <div class="input_field"> 
+        <%= f.select :bathroom, options_for_select([["No. of Bathroom", ""], "One", "Two", "Three", "Four", "Five"]) %>
+    </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col_half">
+    <div class="input_field"> 
+        <%= f.select :floor, options_for_select([["No. of Floor", ""], "One", "Two", "Three", "Four"]) %>
+    </div>
+    </div>
+    <div class="col_half">
+    <div class="input_field" > 
+       <%= f.label "Garden", style: "font-size: 100%;" %>
+    <%= f.check_box :garden %> 
+    </div>
+    </div>
+</div>
+<div class="text-muted"><%= t('marketplace_placeholer_5') %></div>
+            <%= f.fields_for :realestate_images do |p| %>
+                <div class="input-group has-validation">
+                   <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]" %>
+                   <div class="invalid-feedback">
+                      Please upload property Images.
+                    </div>
+                </div>
+                 <%= p.hidden_field :image_cache %>
+           <% end %>
+     <pre><%= t('marketplace_placeholer_6') %></pre>
+     <hr />
+
+                        <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold" %>

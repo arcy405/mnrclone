@@ -1,75 +1,99 @@
-<% content_for :title, "Real Estate-MNRYP" %>
-  <%= render 'Homepage/navmenu.html.erb' %>
 
-  <div class="container-fluid mt-2">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-          <!----------filter buttons-------------------------->
-            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="all"> <%= t('all') %> </button>
-            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="sell"> <%= t('buy_house_and_land') %></button>
-            <button class="btn-outline-warning rounded-pill border border-warning" data-filter="rent"><%= t('take_house_on_rent') %></button>
-          <!-------------------------------------------------->
-        </div>
-        <div class="col-md-6">
-          <!--------------------button to let list property-------------------->
-          <div class="float-right">
-          <% if user_signed_in? %>
-                  <%=  link_to "#{t('sell_land')}", new_realestate_path(category:"land") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1" %>
-                  <%=  link_to "#{t('sell_house')} ", new_realestate_path(category:"house_sell") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1" %>
-                  <%=  link_to "#{t('rent_house')}", new_realestate_path(category:"house_rent") , class: "btn-outline-info rounded-pill border border-warning ml-2 p-1"  %>
-             <% else %>
-                  <%= link_to user_session_path do %>
-                    <span  class=" btn-outline-danger rounded p-2 border"><%= t('click_to_sell') %></span>
-                  <% end %>
-            <%end %>
-          </div>
-          <!------------------------------------------------------------------->
-        </div>
-    </div>
 
-    <!--------------all cards to display data--------------------->
-     <!-------------------property list------------------------>
-  <div class="row">
-  <% @Realestates.each do |realestate| %>
-            <div class="col-md-3 mt-2 filter <%= realestate.ptype %>">
-                <div class="card h-100">
-                
-                    <%= realestate.realestate_images.each do |prop_img| %>
-                      <% if prop_img.image == nil %>
-                        <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", class="card-image">
-                      <% else %>
-                        <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
-                        <% break %>
-                      <% end %>
-                    <% end %>
-              <div class="card-body">
-                <h4 class="card-title"><%= realestate.propertyname %></h4>
-                <h6 class="card-subtitle mb-2 text-muted"><%= t('seller') %>: <%= realestate.seller_name %></h6>
-                <div class="buy">
-                  <div class="text-success"><h5 class="">Rs.<%= realestate.price %></h5></div>
-                  <div class="text-danger"><h5 class=""><i class="fas fa-map-marker-alt"></i> <%= realestate.address%></h5></div>
-                </div>
-                    <a href="tel:<%= realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= realestate.seller_phone %></h6></a>
-                            <%= link_to realestate_path(realestate), class:"float-right" do %>
-                             <%= t('view_more') %>
-                            <% end %>
-                      
-                              <% if user_signed_in? && current_user.id == realestate.user_id %>
-                                  <div class="d-flex flex-row-reverse p-2">
-                                      <div>
-                                          <%= link_to  realestate, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
-                                      </div>
-                                      <div class="mr-2 ml-2">
-                                          <%= link_to  edit_realestate_path(realestate,category:"#{realestate.ptype}") do %><i class="far fa-edit text-primary"></i><% end %>
-                                      </div>
-                                  </div>
-                              <% end %>
-            </div>
-              </div>
-            </div>
+    HTML CSS Babel 
 
-      <%end%>
-  </div>
-<!---------------------------------------------------------------------------------------->
-    <!------------------------------------------------------------->
-  </div>
+    Result
+    Skip Results Iframe
+
+EDIT ON
+
+<!-- This is the event list component. Ignore the template thing. Just makes it so I don't have to type it in the JS -->
+<script id="componentTemplate" text="text/template">
+<transition-group
+tag="ul"
+class="event-card-list"
+name="fade-in"
+:css="false"
+v-on:before-enter="cardBeforeEnter"
+v-on:enter="cardEnter"
+v-on:leave="cardLeave"
+appear>
+<li v-for="(item, index) in filteredList" :key="item.title" :data-index="index">
+<v-card class="event-card">
+<v-layout row>
+<img :src="item.pic">
+<v-layout column justify-space-between style="padding: 0.8em 1.3em; max-width: 390px;">
+<div>
+<h1 class="name">{{ item.title }}</h1>
+<h3 class="date">{{ item.date }}</h3>
+</div>
+<div>
+<p class="desc">{{ item.desc }}</p>
+<div class="location">
+<v-icon v-if="item.address">location_on</v-icon>
+{{ item.address }}
+</div>
+</div>
+<div class="date-ribbon">
+<h2>{{ item.month }}</h2>
+<h1>{{ item.day }}</h1>
+</div>
+</v-layout>
+</v-layout>
+</v-card>
+</li>
+</transition-group>
+</script>
+<!-- Above is the event list component. Below you can ignore -->
+
+<v-app id="app">
+<v-toolbar color="red">
+<v-toolbar-title class="white--text">
+Vue Events Card List by @<a class="white--text" style="border-bottom: 2px solid #fff; padding-bottom: 1px">NoahBres</a>
+</v-toolbar-title>
+<v-spacer></v-spacer>
+<a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20event%20card%20list%20(made%20in%20Vue)%20by%20%40NoahBres&url=https%3A%2F%2Fnoahbres.github.io%2Fblog%2Fbonfire-devlog-3-how-to-make-an-events-card-list" target="_blank" rel="noopener" style="text-decoration: none;">
+<v-btn icon dark>
+<v-icon>share</v-icon>
+</v-btn>
+</a>
+</v-toolbar>
+<v-content style="background: #eee">
+<v-container>
+<v-layout justify-center>
+<v-layout class="wrapme" column align-center justify-center>
+<div :class="['search-bar', searchIsFocused ? 'elevation-6' : 'elevation-3']">
+<input placeholder="Search" 
+v-on:focus="searchFocus()"
+v-on:blur="searchUnfocus()"
+type="text"
+name="search"
+v-model="filter.search">
+</div>
+<v-layout align-center justify-space-between row style="width: 100%;">
+<div class="upcoming-events-filter-group">
+<input type="radio" id="importantSelect" name="important-select" value="important" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
+<label for="importantSelect">Important</label>
+<input type="radio" id="upcomingSelect" name="upcoming-select" value="upcoming" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
+<label for="upcomingSelect">Upcoming</label>
+<input type="radio" id="finishedSelect" name="finished-select" value="finished" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
+<label for="finishedSelect">Finished</label>
+<div class="underline"></div>
+</div>
+<v-btn flat style="align-self: flex-end; color: #9E9E9E; margin-right: 1.4em">
+<span style="padding-right: 0.4em;">Filter</span>
+<v-icon>filter_list</v-icon>
+</v-btn>
+</v-layout>
+<!-- CUSTOM EVENT LIST COMPONENT -->
+<event-list
+:filter-upcoming="filter.upcoming"
+:filter-important="filter.important"
+:filter-search="filter.search" />
+<!-- THE THING ABOVE IS THE CUSTOM EVENT LIST COMPONENT -->
+</v-layout>
+</v-layout>
+</v-container>
+</v-content>
+</v-app>
+
