@@ -99,3 +99,5 @@ gem 'grape-active_model_serializers'
 #for rollbar
 gem 'rollbar'
 
+gem 'font-awesome-sass', '~> 5.15.1'
+

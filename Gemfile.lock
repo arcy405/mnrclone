@@ -510,6 +510,7 @@ DEPENDENCIES
   cloudinary
   dalli
   devise
+  font-awesome-sass (~> 5.15.1)
   friendly_id (~> 5.4.0)
   google-analytics-rails (= 1.1.1)
   grape
