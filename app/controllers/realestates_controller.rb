@@ -3,12 +3,20 @@ class RealestatesController < ApplicationController
   before_action :set_realestate, only: [:show, :edit, :update, :destroy]
  
    def index
-         @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
-         @Realestate_rent=Realestate.where("ptype=?", "rent")
+         @Realestates=Realestate.includes(:realestate_images)
+         @Realestate_rent=Realestate.where("ptype=?", "rent").order("created_at DESC")
          @Realestate_sell=Realestate.where("ptype=?", "sell")
-         
-         
    end
+
+   def rent
+    @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
+    @Realestate_rent=Realestate.includes(:realestate_images)
+  end
+
+  def sell
+    @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
+    @Realestate_sell=Realestate.where("ptype=?", "sell").includes(:realestate_images)
+  end
  
    def show
      @realestate = Realestate.friendly.find(params[:id])
@@ -72,6 +80,6 @@ class RealestatesController < ApplicationController
       end
  
        def realestate_params
-         params.require(:realestate).permit(:latitude, :longitude,  :seller_name, :price, :description, :seller_phone , :ptype, :user_id,  :bathroom,:bedroom,:address, :propertyname,:kitchen, :pfor, :floor, :garden, :hall, :baranda, :length, :breadth, :shutter_no, realestate_images_attributes: [:id, :realestate_id, :image,:image_cache])
+         params.require(:realestate).permit(:kattha, :dhur, :bigha, :flatKitchen, :roof, :shutterPfor, :roomPfor, :roomFloor, :roomBathroom, :roomKitchen, :roomBedroom, :flatPfor, :flatFloor, :flatBathroom, :flatHall, :flatBedroom, :latitude, :longitude,  :seller_name, :price, :description, :seller_phone , :ptype, :user_id,  :bathroom, :bedroom, :address, :propertyname, :kitchen, :pfor, :floor, :garden, :hall, :baranda, :length, :breadth, :shutter_no, realestate_images_attributes: [:id, :realestate_id, :image,:image_cache])
        end 
 end

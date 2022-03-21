@@ -1,99 +1,31 @@
+<% content_for :title, "Real Estate-MNRYP" %>
+  <%= render 'Homepage/navmenu.html.erb' %>
 
+<body class="homepage">
+ <div class="wrapper">
+ <%= link_to realestates_sell_path do %>
+        <button class="button-71 saleButton  " role="button" >BUY</button>
+      <% end %>
 
-    HTML CSS Babel 
+      <% if user_signed_in? %>
+        <%= link_to new_realestate_path(category:"sell"), realestates: @Realestates do %>
+          <button class="button-71 saleButton mt-2 " role="button" >SELL</button>
+        <% end %>
+      <% else %>
+        <%= link_to user_session_path do %>
+          <button class="button-71 saleButton mt-2 " role="button" >SELL</button>
+        <% end %>
+      <% end %>
 
-    Result
-    Skip Results Iframe
+      <% if user_signed_in? %>
+        <%= link_to realestates_rent_path(category:"rent"), realestates: @Realestates do %>
+          <button class="button-71 saleButton mt-2 " role="button" >RENT</button>
+        <% end %>
+      <% else %>
+        <%= link_to user_session_path do %>
+          <button class="button-71 saleButton mt-2 " role="button" >RENT</button>
+        <% end %>
+      <% end %>
 
-EDIT ON
-
-<!-- This is the event list component. Ignore the template thing. Just makes it so I don't have to type it in the JS -->
-<script id="componentTemplate" text="text/template">
-<transition-group
-tag="ul"
-class="event-card-list"
-name="fade-in"
-:css="false"
-v-on:before-enter="cardBeforeEnter"
-v-on:enter="cardEnter"
-v-on:leave="cardLeave"
-appear>
-<li v-for="(item, index) in filteredList" :key="item.title" :data-index="index">
-<v-card class="event-card">
-<v-layout row>
-<img :src="item.pic">
-<v-layout column justify-space-between style="padding: 0.8em 1.3em; max-width: 390px;">
-<div>
-<h1 class="name">{{ item.title }}</h1>
-<h3 class="date">{{ item.date }}</h3>
-</div>
-<div>
-<p class="desc">{{ item.desc }}</p>
-<div class="location">
-<v-icon v-if="item.address">location_on</v-icon>
-{{ item.address }}
-</div>
-</div>
-<div class="date-ribbon">
-<h2>{{ item.month }}</h2>
-<h1>{{ item.day }}</h1>
-</div>
-</v-layout>
-</v-layout>
-</v-card>
-</li>
-</transition-group>
-</script>
-<!-- Above is the event list component. Below you can ignore -->
-
-<v-app id="app">
-<v-toolbar color="red">
-<v-toolbar-title class="white--text">
-Vue Events Card List by @<a class="white--text" style="border-bottom: 2px solid #fff; padding-bottom: 1px">NoahBres</a>
-</v-toolbar-title>
-<v-spacer></v-spacer>
-<a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20event%20card%20list%20(made%20in%20Vue)%20by%20%40NoahBres&url=https%3A%2F%2Fnoahbres.github.io%2Fblog%2Fbonfire-devlog-3-how-to-make-an-events-card-list" target="_blank" rel="noopener" style="text-decoration: none;">
-<v-btn icon dark>
-<v-icon>share</v-icon>
-</v-btn>
-</a>
-</v-toolbar>
-<v-content style="background: #eee">
-<v-container>
-<v-layout justify-center>
-<v-layout class="wrapme" column align-center justify-center>
-<div :class="['search-bar', searchIsFocused ? 'elevation-6' : 'elevation-3']">
-<input placeholder="Search" 
-v-on:focus="searchFocus()"
-v-on:blur="searchUnfocus()"
-type="text"
-name="search"
-v-model="filter.search">
-</div>
-<v-layout align-center justify-space-between row style="width: 100%;">
-<div class="upcoming-events-filter-group">
-<input type="radio" id="importantSelect" name="important-select" value="important" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
-<label for="importantSelect">Important</label>
-<input type="radio" id="upcomingSelect" name="upcoming-select" value="upcoming" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
-<label for="upcomingSelect">Upcoming</label>
-<input type="radio" id="finishedSelect" name="finished-select" value="finished" v-model="eventsUpcomingFilter" @change="upcomingFilterChange()">
-<label for="finishedSelect">Finished</label>
-<div class="underline"></div>
-</div>
-<v-btn flat style="align-self: flex-end; color: #9E9E9E; margin-right: 1.4em">
-<span style="padding-right: 0.4em;">Filter</span>
-<v-icon>filter_list</v-icon>
-</v-btn>
-</v-layout>
-<!-- CUSTOM EVENT LIST COMPONENT -->
-<event-list
-:filter-upcoming="filter.upcoming"
-:filter-important="filter.important"
-:filter-search="filter.search" />
-<!-- THE THING ABOVE IS THE CUSTOM EVENT LIST COMPONENT -->
-</v-layout>
-</v-layout>
-</v-container>
-</v-content>
-</v-app>
-
+ </div>
+<body>

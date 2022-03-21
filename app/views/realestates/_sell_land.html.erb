@@ -1,0 +1,34 @@
+
+    <div class="input_field"> 
+        <button type="button"  id="kattha" class="btn btn-outline-warning mt-3 ">Kattha</button>
+                    <button type="button"  id="dhur" class="btn btn-outline-warning mt-3 ">Dhur</button>
+            <button type="button" id="bigha" class="btn btn-outline-warning mt-3">Bigha</button>
+    </div>
+    
+ <div id="pages">
+<div class="input_field" id="kattha" style="display: none;">
+              <%= f.text_field :kattha, placeholder: "Input Kattha Value"%>
+            </div>
+
+<div class="input_field" id="dhur" style="display: none;">
+              <%= f.text_field :dhur, placeholder: "Input Dhur Value"%>
+            </div>
+
+<div class="input_field" id="bigha" style="display: none;"> 
+              <%= f.text_field :bigha, placeholder: "Input Bigha Value"%>
+            </div>            
+
+</div>
+<div class="text-muted"><%= t('marketplace_placeholer_5') %></div>
+            <%= f.fields_for :realestate_images do |p| %>
+                <div class="input-group has-validation">
+                   <%= p.file_field :image, direct_upload: true,:multiple => true, class:"form-control",name: "realestate_images[image][]" %>
+                   <div class="invalid-feedback">
+                      Please upload property Images.
+                    </div>
+                </div>
+                 <%= p.hidden_field :image_cache %>
+           <% end %>
+     <pre><%= t('marketplace_placeholer_6') %></pre>
+     <hr />                   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

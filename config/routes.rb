@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'set_mylanguage/en', to:"set_mylanguage#en"
 
   get 'realestates/rent', to:"realestates#rent"
+  get 'realestates/sell', to:"realestates#sell"
 
   get 'aboutus/index', to:"aboutus#index"
   get 'contactus/index', to: "contactus#index"

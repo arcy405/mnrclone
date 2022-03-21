@@ -1,28 +1,28 @@
+
 <div class="row clearfix">
-        <%= f.hidden_field :pfor, value: "shutter"  %>
 
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :floor, options_for_select([["Select floor", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]) %>
+        <%= f.select :shutterPfor, options_for_select([["Select Floor", ""], "Ground", "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth"]) %>
     </div>
     </div>
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :kitchen, options_for_select([["No. of Rooms", ""], "One", "Two", "Three", "Four"]) %>
+        <%= f.select :roof, options_for_select([["No. of Rooms", ""], "One", "Two", "Three", "Four", "Five"]) %>
     </div>
     </div>
 </div>
- <div class="input_field"> 
+ <div class="input_field">
     </div>
     <div class="row clearfix">
     <div class="col_half">
         <div class="input_field"> 
-            <%= f.text_field :length, placeholder: "Length"%>
+            <%= f.text_field :length, placeholder: "Length in Feet"%>
         </div>
     </div>
     <div class="col_half">
         <div class="input_field"> 
-            <%= f.text_field :breadth, placeholder: "Breadth"%>
+            <%= f.text_field :breadth, placeholder: "Breadth in Feet"%>
         </div>
     </div>
 </div>
@@ -39,4 +39,3 @@
            <% end %>
      <pre><%= t('marketplace_placeholer_6') %></pre>
      <hr />                   
-     <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold" %>

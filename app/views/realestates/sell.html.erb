@@ -1,19 +1,12 @@
 <% content_for :title, "List of rent-MNRYP" %>
 <%= render 'Homepage/navmenu.html.erb' %>
 <div class="container">
-    <div class="">
-        <%= link_to new_realestate_path(category:"rent"), style:"text-decoration:none; font-size: 20px; color:orange;" do %>
-            Add on Rent<i class="fas fa-plus-circle ml-2"></i>
-        <% end %>
-    </div>
     <div class="row">
         <div class="col-lg-12 card-margin">
             <div class="card mt-2">
                 <div class="btn-group estate_group flex-wrap" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-warning filter-button" data-filter="house">House</button>
-                    <button type="button" class="btn btn-warning filter-button" data-filter="flat">Flat</button>
-                    <button type="button" class="btn btn-warning filter-button" data-filter="room">Room</button>
-                    <button type="button" class="btn btn-warning filter-button" data-filter="shutter">Shutter</button>
+                    <button type="button" class="btn btn-warning filter-button" data-filter="land">Land</button>
                     <button type="button" class="btn btn-warning filter-button" data-filter="all">All</button>
                 </div>
             </div>
@@ -23,10 +16,10 @@
 <div class="rentEstate">
     <section class="light">
     <div class="container py-2">
-      <% @Realestate_rent.each do |rent| %>
+      <% @Realestate_sell.each do |rent| %>
         <article class="postcardEstate light yellow filter <%= rent.pfor %> ">
           <a class="oval postcard__img_link" href="#">
-            <%= rent.realestate_images.each do |prop_img| %>
+             <%= rent.realestate_images.each do |prop_img| %>
                       <% if prop_img.image == nil %>
                         <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png", class="postcard__imgEstate">
                       <% else %>
@@ -36,12 +29,8 @@
                     <% end %>
             <% if rent.pfor == "house" %>
               <span class="top-right badge badge-pill badge-danger">House</span>
-            <% elsif rent.pfor == "flat" %>
-              <span class="top-right badge badge-pill badge-danger">Flat</span>
-            <% elsif rent.pfor == "room" %>
-              <span class="top-right badge badge-pill badge-danger">Room</span>
-            <% elsif rent.pfor == "shutter" %>
-              <span class="top-right badge badge-pill badge-danger">Shutter</span>
+            <% elsif rent.pfor == "land" %>
+              <span class="top-right badge badge-pill badge-danger">Land</span>
             <% end %>
           </a>
           <div class="postcard__textEstate t-dark">
@@ -61,22 +50,11 @@
              <% if rent.bathroom != "" %><%= rent.bathroom %> Bathroom,<%end%>
               <% if rent.floor != "" %><%= rent.floor %> Floor<%end%>
               <% if rent.garden == true %>with Garden<%end%>
-            <% elsif rent.pfor == "flat" %>
-               <% if rent.flatBedroom != "" %><%= rent.flatBedroom %> Bedroom,<%end%>
-             <% if rent.flatKitchen != "" %><%= rent.flatKitchen %> Kitchen,<%end%>
-              <% if rent.flatHall != "" %><%= rent.flatHall %> Hall,<%end%>
-             <% if rent.flatBathroom != "" %><%= rent.flatBathroom %> Bathroom,<%end%>
-              <% if rent.flatFloor != "" %><%= rent.flatFloor %> Floor<%end%>
+            <% elsif rent.pfor == "land" %>
+               <% if rent.kattha!= "" %><%= rent.kattha%> Kattha Land<%end%>
+             <% if rent.dhur != "" %><%= rent.dhur %> Dhur Land<%end%>
+              <% if rent.bigha != "" %><%= rent.bigha %> Bigha Land<%end%>
               <% if rent.baranda == "1" %>with Balcony<%end%>
-            <% elsif rent.pfor == "room" %>
-                <% if rent.roomBedroom != "" %><%= rent.roomBedroom %> Bedroom,<%end%>
-             <% if rent.roomKitchen == "1" %>with Kitchen<%end%>
-             <% if rent.roomBathroom == "1" %> Bathroom<%end%>
-              <% if rent.roomFloor != "" %>on <%= rent.roomFloor %> Floor<%end%>
-            <% else %>
-             <% if rent.roof != "" %><%= rent.roof %> Room,<%end%>
-             <% if rent.shutterPfor  != "" %>on <%= rent.shutterPfor  %> Floor<%end%>
-              <% if rent.length != "" && rent.breadth != "" %><%= rent.length %>ft x <%= rent.breadth%>ft<%end%>
             <% end %>      
             </b> 
             </div>

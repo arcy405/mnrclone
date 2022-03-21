@@ -1,204 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+$main-green: #79dd09 !default;
+$main-green-rgb-015: rgba(121, 221, 9, 0.1) !default;
+$main-yellow: #bdbb49 !default;
+$main-yellow-rgb-015: rgba(189, 187, 73, 0.1) !default;
+$main-red: #bd150b !default;
+$main-red-rgb-015: rgba(189, 21, 11, 0.1) !default;
+$main-blue: #0076bd !default;
+$main-blue-rgb-015: rgba(0, 118, 189, 0.1) !default;
 
-
-    HTML CSS Babel 
-
-    Result
-    Skip Results Iframe
-
-EDIT ON
-
-/* Event Card List CSS */
-.event-card-list {
-margin-top: 4em;
+/* This pen */
+body.rentEstate {
+	font-family: "Baloo 2", cursive;
+	font-size: 16px;
+	color: #ffffff;
+	text-rendering: optimizeLegibility;
+	font-weight: initial;
 }
 
-.event-card-list li {
-list-style: none;
-margin: 2em 0;
+.light {
+	background: #f3f5f7;
 }
 
-.event-card {
-overflow: hidden;
-width: 630px;
-
-border-radius: 0.3em;
+a, a:hover {
+	text-decoration: none;
+	transition: color 0.3s ease-in-out;
 }
 
-.event-card img {
-width: 240px;
-height: 200px;
-
-object-fit: cover;
+#pageHeaderTitle {
+	margin: 2rem 0;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 2.5rem;
 }
 
-.event-card .name {
-font-size: 2.3em;
-font-weight: 400;
+.oval {
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
-.event-card .name a {
-text-decoration: none;
-/*color: #212121;*/
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
-.event-card .date {
-font-size: 1.4em;
-font-weight: 400;
-color: #6D6D6D;
+/* Cards */
+.postcardEstate {
+  flex-wrap: wrap;
+  display: flex;
+  
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+
+  
+
+	&.dark {
+		background-color: #18151f;
+	}
+	&.light {
+		background-color: #e1e5ea;
+	}
+	
+	.t-dark {
+		color: #18151f;
+	}
+	
+  a {
+    color: inherit;
+  }
+	
+	h1,	.h1 {
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+	
+	.small {
+		font-size: 80%;
+	}
+
+  .postcard__title {
+    font-size: 1.75rem;
+  }
+
+  .postcard__imgEstate {
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .postcard__imgEstate_link {
+    display: contents;
+  }
+
+  .postcard__bar {
+    width: 50px;
+    height: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #424242;
+    transition: width 0.2s ease;
+  }
+
+  .postcard__textEstate {
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postcard__preview-txt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    height: 100%;
+  }
+
+  .postcard__tagbox {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+		padding: 0;
+    justify-content: center;
+
+    .tag__item {
+      display: inline-block;
+      background: rgba(83, 83, 83, 0.4);
+      border-radius: 3px;
+      padding: 2.5px 10px;
+      margin: 0 5px 5px 0;
+      cursor: default;
+      user-select: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: rgba(83, 83, 83, 0.8);
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(-70deg, #424242, transparent 50%);
+    opacity: 1;
+    border-radius: 10px;
+  }
+
+  &:hover .postcard__bar {
+    width: 100px;
+  }
 }
 
-.event-card .location {
-font-size: 1em;
-color: #757575;
+@media screen and (min-width: 769px) {
+  .postcardEstate {
+    flex-wrap: inherit;
+
+    .postcard__title {
+      font-size: 2rem;
+    }
+
+    .postcard__tagbox {
+      justify-content: start;
+    }
+
+    .postcard__imgEstate {
+      max-width: 300px;
+      max-height: 300%;
+      transition: transform 0.3s ease;
+    }
+
+    .postcard__textEstate {
+      padding: 1.7rem;
+      width: 100%;
+    }
+
+    .media.postcard__textEstate:before {
+      content: "";
+      position: absolute;
+      display: block;
+      background: #18151f;
+      top: -20%;
+      height: 130%;
+      width: 55px;
+    }
+
+    &:hover .postcard__imgEstate {
+      transform: scale(1.1);
+    }
+
+    &:nth-child(2n+1) {
+      flex-direction: row-reverse;
+    }
+
+   &:nth-child(2n+0) {
+      flex-direction: row-reverse;
+    }
+
+  
+    &:nth-child(2n+1) .postcard__textEstate::before {
+      right: -12px !important;
+      transform: rotate(-4deg);
+    }
+
+    &:nth-child(2n+0) .postcard__textEstate::before {
+      right: -12px !important;
+      transform: rotate(-4deg);
+    }
+  }
+}
+@media screen and (min-width: 1024px){
+		.postcard__textEstate {
+      padding: 2rem 3.5rem;
+    }
+		
+		.postcard__textEstate:before {
+      content: "";
+      position: absolute;
+      display: block;
+      
+      top: -20%;
+      height: 150%;
+      width: 34px;
+    }
+	
+ 
+	.postcardEstate.light {
+		.postcard__textEstate:before {
+			background: #e1e5ea;
+		}
+
+   
+
+  }
+}
+@media only screen and (max-width: 600px) {
+  .oval {
+    width: 100%;
+                height: 160px;
+  }
+  .postcard__imgEstate {
+    border-radius: 50%;
+
+  }
+}
+/* COLORS */
+
+.postcardEstate.postcard__tagbox .yellow.play:hover {
+	background: $main-yellow;
+	color: black;
+}
+.yellow .postcard__title:hover {
+	color: $main-yellow;
+}
+.yellow .postcard__bar {
+	background-color: $main-yellow;
+}
+.yellow::before {
+	background-image: linear-gradient(
+		-20deg,
+		$main-yellow-rgb-015,
+		transparent 50%
+	);
+}
+.yellow:nth-child(2n)::before {
+	background-image: linear-gradient(
+		30deg,
+		$main-yellow-rgb-015,
+		transparent 50%
+	);
 }
 
-.event-card .location i {
-font-size: 1.1em;
-padding-right: 0.3em;
-margin-bottom: 0.085em;
+@media screen and (min-width: 769px) {
+
+	.yellow::before {
+		background-image: linear-gradient(
+			-80deg,
+			$main-yellow-rgb-015,
+			transparent 50%
+		);
+	}
+	.yellow:nth-child(n)::before {
+		background-image: linear-gradient(
+			80deg,
+			$main-yellow-rgb-015,
+			transparent 50%
+		);
+	}
 }
-
-.event-card .desc {
-margin-bottom: 0.2em;
-font-size: 1.16em;
-padding-left: 0.1em;
-}
-
-.event-card .date-ribbon {
-position: absolute;
-top: 0;
-left: 2em;
-background: #FE453E;
-color: #fff;
-padding: 0.2em 1em;
-padding-bottom: 0;
-border-radius: 0;
-}
-
-.event-card .date-ribbon::before, .event-card .date-ribbon::after {
-content: '';
-position: absolute;
-top: 100%;
-
-width: 50%;
-height: 30px;
-}
-
-.event-card .date-ribbon::before {
-left: 0;
-border-left:solid 2em #FE453E;
-border-top: solid 15px #FE453E;
-border-bottom: solid 15px transparent;
-border-right: solid 2em transparent;
-}
-
-.event-card .date-ribbon::after {
-right: 0;
-border-right:solid 2em #FE453E;
-border-top: solid 15px #FE453E;
-border-bottom: solid 15px transparent;
-border-left: solid 2em transparent;
-}
-
-.event-card .date-ribbon h2 {
-font-weight: 500;
-font-size: 1.15em;
-letter-spacing: 0.07em;
-text-align: center;
-}
-
-.event-card .date-ribbon h1 {
-text-align: center;
-font-weight: 400;
-font-size: 2.45em;
-margin-top: -0.09em;
-line-height: 1em;
-}
-/* Below is page css. Not event card */
-
-.wrapme {
-width: 70%;
-max-width: 650px;
-}
-
-.search-bar {
-margin-top: 5em;
-background: #fff;
-padding: 1em;
-width: 100%;
-border-radius: 10em;
-
-transition: box-shadow 300ms ease;
-}
-
-.search-bar input {
-width: 100%;
-border-style: none;
-
-color: inherit;
-background-color: transparent;
-
-padding-left: 1em;
-font-size: 1.3em;
-}
-
-.search-bar input:focus {
-outline: none;
-}
-
-.upcoming-events-filter-group {
-padding: 0 2.4em;
-
-position: relative;
-display: inline-block;
-}
-
-.upcoming-events-filter-group input{
-visibility: hidden;
-opacity: 0;
-position: absolute;
-top: -999;
-left: -999;
-}
-
-.upcoming-events-filter-group label {
-cursor: pointer;
-font-size: 1.3em;
-margin: 0 0.3em;
-
-color: #9E9E9E;
-
-transition: color 300ms ease;
-}
-
-.upcoming-events-filter-group input:checked + label {
-color: #F07077;
-}
-
-.upcoming-events-filter-group .underline {
-position: absolute;
-bottom: -3px;
-left: 2.73em;
-
-height: 2px;
-width: 6em;
-background: #F07077;
-
-transition: 300ms ease;
-}
-
-.upcoming-events-filter-group #importantSelect:checked ~ .underline {
-left: 2.73em;
-width: 5.7em;
-}
-
-.upcoming-events-filter-group #upcomingSelect:checked ~ .underline {
-left: 9.45em;
-width: 6em;
-}
-
-.upcoming-events-filter-group #finishedSelect:checked ~ .underline {
-left: calc(100% - 2.7em - 5em);
-width: 5em;
-}
-

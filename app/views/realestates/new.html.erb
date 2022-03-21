@@ -8,7 +8,11 @@
       <div class="row clearfix">
         <div class="">
           <div class="container">
+            <% if @type == "rent" %>
               <%= render partial: "form", type: @type %>
+            <% elsif @type == "sell"%>
+              <%= render partial: "formSell", type: @type %>
+            <% end %>    
           <div>
         </div>
       </div>

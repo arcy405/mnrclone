@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_094349) do
+ActiveRecord::Schema.define(version: 2022_03_21_065051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -501,6 +501,21 @@ ActiveRecord::Schema.define(version: 2022_03_09_094349) do
     t.decimal "breadth"
     t.string "shutter_no"
     t.string "roof"
+    t.string "flatBedroom"
+    t.string "flatKitchen"
+    t.string "flatHall"
+    t.string "flatBathroom"
+    t.string "flatFloor"
+    t.string "flatPfor"
+    t.string "roomBedroom"
+    t.string "roomKitchen"
+    t.string "roomBathroom"
+    t.string "roomFloor"
+    t.string "roomPfor"
+    t.string "shutterPfor"
+    t.string "kattha"
+    t.string "dhur"
+    t.string "bigha"
     t.index ["slug"], name: "index_realestates_on_slug", unique: true
   end
 
