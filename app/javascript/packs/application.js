@@ -22,7 +22,6 @@ require("custom/messenger.js")
 require("custom/facebookpage.js")
 require("custom/form_validation.js")
 require("custom/realestate_form.js")
-require("custom/formEstate_form.js")
 
 
 import "bootstrap";
