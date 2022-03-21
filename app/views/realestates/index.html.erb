@@ -17,15 +17,10 @@
         <% end %>
       <% end %>
 
-      <% if user_signed_in? %>
-        <%= link_to realestates_rent_path(category:"rent"), realestates: @Realestates do %>
+<%= link_to realestates_rent_path(category:"rent"), realestates: @Realestates do %>
           <button class="button-71 saleButton mt-2 " role="button" >RENT</button>
         <% end %>
-      <% else %>
-        <%= link_to user_session_path do %>
-          <button class="button-71 saleButton mt-2 " role="button" >RENT</button>
-        <% end %>
-      <% end %>
+      
 
  </div>
 <body>
