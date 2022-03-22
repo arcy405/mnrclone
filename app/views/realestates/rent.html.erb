@@ -91,7 +91,9 @@
             </div>
             <ul class="postcard__tagbox">
               <li class="tag__item"><i class="fas fa-user"></i> <b>Seller Name: <%= rent.seller_name %></b></li>
-              <li class="tag__item"><i class="fas fa-phone"></i> <b>Contact Number: <%= rent.seller_phone %></b></li>
+                <li class="tag__item"><a href="tel:<%= rent.seller_phone %>" style="text-decoration:none" >
+                                <span class="phone mt-4"><i class="fas fa-phone"></i> <b>Contact Number: <%= rent.seller_phone%></b></span>
+                            </a></li>
               <!-- <li class="tag__item play yellow">
                 <a href="#"><i class="fas fa-play mr-2"></i>Show More</a> 
               </li> -->
