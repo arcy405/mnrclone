@@ -58,12 +58,15 @@
               </div>
             </div>
             <%# -----------options for buton select----------------- %>
-          
+          <% if @subType == "house" %>
+            <button type="button" onclick="sellHousee()" id="sellHouse" class="btn btn-outline-warning ">House</button>
+            <% end %>
+            <% if @subType == "land" %>
+            <button type="button" onclick="landd()" id="land"  class="btn btn-outline-warning ">Land</button>
+            <% end %>
+            
 
          
-<button type="button" onclick="sellHousee()" id="sellHouse" class="btn btn-outline-warning ">House</button>
-            <button type="button" onclick="landd()" id="land"  class="btn btn-outline-warning ">Land</button>
-                          <%= f.hidden_field :pfor, id: "my_house", value: ""  %>
             <div id="pages">
               <div id="sellHouse" class="" style="display: none;">
               <%= render partial: "rent_house", locals: {f: f} %>

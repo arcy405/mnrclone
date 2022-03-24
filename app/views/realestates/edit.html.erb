@@ -1,33 +1,21 @@
 <%= render 'Homepage/navmenu.html.erb' %>
-
-<%type=params[:category] %>
-
-<div class="container">
-        <h1 class="form_title"><%= t('realestate_title') %> <span class="mnryp_word">MNRYP</span></h1>
-  <div class="row">
-  <div class="col-md-6">
-      <ul >
-          <li class="text-justify"><%= t('realestate_text1') %></li>
-          <li class="text-justify"><%= t('realestate_text2') %></li>
-          <li class="text-justify"><%= t('realestate_text3') %></li>
-          <span class="text-justify"><%= t('thanks_text') %></span>
-      </ul>
-  </div>
-      <div class="col-md-6">
-          <div class="shadow p-3 mb-5 bg-white rounded">
-                <% if type=="land"%>
-                   <%= render partial: "form_land_sell"%>
-                   <% elsif type=="house_sell"%>
-                   <%= render partial: "form_house_sell"%>
-                   <% elsif type=="house_rent"%>
-                   <%= render partial: "form_house_rent"%>
-                <% end %>
-          </div>
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+  <% end %>
+<% @type=params[:category] %>
+<% @subType = params[:edit]%>
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="row clearfix">
+        <div class="">
+          <div class="container">
+            <% if @type == "rent" %>
+              <%= render partial: "editForm", type: @type, subType: @subType %>
+            <% elsif @type == "sell"%>
+              <%= render partial: "editFormSell", type: @type, subType: @subType %>
+            <% end %>    
+          <div>
+        </div>
       </div>
-  </div>
-  
+    </div>
 </div>
- 
-            
-
-

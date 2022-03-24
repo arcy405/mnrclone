@@ -17,6 +17,7 @@
     <%= f.hidden_field :user_id, value: "#{current_user.id}"  %> 
     <%= f.hidden_field :ptype, value: @type  %>
   <!------------------------------------------------>
+  
             <div class="input_field"> 
               <%= f.text_field :seller_name, placeholder: "Seller Name", :required => true%>
             </div>
@@ -59,19 +60,31 @@
             </div>
             <%# -----------options for buton select----------------- %>
           
-
-         
-<button type="button" onclick="sellHousee()" id="sellHouse" class="btn btn-outline-warning ">House</button>
-            <button type="button" onclick="landd()" id="land"  class="btn btn-outline-warning ">Land</button>
-                          <%= f.hidden_field :pfor, id: "my_house", value: ""  %>
+            <% if @subType == "house" %>
+            <button type="button" onclick="housee()" id="house" class="btn btn-outline-warning ">House</button>
+            <% end %>
+            <% if @subType == "flat" %>
+            <button type="button" onclick="flatt()" id="flat"  class="btn btn-outline-warning ">Flat</button>
+            <% end %>
+             <% if @subType == "room" %>
+            <button type="button" onclick="roomm()" id="room"  class="btn btn-outline-warning ">Room</button>
+            <% end %>
+             <% if @subType == "shutter" %>
+            <button type="button" id="shutter" onclick="shutterr()" class="btn btn-outline-warning">Shutter</button>
+            <% end %>
             <div id="pages">
-              <div id="sellHouse" class="" style="display: none;">
+              <div id="house" class="" style="display: none;">
               <%= render partial: "rent_house", locals: {f: f} %>
               </div>
-              <div id="land" class="" style="display: none;">
-                <%= render partial: "sell_land", locals: {f: f}%>
+              <div id="flat" class="" style="display: none;">
+                <%= render partial: "rent_flat", locals: {f: f}%>
               </div>
-             
+              <div id="room" class="" style="display: none;">
+                  <%= render partial: "rent_room", locals: {f: f}%>
+              </div>
+              <div id="shutter" class="" style="display: none;">
+                  <%= render partial: "rent_shutter", locals: {f: f}%>
+              </div>
             </div>  
             <%# ------------------------------------------------------- %>
  <%= f.submit "#{t('save')}" , class:"button form-control text-white font-weight-bold mt-2" %>
@@ -81,17 +94,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <%# ----------------------------------- %>
 <script>
-function sellHousee(){
+function housee(){
 	var txt = "house";
 	document.getElementById("my_house").value = txt;
-  console.log(document.getElementById("my_house").value);
+  
 
 }
-function landd(){
-	var txt = "land";
+function flatt(){
+	var txt = "flat";
 	document.getElementById("my_house").value = txt;
-    console.log(document.getElementById("my_house").value);
-
+  
 }
-
+function roomm(){
+	var txt = "room";
+	document.getElementById("my_house").value = txt;
+  	
+}
+function shutterr(){
+	var txt = "shutter";
+	document.getElementById("my_house").value = txt;
+  
+}
 </script>

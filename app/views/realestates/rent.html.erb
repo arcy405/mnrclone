@@ -57,7 +57,12 @@
             <h1 class="postcard__title yellow"><a href="#"><%= rent.propertyname %></a></h1>
             <div class="postcard__subtitle">
               <time datetime="2020-05-25 12:00:00">
-                <i class="fas fa-map-marker-alt"></i> <b><%= rent.address%></b>, <span class="badge badge-pill badge-danger">RS: <%= rent.price %></span>
+                <% if rent.latitude.nil? || rent.longitude.nil? %>
+                  <i class="fas fa-map-marker-alt"></i> <b><%= rent.address%></b>
+                <% else %>
+                  <%=  link_to  realestate_path(rent, anchor: "realestatteMap"), style:"text-decoration:none" do %><i class="fas fa-map-marker-alt"></i> <b><%= rent.address%></b><%end%>
+                <% end %>
+                , <span class="badge badge-pill badge-danger">RS: <%= rent.price %></span>
               </time>
             </div>
             <div class="postcard__bar"></div>
@@ -94,9 +99,18 @@
                 <li class="tag__item"><a href="tel:<%= rent.seller_phone %>" style="text-decoration:none" >
                                 <span class="phone mt-4"><i class="fas fa-phone"></i> <b>Contact Number: <%= rent.seller_phone%></b></span>
                             </a></li>
-              <!-- <li class="tag__item play yellow">
-                <a href="#"><i class="fas fa-play mr-2"></i>Show More</a> 
-              </li> -->
+               <li class="tag__item"><%=  link_to  realestate_path(rent), style:"text-decoration:none" do %><i class="fas fa-arrow-alt-circle-right"></i> <b>Show More</b><%end%></li>
+               <% if user_signed_in? && current_user.id === rent.user_id %>
+                  <div class="d-flex flex-row-reverse p-2">
+                      <div>
+                          <%= link_to  rent, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                      </div>
+                      <div class="mr-2 ml-2">
+                      <% @edit = rent.pfor %>
+                          <%= link_to  edit_realestate_path(rent, category:"rent", edit: @edit) do %><i class="far fa-edit text-primary"></i><% end %>
+                      </div>
+                  </div>
+              <% end %>
             </ul>
           </div>
         </article>

@@ -3,12 +3,12 @@
 
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :shutterPfor, options_for_select([["Select Floor", ""], "Ground", "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth"]) %>
+        <%= f.select :shutterPfor, options_for_select([["Select Floor", ""], "Ground", "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth"], selected: f.object.shutterPfor) %>
     </div>
     </div>
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :roof, options_for_select([["No. of Rooms", ""], "One", "Two", "Three", "Four", "Five"]) %>
+        <%= f.select :roof, options_for_select([["No. of Rooms", ""], "One", "Two", "Three", "Four", "Five"], selected: f.object.roof) %>
     </div>
     </div>
 </div>

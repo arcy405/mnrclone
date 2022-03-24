@@ -2,7 +2,7 @@
 
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :roomBedroom, options_for_select([["No. of Bedroom", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]) %>
+        <%= f.select :roomBedroom, options_for_select([["No. of Bedroom", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"], selected: f.object.roomBedroom) %>
     </div>
     </div>
     <div class="col_half">
@@ -21,7 +21,7 @@
     </div>
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :roomFloor, options_for_select([["Select Floor", ""], "Ground", "First", "Second", "Third", "Fourth", "Fifth", "Sixth"]) %>
+        <%= f.select :roomFloor, options_for_select([["Select Floor", ""], "Ground", "First", "Second", "Third", "Fourth", "Fifth", "Sixth"], selected: f.object.roomFloor) %>
     </div>
     </div>
 </div>

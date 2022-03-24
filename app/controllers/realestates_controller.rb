@@ -10,12 +10,12 @@ class RealestatesController < ApplicationController
 
    def rent
     @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
-    @Realestate_rent=Realestate.includes(:realestate_images)
+    @Realestate_rent=Realestate.where("ptype=?", "rent").order("created_at DESC").includes(:realestate_images)
   end
 
   def sell
     @Realestates=Realestate.order("created_at DESC").includes(:realestate_images)
-    @Realestate_sell=Realestate.where("ptype=?", "sell").includes(:realestate_images)
+    @Realestate_sell=Realestate.where("ptype=?", "sell").order("created_at DESC").includes(:realestate_images)
   end
  
    def show
@@ -58,7 +58,7 @@ class RealestatesController < ApplicationController
    def update
      respond_to do |format|
        if @realestate.update(realestate_params)
-         format.html { redirect_to @realestate, notice: 'Realestate was successfully updated.' }
+         format.html { redirect_to realestates_path, notice: 'Realestate was successfully updated.' }
        else
          format.html { render :edit }
        end

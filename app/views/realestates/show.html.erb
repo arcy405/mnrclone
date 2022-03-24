@@ -1,54 +1,42 @@
-<% content_for :title, "Real Estate-MNRYP" %>
-<%= render 'Homepage/navmenu.html.erb' %>
 
-<div class="container-fluid mt-4">
-  <div class="row mx-2">
-    <div class="col-md-6 px-0 text-center border-right border-secondery">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <% @realestate.realestate_images.each_with_index do |prop_img,index| %>
-            <% if prop_img.image == nil %>
-             <img src="https://res.cloudinary.com/di7sekeem/image/upload/v1614668262/mnryplogo_arr1rm.png"> 
-             <% else %>
-              <% active_class = "active" if index==0 %>
-              <div class="carousel-item <%= active_class %>" style="height:400px; width: 100%;">
-                  <%= cl_image_tag(prop_img.image, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"img-fluid w-100", loading:"lazy",style:"height:400px;") %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
+    <div class="container-fluid mt-4">
+	<div class="container-fluid ">
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading"><i class="fas fa-home"></i> <%= @realestate.propertyname %></h4>
+  <p>
+    <i class="fas fa-user"></i> <b>Seller Name: <%= @realestate.seller_name %></b><br/>
+    <i class="fas fa-map-marker-alt"></i> <b><%= @realestate.address%></b><br/>
+    <a href="tel:<%= @realestate.seller_phone %>" style="text-decoration:none; color: inherit;" >
+      <span class="phone mt-4"><i class="fas fa-phone"></i> <b>Contact Number: <%= @realestate.seller_phone%></b></span>
+    </a>
+    <% if @realestate.ptype === "rent" %>
+	    <%= link_to "Go Back",realestates_rent_path, class:"badge bg-warning text-dark ml-2", style:"text-decoration:none" %>
+    <% elsif @realestate.ptype === "sell" %>
+	    <%= link_to "Go Back",realestates_sell_path, class:"badge bg-warning text-dark ml-2", style:"text-decoration:none" %>
+    <% end %>
+  </p>
+  <hr>
+  <p class="mb-0"><%= @realestate.description%></p>
+</div>
+  
 
-    <div class="col-md-6">
-        <div class="mnryp_word"><strong> <%= @realestate.propertyname %> </strong></div>
-        <h6 class="text-muted"><%= t('seller') %>: <%= @realestate.seller_name %></h6>
-        <i class="fas fa-map-marker"></i> <%= @realestate.address %>
-        <div class="form_title">Rs.<%= @realestate.price %> /- </div>
-        <a href="tel:<%= @realestate.seller_phone %>" class="mt-2"><i class="fas fa-phone-alt"></i> <%= @realestate.seller_phone %></a>
-        <hr />
-        <div class="font-weight-bold responsive-text text-success" style="font-size:20px;"><%= t('description_and_features') %></div>
-          <hr>
-          <p class="text-justify text-muted"> <%= @realestate.description %></p>
+    <div class="card-columns">
+        <% @realestate.realestate_images.each do |photo| %>
+            <div class="card ">
+              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="<%= @realestate.seller_name %>"
+                         data-image="<%= photo.image %>" data-target="#image-gallery">
+            <%= cl_image_tag(photo.image, :quality=>"auto:low",:class=>"card-img-top img-responsive",:fetch_format=>"auto",:flags=>"lossy",loading:"lazy") %>
+            </a>
+           </div>
+        <% end %>
     </div>
-  </div>
-  <div class="mx-2 mt-2">
-      <div class="mnryp_word"><i class="fas fa-map-marked-alt"></i> <%= t('gmap') %> </div>
-       <% lat = @realestate.latitude %>
-       <% long = @realestate.longitude %>
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=<%= lat %>,<%= long %>&z=15&output=embed" loading="lazy" allowfullscreen></iframe>
+</div>
+
+</div>
+
+<div id="realestatteMap" class="container-fluid" >
+<strong> <i class="fas fa-map-marked-alt"></i> <%= t('gmap') %> </strong> <br>
+<div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=<%= @realestate.latitude %>,<%= @realestate.longitude %>&z=15&output=embed" loading="lazy" allowfullscreen></iframe>
         </div>
-        <div class="alert alert-danger text-justify mt-2" role="alert">
-          <%= t('alert_message') %>
-        </div>
-  </div>
 </div>

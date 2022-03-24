@@ -2,31 +2,31 @@
 
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :bedroom, options_for_select([["No. of Bedroom", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]) %>
+        <%= f.select :bedroom, options_for_select([["No. of Bedroom", ""], "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"], selected: f.object.bedroom) %>
     </div>
     </div>
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :kitchen, options_for_select([["No. of Kitchen", ""], "One", "Two", "Three", "Four"]) %>
+        <%= f.select :kitchen, options_for_select([["No. of Kitchen", ""], "One", "Two", "Three", "Four"], selected: f.object.kitchen) %>
     </div>
     </div>
 </div>
 <div class="row clearfix">
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :hall, options_for_select([["No. of Hall", ""], "One", "Two", "Three", "Four"]) %>
+        <%= f.select :hall, options_for_select([["No. of Hall", ""], "One", "Two", "Three", "Four"], selected: f.object.hall) %>
     </div>
     </div>
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :bathroom, options_for_select([["No. of Bathroom", ""], "One", "Two", "Three", "Four", "Five"]) %>
+        <%= f.select :bathroom, options_for_select([["No. of Bathroom", ""], "One", "Two", "Three", "Four", "Five"], selected: f.object.bathroom) %>
     </div>
     </div>
 </div>
 <div class="row clearfix">
     <div class="col_half">
     <div class="input_field"> 
-        <%= f.select :floor, options_for_select([["No. of Floor", ""], "One", "Two", "Three", "Four"]) %>
+        <%= f.select :floor, options_for_select([["No. of Floor", ""], "One", "Two", "Three", "Four"], selected: f.object.floor) %>
     </div>
     </div>
     <div class="col_half">
