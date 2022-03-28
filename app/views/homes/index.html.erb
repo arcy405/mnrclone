@@ -8,7 +8,7 @@
 <body>
 
  <% content_for :title, "Welcome to MNRYP" %>
- <%= render 'Homepage/header.html.erb' %>
+ <%= render partial: 'Homepage/header', formats: :html %>
 	 <div class="container text-center mt-2">
 	   <%= render 'Homepage/covid_tracker' %>
 	</div>

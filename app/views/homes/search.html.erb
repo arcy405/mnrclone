@@ -1,5 +1,5 @@
 <% content_for :title, "Search results-MNRYP" %>
-<%= render 'Homepage/navmenu.html.erb' %>
+<%= render 'Homepage/navmenu' %>
 <div class="container">
 	<!-------------for all the searches of tags if any------------------>
 		<% @tags_result[:hits]&.each do |result| %>

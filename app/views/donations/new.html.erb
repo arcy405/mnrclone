@@ -2,7 +2,7 @@
 <%= content_for :recaptcha_js do %>
     <%= include_recaptcha_js %>
   <% end %>
-  <%= render 'Homepage/navmenu.html.erb' %>
+  <%= render 'Homepage/navmenu' %>
   
 <div class="container">
   <h1 class="form_title"><%= t('donation_title') %> <span class="mnryp_word"> <%= @project.project_name %></span></h1>

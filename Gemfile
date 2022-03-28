@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '3.0.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+gem 'rails', '7.0.2.3'
+
 gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
@@ -54,7 +56,7 @@ gem 'google-analytics-rails', '1.1.1'
 
 gem 'new_google_recaptcha'
 
-gem 'rails_admin', '~> 2.0'
+gem 'rails_admin'
 gem 'cancancan'
 
 
