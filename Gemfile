@@ -25,8 +25,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
     gem 'listen'
 
-  gem 'spring'
-  gem 'spring-watcher-listen'
+  gem 'spring', '~> 3.0.0'
   gem 'brakeman'
   gem 'traceroute'
 end
@@ -56,7 +55,7 @@ gem 'google-analytics-rails', '1.1.1'
 
 gem 'new_google_recaptcha'
 
-gem 'rails_admin'
+gem 'rails_admin', '~> 3.0.0'
 gem 'cancancan'
 
 

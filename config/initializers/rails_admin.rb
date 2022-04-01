@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  config.asset_source = :webpacker
 
   ## == Devise ==
   config.authenticate_with do
