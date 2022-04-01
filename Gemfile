@@ -55,7 +55,7 @@ gem 'google-analytics-rails', '1.1.1'
 
 gem 'new_google_recaptcha'
 
-gem 'rails_admin', '~> 3.0.0'
+gem 'rails_admin', '>= 2.0.0'
 gem 'cancancan'
 
 
