@@ -4,7 +4,7 @@
 
 <div id="app" class="crowd-funding pt-2">
 
-  <div class="crowd-funding__header" style='background: linear-gradient(rgba(100, 60, 95, 0.8), rgba(200, 70, 87, 0.8)), url("<%= @project.coverimage %>");background-size: cover;
+  <div class="crowd-funding__header" style='background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url("<%= @project.coverimage %>");background-size: cover;
   background-position: center;'>
   	<!---------------------------------------------------------------->
   	<div class="row mt-8">
@@ -14,12 +14,14 @@
 		                    <h1><span class="help text-white px-2">DONATE NOW</span></h1>
 		                </div>
 		            <% end %>
-            <%= @project.tagline %>
         </div>
 
   		<div class="col-md-4 my-auto mx-auto">
   			<div class="about-title clearfix mt-8">
-                    <h1><span class="text-white"><%= @project.project_name %></span></h1></div>
+                    <h1><span class="mnryp_word"><%= @project.project_name %></span></h1>
+					            <%= @project.tagline %>
+					</div>
+
   		</div>
   		<div class="col-md-4 my-auto mt-8">
   			<div  class="float-right">
@@ -56,22 +58,11 @@
     </div>
 </div>
 <!--------------------------------------------------------------------------------------->
-<div class="container-fluid mt-2">
+<div class="container mt-2">
 	<div class="row">
 		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">What we want to do?</span></div>
+			<div class="mnryp_word"><span class="fluid-title">Project Description</span></div>
 			<div class="text-muted text-justify"><%= @project.project_description %></div>
-		</div>
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Whom we are doing for?</span></div>
-			<div class="text-muted text-justify"><%= @project.foundation_description %></div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Who is doing this?</span></div>
-			<div class="text-muted text-justify"><%= @project.organizer_description %></div>
 		</div>
 		<div class="col-md-6">
 			<div class="mnryp_word"><span class="fluid-title">How can you help?</span></div>
@@ -79,18 +70,19 @@
 			</div>
 			<%= link_to new_project_donation_path(@project) do %>
 				<div class="about-title clearfix my-2">
-                    <h1><span class="help px-2 ">DONATE NOW</span></h1>
+                    <h1><span class="help px-2 text-white">DONATE NOW</span></h1>
                 </div>
             <% end %>
 		</div>
+		
 	</div>
 
 </div>
 
-<div class="container-fluid my-2">
+<div class="container mt-4 my-2 donationDiv">
 	<div class="row">
 		<div class="col-md-6">
-			<div class="mnryp_word"><span class="fluid-title">Project Expense Details</span></div>
+			<div class="mnryp_word"><span class="fluid-title"><h2>Project Expense Details<h2></span></div>
 			<ul class="list-group">
 				<% @project_expense.each do |expn| %>
 					<li class="list-group-item">
@@ -107,7 +99,7 @@
 			</ul>
 		</div>
 		<div class="col-md-6">
-			<div class="mnryp_word">Donors Till Date(<%= @number_of_people %>)</div>
+			<div class="mnryp_word"><h2>Donors Till Date(<%= @number_of_people %>)</h2></div>
 			<div class="row">
 				<% @donors.each_with_index do |donor,index| %>
 					<div class="col-md-6 mt-2">
