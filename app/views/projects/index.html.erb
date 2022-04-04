@@ -6,7 +6,7 @@
 <div class="container">
         <div class="row mb-5">
             <% @projects.each do |project| %>
-                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="col-md-4 mb-4">
                     <div class="card card-inverse card-info">
                         <%= cl_image_tag(project.coverimage, :quality=>"auto:low",:fetch_format=>"auto",:flags=>"lossy" , :class=>"card-image", loading:"lazy") %>
                         <div class="card-block">
@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-footer">
                             <% time_diff = Time.now - project.created_at %>
-                            <small><%= Time.at(time_diff.to_i.abs).utc.strftime "%H:%M:%S" %> ago<small>
+                            <small><%= Time.at(time_diff.to_i.abs).utc.strftime "%H:%M:%S" %> ago</small>
                              <%= link_to project_path(project), class:"float-right btn btn-info help float-right btn-sm" do %>
                            View More
                           <% end %>
