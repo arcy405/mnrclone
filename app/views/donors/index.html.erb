@@ -70,6 +70,27 @@
                                 Bajhang
                         <% end %>
                 <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Achham"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Achham
+                        <% end %>
+                <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Bajura"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Bajura
+                        <% end %>
+                <% end %>
+                <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "Doti"%>
+                <%= hidden_field_tag "district", arcy %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
+                                Doti
+                        <% end %>
+                <% end %>
         </div>
 
         <div class="col-md-6">
