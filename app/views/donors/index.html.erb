@@ -31,7 +31,7 @@
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Kanchanpur"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do %>
+                        <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
                                 Kanchanpur
                         <% end %>
                 <% end %>
@@ -95,6 +95,7 @@
 
         <div class="col-md-6">
             <% if !params[:blood_group] %>
+            <div class="btn-group">
                 <button class="btn btn-primary filter-button mt-2" data-filter="all">  <%= t('all') %></button>
                 <button class="btn btn-danger filter-button mt-2" data-filter="Apos">A+</button>
                 <button class="btn btn-danger filter-button mt-2" data-filter="Aneg">A-</button>
@@ -108,6 +109,7 @@
             <% else %>
                 <%= link_to "SEE ALL",donors_path,class:"btn-outline-danger border p-2 rounded" %>
             <% end %>
+            </div>
         </div>
     <%# ------------ %>
    
@@ -120,15 +122,21 @@
         <% @donors= @donors.where("blood_group=?",params[:blood_group]) %>
     
     <% end %>
-    
+     <div>
+      <form class='searchbox'>
+    <input class="searchbar mb-2" type="text" onkeyup="filter()" placeholder="Search by Name.." name="search">
+  </form>
     <div class="row">
+    
         <% @donors.each do |donor| %>
+        
          <% if donor.blood_group.include?'+' %>
          	<% bloodgroup = donor.blood_group.sub! '+','pos' %>
          <% else %>
          	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
          <% end %>
-            <div class="col-md-4 mb-4 filter <%= bloodgroup %>">
+         
+            <div class="cardd col-md-4 mb-4 filter <%= bloodgroup %>">
             	<div class="media align-middle border shadow">
                     <div class="card bloodgroup">
                         <div class="card-body">
@@ -193,8 +201,37 @@
 
 </div>
 
+
+
 <style>
 form {
     display: inline-block; //Or display: inline; 
 }
 </style>
+
+<style>
+::marker { 
+  color: white;
+}
+</style>
+
+
+
+<script>
+function filter() {
+  let input = document.querySelector('.searchbar').value //<-- Changed to querySelector
+  input = input.toLowerCase();
+  let cards = document.querySelectorAll('.cardd'); //<-- Changed to querySelectorAll with '.card' selector.
+
+  //loop over cards and compare search with title.
+  cards.forEach((el) => {
+    let title = el.querySelector('.title').textContent.toLowerCase();
+    el.style.display = title.includes(input) ? "list-item" : "none";
+  });
+}
+</script>
+
+
+ 
+
+   
