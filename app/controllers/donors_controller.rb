@@ -3,9 +3,13 @@ class DonorsController < ApplicationController
   before_action :set_donors, only: [:edit, :update, :destroy]
 
   def index
-    district = params[:district] || "Kanchanpur"
-    @districtID = params[:district] || "Kanchanpur"
+    district = params[:district] || "all"
+    @districtID = params[:district] || "all"
+    if district == "all"
+      @donors = Donor.all
+  else  
     @donors=Donor.order(:blood_group).where("status=? AND district=?","Available", district)
+  end
 
   end
 

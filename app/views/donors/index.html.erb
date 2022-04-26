@@ -28,6 +28,20 @@
     </div>
 <div class="row">
          <div class="col-md-12">
+          <%= form_tag donors_path, :method =>"get" do %>
+                <% arcy = "all"%>
+                <%= hidden_field_tag "district", arcy %>
+                <% if @districtID == "all"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            All
+                    <% end %>
+                <% else %>    
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            All
+                    <% end %>
+                <% end %> 
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Kanchanpur"%>
                 <%= hidden_field_tag "district", arcy %>
