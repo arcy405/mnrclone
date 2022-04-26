@@ -31,65 +31,127 @@
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Kanchanpur"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                                Kanchanpur
-                        <% end %>
+                <% if @districtID == "Kanchanpur"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Kanchanpur
+                    <% end %>
+                <% else %>    
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Kanchanpur
+                    <% end %>
+                <% end %> 
                 <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Dadeldhura"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Dadeldhura
-                        <% end %>
+                  <% if @districtID == "Dadeldhura"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Dadeldhura
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Dadeldhura
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Kailali"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Kailali
-                        <% end %>
+                 <% if @districtID == "Kailali"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Kailali
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Kailali
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Baitadi"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Baitadi
-                        <% end %>
+                 <% if @districtID == "Baitadi"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Baitadi
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Baitadi
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Darchula"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Darchula
-                        <% end %>
+                 <% if @districtID == "Darchula"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Darchula
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Darchula
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Bajhang"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Bajhang
-                        <% end %>
+                 <% if @districtID == "Bajhang"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Bajhang
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Bajhang
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Accham"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Achham
-                        <% end %>
+                  <% if @districtID == "Accham"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Achham
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Achham
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Bajura"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Bajura
-                        <% end %>
+                 <% if @districtID == "Bajura"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Bajura
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Bajura
+                    <% end %>
                 <% end %>
+                <% end %>
+
                 <%= form_tag donors_path, :method =>"get" do %>
                 <% arcy = "Doti"%>
                 <%= hidden_field_tag "district", arcy %>
-                        <%= button_tag(type: "submit", class: "btn btn-primary mt-2") do %>
-                                Doti
-                        <% end %>
+                 <% if @districtID == "Doti"%>
+                    <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
+                            Doti
+                    <% end %>
+                <% else %>
+                    <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
+                            Doti
+                    <% end %>
+                <% end %>
                 <% end %>
         </div>
 
@@ -136,7 +198,7 @@
          	<% bloodgroup = donor.blood_group.sub! '-','neg' %>
          <% end %>
          
-            <div class="cardd col-md-4 mb-4 filter <%= bloodgroup %>">
+            <div class="cardd col-md-3 mb-4 filter <%= bloodgroup %>">
             	<div class="media align-middle border shadow">
                     <div class="card bloodgroup">
                         <div class="card-body">
@@ -196,7 +258,7 @@
 </div>
 </div>
 </div>
-
+<p id="demo">Good Evening!</p>
 </div>
 
 </div>
@@ -233,5 +295,3 @@ function filter() {
 
 
  
-
-   

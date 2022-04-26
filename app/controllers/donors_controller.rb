@@ -4,6 +4,7 @@ class DonorsController < ApplicationController
 
   def index
     district = params[:district] || "Kanchanpur"
+    @districtID = params[:district] || "Kanchanpur"
     @donors=Donor.order(:blood_group).where("status=? AND district=?","Available", district)
 
   end
