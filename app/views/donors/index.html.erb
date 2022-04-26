@@ -2,8 +2,20 @@
 <%= render 'Homepage/navmenu' %>
 <!------------------herosection card------------------------------------------------------->
 
-
-
+   <div class="container">
+    <div class="responsive-text text-black mb-2"><strong><%= t('language_select') %></strong> </div>
+    <% if I18n.locale.to_s == "np" %>
+        <% active_class_np = "border-warning rounded-4" %>
+    <% else %>
+            <% active_class_en = "border-warning rounded-4" %>
+    <% end %>
+    <%= link_to set_mylanguage_np_path(donors: "donors") do %>
+    <span  class="btn-outline-warning rounded p-2 mx-2 border <%= active_class_np %>"><strong><%= t('nepali') %></strong><img src="https://res.cloudinary.com/di7sekeem/image/upload/v1619515739/service_mnryp/nepaila_n8dz06.png" style="height: 25px; width: 25px;" /></span>
+    <% end %>
+    <%= link_to set_mylanguage_en_path(donors: "donors") do %>
+       <span  class=" btn-outline-warning rounded p-2 mx-2 border <%= active_class_en %>"><strong><%= t('english') %></strong><img src="https://res.cloudinary.com/di7sekeem/image/upload/v1619845675/service_mnryp/english_lang_ehccug.png"  style="height: 25px; width: 25px;" /></span>
+    <% end %>
+    </div>
 
 <!----------------------donors and form------------------------------>
 <div class="container-fluid mt-2">
