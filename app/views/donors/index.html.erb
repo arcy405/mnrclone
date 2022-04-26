@@ -45,11 +45,11 @@
                 <%= hidden_field_tag "district", arcy %>
                 <% if @districtID == "all"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            All
+                            <%= t('donorAll') %>
                     <% end %>
                 <% else %>    
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            All
+                            <%= t('donorAll') %>
                     <% end %>
                 <% end %> 
                 <% end %>
@@ -59,11 +59,11 @@
                 <%= hidden_field_tag "district", arcy %>
                 <% if @districtID == "Kanchanpur"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Kanchanpur
+                            <%= t('kanchanpur') %>
                     <% end %>
                 <% else %>    
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Kanchanpur
+                            <%= t('kanchanpur') %>
                     <% end %>
                 <% end %> 
                 <% end %>
@@ -73,11 +73,11 @@
                 <%= hidden_field_tag "district", arcy %>
                   <% if @districtID == "Dadeldhura"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Dadeldhura
+                            <%= t('dadeldhura') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Dadeldhura
+                            <%= t('dadeldhura') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -87,11 +87,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Kailali"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Kailali
+                            <%= t('kailali') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Kailali
+                            <%= t('kailali') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -101,11 +101,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Baitadi"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Baitadi
+                            <%= t('baitadi') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Baitadi
+                            <%= t('baitadi') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -115,11 +115,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Darchula"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Darchula
+                            <%= t('darchula') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Darchula
+                            <%= t('darchula') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -129,11 +129,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Bajhang"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Bajhang
+                            <%= t('bajhang') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Bajhang
+                            <%= t('bajhang') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -143,11 +143,11 @@
                 <%= hidden_field_tag "district", arcy %>
                   <% if @districtID == "Accham"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Achham
+                            <%= t('achham') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Achham
+                            <%= t('achham') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -157,11 +157,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Bajura"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Bajura
+                            <%= t('bajura') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Bajura
+                            <%= t('bajura') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -171,11 +171,11 @@
                 <%= hidden_field_tag "district", arcy %>
                  <% if @districtID == "Doti"%>
                     <%= button_tag(type: "submit", class: "btn btn-danger  mt-2" ) do  %>
-                            Doti
+                            <%= t('doti') %>
                     <% end %>
                 <% else %>
                     <%= button_tag(type: "submit", class: "btn btn-primary  mt-2") do  %>
-                            Doti
+                            <%= t('doti') %>
                     <% end %>
                 <% end %>
                 <% end %>
@@ -212,7 +212,7 @@
     <% end %>
      <div>
       <form class='searchbox'>
-    <input class="searchbar mb-2" type="text" onkeyup="filter()" placeholder="Search by Name.." name="search">
+    <input class="searchbar mb-2" type="text" onkeyup="filter()" placeholder="<%= t('donorSearchName')%>" name="search">
   </form>
     <div class="row">
     
