@@ -98,7 +98,7 @@
 																					<div id="<%= university.name.to_s.delete(" ") %><%= sub_department.name.to_s.delete(" ") %><%= department.name.to_s.delete(" ") %><%= subject.name.to_s.delete(" ") %>" class="collapse">
 																						<ul>
 																							<li>
-																								<%= link_to notes_notes_index_path(uni:"#{university.name.to_s.delete(" ")}",dept:"#{department.name.to_s.delete(" ")}",sub_dept:"#{sub_department.name.to_s.delete(" ")}",sem:"#{semester.name.to_s.delete(" ")}",sub:"#{subject.name.to_s.delete(" ")}"), style:"color:#000; text-decoration:none;" do %>
+																								<%= link_to notes_notes_show_path(), style:"color:#000; text-decoration:none;" do %>
 																									<span class="responsive-text px-1"><i class="collapsed"><i class="fas fa-folder"></i></i> Notes</span>
 																								<% end %>
 																							</li>

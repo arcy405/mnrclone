@@ -2,6 +2,11 @@ class NotesController < ApplicationController
 	def index
 		@universities = University.includes(:university_departments)
 		@semesters = UniversitySemester.order(:name).includes(:subjects)
+		@subjects = Subject.all
+	end
+
+	def notes_show
+		@subject=Subject.find(params[:id])
 	end
 
 	def notes_index
@@ -14,9 +19,7 @@ class NotesController < ApplicationController
 		@chapters = result
 	end
 
-	def notes_show
-		
-	end
+	
 
 	def notes_download
 		require "open-uri"
@@ -37,3 +40,5 @@ class NotesController < ApplicationController
 		@syllabus  = result
 	end 
 end
+
+

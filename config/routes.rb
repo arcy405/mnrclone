@@ -40,6 +40,8 @@ Rails.application.routes.draw do
    get 'listings/new', to:"listings#new"
    post 'listings/new', to:"listings#new"
    post 'listings/create', to:"listings#create"
+   get 'notes/notes_show'
+
 
    resources :bus_departures, only: [:index]
    resources :models, only: [:index, :show]
@@ -52,7 +54,6 @@ Rails.application.routes.draw do
    resources :tags, only: [:index]
 
    get 'notes/notes_index'
-   get 'notes/notes_show'
    get 'notes/notes_download'
    get 'notes/syllabus_index'
    get 'gamifications/reward'

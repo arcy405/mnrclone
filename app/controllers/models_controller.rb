@@ -26,7 +26,7 @@ class ModelsController < ApplicationController
 		end
 	end
 	def show
-		@model=Model.friendly.find(params[:id])
+		@model=Model.find(params[:id])
 	end
 
 end

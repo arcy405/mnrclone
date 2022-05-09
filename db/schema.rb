@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_065051) do
+ActiveRecord::Schema.define(version: 2022_05_03_090230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,16 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
     t.string "content_type"
     t.text "metadata"
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
+    t.string "checksum"
     t.datetime "created_at", null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "agents", force: :cascade do |t|
@@ -357,6 +364,15 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
     t.index ["slug"], name: "index_models_on_slug", unique: true
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "note_pdf"
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["subject_id"], name: "index_notes_on_subject_id"
+  end
+
   create_table "pet_adoptions", force: :cascade do |t|
     t.string "pet_name"
     t.string "pet_type"
@@ -572,6 +588,15 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
     t.index ["university_semester_id"], name: "index_subjects_on_university_semester_id"
   end
 
+  create_table "syllabuses", force: :cascade do |t|
+    t.string "syllabus_pdf"
+    t.string "name"
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_syllabuses_on_subject_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "title_en"
     t.string "image"
@@ -688,6 +713,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "documents", "sections"
@@ -702,6 +728,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
   add_foreign_key "galleries", "models"
   add_foreign_key "gamifications", "users"
   add_foreign_key "listings", "tags"
+  add_foreign_key "notes", "subjects"
   add_foreign_key "poll_answers", "polls"
   add_foreign_key "poll_votes", "poll_answers"
   add_foreign_key "poll_votes", "polls"
@@ -716,6 +743,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_065051) do
   add_foreign_key "sub_departments", "university_departments"
   add_foreign_key "subjects", "sub_departments"
   add_foreign_key "subjects", "university_semesters"
+  add_foreign_key "syllabuses", "subjects"
   add_foreign_key "tourist_images", "tourists"
   add_foreign_key "university_departments", "universities"
 end
